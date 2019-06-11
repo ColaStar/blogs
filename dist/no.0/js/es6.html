@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>个人博客</title>
+    <meta name="description" content="来了老弟">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    
+    <link rel="preload" href="/assets/css/0.styles.d768c2dd.css" as="style"><link rel="preload" href="/assets/js/app.0929a4f2.js" as="script"><link rel="preload" href="/assets/js/2.f90c0a68.js" as="script"><link rel="preload" href="/assets/js/20.bf7adcc9.js" as="script"><link rel="prefetch" href="/assets/js/10.66fdd011.js"><link rel="prefetch" href="/assets/js/11.0d61b1cb.js"><link rel="prefetch" href="/assets/js/12.c738c3cc.js"><link rel="prefetch" href="/assets/js/13.926d3427.js"><link rel="prefetch" href="/assets/js/14.b4e6a371.js"><link rel="prefetch" href="/assets/js/15.6eea8735.js"><link rel="prefetch" href="/assets/js/16.fc1588ec.js"><link rel="prefetch" href="/assets/js/17.d32ebe12.js"><link rel="prefetch" href="/assets/js/18.258d0752.js"><link rel="prefetch" href="/assets/js/19.77a9cdc4.js"><link rel="prefetch" href="/assets/js/21.09f7400a.js"><link rel="prefetch" href="/assets/js/22.272905ea.js"><link rel="prefetch" href="/assets/js/23.dacdb7ba.js"><link rel="prefetch" href="/assets/js/24.69100d49.js"><link rel="prefetch" href="/assets/js/25.027a7945.js"><link rel="prefetch" href="/assets/js/26.ee5c5521.js"><link rel="prefetch" href="/assets/js/27.efb75e62.js"><link rel="prefetch" href="/assets/js/28.3a1badf4.js"><link rel="prefetch" href="/assets/js/29.d111ab2c.js"><link rel="prefetch" href="/assets/js/3.be9fc2e1.js"><link rel="prefetch" href="/assets/js/30.190c99e0.js"><link rel="prefetch" href="/assets/js/31.3e52f543.js"><link rel="prefetch" href="/assets/js/32.cb4da420.js"><link rel="prefetch" href="/assets/js/33.6e63e310.js"><link rel="prefetch" href="/assets/js/34.d2bb1152.js"><link rel="prefetch" href="/assets/js/35.3e3b714c.js"><link rel="prefetch" href="/assets/js/36.ac8a33b2.js"><link rel="prefetch" href="/assets/js/37.94540f5a.js"><link rel="prefetch" href="/assets/js/38.7f1ff19f.js"><link rel="prefetch" href="/assets/js/39.7abfe713.js"><link rel="prefetch" href="/assets/js/4.9f76ef40.js"><link rel="prefetch" href="/assets/js/40.ee7a3723.js"><link rel="prefetch" href="/assets/js/41.c90b3e9a.js"><link rel="prefetch" href="/assets/js/42.892896ca.js"><link rel="prefetch" href="/assets/js/43.60fd6d4b.js"><link rel="prefetch" href="/assets/js/44.de6f5cab.js"><link rel="prefetch" href="/assets/js/45.f1f270ef.js"><link rel="prefetch" href="/assets/js/46.7a5a4019.js"><link rel="prefetch" href="/assets/js/47.c658159d.js"><link rel="prefetch" href="/assets/js/48.34c79c27.js"><link rel="prefetch" href="/assets/js/5.69255acc.js"><link rel="prefetch" href="/assets/js/6.50a74098.js"><link rel="prefetch" href="/assets/js/7.9f2c90d2.js"><link rel="prefetch" href="/assets/js/8.c0ad3d04.js"><link rel="prefetch" href="/assets/js/9.a10bef12.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d768c2dd.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端资料</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>css</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/css-3d/css-3d.html" class="nav-link">css3D</a></li><li class="dropdown-subitem"><a href="/no.0/css-core/css-core.html" class="nav-link">css3开发常备核心技能</a></li><li class="dropdown-subitem"><a href="/no.0/css-core/css-layer.html" class="nav-link">CSS分层理论与面向对象</a></li><li class="dropdown-subitem"><a href="/no.0/css-math/css-math.html" class="nav-link">CSS与数学</a></li></ul></li><li class="dropdown-item"><h4>HTML</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/html-senior/html-senior.html" class="nav-link">你不知道的HTML</a></li></ul></li><li class="dropdown-item"><h4>JavaScript语言新发展</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/JavaScript语言新发展【深度实践课】/ES6 在企业中的应用.html" class="nav-link">ES6 在企业中的应用</a></li><li class="dropdown-subitem"><a href="/no.0/JavaScript语言新发展【深度实践课】/javascript与QA工程师.html" class="nav-link">javascript与QA工程师</a></li><li class="dropdown-subitem"><a href="/no.0/JavaScript语言新发展【深度实践课】/TypeScript 前世今生.html" class="nav-link">TypeScript 前世今生</a></li></ul></li><li class="dropdown-item"><h4>JavaScript</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/JQuery/Jquery.html" class="nav-link">Jquery</a></li><li class="dropdown-subitem"><a href="/no.0/js/bind_call_apply.html" class="nav-link">bind_call_apply</a></li><li class="dropdown-subitem"><a href="/no.0/js/es6.html" class="nav-link router-link-exact-active router-link-active">ES6</a></li><li class="dropdown-subitem"><a href="/no.0/js/js-core.html" class="nav-link">js核心</a></li><li class="dropdown-subitem"><a href="/no.0/js/scope.html" class="nav-link">作用域</a></li><li class="dropdown-subitem"><a href="/no.0/js/this.html" class="nav-link">This</a></li></ul></li><li class="dropdown-item"><h4>Linux</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/linux/linux.html" class="nav-link">Linux</a></li></ul></li><li class="dropdown-item"><h4>Linux</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/linux/linux.html" class="nav-link">Linux</a></li></ul></li><li class="dropdown-item"><h4>MySQL &amp; PHP</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/php&amp;mysql/php&amp;mysql.html" class="nav-link">MySQL &amp; PHP</a></li></ul></li><li class="dropdown-item"><h4>读博客有感</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/读博客有感/bind的模拟实现.html" class="nav-link">bind的模拟实现</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/call和apply的模拟实现.html" class="nav-link">call和apply的模拟实现</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/new的模拟实现.html" class="nav-link">new的模拟实现</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/作用域链.html" class="nav-link">作用域链</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/原型与原型链.html" class="nav-link">原型与原型链</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/变量对象.html" class="nav-link">变量对象</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/执行上下文栈.html" class="nav-link">执行上下文栈</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/词法作用域与动态作用域.html" class="nav-link">词法作用域与动态作用域</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/闭包.html" class="nav-link">闭包</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/闭包与GC.html" class="nav-link">闭包与GC</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/javascript-QA/index.html" class="nav-link">javascript与测试工程师</a></div><div class="nav-item"><a href="/no.2/http.html" class="nav-link">HTTP</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">编程思想</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>元编程</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.1/元编程/" class="nav-link">元编程</a></li></ul></li><li class="dropdown-item"><h4>函数式编程</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.1/函数式编程/" class="nav-link">函数式编程</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">node</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>node</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/node/node.html" class="nav-link">node</a></li><li class="dropdown-subitem"><a href="/node/node/fs.html" class="nav-link">文件模块</a></li><li class="dropdown-subitem"><a href="/node/node/nodemon.html" class="nav-link">node热启动</a></li></ul></li><li class="dropdown-item"><h4>Express</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/express/express.html" class="nav-link">express</a></li><li class="dropdown-subitem"><a href="/node/express/middleware.html" class="nav-link">中间件</a></li></ul></li><li class="dropdown-item"><h4>Koa</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/koa/koa.html" class="nav-link">koa</a></li><li class="dropdown-subitem"><a href="/node/koa/koa_router.html" class="nav-link">koa路由</a></li><li class="dropdown-subitem"><a href="/node/koa/koa-generator.html" class="nav-link">koa应用生成器</a></li></ul></li><li class="dropdown-item"><!----> <a href="/node/npm/npm-scripts.html" class="nav-link">npm-scripts</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端资料</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>css</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/css-3d/css-3d.html" class="nav-link">css3D</a></li><li class="dropdown-subitem"><a href="/no.0/css-core/css-core.html" class="nav-link">css3开发常备核心技能</a></li><li class="dropdown-subitem"><a href="/no.0/css-core/css-layer.html" class="nav-link">CSS分层理论与面向对象</a></li><li class="dropdown-subitem"><a href="/no.0/css-math/css-math.html" class="nav-link">CSS与数学</a></li></ul></li><li class="dropdown-item"><h4>HTML</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/html-senior/html-senior.html" class="nav-link">你不知道的HTML</a></li></ul></li><li class="dropdown-item"><h4>JavaScript语言新发展</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/JavaScript语言新发展【深度实践课】/ES6 在企业中的应用.html" class="nav-link">ES6 在企业中的应用</a></li><li class="dropdown-subitem"><a href="/no.0/JavaScript语言新发展【深度实践课】/javascript与QA工程师.html" class="nav-link">javascript与QA工程师</a></li><li class="dropdown-subitem"><a href="/no.0/JavaScript语言新发展【深度实践课】/TypeScript 前世今生.html" class="nav-link">TypeScript 前世今生</a></li></ul></li><li class="dropdown-item"><h4>JavaScript</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/JQuery/Jquery.html" class="nav-link">Jquery</a></li><li class="dropdown-subitem"><a href="/no.0/js/bind_call_apply.html" class="nav-link">bind_call_apply</a></li><li class="dropdown-subitem"><a href="/no.0/js/es6.html" class="nav-link router-link-exact-active router-link-active">ES6</a></li><li class="dropdown-subitem"><a href="/no.0/js/js-core.html" class="nav-link">js核心</a></li><li class="dropdown-subitem"><a href="/no.0/js/scope.html" class="nav-link">作用域</a></li><li class="dropdown-subitem"><a href="/no.0/js/this.html" class="nav-link">This</a></li></ul></li><li class="dropdown-item"><h4>Linux</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/linux/linux.html" class="nav-link">Linux</a></li></ul></li><li class="dropdown-item"><h4>Linux</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/linux/linux.html" class="nav-link">Linux</a></li></ul></li><li class="dropdown-item"><h4>MySQL &amp; PHP</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/php&amp;mysql/php&amp;mysql.html" class="nav-link">MySQL &amp; PHP</a></li></ul></li><li class="dropdown-item"><h4>读博客有感</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/读博客有感/bind的模拟实现.html" class="nav-link">bind的模拟实现</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/call和apply的模拟实现.html" class="nav-link">call和apply的模拟实现</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/new的模拟实现.html" class="nav-link">new的模拟实现</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/作用域链.html" class="nav-link">作用域链</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/原型与原型链.html" class="nav-link">原型与原型链</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/变量对象.html" class="nav-link">变量对象</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/执行上下文栈.html" class="nav-link">执行上下文栈</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/词法作用域与动态作用域.html" class="nav-link">词法作用域与动态作用域</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/闭包.html" class="nav-link">闭包</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/闭包与GC.html" class="nav-link">闭包与GC</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/javascript-QA/index.html" class="nav-link">javascript与测试工程师</a></div><div class="nav-item"><a href="/no.2/http.html" class="nav-link">HTTP</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">编程思想</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>元编程</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.1/元编程/" class="nav-link">元编程</a></li></ul></li><li class="dropdown-item"><h4>函数式编程</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.1/函数式编程/" class="nav-link">函数式编程</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">node</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>node</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/node/node.html" class="nav-link">node</a></li><li class="dropdown-subitem"><a href="/node/node/fs.html" class="nav-link">文件模块</a></li><li class="dropdown-subitem"><a href="/node/node/nodemon.html" class="nav-link">node热启动</a></li></ul></li><li class="dropdown-item"><h4>Express</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/express/express.html" class="nav-link">express</a></li><li class="dropdown-subitem"><a href="/node/express/middleware.html" class="nav-link">中间件</a></li></ul></li><li class="dropdown-item"><h4>Koa</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/koa/koa.html" class="nav-link">koa</a></li><li class="dropdown-subitem"><a href="/node/koa/koa_router.html" class="nav-link">koa路由</a></li><li class="dropdown-subitem"><a href="/node/koa/koa-generator.html" class="nav-link">koa应用生成器</a></li></ul></li><li class="dropdown-item"><!----> <a href="/node/npm/npm-scripts.html" class="nav-link">npm-scripts</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span></span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/no.0/js/es6.html#ecmascript6简介" class="sidebar-link">ECMAScript6简介</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/no.0/js/es6.html#let和const命令" class="sidebar-link">let和const命令</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/no.0/js/es6.html#模板字符串" class="sidebar-link">模板字符串</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/no.0/js/es6.html#展开运算符" class="sidebar-link">展开运算符...</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/no.0/js/es6.html#解构" class="sidebar-link">解构</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/no.0/js/es6.html#对象" class="sidebar-link">对象</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/no.0/js/es6.html#函数" class="sidebar-link">函数</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/no.0/js/es6.html#iterator" class="sidebar-link">Iterator</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/no.0/js/es6.html#generator" class="sidebar-link">Generator</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/no.0/js/es6.html#class" class="sidebar-link">Class</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/no.0/js/es6.html#class继承" class="sidebar-link">Class继承</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/no.0/js/es6.html#set" class="sidebar-link">Set</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/no.0/js/es6.html#map" class="sidebar-link">Map</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/no.0/js/es6.html#module" class="sidebar-link">Module</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/no.0/js/es6.html#module-的加载实现" class="sidebar-link">Module 的加载实现</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/no.0/js/es6.html#promise" class="sidebar-link">Promise</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="ecmascript6简介"><a href="#ecmascript6简介" aria-hidden="true" class="header-anchor">#</a> ECMAScript6简介</h2> <blockquote><p>ES6转ES5编码器：babel与谷歌的Traceur</p></blockquote> <ul><li>babel</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>1.安装babel
+2.创建配置文件.babelrc
+3.安装插件
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ul><li>Traceur</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>不推荐使用
+方式一、直接引用三个js
+方式二、安装包traceur
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="let和const命令"><a href="#let和const命令" aria-hidden="true" class="header-anchor">#</a> let和const命令</h2> <ul><li>1.let 声明变量可以更改，const声明常量不可以修改（对于对象来说可以更改值，不能修改对象的引用地址）</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>let a = 1;
+a =2;
+
+const a = 2;
+a = 3  //报错
+const b = {a:1}
+b.a=2  //   b = {a:2}
+b = {a:2}  //报错 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><ul><li>2.块级作用域</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>var arr = [];
+for(var i = 0;i&lt;arr.length;i++){
+    arr.push(function(){console.log(i)})
+}
+arr.forEach(function(fn){
+    fn()
+})//输出10次10
+
+//es6
+var arr = [];
+for(let i = 0;i&lt;arr.length;i++){
+    arr.push(function(){console.log(i)})
+}
+arr.forEach(fn=&gt;fn())//输出0-9
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><ul><li>3.暂时性死区
+解释：如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错（比如赋值，typeof等)</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>var tmp = 123
+if(true){
+    tmp ='dad'  //报错
+    let tmp
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><ul><li>4.不存在变量提升；</li> <li>5.不允许重复声明</li></ul> <h2 id="模板字符串"><a href="#模板字符串" aria-hidden="true" class="header-anchor">#</a> 模板字符串</h2> <p>字符串的格式化，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量（将变量名写入${}中，{}中可以放入任意javascript的表达式）。</p> <h2 id="展开运算符"><a href="#展开运算符" aria-hidden="true" class="header-anchor">#</a> 展开运算符...</h2> <p><strong>内部使用for of遍历</strong></p> <ul><li>1.组装对象或数组</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>//数组
+const a = [1,2,3,4]
+const b = [...a,5,6]  //[1,2,3,4,,5,6]
+
+//对象
+const obj = {a:1}
+const obj1 = {...obj,b:2}  //{a:1,b:2} 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><ul><li>2.获取数组或者对象除了前几项或者除了某几项的其他项。</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>const a = [1,2,3,4];
+[first,second,...s] = a
+console.log(s)   //[3,4]
+
+const b = {a:1,b:2}
+const {a,...d} = b
+console.log(d)//{b:2} 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><ul><li>3.对于 Object 而言，还可以用于组合成新的 Object 。(ES2017 stage-2 proposal) 当然如果有重复的属性名，右边覆盖左边。</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>const a = {a:1,b:2}
+const b = {b:5,c:6}
+const c = {...a,...b}
+console.log(c)   //{a:1,b:5,c:6}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="解构"><a href="#解构" aria-hidden="true" class="header-anchor">#</a> 解构</h2> <p><strong>在ES6之前我们就是这样获取对象信息的，一个一个获取。现在，解构能让我们从对象或者数组里取出数据存为变量</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>//对象
+const a = {c:'sa',b:2};
+const {c,b} = a;
+console.log(`${c}----${b}`)//sa----2
+
+//数组
+const a = [1,2,3,4,5,6];
+const [s,d,f,g,h,...j] = a;
+console.log(s,d,f,g,h,j)//1 2 3 4 5 [6]
+
+//字符串的解构赋值
+const [a,b,c] = '123'
+console.log(a,b,c)  //1 2 3
+const {length:len} = '123a'
+console.log(len)   //4
+
+//函数参数的解构赋值
+function add([x,y]){
+   return x+y
+}
+add([1,2]) //3
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>例题：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>var jsonParse = require('body-parser').jsonParse
+var body = request.body;
+var username = body.username;
+var password = body.password
+
+var {body,body:{username,password}} = request
+e5-&gt;e6
+import { jsonParse } from 'body-parser'
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="对象"><a href="#对象" aria-hidden="true" class="header-anchor">#</a> 对象</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>var obj = {};
+Object.assgin(obj)//复制一个对象
+
+//动态设置对象的key值
+var i = 'arr'
+obj = {
+   [i+1]:2
+}//obj:{arr1:2}
+
+NaN == NaN
+Object.is(NaN ,NaN)   //判断俩个值是不是相同的值
+Obiect.create()   //创建对象
+Object.getSrotoytpeOf() //获取原型
+Object.setSrotoytpeOf() //设置原型(对象，原型)
+可以直接设置__proto__
+对象重写父类的方法  用super重新执行,```super```，指向当前对象的原型对象。
+const drink = {
+    getDrink(){
+        return '啤酒';
+    }
+}
+let sunday = {
+    __proto__: drink,
+    getDink(){
+        return super.getDrink()+'daskd'
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><ul><li>属性的赋值器（setter）和取值器（getter）</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>const cart = {
+  _wheels: 4,
+
+  get wheels () {
+    return this._wheels;
+  },
+
+  set wheels (value) {
+    if (value &lt; this._wheels) {
+      throw new Error('数值太小了！');
+    }
+    this._wheels = value;
+  }
+}
+cart.wheels   //4
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h2 id="函数"><a href="#函数" aria-hidden="true" class="header-anchor">#</a> 函数</h2> <ul><li>name属性</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>var fn = function (){}
+console.log(fn.name)   //fn
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ul><li>箭头函数</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>注意：
+1.改变this指向所属对象的顶级作用域，而不是使用的函数;
+
+this.lives = 6
+const cat = {
+   lives: 9,
+   jumps: () =&gt; {
+     this.lives--;
+     console.log(this.lives)
+   }
+ }
+
+cat.jumps()
+
+2.不可以当做构造函数，也就是说不可以使用new命令，否则抛出错误；
+3.不可以使用arguments对象，该参数不存在，可以使用rest参数代替（...扩展运算符）
+4.不可以使用yield命令，因此箭头函数不能用作Generator函数
+5.不能使用call、apply、bind改变this指向
+
+(()=&gt;{
+    console.log('1')
+})()
+
+[1,2,3,4,5,6,7,8,9,10].map(parseInt)   //[1,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,10]
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><ul><li>双冒号运算符::</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>函数绑定运算符是并排的两个冒号（::），双冒号左边是一个对象，右边是一个函数。该运算符会自动将左边的对象，作为上下文环境（即this对象），绑定到右边的函数上面。用于代替call,apply,bind
+foo::bar;
+// 等同于
+bar.bind(foo);
+
+foo::bar(...arguments);
+// 等同于
+bar.apply(foo, arguments);
+
+如果双冒号左边为空，右边是一个对象的方法，则等于将该方法绑定在该对象上面
+const hasOwnProperty = Object.prototype.hasOwnProperty;
+function hasOwn(obj, key) {
+  return obj::hasOwnProperty(key);
+}
+var method = obj::obj.foo;
+// 等同于
+var method = ::obj.foo;
+
+let log = ::console.log;
+// 等同于
+var log = console.log.bind(console);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><ul><li>给函数默认参数</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>function test(a=1,{option=true}={}){
+   console.log(a,option)
+}
+test()
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><ul><li>用...扩展运算符代替arguments</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>function test(...result){
+    console.log(result)
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="iterator"><a href="#iterator" aria-hidden="true" class="header-anchor">#</a> Iterator</h2> <p><strong>是个遍历器、是一个数据结构、保证每次执行都有一个next()</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let a = function*(){
+    yield '1'
+    yield '2'
+}
+const b = a()
+b.next()  // 1
+b.next()  // 2
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><ul><li>for of遍历数组的值
+遍历对象的时候可以使用Object.keys</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>const arr = [1,2,3]
+for(let i of arr){
+    console.log(i)//1 2 3
+}
+for in遍历的是索引
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="generator"><a href="#generator" aria-hidden="true" class="header-anchor">#</a> Generator</h2> <h2 id="class"><a href="#class" aria-hidden="true" class="header-anchor">#</a> Class</h2> <ul><li>1.Class可以看做是构造函数的另一种写法</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Point {
+
+}
+
+typeof Point //function类的数据类型是函数  
+Point ===Point.prototype.constructor  //true  
+prototype对象上的constructor属性直接指向类的本身  
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><ul><li>2.类的所有方法都定义在构造函数的prototype上<br>
+在类的实例上调用方法其实就是调用原型上的方法</li> <li>3.类内部的方法都是不可以枚举的不能使用es6的keys枚举，可以使用es5的getOwnPropertyNames()枚举</li> <li>4.类必须使用new调用，生成类的实例也需要new</li> <li>5.constructor方法<br> <strong>constructor方法默认返回实例对象（即this），完全可以指定返回另一个对象</strong></li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>class a{
+    constructor(){
+        return Object.create(null)
+    }
+}
+new Foo() instanceof Foo  //false
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><ul><li>6.类的所有实例共享一个原型,所以可以通过实例的__proto__属性为类添加方法（但是不推荐，因为这会改变类的原始定义，影响到所有实例）</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>var p1 = new Point(2,3);
+var p2 = new Point(3,2);
+
+p1.__proto__ === p2.__proto__
+//true
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><ul><li>7.取值函数与存值函数
+与ES5一样，在类的内部可以使用get和set关键字，对某个属性设置存值函数和取值函数，拦截该属性的存取行为。</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Point{
+    constructor(food){
+        this.food = food
+    }
+    get eat(){
+        return this.food
+    }
+    set eat(value){
+        this.food = value
+    }
+}
+const p1 = new Point('馒头')
+console.log(p1.eat) //馒头
+p1.eat = '花卷'
+console.log(p1.eat)// 花卷
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><ul><li>8.属性表达式
+类的属性名，可以采用表达式</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>let a = 'eat'
+
+class index{
+    constrcutor(){}
+    [a](){
+        //...
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><ul><li>9.Class表达式
+与函数一样，类也可以使用表达式的形式定义</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>const MyClass = class Me{
+    getClassName(){
+        return Me.name
+    }
+}
+//注意类的名字Me只能在函数内部使用，在函数外部只能使用Myclass引用
+
+const MyClass = new class {
+    constrcutor(name){
+        this.name = name
+    }
+    getClassName(){
+        console.log(name)
+    }
+}('张三')
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><ul><li>10。静态方法
+类相当于实例的原型，所有在类中定义的方法，都会被实例继承。如果在一个方法前，加上static关键字，就表示该方法不会被实例继承，而是直接通过类来调用，这就称为“静态方法”。
+1）.静态方法中的this指向的不是实例对象而是指向的类；
+2）父类的静态方法可以被子类继承
+3）静态方法也可以从super对象调用。</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Foo {
+  static classMethod(){return 'hello'}
+}
+
+Foo.classMethod() // 'hello'
+
+var foo = new Foo();
+foo.classMethod()
+// TypeError: foo.classMethod is not a function
+
+
+class Foo {
+  static classMethod() {
+    return 'hello';
+  }
+}
+
+class Bar extends Foo {
+  static classMethod() {
+    return super.classMethod() + ', too';
+  }
+}
+
+Bar.classMethod() // &quot;hello, too&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><ul><li>11.静态属性</li></ul> <p>静态属性指的是 Class 本身的属性，即Class.propName，而不是定义在实例对象（this）上的属性。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Foo {
+     static myStaticProp = 42;
+     constructor() {
+         console.log(MyClass.myStaticProp); // 42
+     }
+}
+
+Foo.prop = 1;
+Foo.prop // 1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><ul><li>12.私有方法和私有属性</li></ul> <p>私有方法和私有属性，是只能在类的内部访问的方法和属性，外部不能访问。这是常见需求，有利于代码的封装，但 ES6 不提供，只能通过变通方法模拟实现。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>将私有方法移出模块，因为模块内部的所有方法都是对外可见的。
+
+class Widget {
+  foo (baz) {
+    bar.call(this, baz);
+  }
+
+  // ...
+}
+
+function bar(baz) {
+  return this.snaf = baz;
+}
+
+
+利用Symbol值的唯一性，将私有方法的名字命名为一个Symbol值
+
+const bar = Symbol('bar');
+const snaf = Symbol('snaf');
+
+export default class myClass{
+
+  // 公有方法
+  foo(baz) {
+    this[bar](baz);
+  }
+
+  // 私有方法
+  [bar](baz) {
+    return this[snaf] = baz;
+  }
+
+  // ...
+};
+
+私有属性的提案方法是在属性或方法名前加#表示
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><ul><li>13.new.target属性</li></ul> <p>1).确保构造函数必须使用new命令调用
+2).子类继承父类时，new.target会返回子类</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>利用这个特点，可以写出不能独立使用、必须继承后才能使用的类。
+
+class Shape {
+  constructor() {
+    if (new.target === Shape) {
+      throw new Error('本类不能实例化');
+    }
+  }
+}
+
+class Rectangle extends Shape {
+  constructor(length, width) {
+    super();
+    // ...
+  }
+}
+
+var x = new Shape();  // 报错
+var y = new Rectangle(3, 4);  // 正确
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>3).在函数外部，使用new.target会报错</p> <p>14.注意：
+1）类不存在变量提升
+2）在类内部默认的就是严格模式.
+3）name属性<br>
+class a{}
+a.name   //a
+4）Generator方法
+在某个方法前边之前加上*就表示这个方法是一个Generator函数
+5）this指向
+this默认指向类的实例  如果想要把类中的方法单独提出来使用，需要this指向到window，可以使用bind，箭头函数等,可以使用</p> <h2 id="class继承"><a href="#class继承" aria-hidden="true" class="header-anchor">#</a> Class继承</h2> <ul><li>1.简介
+1).ES5 的继承，实质是先创造子类的实例对象this，然后再将父类的方法添加到this上面（Parent.apply(this)）。ES6 的继承机制完全不同，实质是先将父类实例对象的属性和方法，加到this上面（所以必须先调用super方法），然后再用子类的构造函数修改this。</li></ul> <p>2).如果子类没有定义constructor方法，这个方法会被默认添加，代码如下。也就是说，不管有没有显式定义，任何一个子类都有constructor方法。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class ColorPoint extends Point {
+}
+
+// 等同于
+class ColorPoint extends Point {
+  constructor(...args) {
+    super(...args);
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>3)在子类的构造函数中，只有调用super之后，才可以使用this关键字，否则会报错。这是因为子类实例的构建，基于父类实例，只有super方法才能调用父类实例。<br>
+class Point {
+constructor(x, y) {
+this.x = x;
+this.y = y;
+}
+}</p> <p>class ColorPoint extends Point {
+constructor(x, y, color) {
+this.color = color; // ReferenceError
+super(x, y);
+this.color = color; // 正确
+}
+}
+4).子类的实例对象同时也是父类的实例对象<br>
+5).父类的静态方法，也会被子类继承</p> <ul><li>2.Object.getPrototypeof()
+Object.getPrototypeOf方法可以用来从子类上获取父类。</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>Object.getPrototypeOf(ManPoint) === Point
+// true
+可以使用此方法判断一个类是否继承了另一个类
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ul><li>3.super关键字
+1).第一种情况，super作为函数调用时，代表父类的构造函数。ES6 要求，子类的构造函数必须执行一次super函数。<br>
+super作为函数只能在子类的构造函数中使用，在其他地方使用会报错。<br>
+super虽然代表父类的构造函数，但是返回的是子类的实例，即super内部的this指向的子类的实例，相当于父类.prototype.constructor.call(this)</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>class A {
+  constructor() {
+    console.log(new.target.name);
+  }
+}
+class B extends A {
+  constructor() {
+    super();
+  }
+}
+new A() // A
+new B() // B
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>2).super作为对象时在普通方法中指向父类的原型对象，在静态方法中指向父类。由于super指向父类的原型对象，所以定义在父类实例上的方法或属性，是无法通过super调用的。如果定义在父类的原型上就可以取得到。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class A {
+  constructor() {
+    this.p = 2;
+  }
+}
+
+class B extends A {
+  get m() {
+    return super.p;
+  }
+}
+
+let b = new B();
+b.m // undefined
+
+
+
+class A {}
+A.prototype.x = 2;
+
+class B extends A {
+  constructor() {
+    super();
+    console.log(super.x) // 2
+  }
+}
+
+let b = new B();
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><p>在子类普通方法中通过super调用父类的方法时，方法内部的this指向当前的子类实例。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class A {
+  constructor() {
+    this.x = 1;
+  }
+}
+
+class B extends A {
+  constructor() {
+    super();
+    this.x = 2;
+    super.x = 3;
+    console.log(super.x); // undefined            A.prototype.x
+    console.log(this.x); // 3
+  }
+}
+
+let b = new B();
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>如果super作为对象，用在静态方法之中，这时super将指向父类，而不是父类的原型对象。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Parent {
+  static myMethod(msg) {
+    console.log('static', msg);
+  }
+
+  myMethod(msg) {
+    console.log('instance', msg);
+  }
+}
+
+class Child extends Parent {
+  static myMethod(msg) {
+    super.myMethod(msg);
+  }
+
+  myMethod(msg) {
+    super.myMethod(msg);
+  }
+}
+
+Child.myMethod(1); // static 1
+
+var child = new Child();
+child.myMethod(2); // instance 2
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>在子类的静态方法中通过super调用父类的方法时，方法内部的this指向当前的子类，而不是子类的实例。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class A {
+  constructor() {
+    this.x = 1;
+  }
+  static print() {
+    console.log(this.x);
+  }
+}
+
+class B extends A {
+  constructor() {
+    super();
+    this.x = 2;
+  }
+  static m() {
+    super.print();
+  }
+}
+
+B.x = 3;
+B.m() // 3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>使用super的时候，必须显式指定是作为函数、还是作为对象使用，否则会报错。</p> <p>由于对象总是继承其他对象的，所以可以在任意一个对象中，使用super关键字。</p> <ul><li>4.类的prototype属性和__proto__属性</li></ul> <p>1）子类的__proto__属性，表示构造函数的继承，总是指向父类。</p> <p>2）子类prototype属性的__proto__属性，表示方法的继承，总是指向父类的prototype属性。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class A {
+}
+
+class B {
+}
+
+// B 的实例继承 A 的实例
+Object.setPrototypeOf(B.prototype, A.prototype);
+
+// B 继承 A 的静态属性
+Object.setPrototypeOf(B, A);
+
+const b = new B();
+
+Object.setPrototypeOf方法的实现
+Object.setPrototypeOf = function (obj, proto) {
+  obj.__proto__ = proto;
+  return obj;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>子类实例的__proto__属性的__proto__属性，指向父类实例的__proto__属性。也就是说，子类的原型的原型，是父类的原型。</p> <ul><li>5.原生构造函数的继承</li></ul> <p>ES6 允许继承原生构造函数定义子类，因为 ES6 是先新建父类的实例对象this，然后再用子类的构造函数修饰this，使得父类的所有行为都可以继承。下面是一个继承Array的例子。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class MyArray extends Array {
+  constructor(...args) {
+    super(...args);
+  }
+}
+
+var arr = new MyArray();
+arr[0] = 12;
+arr.length // 1
+
+arr.length = 0;
+arr[0] // undefined
+
+所以，extends关键字不仅可以用来继承类，还可以用来继承原生的构造函数
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>class Person{
+   constructor(age){
+this.age = age
+   }
+   test(){
+       console.log(`年龄是${this.age}`)
+   }
+}
+class Man extends Person{
+    constructor(age){
+        super(age)
+        this.arr = []
+    }
+    set menu(data){
+this.arr.push(data)
+    }
+    get menu(){
+return this.arr
+    }
+    tell(){
+        super.tell();
+        console.log('xiaolv')
+    }
+}
+const xiaolv = new Person(30)
+//console.log(xiaolv.age) //30
+//console.log(xiaolv.tell()) //30
+xiaolv.menu = 44;
+console.log(xiaolv.menu)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><h2 id="set"><a href="#set" aria-hidden="true" class="header-anchor">#</a> Set</h2> <p><strong>简介ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。</strong><br> <strong>Set本身是一个构造函数，用来生成 Set 数据结构</strong></p> <ul><li>创建set数据结构
+<strong>注意</strong>
+1)创建set函数可以接受数组（或者其他可迭代的数据结构即类数组）作为参数</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>//数组去重
+[...new Set(array)]
+//字符串去重
+[...new set('abcabc')].join('')   //abc
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><ul><li>Set实例的属性和方法
+<strong>属性</strong>
+1）、Set.prototype.constructor：构造函数，默认就是Set函数。<br>
+2）、Set.prototype.size：返回Set实例的成员总数。</li></ul> <p><strong>操作方法（用于操作数据）</strong>
+1）、add(value)：添加某个值，返回 Set 结构本身。<br>
+2）、delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。<br>
+3）、has(value)：返回一个布尔值，表示该值是否为Set的成员。<br>
+4）、clear()：清除所有成员，没有返回值。<br>
+5）、Array.from与...可以把Set结构转换为数组</p> <p><strong>遍历方法（用于遍历成员）</strong>
+1）、keys()：返回键名的遍历器<br>
+2）、values()：返回键值的遍历器<br>
+3）、entries()：返回键值对的遍历器<br>
+4）、forEach()：使用回调函数遍历每个成员  当前元素的key、value都是当前元素的值
+可以直接使用for of 遍历keys()、value()、new set返回值</p> <p><strong>注意</strong></p> <ol><li>set结构不会加入重复的成员</li> <li>向数组加入值时不会发生类型转换，多次加入NaN也只会加入一个NaN</li></ol> <h2 id="map"><a href="#map" aria-hidden="true" class="header-anchor">#</a> Map</h2> <p><strong>ES6 提供了 Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。也就是说，Object 结构提供了“字符串—值”的对应，Map 结构提供了“值—值”的对应，是一种更完善的 Hash 结构实现。如果你需要“键值对”的数据结构，Map 比 Object 更合适。</strong></p> <ul><li>Map实例的属性和方法</li></ul> <p>1)size属性返回 Map 结构的成员总数。<br>
+2)set方法设置键名key对应的键值为value，然后返回整个 Map 结构。如果key已经有值，则键值会被更新，否则就新生成该键。<br>
+3)get方法读取key对应的键值，如果找不到key，返回undefined。<br>
+4)has方法返回一个布尔值，表示某个键是否在当前 Map 对象之中。<br>
+5)delete方法删除某个键，返回true。如果删除失败，返回false。<br>
+6)clear方法清除所有成员，没有返回值。<br> <strong>遍历方法</strong>
+1)keys()：返回键名的遍历器。  key<br>
+2)values()：返回键值的遍历器。   value<br>
+3)entries()：返回所有成员的遍历器。   key：value<br>
+4)forEach()：遍历 Map 的所有成员<br>
+5)直接遍历map对象，相当于遍历map.entries()<br>
+6)结合数组的map方法、filter方法，可以实现 Map 的遍历和过滤（Map 本身没有map和filter方法）</p> <p><strong>注意</strong><br>
+1)如果对同一个键多次赋值，后面的值将覆盖前面的值<br>
+2)如果读取一个未知的键，则返回undefined<br>
+3)只有对同一个对象的引用，Map 结构才将其视为同一个键。这一点要非常小心。即===，同样的值的两个实例，在 Map 结构中被视为两个键。<br>
+4)Map的键是与内存地址绑定的<br>
+5)set方法返回的是当前的Map对象，因此可以采用链式写法,<br>
+6)Map 结构转为数组结构，比较快速的方法是使用扩展运算符（...）。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[...map.keys()]
+// [1, 2, 3]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>7)数组为Map<br>
+将数组传入 Map 构造函数，就可以转为Map<br>
+8)Map转换为对象<br>
+如果所有 Map 的键都是字符串，它可以无损地转为对象<br>
+9)对象转换为Map</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function objToStrMap(obj) {
+  let strMap = new Map();
+  for (let k of Object.keys(obj)) {
+    strMap.set(k, obj[k]);
+  }
+  return strMap;
+}
+
+objToStrMap({yes: true, no: false})
+// Map {&quot;yes&quot; =&gt; true, &quot;no&quot; =&gt; false}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>10)Map转换为JSON</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>方法一、先转换为对象在使用JSON.stringify()
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>11)JSON转换为Map<br>
+使用JSON.parse把JSON转换为对象，再转换为Map</p> <h2 id="module"><a href="#module" aria-hidden="true" class="header-anchor">#</a> Module</h2> <p><strong>export命令用于规定模块的对外接口，import命令用于输入其他模块提供的功能。</strong></p> <ul><li><p>export 命令
+1)export命令除了可以输出变量也可以输出函数或类</p> <p>2)通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名
+使用as关键字，重命名了函数的对外接口俩次。重命名后，v2可以用不同的名字输出两次</p></li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 写法一
+  export var m = 1;
+
+// 写法二
+  var m = 1;
+  export {m};
+
+// 写法三
+  var n = 1;
+  export {n as m};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><ol start="3"><li>export语句输出的接口，与其对应的值是动态绑定关系，即通过该接口，可以取到模块内部实时的值
+4)export命令可以出现在模块的任何位置，只要处于模块顶层就可以。 不能放到块级作用域和条件代码块，函数代码块里</li></ol> <ul><li>import 命令
+<strong>使用export命令定义了模块的对外接口以后，其他 JS 文件就可以通过import命令加载这个模块。</strong>
+1)import命令接受一对大括号，里面指定要从其他模块导入的变量名。大括号里面的变量名，必须与被导入模块（profile.js）对外接口的名称相同。
+2)如果想为输入的变量重新取一个名字，import命令要使用as关键字，将输入的变量重命名。
+3)import命令输入的变量都是只读的，因为它的本质是输入接口,这个变量跟对象一样，可以更改对象内的属性，其他模块也可以读到改写后的值，但是报错后很难查错，因此不要轻易更改
+4)import后面的from指定模块文件的位置，可以是相对路径，也可以是绝对路径，.js后缀可以省略。如果只是模块名，不带有路径，那么必须有配置文件。
+5)import命令具有提升效果，会提升到整个模块的头部，首先执行,所以可以在import的执行前调用
+6)因为import是静态执行所以不可以使用变量和表达式，或if结构
+7)多次重复执行同一个import语句只执行一次</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>surname();
+import { lastName as surname } from './profile.js';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ul><li>整体模块加载
+除了指定加载某个输出值，还可以使用整体加载，即用星号（*）指定一个对象，所有输出值都加载在这个对象上面。</li></ul> <p>但是是不可以更改的不管是变量还是属性</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>export function area(radius) {
+  return Math.PI * radius * radius;
+}
+
+export function circumference(radius) {
+  return 2 * Math.PI * radius;
+}
+
+
+import * as circle from './circle';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><ul><li>export default</li></ul> <p>1)使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载。如果使用export default 可以用任意名称指向export-default.js输出的方法，这时在import后不需要使用大括号
+2)export default 可以用在匿名函数和命名函数或{}，导出的文件名在模块外部是无效的加载时
+3)一个模块export default命令只能使用一次
+4)export default它后面不能跟变量声明语句。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 错误
+export default var a = 1;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>5)如果想在一条import语句中，同时输入默认方法和其他接口，可以写成下面这样</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import _, { each, forEach } from 'lodash';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>export 与import的复合写法</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>export { foo, bar } from 'my_module';
+
+// 可以简单理解为
+import { foo, bar } from 'my_module';
+export { foo, bar };
+foo和bar实际上并没有被导入当前模块，只是相当于对外转发了这两个接口，导致当前模块不能直接使用foo和bar。
+
+export * from 'my_module'
+//可以理解为
+export { default } from 'foo';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><ul><li>模块的继承</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>// circleplus.js
+
+export * from 'circle';
+export var e = 2.71828182846;
+export default function(x) {
+  return Math.exp(x);
+}
+
+// main.js
+
+import * as math from 'circleplus';
+import exp from 'circleplus';
+console.log(exp(math.e));
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><ul><li>import()
+动态加载<br>
+按需加载</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>button.addEventListener('click', event =&gt; {
+  import('./dialogBox.js')
+  .then(dialogBox =&gt; {
+    dialogBox.open();
+  })
+  .catch(error =&gt; {
+    /* Error handling */
+  })
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>条件加载<br>
+动态的模块路径</p> <ul><li>注意
+1)ES6的模块化自动采用严格模式，不管你有没有在头部加没加&quot;use strict&quot;;
+2)ES6的模块加载可以叫做“编译时加载”或者静态加载，即 ES6 可以在编译时就完成模块加载，而不是直接把整个模块的所有方法都加载回来。require加载模块时是把整个模块都会加载回来。</li></ul> <h2 id="module-的加载实现"><a href="#module-的加载实现" aria-hidden="true" class="header-anchor">#</a> Module 的加载实现</h2> <ul><li>浏览器加载</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;script src=&quot;path/to/myModule.js&quot; defer&gt;&lt;/script&gt;
+&lt;script src=&quot;path/to/myModule.js&quot; async&gt;&lt;/script&gt;
+
+&lt;script&gt;标签打开defer或async属性，脚本就会异步加载。渲染引擎遇到这一行命令，就会开始下载外部脚本，但不会等它下载和执行，而是直接执行后面的命令。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>defer与async的区别是：defer要等到整个页面在内存中正常渲染结束（DOM 结构完全生成，以及其他脚本执行完成），才会执行；async一旦下载完，渲染引擎就会中断渲染，执行这个脚本以后，再继续渲染。一句话，defer是“渲染完再执行”，async是“下载完就执行”。另外，如果有多个defer脚本，会按照它们在页面出现的顺序加载，而多个async脚本是不能保证加载顺序的。</p> <ul><li>加载规则</li></ul> <p>1)浏览器加载 ES6 模块，也使用 &lt; script &gt;标签，但是要加入type=&quot;module&quot;属性。<br>
+2)浏览器对于带有type=&quot;module&quot;的&lt; script &gt;，都是异步加载,不会造成堵塞浏览器，即等到整个页面渲染完，再执行模块脚本，等同于打开了&lt; script &gt;标签的defer属性。<br>
+3)代码是在模块作用域之中运行，而不是在全局作用域运行。模块内部的顶层变量，外部不可见。<br>
+4)模块脚本自动采用严格模式，不管有没有声明use strict。<br>
+5)模块之中，可以使用import命令加载其他模块（.js后缀不可省略，需要提供绝对 URL 或相对 URL），也可以使用export命令输出对外接口。<br>
+6)模块之中，顶层的this关键字返回undefined，而不是指向window。也就是说，在模块顶层使用this关键字，是无意义的。<br>
+7)同一个模块如果加载多次，将只执行一次</p> <ul><li>ES6模块与CommonJS的差异</li></ul> <blockquote><p>CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。
+CommonJS加载模块时调用模块内部的变量会把模块内部的变量缓存下来，ES6模块不会，
+ES6模块加载时输入的变量是只读的的
+ES6模块加载中，不同的脚本加载这个模块，得到的都是同一个实例。</p></blockquote> <blockquote><p>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。
+因为 CommonJS 加载的是一个对象（即module.exports属性），该对象只有在脚本运行完才会生成。<br>
+而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成</p></blockquote> <h2 id="promise"><a href="#promise" aria-hidden="true" class="header-anchor">#</a> Promise</h2> <p>所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。</p> <blockquote><p>Promise对象的特点：</p></blockquote> <ul><li>对象的状态不受外界影响。promise对象代表异步操作，有三种状态：pending（进行中），fulfilled(已成功)，rejected（已失败）。
+只有异步操作的结果，可以决定当前是哪种状态，任何其他操作都无法改变这个状态。</li> <li>一旦状态改变，就不会再变，（从pending变为fulfilled和从pending变为rejected）任何时候都可以得到这个结果。</li> <li>将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。</li> <li>无法取消Promise，一旦新建它就会立即执行，无法中途取消。其次，如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。第三，当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。</li> <li>Promise 新建后就会立即执行，执行顺序：首先输出的是Promise-----&gt;将在当前脚本所有同步任务执行完才会执行，-----&gt;然后，then方法指定的回调函数。</li> <li>resolved 的 Promise 是在本轮事件循环的末尾执行（注意return的妙用，加return后resolved后的代码就不会执行了）</li></ul> <blockquote><p>Promise.prototype.then()</p></blockquote> <ul><li>Promise.then()方法可以传递俩个值一个是成功回调一个是失败回调(可选)</li> <li>返回一个新的Promise实例所以可以采用链式调用</li></ul> <blockquote><p>Promise.prototype.catch()</p></blockquote> <ul><li>用于指定发生错误时的回调函数,另外then方法指定的回调函数，如果运行中抛出错误，也会被catch方法捕获。</li> <li>如果 Promise 状态已经变成resolved，再抛出错误是无效的</li> <li>Promise 内部的错误不会影响到 Promise 外部的代码，通俗的说法就是“Promise 会吃掉错误”。</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>const someAsyncThing = function() {
+  return new Promise(function(resolve, reject) {
+    // 下面一行会报错，因为x没有声明
+    resolve(x + 2);
+  });
+};
+
+someAsyncThing().then(function() {
+  console.log('everything is great');
+});
+
+setTimeout(() =&gt; { console.log(123) }, 2000);
+// Uncaught (in promise) ReferenceError: x is not defined
+// 123
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><ul><li>一般总是建议，Promise 对象后面要跟catch方法，这样可以处理 Promise 内部发生的错误。catch方法返回的还是一个 Promise 对象，因此后面还可以接着调用then方法。</li> <li>第二个catch方法用来捕获前一个catch方法抛出的错误</li></ul> <blockquote><p>Promise.prototype.finally()</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>promise
+.finally(() =&gt; {
+  // 语句
+});
+
+// 等同于
+promise
+.then(
+  result =&gt; {
+    // 语句
+    return result;
+  },
+  error =&gt; {
+    // 语句
+    throw error;
+  }
+);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><ul><li>finally方法用于指定不管 Promise 对象最后状态如何，都会执行的操作。该方法是 ES2018 引入标准的</li> <li>不接收任何参数</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>Promise.prototype.finally = function (callback) {
+  let P = this.constructor;
+  return this.then(
+    value  =&gt; P.resolve(callback()).then(() =&gt; value),
+    reason =&gt; P.resolve(callback()).then(() =&gt; { throw reason })
+  );
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><blockquote><p>Promise.all()</p></blockquote> <ul><li>用于将多个 Promise 实例，包装成一个新的 Promise 实例</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>const p = Promise.all([p1, p2, p3]);
+
+p的状态由p1、p2、p3决定，分成两种情况。
+
+（1）只有p1、p2、p3的状态都变成fulfilled，p的状态才会变成fulfilled，此时p1、p2、p3的返回值组成一个数组，传递给p的回调函数。
+
+（2）只要p1、p2、p3之中有一个被rejected，p的状态就变成rejected，此时第一个被reject的实例的返回值，会传递给p的回调函数。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>// 生成一个Promise对象的数组
+const promises = [2, 3, 5, 7, 11, 13].map(function (id) {
+  return getJSON('/post/' + id + &quot;.json&quot;);
+});
+
+Promise.all(promises).then(function (posts) {
+  // posts --&gt; 结果的数组
+}).catch(function(reason){
+  // ...  如果每个promise没有自己的catch方法，就会调用Promise.all()的catch方法。
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><ul><li>如果作为参数的 Promise 实例，自己定义了catch方法，那么它一旦被rejected，并不会触发Promise.all()的catch方法。</li></ul> <blockquote><p>Promise.race()
+<strong>Promise.race方法同样是将多个 Promise 实例，包装成一个新的 Promise 实例</strong></p></blockquote> <ul><li>只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给p的回调函数。</li></ul> <blockquote><p>Promise.resolve()</p></blockquote> <p><strong>Promise.resolve方法将现有对象转为 Promise 对象，</strong></p> <ul><li>（1）参数是一个 Promise 实例</li></ul> <p>如果参数是 Promise 实例，那么Promise.resolve将不做任何修改、原封不动地返回这个实例。</p> <ul><li>（2）参数是一个thenable对象</li></ul> <p>thenable对象指的是具有then方法的对象，比如下面这个对象。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let thenable = {
+  then: function(resolve, reject) {
+    resolve(42);
+  }
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>Promise.resolve方法会将这个对象转为 Promise 对象，然后就立即执行thenable对象的then方法。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let thenable = {
+  then: function(resolve, reject) {
+    resolve(42);
+  }
+};
+
+let p1 = Promise.resolve(thenable);
+p1.then(function(value) {
+  console.log(value);  // 42
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><ul><li>（3）参数不是具有then方法的对象，或根本就不是对象
+如果参数是一个原始值，或者是一个不具有then方法的对象，则Promise.resolve方法返回一个新的 Promise 对象，状态为resolved。</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>const p = Promise.resolve('Hello');
+
+p.then(function (s){
+  console.log(s)
+});
+// Hello
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><ul><li>（4）不带有任何参数
+立即resolve()的 Promise 对象，是在本轮“事件循环”（event loop）的结束时执行，而不是在下一轮“事件循环”的开始时。</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>setTimeout(function () {
+  console.log('three');
+}, 0);
+
+Promise.resolve().then(function () {
+  console.log('two');
+});
+
+console.log('one');
+
+// one
+// two
+// three
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><blockquote><p>Promise.reject()
+Promise.reject(reason)方法也会返回一个新的 Promise 实例，该实例的状态为rejected。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>const p = Promise.reject('出错了');
+// 等同于
+const p = new Promise((resolve, reject) =&gt; reject('出错了'))
+
+p.then(null, function (s) {
+  console.log(s)
+});
+// 出错了
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>注意，Promise.reject()方法的参数，会原封不动地作为reject的理由，变成后续方法的参数。这一点与Promise.resolve方法不一致</p> <blockquote><p>Promise.try()</p></blockquote> <p>不管函数f是同步函数还是异步操作，都用then方法指定下一步流程，用catch方法处理f抛出的错误。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Promise.resolve().then(f)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">6/11/2019, 9:23:42 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.0929a4f2.js" defer></script><script src="/assets/js/2.f90c0a68.js" defer></script><script src="/assets/js/20.bf7adcc9.js" defer></script>
+  </body>
+</html>

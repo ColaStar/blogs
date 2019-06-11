@@ -27,23 +27,6 @@ module.exports = {
     nav: [{
         text: '前端资料',
         items: [
-          //node
-          {
-            text: 'node',
-            items: [{
-                text: 'node文件系统',
-                link: '/node/node/fs'
-              },
-              {
-                text: 'node',
-                link: '/node/node/node'
-              },
-              {
-                text: 'express',
-                link: '/node/express/express'
-              }
-            ]
-          },
           //no.0   css
           {
             text: 'css',
@@ -200,21 +183,71 @@ module.exports = {
       },
       {
         text: '编程思想',
-      // no.1
+        // no.1
         items: [{
-          text: '元编程',
-          items: [{
             text: '元编程',
-            link: '/no.1/元编程/'
-          }]
-        },
-        {
-          text: '函数式编程',
-          items: [{
+            items: [{
+              text: '元编程',
+              link: '/no.1/元编程/'
+            }]
+          },
+          {
             text: '函数式编程',
-            link: '/no.1/函数式编程/'
-          }]
-        }],
+            items: [{
+              text: '函数式编程',
+              link: '/no.1/函数式编程/'
+            }]
+          }
+        ],
+      },
+      {
+        text: 'node',
+        // no.1
+        items: [{
+            text: 'node',
+            items: [{
+                text: 'node',
+                link: '/node/node/node'
+              }, {
+                text: '文件模块',
+                link: '/node/node/fs'
+              },
+              {
+                text: 'node热启动',
+                link: '/node/node/nodemon'
+              }
+            ]
+          },
+          {
+            text: 'Express',
+            // no.1
+            items: [{
+              text: 'express',
+              link: '/node/express/express'
+            }, {
+              text: '中间件',
+              link: '/node/express/middleware'
+            }],
+          },
+          {
+            text: 'Koa',
+            // no.1
+            items: [{
+              text: 'koa',
+              link: '/node/koa/koa'
+            }, {
+              text: 'koa路由',
+              link: '/node/koa/koa_router'
+            }, {
+              text: 'koa应用生成器',
+              link: '/node/koa/koa-generator'
+            }],
+          },
+          {
+            text: 'npm-scripts',
+            link: '/node/npm/npm-scripts'
+          }
+        ],
       }
     ],
     // sidebar: [
