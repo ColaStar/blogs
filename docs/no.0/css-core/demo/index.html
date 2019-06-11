@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./index.css"> -->
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0
+    }
+    /* 圣杯 */
+    /* #bd{
+        padding:0 180px 0 200px;
+    }
+    */
+    #bd div {
+        height: 200px
+    }
+/**
+    .middle {
+        width: 100%;
+        background: red
+    }
+    .left {
+        background: yellowgreen;
+        width: 200px;
+        margin-left: -100%;
+        position:relative;
+        left:-200px;
+    }
+    .right {
+        width: 180px;
+        background: yellow;
+        position:relative;
+        right:-180px;
+        margin-left: -180px
+    }
+
+    .middle,
+    .right,
+    .left {
+        float: left;
+    } */
+    /* 双飞翼 */
+    .middle,
+    .right,
+    .left {
+        float: left;
+    } 
+    .middle {
+        width: 100%;
+        background: red
+    }
+    .left {
+        background: yellowgreen;
+        width: 200px;
+        margin-left:-100%;
+    }
+    .right {
+        width: 180px;
+        margin-left:-180px;
+        background: yellow;
+    }
+    .inst{
+    margin:0 180px 0 200px;
+}
+</style>
+
+<body>
+    <!-- <h1>css2圣杯布局</h1> -->
+    <div id="bd">
+        <div class="middle">
+            <div class="inst">middle</div>
+        </div>
+        <div class="right">right</div>
+        <div class="left">left</div>
+    </div>
+    <!-- <h1>css2双飞翼布局</h1>
+    <h1>flex布局</h1> -->
+</body>
+
+</html>
