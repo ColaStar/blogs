@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/docschina/vuepress/issues"
   },
-  "homepage": "https://github.com/docschina/vuepress#readme"
+  "homepage": "https://github.com/docschina/vuepress#readme",
+  "devDependencies": {
+    "vuepress": "^1.0.1"
+  }
 }
