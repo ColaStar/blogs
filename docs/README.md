@@ -1,8 +1,8 @@
 ---
-home: true
-heroImage: 
-actionText: 
-actionLink: /zh/guide/
+#home: true
+#heroImage: 
+#actionText: 
+#actionLink: /zh/guide/
 # features:
 # - title: 来了老弟
 #   details: 来了老弟
