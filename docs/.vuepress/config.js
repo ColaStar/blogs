@@ -23,7 +23,7 @@ module.exports = {
   },
   configureWebpack:{
     output:{
-      publicPath:'/views/'
+      publicPath:'/blogs/views/'
     }
   },
   themeConfig: {
