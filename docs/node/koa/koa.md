@@ -366,6 +366,70 @@ app.listen(3000);
 
 1526469081713 GET /
 Hello World
+> 常用中间件
+
+- `koa-less`
+```
+app.use(require('koa-less')(__dirname + '/public'))
+```
+必须在static前use，不然会无效。 stylesheets文件夹下新建styles.less，并引入所有模块化less文件。
+
+```
+@import 'foo.less';
+@import 'bar.less';
+```
+
+这样所有的样式会被编译成一个style.css。在模板(pug)中引用style.css就行了。
+
+- `koa-session`
+
+```
+// 设置app keys，session会根据这个进行加密
+app.keys = ['some secret hurr'];
+// 配置session config
+const CONFIG = {
+  key: 'bougie:session',
+  /** (string) cookie key (default is koa:sess) */
+  maxAge: 1000 * 60 * 60 * 24 * 7,
+  overwrite: true,
+  /** (boolean) can overwrite or not (default true) */
+  httpOnly: true,
+  /** (boolean) httpOnly or not (default true) */
+  signed: true,
+  /** (boolean) signed or not (default true) */
+  rolling: true,
+  /** (boolean) Force a session identifier cookie to be set on every response. The expiration is reset to the original maxAge, resetting the expiration countdown. (default is false) */
+  renew: false,
+  /** (boolean) renew session when session is nearly expired, so we can always keep user logged in. (default is false)*/
+};
+ 
+// 应用中间件
+app.use(session(CONFIG, app));
+```
+
+这个必须在router前use，不然会无效。 基本使用，可以当成一个普通对象
+
+```
+// 赋值
+ctx.session.statu = value
+// 取值
+ctx.session.statu
+// 删除
+ctx.session.statu = null
+```
+- `koa-proxies`
+
+用于代理配置
+```
+const proxy = require('koa-proxies')
+app.use(proxy('/octocat', {
+  target: 'https://api.github.com/users',  
+  changeOrigin: true,
+  agent: new httpsProxyAgent('http://1.2.3.4:88'),
+  rewrite: path => path.replace(/^\/octocat(\/|\/\w+)?$/, '/vagusx'),
+  logs: true
+```
+用于代理配置
 
 ## 错误处理
 如果代码运行出错的话，我们需要把错误信息返回给用户。HTTP协议约定了许多状态码，类似500和404等。我们可以调用Koa的ctx.throw()方法将错误抛出。
