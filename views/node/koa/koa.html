@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>koa学习记录 | 个人博客</title>
+    <meta name="description" content="来了老弟">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    
+    <link rel="preload" href="/assets/css/0.styles.d768c2dd.css" as="style"><link rel="preload" href="/assets/js/app.3d509b79.js" as="script"><link rel="preload" href="/assets/js/2.f90c0a68.js" as="script"><link rel="preload" href="/assets/js/47.a7026b60.js" as="script"><link rel="prefetch" href="/assets/js/10.26718213.js"><link rel="prefetch" href="/assets/js/11.cda41d76.js"><link rel="prefetch" href="/assets/js/12.16d5c086.js"><link rel="prefetch" href="/assets/js/13.34d1c4fc.js"><link rel="prefetch" href="/assets/js/14.41adaa85.js"><link rel="prefetch" href="/assets/js/15.69ab38b8.js"><link rel="prefetch" href="/assets/js/16.3623a9d1.js"><link rel="prefetch" href="/assets/js/17.11ed09ed.js"><link rel="prefetch" href="/assets/js/18.82fcee03.js"><link rel="prefetch" href="/assets/js/19.fa947cec.js"><link rel="prefetch" href="/assets/js/20.84d08360.js"><link rel="prefetch" href="/assets/js/21.95f7108f.js"><link rel="prefetch" href="/assets/js/22.35e1d7ba.js"><link rel="prefetch" href="/assets/js/23.531f2c85.js"><link rel="prefetch" href="/assets/js/24.2ec884bb.js"><link rel="prefetch" href="/assets/js/25.027a7945.js"><link rel="prefetch" href="/assets/js/26.c35a7e31.js"><link rel="prefetch" href="/assets/js/27.5ba3331f.js"><link rel="prefetch" href="/assets/js/28.7cd4db5c.js"><link rel="prefetch" href="/assets/js/29.01d11453.js"><link rel="prefetch" href="/assets/js/3.a8500765.js"><link rel="prefetch" href="/assets/js/30.04d93e46.js"><link rel="prefetch" href="/assets/js/31.67a3a397.js"><link rel="prefetch" href="/assets/js/32.4ab8affc.js"><link rel="prefetch" href="/assets/js/33.250e946c.js"><link rel="prefetch" href="/assets/js/34.755266d8.js"><link rel="prefetch" href="/assets/js/35.7542ab6b.js"><link rel="prefetch" href="/assets/js/36.8100ba96.js"><link rel="prefetch" href="/assets/js/37.a7086d03.js"><link rel="prefetch" href="/assets/js/38.70d1fd40.js"><link rel="prefetch" href="/assets/js/39.7d202e11.js"><link rel="prefetch" href="/assets/js/4.235b10c5.js"><link rel="prefetch" href="/assets/js/40.aba713e5.js"><link rel="prefetch" href="/assets/js/41.9512b32a.js"><link rel="prefetch" href="/assets/js/42.d5aa6738.js"><link rel="prefetch" href="/assets/js/43.6cf2acf2.js"><link rel="prefetch" href="/assets/js/44.17ad4291.js"><link rel="prefetch" href="/assets/js/45.ab673c9f.js"><link rel="prefetch" href="/assets/js/46.5857ab44.js"><link rel="prefetch" href="/assets/js/48.1bcd5215.js"><link rel="prefetch" href="/assets/js/49.f5ef671b.js"><link rel="prefetch" href="/assets/js/5.5ac6b9ba.js"><link rel="prefetch" href="/assets/js/50.9f2e9840.js"><link rel="prefetch" href="/assets/js/51.2a6a0db6.js"><link rel="prefetch" href="/assets/js/52.b00d71f4.js"><link rel="prefetch" href="/assets/js/53.d75b95bd.js"><link rel="prefetch" href="/assets/js/6.25e4e9c7.js"><link rel="prefetch" href="/assets/js/7.9f2c90d2.js"><link rel="prefetch" href="/assets/js/8.aa4196b6.js"><link rel="prefetch" href="/assets/js/9.e76840c0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d768c2dd.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端资料</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>css</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/css-3d/css-3d.html" class="nav-link">css3D</a></li><li class="dropdown-subitem"><a href="/no.0/css-core/css-core.html" class="nav-link">css3开发常备核心技能</a></li><li class="dropdown-subitem"><a href="/no.0/css-core/css-layer.html" class="nav-link">CSS分层理论与面向对象</a></li><li class="dropdown-subitem"><a href="/no.0/css-math/css-math.html" class="nav-link">CSS与数学</a></li></ul></li><li class="dropdown-item"><h4>HTML</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/html-senior/html-senior.html" class="nav-link">你不知道的HTML</a></li></ul></li><li class="dropdown-item"><h4>JavaScript语言新发展</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/JavaScript语言新发展【深度实践课】/ES6 在企业中的应用.html" class="nav-link">ES6 在企业中的应用</a></li><li class="dropdown-subitem"><a href="/no.0/JavaScript语言新发展【深度实践课】/javascript与QA工程师.html" class="nav-link">javascript与QA工程师</a></li><li class="dropdown-subitem"><a href="/no.0/JavaScript语言新发展【深度实践课】/TypeScript 前世今生.html" class="nav-link">TypeScript 前世今生</a></li></ul></li><li class="dropdown-item"><h4>JavaScript</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/JQuery/Jquery.html" class="nav-link">Jquery</a></li><li class="dropdown-subitem"><a href="/no.0/js/bind_call_apply.html" class="nav-link">bind_call_apply</a></li><li class="dropdown-subitem"><a href="/no.0/js/es6.html" class="nav-link">ES6</a></li><li class="dropdown-subitem"><a href="/no.0/js/js-core.html" class="nav-link">js核心</a></li><li class="dropdown-subitem"><a href="/no.0/js/scope.html" class="nav-link">作用域</a></li><li class="dropdown-subitem"><a href="/no.0/js/this.html" class="nav-link">This</a></li></ul></li><li class="dropdown-item"><h4>Linux</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/linux/linux.html" class="nav-link">Linux</a></li></ul></li><li class="dropdown-item"><h4>Linux</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/linux/linux.html" class="nav-link">Linux</a></li></ul></li><li class="dropdown-item"><h4>MySQL &amp; PHP</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/php&amp;mysql/php&amp;mysql.html" class="nav-link">MySQL &amp; PHP</a></li></ul></li><li class="dropdown-item"><h4>读博客有感</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/读博客有感/bind的模拟实现.html" class="nav-link">bind的模拟实现</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/call和apply的模拟实现.html" class="nav-link">call和apply的模拟实现</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/new的模拟实现.html" class="nav-link">new的模拟实现</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/作用域链.html" class="nav-link">作用域链</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/原型与原型链.html" class="nav-link">原型与原型链</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/变量对象.html" class="nav-link">变量对象</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/执行上下文栈.html" class="nav-link">执行上下文栈</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/词法作用域与动态作用域.html" class="nav-link">词法作用域与动态作用域</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/闭包.html" class="nav-link">闭包</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/闭包与GC.html" class="nav-link">闭包与GC</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/javascript-QA/index.html" class="nav-link">javascript与测试工程师</a></div><div class="nav-item"><a href="/no.2/http.html" class="nav-link">HTTP</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">编程思想</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>元编程</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.1/元编程/" class="nav-link">元编程</a></li></ul></li><li class="dropdown-item"><h4>函数式编程</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.1/函数式编程/" class="nav-link">函数式编程</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">node</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>node</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/node/node.html" class="nav-link">node</a></li><li class="dropdown-subitem"><a href="/node/node/fs.html" class="nav-link">文件模块</a></li><li class="dropdown-subitem"><a href="/node/node/nodemon.html" class="nav-link">node热启动</a></li></ul></li><li class="dropdown-item"><h4>Express</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/express/express.html" class="nav-link">express</a></li><li class="dropdown-subitem"><a href="/node/express/middleware.html" class="nav-link">中间件</a></li></ul></li><li class="dropdown-item"><h4>Koa</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/koa/koa.html" class="nav-link router-link-exact-active router-link-active">koa</a></li><li class="dropdown-subitem"><a href="/node/koa/koa_router.html" class="nav-link">koa路由</a></li><li class="dropdown-subitem"><a href="/node/koa/koa-generator.html" class="nav-link">koa应用生成器</a></li></ul></li><li class="dropdown-item"><!----> <a href="/node/npm/npm-scripts.html" class="nav-link">npm-scripts</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端资料</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>css</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/css-3d/css-3d.html" class="nav-link">css3D</a></li><li class="dropdown-subitem"><a href="/no.0/css-core/css-core.html" class="nav-link">css3开发常备核心技能</a></li><li class="dropdown-subitem"><a href="/no.0/css-core/css-layer.html" class="nav-link">CSS分层理论与面向对象</a></li><li class="dropdown-subitem"><a href="/no.0/css-math/css-math.html" class="nav-link">CSS与数学</a></li></ul></li><li class="dropdown-item"><h4>HTML</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/html-senior/html-senior.html" class="nav-link">你不知道的HTML</a></li></ul></li><li class="dropdown-item"><h4>JavaScript语言新发展</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/JavaScript语言新发展【深度实践课】/ES6 在企业中的应用.html" class="nav-link">ES6 在企业中的应用</a></li><li class="dropdown-subitem"><a href="/no.0/JavaScript语言新发展【深度实践课】/javascript与QA工程师.html" class="nav-link">javascript与QA工程师</a></li><li class="dropdown-subitem"><a href="/no.0/JavaScript语言新发展【深度实践课】/TypeScript 前世今生.html" class="nav-link">TypeScript 前世今生</a></li></ul></li><li class="dropdown-item"><h4>JavaScript</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/JQuery/Jquery.html" class="nav-link">Jquery</a></li><li class="dropdown-subitem"><a href="/no.0/js/bind_call_apply.html" class="nav-link">bind_call_apply</a></li><li class="dropdown-subitem"><a href="/no.0/js/es6.html" class="nav-link">ES6</a></li><li class="dropdown-subitem"><a href="/no.0/js/js-core.html" class="nav-link">js核心</a></li><li class="dropdown-subitem"><a href="/no.0/js/scope.html" class="nav-link">作用域</a></li><li class="dropdown-subitem"><a href="/no.0/js/this.html" class="nav-link">This</a></li></ul></li><li class="dropdown-item"><h4>Linux</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/linux/linux.html" class="nav-link">Linux</a></li></ul></li><li class="dropdown-item"><h4>Linux</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/linux/linux.html" class="nav-link">Linux</a></li></ul></li><li class="dropdown-item"><h4>MySQL &amp; PHP</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/php&amp;mysql/php&amp;mysql.html" class="nav-link">MySQL &amp; PHP</a></li></ul></li><li class="dropdown-item"><h4>读博客有感</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.0/读博客有感/bind的模拟实现.html" class="nav-link">bind的模拟实现</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/call和apply的模拟实现.html" class="nav-link">call和apply的模拟实现</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/new的模拟实现.html" class="nav-link">new的模拟实现</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/作用域链.html" class="nav-link">作用域链</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/原型与原型链.html" class="nav-link">原型与原型链</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/变量对象.html" class="nav-link">变量对象</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/执行上下文栈.html" class="nav-link">执行上下文栈</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/词法作用域与动态作用域.html" class="nav-link">词法作用域与动态作用域</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/闭包.html" class="nav-link">闭包</a></li><li class="dropdown-subitem"><a href="/no.0/读博客有感/闭包与GC.html" class="nav-link">闭包与GC</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/javascript-QA/index.html" class="nav-link">javascript与测试工程师</a></div><div class="nav-item"><a href="/no.2/http.html" class="nav-link">HTTP</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">编程思想</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>元编程</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.1/元编程/" class="nav-link">元编程</a></li></ul></li><li class="dropdown-item"><h4>函数式编程</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/no.1/函数式编程/" class="nav-link">函数式编程</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">node</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>node</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/node/node.html" class="nav-link">node</a></li><li class="dropdown-subitem"><a href="/node/node/fs.html" class="nav-link">文件模块</a></li><li class="dropdown-subitem"><a href="/node/node/nodemon.html" class="nav-link">node热启动</a></li></ul></li><li class="dropdown-item"><h4>Express</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/express/express.html" class="nav-link">express</a></li><li class="dropdown-subitem"><a href="/node/express/middleware.html" class="nav-link">中间件</a></li></ul></li><li class="dropdown-item"><h4>Koa</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/koa/koa.html" class="nav-link router-link-exact-active router-link-active">koa</a></li><li class="dropdown-subitem"><a href="/node/koa/koa_router.html" class="nav-link">koa路由</a></li><li class="dropdown-subitem"><a href="/node/koa/koa-generator.html" class="nav-link">koa应用生成器</a></li></ul></li><li class="dropdown-item"><!----> <a href="/node/npm/npm-scripts.html" class="nav-link">npm-scripts</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>koa学习记录</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/node/koa/koa.html#前言" class="sidebar-link">前言</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/node/koa/koa.html#环境" class="sidebar-link">环境</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/node/koa/koa.html#context对象" class="sidebar-link">Context对象</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/node/koa/koa.html#网页模板" class="sidebar-link">网页模板</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/node/koa/koa.html#路由" class="sidebar-link">路由</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/node/koa/koa.html#koa-route模块" class="sidebar-link">koa-route模块</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/node/koa/koa.html#静态资源" class="sidebar-link">静态资源</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/node/koa/koa.html#重定向" class="sidebar-link">重定向</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/node/koa/koa.html#中间件" class="sidebar-link">中间件</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/node/koa/koa.html#错误处理" class="sidebar-link">错误处理</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/node/koa/koa.html#web-app的功能" class="sidebar-link">Web App的功能</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/node/koa/koa.html#cookies" class="sidebar-link">Cookies</a></li><li class="sidebar-sub-header"><a href="/node/koa/koa.html#表单" class="sidebar-link">表单</a></li><li class="sidebar-sub-header"><a href="/node/koa/koa.html#文件上传" class="sidebar-link">文件上传</a></li></ul></li><li><a href="/node/koa/koa.html#进阶用法" class="sidebar-link">进阶用法</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/node/koa/koa.html#命名路由" class="sidebar-link">命名路由</a></li><li class="sidebar-sub-header"><a href="/node/koa/koa.html#多中间件" class="sidebar-link">多中间件</a></li><li class="sidebar-sub-header"><a href="/node/koa/koa.html#路由前缀" class="sidebar-link">路由前缀</a></li><li class="sidebar-sub-header"><a href="/node/koa/koa.html#url-参数" class="sidebar-link">URL 参数</a></li></ul></li><li><a href="/node/koa/koa.html#http-请求参数传递方式" class="sidebar-link">Http 请求参数传递方式</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/node/koa/koa.html#koa-例子地址" class="sidebar-link">koa 例子地址</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="koa学习记录"><a href="#koa学习记录" aria-hidden="true" class="header-anchor">#</a> koa学习记录</h1> <h2 id="前言"><a href="#前言" aria-hidden="true" class="header-anchor">#</a> 前言</h2> <p>Koa 是由 Express 原班人马打造的，致力于成为一个更小、更富有表现力、更健壮的 Web 框架。 使用 koa 编写 web 应用，通过组合不同的 generator，可以免除重复繁琐的回调函数嵌套， 并极大地提升错误处理的效率。koa 不在内核方法中绑定任何中间件， 它仅仅提供了一个轻量优雅的函数库，使得编写 Web 应用变得得心应手。</p> <p>本教程旨在介绍Koa框架的相关基础知识，能够帮助你快速的上手。</p> <h2 id="环境"><a href="#环境" aria-hidden="true" class="header-anchor">#</a> 环境</h2> <p>Koa基于node.js,想要使用Koa的话，需要先行下载node.js并且版本需要大于7.6，如果还未下载node.js，直接点击这里下载对应的版本。node下载地址</p> <blockquote><p>开始</p></blockquote> <p>下载完成之后，检查对应node版本大于7.6之后就可以开始学习Koa了，这里建议使用阮一峰老师的Koa示例库，需要事先安装git。</p> <p>git clone https://github.com/ruanyf/koa-demos.git</p> <p>接着进入示例库，安装相应的依赖</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd koa-demos
+npm install
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>基本用法
+创建一个HTTP服务:\</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const app = new Koa();
+
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>运行这个脚本</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>node demos/01.js
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>打开浏览器访问,访问127.0.0.1:3000。页面显示Not Found,这是由于我们没有告诉Koa需要显示什么内容。</p> <h2 id="context对象"><a href="#context对象" aria-hidden="true" class="header-anchor">#</a> Context对象</h2> <p>Koa提供一个Context对象，表示一次对话的上下文，(<code>包括HTTP请求和HTTP响应</code>)。编写这个对象我们可以返回输出的内容。</p> <ul><li>Context.response.body 属性代表发送给用户的内容</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const app = new Koa();
+
+const main = ctx =&gt; {
+  ctx.response.body = 'Hello World';
+};
+
+app.use(main);
+app.listen(3000);
+const Koa = require('koa');
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>运行这段代码，打开http://127.0.0.1:3000/发现页面输出了Hello World</p> <p>其中，main函数定义了一个设置输出内容的方法，然后我们使用app.use()调用了main函数。</p> <p><strong>ctx.response代表了HTTP的Response
+ctx.requset代表了HTTP的Request</strong></p> <p>HTTP Response类型
+Koa默认返回的数据类型是text/plain,如果想返回其他类型，可以使用ctx.request.accepts类型判断一下，根据客户端希望接受的字段，使用ctx.response.type返回指定的类型。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const app = new Koa();
+
+const main = ctx =&gt; {
+  if (ctx.request.accepts('xml')) {
+    ctx.response.type = 'xml';
+    ctx.response.body = '&lt;data&gt;Hello World&lt;/data&gt;';
+  } else if (ctx.request.accepts('json')) {
+    ctx.response.type = 'json';
+    ctx.response.body = { data: 'Hello World' };
+  } else if (ctx.request.accepts('html')) {
+    ctx.response.type = 'html';
+    ctx.response.body = '&lt;p&gt;Hello World&lt;/p&gt;';
+  } else {
+    ctx.response.type = 'text';
+    ctx.response.body = 'Hello World';
+  }
+};
+
+app.use(main);
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h2 id="网页模板"><a href="#网页模板" aria-hidden="true" class="header-anchor">#</a> 网页模板</h2> <p>实际开发中，返回给用户的网页常常写成模板文件，我们可以让Koa先读取文件，然后将这个模板返回给用户。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const fs = require('fs');
+const Koa = require('koa');
+const app = new Koa();
+
+const main = ctx =&gt; {
+  ctx.response.type = 'html';
+  ctx.response.body = fs.createReadStream('./demos/template.html');
+};
+
+app.use(main);
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>打开http://127.0.0.1:3000/可以看到输出Hello World</p> <h2 id="路由"><a href="#路由" aria-hidden="true" class="header-anchor">#</a> 路由</h2> <p>一个应用由多个页面构成，通过ctx.request.path可以获取用户请求的路径。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const app = new Koa();
+
+const main = ctx =&gt; {
+  if (ctx.request.path !== '/') {
+    ctx.response.type = 'html';
+    ctx.response.body = '&lt;a href=&quot;/&quot;&gt;Index Page&lt;/a&gt;';
+  } else {
+    ctx.response.body = 'Hello World';
+  }
+};
+
+app.use(main);
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>我们打开http://127.0.0.1:3000/aa就可以发现出现了一个跳转到首页的链接。</p> <h2 id="koa-route模块"><a href="#koa-route模块" aria-hidden="true" class="header-anchor">#</a> koa-route模块</h2> <p>我们可以使用koa-route模块进行路由的跳转。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const route = require('koa-route');
+const app = new Koa();
+
+const about = ctx =&gt; {
+  ctx.response.type = 'html';
+  ctx.response.body = '&lt;a href=&quot;/&quot;&gt;Index Page&lt;/a&gt;';
+};
+
+const main = ctx =&gt; {
+  ctx.response.body ='&lt;a href=&quot;/&quot;&gt;to About&lt;/a&gt;';
+};
+
+app.use(route.get('/', main));
+app.use(route.get('/about', about));
+
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>这里返回了两个页面，我们可以从index页面跳转到about页面。</p> <h2 id="静态资源"><a href="#静态资源" aria-hidden="true" class="header-anchor">#</a> 静态资源</h2> <p>koa-static模块封装了(图片，字体，样式表等静态资源)。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const app = new Koa();
+const path = require('path');
+const serve = require('koa-static');
+
+const main = serve(path.join(__dirname));
+//__dirname 表示的是当前你所在文件的目录
+app.use(main);
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="重定向"><a href="#重定向" aria-hidden="true" class="header-anchor">#</a> 重定向</h2> <p>某些场合，服务器需要重定向访问请求，比如用户登录以后，将他重定向到之前的页面，ctx.requset.redirect()方法可以发送一个302跳转。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const route = require('koa-route');
+const app = new Koa();
+
+const redirect = ctx =&gt; {
+  ctx.response.redirect('/');
+};
+
+const main = ctx =&gt; {
+  ctx.response.body = 'Hello World';
+};
+
+app.use(route.get('/', main));
+app.use(route.get('/redirect', redirect));
+
+app.use(main);
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>本例相当于我们从redirect页面发出了请求，然后页面重定向回了index页面。</p> <h2 id="中间件"><a href="#中间件" aria-hidden="true" class="header-anchor">#</a> 中间件</h2> <p>Koa最大的特色，也是重要的一个设计就是中间价(middleWare),我们先通过Looger日志了解下打印日志的功能。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const app = new Koa();
+
+const main = ctx =&gt; {
+  console.log(`${Date.now()} ${ctx.request.method} ${ctx.request.url}`);
+  ctx.response.body = 'Hello World';
+};
+
+app.use(main);
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>我们运行这段代码，就可以发现控制台输出</p> <p>类似这样的代码 1526392654243 GET /</p> <blockquote><p>中间件的概念</p></blockquote> <p>上一个例子的Looger功能，可以拆分成一个独立的函数。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const app = new Koa();
+
+const logger = (ctx, next) =&gt; {
+  console.log(`${Date.now()} ${ctx.request.method} ${ctx.request.url}`);
+  next();
+}
+
+const main = ctx =&gt; {
+  ctx.response.body = 'Hello World';
+};
+
+app.use(logger);
+app.use(main);
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>上述例子的Logger函数就是&quot;中间件&quot;的概念，因为它处在HTTP Request和HTTP Response之间，用来实现某种功能，app.use()用来加载中间件。</p> <p>基本上koa所有的功能都是通过中间件实现的，前面例子里面的main也是中间件。</p> <p>每个中间件默认接受<strong>两个参数</strong>，第一个参数是<code>Context</code>对象，第二个参数是<code>next</code>参数，只要调用next函数，就可以把执行权交给下一个中间件。</p> <blockquote><p>中间件栈</p></blockquote> <p>多个中间件会形成一个栈的结构，以 先进后出，&quot; first-in-last-out&quot;的顺序执行。</p> <p>1.最外层的中间件首先执行。</p> <p>2.调用next函数，把执行权交给下一个中间件。</p> <p>3…</p> <p>4.最内层的中间件最后执行。</p> <p>5.执行结束后，把执行权教回上一层的中间件。</p> <p>6…</p> <p>7.最外层的中间件收回执行权后，执行next函数后面的代码。
+<img src="/images/koa.png" alt="">
+我们直接看下面的例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const app = new Koa();
+
+const one = (ctx, next) =&gt; {
+  console.log('&gt;&gt; one-step1');
+  next();
+  console.log('&lt;&lt; one-step2');
+}
+
+const two = (ctx, next) =&gt; {
+  console.log('&gt;&gt; two-step1');
+  next();
+  console.log('&lt;&lt; two-step2');
+}
+
+const three = (ctx, next) =&gt; {
+  console.log('&gt;&gt; three-step1');
+  next();
+  console.log('&lt;&lt; three-step2');
+}
+
+app.use(one);
+app.use(two);
+app.use(three);
+
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><p>控制台输出结果：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&gt;&gt; one-step1
+&gt;&gt; two-step1
+&gt;&gt; three-step1
+&lt;&lt; three-step2
+&lt;&lt; two-step2
+&lt;&lt; one-step2
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>分析：</p> <p>我们编写了三个中间件，one，two，three，每个中间件内部都分为两个步骤。</p> <p>当我们先执行app.use(one)后先执行one-step1，然后调用了next函数，此时将执行权交给了下一个中间件two，two执行two-step1后将执行权交给了three，three执行后调用next发现已经没有中间件了，所以先执行内部的three-step2后将执行权返回给two，因此输出了上述结果。</p> <p>【注】当中间件内部没有next函数的时候，执行权就不会移交到下一个中间件中，比如我们可以删除two步骤的next方法，发现three中间件并没有执行了。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&gt;&gt; one-step1
+&gt;&gt; two-step1
+&lt;&lt; two-step2
+&lt;&lt; one-step2
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><blockquote><p>异步中间件</p></blockquote> <p>我们如何在中间件里面进行异步操作(比如读取数据库等)，那么我们需要将中间件改写成async函数，这是一个ES6的语法糖。</p> <p>这里我们尝试去读取一个本地的模板文件。读取完成之后将它返回：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const fs = require('fs.promised');
+const Koa = require('koa');
+const app = new Koa();
+
+const main = async function (ctx, next) {
+  ctx.response.type = 'html';
+  ctx.response.body = await fs.readFile('./demos/template.html', 'utf8');
+};
+
+app.use(main);
+app.listen(3000);
+
+
+//template.html
+
+&lt;!doctype html&gt;
+
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+
+  &lt;title&gt;The HTML5 Herald&lt;/title&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;HTML5 Template&quot;&gt;
+  &lt;meta name=&quot;author&quot; content=&quot;xxx&quot;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;我是模板文件的内容&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><p>执行这段代码后，打开127.0.0.1:3000可以看到输出的文本 —— 我是模板文件的内容</p> <blockquote><p>中间件的合成</p></blockquote> <p>koa-compose模块可以将多个中间件合成为一个</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const compose = require('koa-compose');
+const app = new Koa();
+
+const logger = (ctx, next) =&gt; {
+  console.log(`${Date.now()} ${ctx.request.method} ${ctx.request.url}`);
+  next();
+}
+
+const main = ctx =&gt; {
+  ctx.response.body = 'Hello World';
+};
+
+const middlewares = compose([logger, main]);
+
+app.use(middlewares);
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>输出结果：</p> <p>1526469081713 GET /
+Hello World</p> <blockquote><p>常用中间件</p></blockquote> <ul><li><code>koa-less</code></li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>app.use(require('koa-less')(__dirname + '/public'))
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>必须在static前use，不然会无效。 stylesheets文件夹下新建styles.less，并引入所有模块化less文件。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@import 'foo.less';
+@import 'bar.less';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>这样所有的样式会被编译成一个style.css。在模板(pug)中引用style.css就行了。</p> <ul><li><code>koa-session</code></li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 设置app keys，session会根据这个进行加密
+app.keys = ['some secret hurr'];
+// 配置session config
+const CONFIG = {
+  key: 'bougie:session',
+  /** (string) cookie key (default is koa:sess) */
+  maxAge: 1000 * 60 * 60 * 24 * 7,
+  overwrite: true,
+  /** (boolean) can overwrite or not (default true) */
+  httpOnly: true,
+  /** (boolean) httpOnly or not (default true) */
+  signed: true,
+  /** (boolean) signed or not (default true) */
+  rolling: true,
+  /** (boolean) Force a session identifier cookie to be set on every response. The expiration is reset to the original maxAge, resetting the expiration countdown. (default is false) */
+  renew: false,
+  /** (boolean) renew session when session is nearly expired, so we can always keep user logged in. (default is false)*/
+};
+ 
+// 应用中间件
+app.use(session(CONFIG, app));
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>这个必须在router前use，不然会无效。 基本使用，可以当成一个普通对象</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 赋值
+ctx.session.statu = value
+// 取值
+ctx.session.statu
+// 删除
+ctx.session.statu = null
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><ul><li><code>koa-proxies</code></li></ul> <p>用于代理配置</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const proxy = require('koa-proxies')
+app.use(proxy('/octocat', {
+  target: 'https://api.github.com/users',  
+  changeOrigin: true,
+  agent: new httpsProxyAgent('http://1.2.3.4:88'),
+  rewrite: path =&gt; path.replace(/^\/octocat(\/|\/\w+)?$/, '/vagusx'),
+  logs: true
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>用于代理配置</p> <h2 id="错误处理"><a href="#错误处理" aria-hidden="true" class="header-anchor">#</a> 错误处理</h2> <p>如果代码运行出错的话，我们需要把错误信息返回给用户。HTTP协议约定了许多状态码，类似500和404等。我们可以调用Koa的ctx.throw()方法将错误抛出。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>//500
+
+const Koa = require('koa');
+const app = new Koa();
+
+const main = ctx =&gt; {
+  ctx.throw(500);
+};
+
+app.use(main);
+app.listen(3000);
+
+//404
+
+const Koa = require('koa');
+const app = new Koa();
+
+const main = ctx =&gt; {
+  ctx.response.status = 404;
+  ctx.response.body = 'Page Not Found';
+};
+
+app.use(main);
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><blockquote><p><strong>处理错误的中间件</strong></p></blockquote> <p>为了方便处理错误，我们最好使用try-catch将其捕获。但是为每个中间件都使用try-catch太过麻烦了，我们可以编写一个中间件，将它放置在最外层，负责所有中间件的错误处理。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const app = new Koa();
+
+const handler = async (ctx, next) =&gt; {
+  try {
+    await next();
+  } catch (err) {
+    ctx.response.status = err.statusCode || err.status || 500;
+    ctx.response.body = {
+      message: err.message
+    };
+  }
+};
+
+const main = ctx =&gt; {
+  ctx.throw(500);
+};
+
+app.use(handler);
+app.use(main);
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><blockquote><p><strong>error监听事件</strong></p></blockquote> <p>程序运行过程中一旦出错，Koa会触发一个error事件。监听完这个事件，也可以处理错误。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const app = new Koa();
+
+const main = ctx =&gt; {
+  ctx.throw(500);
+};
+
+app.on('error', (err, ctx) =&gt; {
+  console.error('server error', err);
+});
+
+app.use(main);
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>在app实例里面注册error方法，那么每次错误就会抛出。</p> <blockquote><p><strong>释放error事件</strong>
+需要注意的是如果错误已经被try…catch捕获到了，那么就不会再触发error事件了，这时必须要手动调用ctx.app.emit()释放。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const app = new Koa();
+
+const handler = async (ctx, next) =&gt; {
+  try {
+    await next();
+  } catch (err) {
+    ctx.response.status = err.statusCode || err.status || 500;
+    ctx.response.type = 'html';
+    ctx.response.body = '&lt;p&gt;Something wrong, please contact administrator.&lt;/p&gt;';
+    ctx.app.emit('error', err, ctx);
+  }
+};
+
+const main = ctx =&gt; {
+  ctx.throw(500);
+};
+
+app.on('error', function(err) {
+  console.log('logging error ', err.message);
+  console.log(err);
+});
+
+app.use(handler);
+app.use(main);
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><h2 id="web-app的功能"><a href="#web-app的功能" aria-hidden="true" class="header-anchor">#</a> Web App的功能</h2> <h3 id="cookies"><a href="#cookies" aria-hidden="true" class="header-anchor">#</a> Cookies</h3> <p>ctx.cookies用来读写Cookie。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const app = new Koa();
+
+const main = function(ctx) {
+  const n = Number(ctx.cookies.get('view') || 0) + 1;
+  ctx.cookies.set('view', n);
+  ctx.response.body = n + ' views';
+}
+
+app.use(main);
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>运行结果：</p> <p>打开 http://127.0.0.1:3000 我们发现页面输出了 1 views 当我们每次刷新页面的时候，cookie的值就会加1。</p> <h3 id="表单"><a href="#表单" aria-hidden="true" class="header-anchor">#</a> 表单</h3> <p>Web应用离不开表单的处理，本质上，表单就是POST方法发送到服务器上的键值对。</p> <p>koa-body模块可以用来从POST请求的数据体里面提取键值对。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa');
+const koaBody = require('koa-body');
+const app = new Koa();
+
+const main = async function(ctx) {
+  const body = ctx.request.body;
+  if (!body.name) ctx.throw(400, '.name required');
+  ctx.body = { name: body.name };
+};
+
+app.use(koaBody());
+app.use(main);
+app.listen(3000);
+
+//打开另外一个终端 运行下面的命令
+
+curl -X POST --data &quot;name=Jack&quot; 127.0.0.1:3000 {&quot;name&quot;:&quot;Jack&quot;}
+
+curl -X POST --data &quot;name&quot; 127.0.0.1:3000 name required
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>如果POST成功数据会被正常解析，如果发送数据不正确，就会收到错误提示。</p> <h3 id="文件上传"><a href="#文件上传" aria-hidden="true" class="header-anchor">#</a> 文件上传</h3> <p><code>Koa-body</code>还可以用来处理文件上传</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const os = require('os');
+const path = require('path');
+const Koa = require('koa');
+const fs = require('fs');
+const koaBody = require('koa-body');
+
+const app = new Koa();
+
+const main = async function(ctx) {
+  const tmpdir = os.tmpdir();
+  const filePaths = [];
+  const files = ctx.request.body.files || {};
+
+  for (let key in files) {
+    const file = files[key];
+    const filePath = path.join(tmpdir, file.name);
+    const reader = fs.createReadStream(file.path);
+    const writer = fs.createWriteStream(filePath);
+    reader.pipe(writer);
+    filePaths.push(filePath);
+  }
+
+  ctx.body = filePaths;
+};
+
+app.use(koaBody({ multipart: true }));
+app.use(main);
+app.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><p>打开另一各终端 运行下列代码，注意，路径要使用真实的文件路径</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>curl --form upload=@/path/to/file http://127.0.0.1:3000 [&quot;/tmp/file&quot;]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><a href="http://www.ruanyifeng.com/blog/2017/08/koa.html" target="_blank" rel="noopener noreferrer">文献参考<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h2 id="进阶用法"><a href="#进阶用法" aria-hidden="true" class="header-anchor">#</a> 进阶用法</h2> <h3 id="命名路由"><a href="#命名路由" aria-hidden="true" class="header-anchor">#</a> 命名路由</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>router.get('test', '/test/:id', async (ctx, next) =&gt; {
+	 ctx.response.body = `&lt;h1&gt;hello world&lt;/h1&gt;`
+	 // 访问 test路由 Not Found
+	 // 访问 test/2  hello world
+});
+
+router.url('user', 3);
+// =&gt; 生成路由 &quot;/users/3&quot; 
+ 
+router.url('user', { id: 3 });
+// =&gt; 生成路由 &quot;/users/3&quot; 
+ 
+router.use(function (ctx, next) {
+  // 重定向到路由名称为 “sign-in” 的页面 
+  ctx.redirect(ctx.router.url('sign-in'));
+})
+
+router.url 方法方便我们在代码中根据路由名称和参数(可选)去生成具体的 URL，而不用采用字符串拼接的方式去生成 URL 了
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h3 id="多中间件"><a href="#多中间件" aria-hidden="true" class="header-anchor">#</a> 多中间件</h3> <p><code>koa-router</code> 也支持单个路由多中间件的处理。通过这个特性，我们能够为一个路由添加特殊的中间件处理。也可以把一个路由要做的事情拆分成多个步骤去实现，当路由处理函数中有异步操作时，这种写法的可读性和可维护性更高。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>router.get(
+  '/users/:id',
+   async (ctx, next)=&gt;  {
+    return User.findOne(ctx.params.id).then(function(user) {
+      // 首先读取用户的信息，异步操作
+      ctx.user = user;
+      next();
+    });
+  },
+   async (ctx, next)=&gt;  {
+    console.log(ctx.user);
+    // 在这个中间件中再对用户信息做一些处理
+    // =&gt; { id: 17, name: &quot;Alex&quot; }
+  }
+);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h3 id="路由前缀"><a href="#路由前缀" aria-hidden="true" class="header-anchor">#</a> 路由前缀</h3> <p>通过 <code>prefix</code> 这个参数，我们可以为一组路由添加统一的前缀，和嵌套路由类似，也方便我们管理路由和简化路由的写法。不同的是，前缀是一个固定的字符串，不能添加动态参数。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const router = new Router({
+  prefix: '/users'
+});
+ 
+router.get('/', ...); // 匹配路由 &quot;/users&quot; 
+router.get('/:id', ...); // 匹配路由 &quot;/users/:id&quot; 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="url-参数"><a href="#url-参数" aria-hidden="true" class="header-anchor">#</a> URL 参数</h3> <p>koa-router 也支持参数，参数会被添加到 ctx.params 中。参数可以是一个正则表达式，这个功能的实现是通过 <code>path-to-regexp</code> 来实现的。原理是把 URL 字符串转化成正则对象，然后再进行正则匹配，之前的例子中的 * 通配符就是一种正则表达式。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>router.get('/:category/:title', async (ctx, next) =&gt; {
+  console.log(ctx.params);
+  // =&gt; { category: 'programming', title: 'how-to-node' } 
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>通过上面的例子可以看出，我们可以通过 <code>ctx.params</code> 去访问<code>路由中的参数</code>，使得我们能够对参数做一些处理后再执行后续的代码。</p> <h2 id="http-请求参数传递方式"><a href="#http-请求参数传递方式" aria-hidden="true" class="header-anchor">#</a> Http 请求参数传递方式</h2> <ul><li>请求参数放在 URL 后面</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>http://localhost:3000/home?id=12&amp;name=ikcamp
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><code>koa-router</code>封装的 <code>request</code> 对象，里面的 <code>query</code>方法或 <code>querystring</code> 方法可以直接获取到 Get 请求的数据，唯一不同的是 query 返回的是对象，而 <code>querystring</code> 返回的是字符串。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>  const Koa = require('koa')
+  const router = require('koa-router')()
+  const app = new Koa()
+
+  router.get('/home', async(ctx, next) =&gt; {
+    console.log(ctx.request.query)
+    console.log(ctx.request.querystring)
+    ctx.response.body = '&lt;h1&gt;HOME page&lt;/h1&gt;'
+  })
+  
+  // add router middleware:
+  app.use(router.routes())
+
+  app.listen(3000, () =&gt; {
+    console.log('server is running at http://localhost:3000')
+  })
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>运行代码，并打开上述网址发现控制台输出为：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>//类似post方法传递的表单数据格式
+{ id: '12', name: 'ikcamp' }
+//类似get方法传递的数据格式
+id=12&amp;name=ikcamp
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><ul><li>请求参数放在 URL 中间
+http://localhost:3000/home/12/ikcamp
+1
+这种情况下，解析方式肯定与上面的不一样了，koa-router 会把请求参数解析在 params 对象上，我们修改 app.js 文件，增加新的路由来测试下：</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>  // 增加如下代码
+  router.get('/home/:id/:name', async(ctx, next)=&gt;{
+    console.log(ctx.params)
+    ctx.response.body = '&lt;h1&gt;HOME page /:id/:name&lt;/h1&gt;'
+  })
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>运行代码，并通过浏览器访问 http://localhost:3000/home/12/ikcamp，然后查看下控制台显示的日志信息：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{ id: '12', name: 'ikcamp' }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>请求参数放在 body 中
+当用 post 方式请求时，我们会遇到一个问题：post 请求通常都会通过表单或 JSON 形式发送，而无论是 Node 还是 Koa，都 没有提供 解析 post 请求参数的功能。</li></ul> <p>这是我们将使用<code>koa-bodyparser</code>插件。</p> <p>安装</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm i koa-bodyparser -S
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>安装完成后引入</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Koa = require('koa')
+  const router = require('koa-router')()
+  const bodyParser = require('koa-bodyparser')
+  const app = new Koa()
+
+  app.use(bodyParser())
+
+  router.get('/home', async(ctx, next) =&gt; {
+    console.log(ctx.request.query)
+    console.log(ctx.request.querystring)
+    ctx.response.body = '&lt;h1&gt;HOME page&lt;/h1&gt;'
+  })
+  
+  router.get('/home/:id/:name', async(ctx, next)=&gt;{
+    console.log(ctx.params)
+    ctx.response.body = '&lt;h1&gt;HOME page /:id/:name&lt;/h1&gt;'
+  })
+
+  app.use(router.routes())
+
+  app.listen(3000, () =&gt; {
+    console.log('server is running at http://localhost:3000')
+  })
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p>然后我们来试着写一个简单的表单提交实例。修改 app.js 增加如下代码，实现增加表单页面的路由：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 增加返回表单页面的路由
+  router.get('/user', async(ctx, next)=&gt;{
+    ctx.response.body = 
+    `
+      &lt;form action=&quot;/user/register&quot; method=&quot;post&quot;&gt;
+        &lt;input name=&quot;name&quot; type=&quot;text&quot; placeholder=&quot;请输入用户名：ikcamp&quot;/&gt; 
+        &lt;br/&gt;
+        &lt;input name=&quot;password&quot; type=&quot;text&quot; placeholder=&quot;请输入密码：123456&quot;/&gt;
+        &lt;br/&gt; 
+        &lt;button&gt;GoGoGo&lt;/button&gt;
+      &lt;/form&gt;
+    `
+  })
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>继续修改 app.js 增加如下代码，实现 post 表单提交对应的路由：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 增加响应表单请求的路由
+  router.post('/user/register',async(ctx, next)=&gt;{
+    let {name, password} = ctx.request.body
+    if( name === 'ikcamp' &amp;&amp; password === '123456' ){
+      ctx.response.body = `Hello， ${name}！`
+    }else{
+      ctx.response.body = '账号信息错误'
+    }
+  })
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="koa-例子地址"><a href="#koa-例子地址" aria-hidden="true" class="header-anchor">#</a> <a href="https://github.com/koajs/examples" target="_blank" rel="noopener noreferrer">koa 例子地址<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></h2></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">6/12/2019, 2:48:30 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.3d509b79.js" defer></script><script src="/assets/js/2.f90c0a68.js" defer></script><script src="/assets/js/47.a7026b60.js" defer></script>
+  </body>
+</html>

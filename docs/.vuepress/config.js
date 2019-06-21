@@ -17,7 +17,7 @@ module.exports = {
   description: '来了老弟', //网站描述。这将在页面 HTML 中表现为一个 <meta> 标签。
   // base: '/',
   port: 9527, //dev 服务器的端口
-  // dest: './dist', //指定 vuepress build 的输出目录。
+  dest: './views', //指定 vuepress build 的输出目录。
   markdown: {
     lineNumbers: true // 代码块显示行号
   },
