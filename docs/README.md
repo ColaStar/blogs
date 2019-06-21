@@ -1,14 +1,11 @@
 ---
-#home: true
-#heroImage: 
-#actionText: 
-#actionLink: /zh/guide/
-# features:
-# - title: 来了老弟
-#   details: 来了老弟
-# - title: 来了老弟
-#   details: 来了老弟
-# - title: 来了老弟
-#   details: 来了老弟
-# footer: 来了老弟
+home: true
+heroImage: /blogs/bg.png
+actionText: Get Started →
+actionLink: /guide/
+features:
+- title:  来了老弟
+  details: Minimal setup with markdown-centered project structure helps you focus on writing.
+
+footer: MIT Licensed | Copyright © 2018-present Evan You
 ---

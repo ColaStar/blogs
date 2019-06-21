@@ -15,11 +15,18 @@ module.exports = {
     }]
   ],
   description: '来了老弟', //网站描述。这将在页面 HTML 中表现为一个 <meta> 标签。
-  base: '/',
+  base: '/blogs/dist/assets',
   port: 9527, //dev 服务器的端口
   dest: './dist', //指定 vuepress build 的输出目录。
   markdown: {
     lineNumbers: true // 代码块显示行号
+  },
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@public': '/docs/public'
+      }
+    }
   },
   themeConfig: {
     sidebarDepth: 4, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
