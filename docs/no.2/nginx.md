@@ -39,6 +39,14 @@ Is this ok [y/N]:y
 
 **openssl安装**
 ```
+openssl相关插件per5-https安装
+ wget https://www.cpan.org/src/5.0/perl-5.28.0.tar.gz
+ tar -xzf perl-5.28.0.tar.gz
+ cd perl-5.28.0
+ ./Configure -des -Dprefix=$HOME/localperl &&  make && make install 
+
+
+
 [root@localhost src]# tar zxvf openssl-fips-2.0.10.tar.gz
 省略安装内容...
 [root@localhost src]# cd openssl-fips-2.0.10
