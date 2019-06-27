@@ -167,3 +167,19 @@ const constant = {
 
 webpack2新变化
 
+
+
+
+webpack4
+
+不要纠结语法
+
+过程非常艰辛，配置工程师
+特点：
+tree shcking
+提高webpack性能
+
+没有向下兼容，一些很老的插件是不能用了
+ 
+
+
