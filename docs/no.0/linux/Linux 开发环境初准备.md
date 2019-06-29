@@ -44,7 +44,7 @@ puting/vmware_workstation_pro/15_0
 载，我们以后的课程中会⽤用到。
      - 点击按钮后会进⼊入⼀一个镜像⽹网站的列列表，选择阿⾥里里云、华为云、163等⽐比较快的服务器器
 
-     ![centos源地址](./images/linux_adderss.png)
+     ![centos源地址](images/linux_adderss.png)
 
   - 开启计算机硬件的虚拟化⽀支持选项
     - 先打开任务管理理器器，切换到“” 标签⻚页，检查“虚拟化”是否为已启⽤用状态 
@@ -169,7 +169,7 @@ node -v
 ```
 > 2.安装Sublime Text3
 - 下载 https://www.sublimetext.com/3
-![sub](./images/sublinepng.png)
+![sub](images/sublinepng.png)
 ```
 # 解压缩
 tar -xvvf sublime_text_3_build_3176_x64.tar.bz
@@ -181,7 +181,7 @@ cp /opt/sublime_text_3/sublime_text.desktop /usr/share/applications
 vim /usr/share/applications/sublime_text.desktop
 # 通过菜单 applications->programming->Sublime Text 打开软件
 ```
-![sub](./images/zippng.png)
+![sub](images/zippng.png)
 >3.安装 XAMPP 集成开发环境
 - 下载地址：https://www.apachefriends.org/
 - 中⽂文站：http://www.xampps.com/ （版本有点⽼老老）
