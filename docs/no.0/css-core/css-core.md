@@ -229,7 +229,7 @@ float：left
 flex是CSS3的新属性，又叫弹性布局盒模型，是可以简洁，快速弹性布局的属性。  
 
 <div align="center">
-<img src="./demo/images/flex-content.png"/>
+<img src="./demo/images/flex-content.png"/>°
 </div>
 <div align="center">
 <img src="./demo/images/flex-item.png"/>

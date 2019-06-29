@@ -13,15 +13,15 @@ window.addEventListener('deviceorientation', function(event) { var alpha = event
 ```
 event对象上边有```alpha```、```beta``` 以及 ```gamma```三个API，它们可以控制三个轴转动的角度和方向。  
 alpha：行动装置水平放置时，绕 Z 轴旋转的角度，数值为 0 度到 360 度。  <div align="center">
-![](/images/alpha.jpg)
+<a data-fancybox title="" href="./images/alpha.jpg">![alpha](images/alpha.jpg)</a>
 </div>
 beta:行动装置水平放置时，绕 X 轴旋转的角度，数值为 -180 度到 180 度。
 <div align="center">
-![](/images/beta.jpg)
+<a data-fancybox title="" href="./images/beta.jpg">![beta](images/beta.jpg)</a>
 </div>
 gamma：行动装置水平放置时，绕 Z 轴旋转的角度，数值为 -90 度到 90 度。
 <div align="center">
-![](/images/gamma.jpg)
+<a data-fancybox title="" href="./images/gamma.jpg">![gamma](images/gamma.jpg)</a>
 </div>
 
 ### CSS3 3D模型
