@@ -197,6 +197,25 @@ module.exports = {
         link: '/no.2/http'
       },
       {
+        text: 'nginx',
+        // no.1
+        items: [{
+            text: 'nginx',
+            items: [{
+              text: 'nginx',
+              link: '/no.2/nginx'
+            }]
+          },
+          {
+            text: 'mac的vi操作',
+            items: [{
+              text: 'mac_vi',
+              link: '/no.1/mac_vi'
+            }]
+          }
+        ],
+      },
+      {
         text: '编程思想',
         // no.1
         items: [{
@@ -263,7 +282,74 @@ module.exports = {
             link: '/node/npm/npm-scripts'
           }
         ],
-      }
+      },
+  ///no.3
+      {
+        text: '自动化文档',
+        // no.1
+        items: [{
+            text: 'centos遇到的一些问题',
+            items: [{
+              text: 'centos遇到的一些问题',
+              link: '/no.3/centos遇到的一些问题'
+            }]
+          },
+          {
+            text: 'CommoJS与ES6module对比',
+            items: [{
+              text: 'CommoJS与ES6module对比',
+              link: '/no.3/CommoJS与ES6module对比'
+            }]
+          },
+          {
+            text: 'jenkins',
+            items: [{
+              text: 'jenkins',
+              link: '/no.3/jenkins'
+            }]
+          },
+          {
+            text: 'linux_sed_awk',
+            items: [{
+              text: 'linux_sed_awk',
+              link: '/no.3/linux_sed_awk'
+            }]
+          },{
+            text: 'linux防火墙',
+            items: [{
+              text: 'linux防火墙',
+              link: '/no.3/linux防火墙'
+            }]
+          },{
+            text: 'webpack',
+            items: [{
+              text: 'webpack',
+              link: '/no.3/webpack'
+            }]
+          },
+          {
+            text: '免密登陆',
+            items: [{
+              text: '免密登陆',
+              link: '/no.3/免密登陆'
+            }]
+          },
+          {
+            text: '前端自动化',
+            items: [{
+              text: '前端自动化',
+              link: '/no.3/前端自动化'
+            }]
+          },
+          {
+            text: '文件操作权限',
+            items: [{
+              text: '文件操作权限',
+              link: '/no.3/文件操作权限'
+            }]
+          },
+        ],
+      },
     ],
     // sidebar: [
     //   ['/node/','Express'],
