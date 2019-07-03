@@ -203,14 +203,14 @@ module.exports = {
             text: 'nginx',
             items: [{
               text: 'nginx',
-              link: '/no.2/nginx'
+              link: '/no.3/nginx'
             }]
           },
           {
-            text: 'mac的vi操作',
+            text: '函数式编程',
             items: [{
-              text: 'mac_vi',
-              link: '/no.1/mac_vi'
+              text: '函数式编程',
+              link: '/no.1/函数式编程/'
             }]
           }
         ],
