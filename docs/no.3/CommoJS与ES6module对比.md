@@ -547,9 +547,9 @@ import module from 'module'; // 导入npm包 导入规则与 require 差不多
 
 **导入路径规则与require差不多**
 
-这里要注意 module 扩展名为 .js，.mjs专属于 es module，import form导入的文件后缀名只能是.mjs，在 .mjs中 module未定义， 所以调用 module.exports，exports 会报错
+这里要注意 `module` 扩展名为 `.js`，`.mjs`专属于 `es module`，`import form`导入的文件后缀名只能是`.mjs`，在 `.mjs`中 `module`未定义， 所以调用 `module.exports，exports` 会报错
 
-node中 CommonJs 导入 es module 只能使用 import() 动态导入/异步导入
+`node`中 `CommonJs` 导入 `es module` 只能使用 `import() `动态导入/异步导入
 
 ```
 // es.mjs
@@ -562,26 +562,33 @@ export let a = 1
 import('./es').then((res)=&gt;{
   console.log(res) // { get default: {name: 'foo'}, a: 1 }
 });
+```
+### webpack中使用
 
-webpack中使用
 从 webpack2 就默认支持 es module 了，并默认支持 CommonJs，支持导入 npm包， 这里 import 语法上面写太多 就不再写了
 
-rollup中使用
-rollup 专注于 es module，可以将 es module 打包为主流的模块规范，注意这里与 webpack 的区别，我们可以在 webpack 的 js 中使用 Commonjs 语法， 但是 rollup 不支持，rollup需要 plugin 支持，包括加载 node_modules 下的包 form 'react' 也需要 plugin 支持
+## rollup中使用
+`rollup` 专注于 `es module`，可以将 `es module` 打包为主流的模块规范，注意这里与 `webpack` 的区别，我们可以在 `webpack` 的 `js` 中使用 `Commonjs` 语法， 但是 `rollup` 不支持，`rollup`需要 `plugin` 支持，包括加载 `node_modules` 下的包 `form` `'react' `也需要 `plugin` 支持
 
 可以看到 es module 在浏览器与node中兼容性差与实验功能的
+
 我们大多时候在 打包工具 中使用
 
-Tree-shaking
-在最后我们说一下经常跟 es module 一起出现的一个名词 Tree-shaking
-Tree-shaking 我们先直译一下 树木摇晃 就是 摇晃树木把上面枯死的树叶晃下来，在代码中就是把没有用到的代码删除
-Tree-shaking 最早由 rollup 提出，之后 webpack 2 也开始支持
-这都是基于 es module 模块特性的静态分析
 
-rollup
-下面代码使用 rollup 进行打包：
+## Tree-shaking
+在最后我们说一下经常跟 es module 一起出现的一个名词 `Tree-shaking`
 
+`Tree-shaking `我们先直译一下 树木摇晃 就是 摇晃树木把上面枯死的树叶晃下来，在代码中就是把**没有用到的代码删除**
 
+`Tree-shaking` 最早由 `rollup` 提出，之后 `webpack 2` 也开始支持
+
+这都是基于 `es module` 模块特性的静态分析
+
+> rollup
+
+下面代码使用 `rollup` 进行打包：
+
+```
 // module.js
 export let foo = 'foo'
 export let bar = 'bar'
@@ -589,18 +596,20 @@ export let bar = 'bar'
 // index.js
 import { foo } from './module'
 console.log(foo) // foo
+```
 在线运行 我们可以修改例子与导出多种规范
 
 打包结果：
 
-
+```
 let foo = 'foo';
 
 console.log(foo); // foo
+```
 可以看到 rollup 打包结果非常的简洁，并去掉了没有用到的 bar
-是否支持对导入 CommonJs 的规范进行 Tree-shaking：
+是否支持对导入 `CommonJs` 的规范进行 `Tree-shaking：`
 
-
+```
 // index.js
 import { a } from './module'
 console.log(a) // 1
@@ -608,18 +617,22 @@ console.log(a) // 1
 // module.js
 module.exports.a = 1
 module.exports.b = 2
-打包为 es module
+```
+打包为 **``es module``**
 
-
+```
 var a_1 = 2;
 
 console.log(a_1);
 可以看到去掉了未使用的 b
 
 webpack
-我们下面看看 webpack 的支持情况
 
+```
+> webpack
+我们下面看看 `webpack` 的支持情况
 
+```
 // src/module.js
 export function foo(){ return 'foo' }
 export function bar(){ return 'bar' }
@@ -627,11 +640,15 @@ export function bar(){ return 'bar' }
 // src/index.js
 import { foo } from './module'
 console.log(foo())
-执行 npx webpack -p（我们使用webpack 4，0配置，-p开启生成模式 自动压缩）
+```
+
+执行 `npx webpack -p`（我们使用`webpack 4，0`配置，-p开启生成模式 自动压缩）
+
 打包后我们在打包文件搜索 bar 没有搜到，bar被删除
+
 我们将上面例子修改一下：
 
-
+```
 // src/module.js
 module.exports.foo = function (){ return 'foo' }
 module.exports.bar = function (){ return 'bar' }
@@ -640,15 +657,15 @@ module.exports.bar = function (){ return 'bar' }
 import { foo } from './module'
 console.log(foo())
 打包后搜索 bar 发现bar存在，webpack 并不支持对CommonJs 进行 Tree-shaking
-
-pkg.module
+```
+## pkg.module
 webpack 不支持 Commonjs Tree-shaking，但现在npm的包都是CommonJs规范的，这该怎么办呢 ？如果我发了一个新包是 es module 规范， 但是如果代码运行在 node 环境，没有经过打包 就会报错
 
 有一种按需加载的方案
 
 全路径导入，导入具体的文件：
 
-
+```
 // src/index.js
 import remove from 'lodash/remove'
 import add from 'lodash/add'
@@ -656,12 +673,12 @@ import add from 'lodash/add'
 console.log(remove(), add())
 使用一个还好，如果用多个的话会有很多 import 语句
 还可以使用插件如 babel-plugin-lodash, & lodash-webpack-plugin
-
+```
 但我们不能发一个库就自己写插件
 
-这时就提出了在 package.json 加一个 module 的字段来指向 es module规范的文件，main -> CommonJs，那么module - es module pkg.module
+**这时就提出了在 package.json 加一个 module 的字段来指向 es module规范的文件，main -> CommonJs，那么module - es module pkg.module**
 
-webpack 与 rollup 都支持 pkg.module
+`webpack` 与 `rollup` 都支持 `pkg.module`
 
 加了 module 字段 webpack 就可以识别我们的 es module，但是还有一个问题就是 babel
 
@@ -669,26 +686,35 @@ webpack 与 rollup 都支持 pkg.module
 
 如果你使用了 presets-env 因为会把我们的代码转为 CommonJs 所以就要设置 "presets": [["env", {"modules":false}] 不将es module 转为 CommonJs
 
-webpack 与 rollup 的区别
-webpack 不支持导出 es6 module 规范，rollup 支持导出 es6 module
-webpack 打包后代码很多冗余无法直接看，rollup 打包后的代码简洁，可读，像源码
-webpack 可以进行代码分割，静态资源处理，HRM，rollup 专注于 es module，tree-shaking更加强大的，精简
+> webpack 与 rollup 的区别
+
+- 1.webpack 不支持导出 es6 module 规范，rollup 支持导出 es6 module
+- 2.webpack 打包后代码很多冗余无法直接看，rollup 打包后的代码简洁，可读，像源码
+- 3.webpack 可以进行代码分割，静态资源处理，HRM，rollup 专注于 es module，tree-shaking更加强大的，精简
+
 如果是开发应用可以使用 webpack，因为可以进行代码分割，静态资源，HRM，插件
+
 如果是开发类似 vue，react 等类库，rollup 更好一些，因为可以使你的代码精简，无冗余代码，执行更快,导出多种模块语法
 
-结语
-本文章介绍了 Commonjs 和 ES6 Module，导入导出的语法规则，路径解析规则，两者的区别，容易混淆的地方，在不同环境的区别，在不同环境的使用，Tree-shaking，与 webpack，rollup 的区别
-希望您读完文章后，能对前端的模块化有更深的了解
 
-参考链接
-ECMAScript® 2015 Language Specification sec-imports/sec-exports
+
+## 参考链接
+ECMAScript® 2015 Language Specification sec-imports/
+sec-exports
+
 MDN import
+
 github nodejs lib/module
+
 github nodejs node-eps/002-es-modules
+
 nodejs docs modules
+
 Understanding ECMAScript 6
+
 ECMAScript 6 入门
+
 es6-modules-final
-来源：https://segmentfault.com/a/1190000017878394
+
 
 
