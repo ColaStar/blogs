@@ -365,17 +365,39 @@ Remote Directory：远程目录(根据需要填写文件传到此目录下)
 
 ![](./images/send_file_ssh.png)
 
-SSH  Server Name：选个一个你在系统设置里配置的名字
+**SSH  Server Name**：选个一个你在系统设置里配置的名字
 
-Transfer Set Source files：需要上传的文件（注意：相对于工作区的路径。看后面的配置可以填写多个，默认用,分隔）注意：如果是多成子目录的需要配置成 target/**/*
+**Transfer Set Source files**：需要上传的文件（注意：相对于工作区的路径。看后面的配置可以填写多个，默认用,分隔）注意：如果是多成子目录的需要配置成 target/**/*
 
-Remove prefix：移除目录（只能指定Transfer Set Source files中的目录，这里移除了target目录表示只将FinServer.war传到目标服务器，否则会在目标服务器创建target目录）
+**Remove prefix：**移除目录（只能指定Transfer Set Source files中的目录，这里移除了target目录表示只将FinServer.war传到目标服务器，否则会在目标服务器创建target目录）
 
-Remote directory：远程目录（根据你的需求填写，这里没有填写默认会继承系统配置，即/mnt）
+**Remote directory**：远程目录（根据你的需求填写，这里没有填写默认会继承系统配置，即/mnt）
 
-Exec command：把你要执行的命令写在里面(这里的命令是在目标服务器上执行的)
+**Exec command**：把你要执行的命令写在里面(这里的命令是在目标服务器上执行的)
 
+**Exclude files**：排除的文件（在你传输目录的时候很有用，使用通配符，例如：**/*.log,**/*.tmp,.git/）
 
+**Pattern separator**：分隔符（配置Transfer Set Source files的分隔符。如果你这儿更改了，上面的内容也需要更改）
+
+**No default excludes**：禁止默认的排除规则（具体的自己看帮助）
+
+**Make empty dirs**：此选项会更改插件的默认行为。默认行为是匹配该文件是否存在，如果存在则创建目录存放。选中此选项会直接创建一个目录存放文件，即使是空目录。（个人理解）
+
+**Flatten files**：只上传文件，不创建目录（除了远程目录）
+**Remote directory is a date format**:远程目录建立带日期的文件夹（需要在Remote directory中配置日期格式），具体格式参考下表：
+
+|Remote directory|	Directories created|
+|:--:|:--:|
+|'qa-approved/'yyyyMMddHHmmss|	qa-approved/20101107154555|
+|'builds/'yyyy/MM/dd/'build-${BUILD_NUMBER}'	|builds/2010/11/07/build-456 (if the build was number 456)|
+|yyyy_MM/'build'-EEE-d-HHmmss	|2010_11/build-Sun-7-154555|
+|yyyy-MM-dd_HH-mm-ss	|2010-11-07_15-45-55|
+
+**Exec timeout (ms)：**运行脚步的超时时间（毫秒）
+
+**Exec in pty**：模拟一个终端执行脚步
+
+**Add Transfer Set**
 如需要传输多个war包，可点击“Add Transfer Set”，增加一个传输模块
 
 如需要上传到多个“SSH Server”，可点击“Add Server”，增加一个服务器模块(系统设置中有多个“SSH Servers”)s

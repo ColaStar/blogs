@@ -312,6 +312,50 @@ LTS叫长期支持的。
     ```
     $ 本地文件上传服务器 scp -r local_folder remote_username@remote_ip:remote_folder
     $ 从服务器下载本地文件 scp -r remote_username@remote_ip:remote_folder local_folder
+
+    对拷文件夹 (包括文件夹本身)
+
+    scp -r   /home/wwwroot/www/charts/util root@192.168.1.65:/home/wwwroot/limesurvey_back/scp
+
+    对拷文件夹下所有文件 (不包括文件夹本身)
+
+    scp   /home/wwwroot/www/charts/util/* root@192.168.1.65:/home/wwwroot/limesurvey_back/scp
+
+    对拷文件并重命名
+
+    scp   /home/wwwroot/www/charts/util/a.txt root@192.168.1.65:/home/wwwroot/limesurvey_back/scp/b.text
+
+    /home/wwwroot/www/charts/util/           本地绝对路径
+
+    a.txt                                                     要拷贝
+
+    root                                                      通过root用户登录到远程服务器
+
+    192.168.1.65                                       远程服务器的ip地址
+
+    /home/wwwroot/limesurvey_back/scp  复制到远程服务器上的路径      （注意ip地址后有：）
+
+    注:  通常还在后面输入  用户名和密码
+
+    将远程服务器上的文件复制到本机
+
+    #scp remote@www.abc.com:/usr/local/sin.sh /home/administrator
+
+    remote                       通过remote用户登录到远程服务器（也可以使用其他拥有同等权限的用户）
+
+    www.abc.com              远程服务器的域名（当然也可以使用该服务器ip地址）
+
+    /usr/local/sin.sh           欲复制到本机的位于远程服务器上的文件
+
+    /home/administrator  将远程文件复制到本地的绝对路径
+
+    注意两点：
+
+    1.如果远程服务器防火墙有特殊限制，scp便要走特殊端口，具体用什么端口视情况而定，命令格式如下：
+
+    #scp -p 4588 remote@www.abc.com:/usr/local/sin.sh /home/administrator
+
+    2.使用scp要注意所使用的用户是否具有可读取远程服务器相应文件的权限。
     ```
 - windows和linux传输文件
     1. 下载`PSCP.exe`,配置Windows的环境变量Path，或者直接通过命令行访问到pscp.exe
@@ -673,6 +717,7 @@ daemon-reload 命令会做很多的事情，其中之一是重新生成依赖树
 - sudo -s
 - whoami 查看当前用户
 - who 查看所有登陆用户
+- echo $USER 查看当前用户
 - useradd (选项) (参数)
     **选项**
     ```
@@ -754,6 +799,20 @@ daemon-reload 命令会做很多的事情，其中之一是重新生成依赖树
     chmod u=rwx g=rwx o=rwx
     $ chmod u=rwx,g=rw,o=r file
     ```
+- chattr
+
+    ```
+    chattr可以防止关键文件被修改
+    在linux下，有些配置文件是不允许任何人包括root修改的，为了防止被误删除或修改，
+    可以设定该文件的"不可修改位(immutable)"。
+    
+    例如：
+    chattr +i /etc/fstab
+    如果需要修改文件则：
+    chattr -i /etc/fstab
+    以后再修改文件。
+
+   ```
 
 ### 8.软件安装和管理
 - APT (Advanced Package Tool,高级软件包工具) 是一个强大的包管理系统，而那些图形化程序如 添加/删除 应用程序 和 Synaptic 都是建立在它的基础之上的。APT 自动处理依赖关系并在系统软件包执行其他操作以便安装所要的软件包
