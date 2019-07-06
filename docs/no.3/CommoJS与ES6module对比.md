@@ -699,22 +699,22 @@ console.log(remove(), add())
 
 
 ## 参考链接
-ECMAScript® 2015 Language Specification sec-imports/
-sec-exports
+[ECMAScript® 2015 Language Specification sec-imports/
+sec-exports](http://www.ecma-international.org/ecma-262/6.0/)
 
-MDN import
+[MDN import](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import)
 
-github nodejs lib/module
+[github nodejs lib/module](https://github.com/nodejs/node/blob/master/lib/internal/modules/cjs/loader.js)
 
-github nodejs node-eps/002-es-modules
+[github nodejs node-eps/002-es-modules](https://github.com/nodejs/node-eps/blob/master/002-es-modules.md)
 
-nodejs docs modules
+[nodejs docs modules](https://nodejs.org/dist/latest-v10.x/docs/api/modules.html)
 
-Understanding ECMAScript 6
+[Understanding ECMAScript 6](https://leanpub.com/understandinges6/read)
 
-ECMAScript 6 入门
+[ECMAScript 6 入门](https://www.jqhtml.com/7065.html)
 
-es6-modules-final
+[es6-modules-final](http://2ality.com/2014/09/es6-modules-final.html)
 
 
 
