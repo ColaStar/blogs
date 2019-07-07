@@ -1,4 +1,4 @@
-# gulp简介
+## gulp简介
 ![](./images/gulp.jpg)
 官网介绍gulp是一个流构建系统（The streaming build system）
 
