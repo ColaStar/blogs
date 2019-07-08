@@ -131,4 +131,4 @@ module.exports = function(cheerio) {
 - grunt  基于文件 I/O
 - yo 发布一些自己的模块
 - bower 安装依赖
-- browserify 能够让本地的 js 应用服务端的 js，让 js 直接就具有 require 的能力
+-browserify 能够让本地的 js 应用服务端的 js，让 js 直接就具有 require 的能力
