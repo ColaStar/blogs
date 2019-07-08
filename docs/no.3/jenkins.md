@@ -7,7 +7,7 @@ jenkins产品发布流程(**java**)
 
 ![](https://img-blog.csdn.net/20180928144418846?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzNjAzNDM3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
-![](./images/jenkins_流程图2.jpg)
+![](./images/jenkins_流程图3.jpg)
 
 
 通过上图可以看到，jenkins帮我们持续、自动地构建/测试软件项目。
