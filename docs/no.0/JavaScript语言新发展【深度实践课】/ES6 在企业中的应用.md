@@ -2,7 +2,7 @@ ES6在企业中的应用
 ------------------------------------------------------------------------------------------------
 #### 1.1 js的发展历史
 
-<a data-fancybox title="js的发展历史" href="/images/01-js的发展历史.png">![js的发展历史](/images/01-js的发展历史.png)</a>
+<a data-fancybox title="js的发展历史" href="https://raw.githubusercontent.com/ColaStar/static/master/images/01-js的发展历史.png">![js的发展历史](https://raw.githubusercontent.com/ColaStar/static/master/images/01-js的发展历史.png)</a>
 
 #### 1.2 TC39
 推进 JavaScript 发展的委员会
@@ -12,7 +12,7 @@ ES6在企业中的应用
 - 会议由会员公司的代表与特邀专家出席
 TC39 实行的是协商一致的原则：通过一项决议必须得到每一位会员（公司代表）的赞成
 
-<a data-fancybox title="02-TC39历史" href="/images/02-TC39历史.png">![02-TC39历史](/images/02-TC39历史.png)</a>
+<a data-fancybox title="02-TC39历史" href="https://raw.githubusercontent.com/ColaStar/static/master/images/02-TC39历史.png">![02-TC39历史](https://raw.githubusercontent.com/ColaStar/static/master/images/02-TC39历史.png)</a>
 
 ### 2. 新特性
 
@@ -205,7 +205,7 @@ inherit(Student, People);	// 继承父构造函数
 
 ### 2.8 Promise
 
-<a data-fancybox title="promises" href="/images/promises.png">![promises](/images/promises.png)</a>
+<a data-fancybox title="promises" href="https://raw.githubusercontent.com/ColaStar/static/master/images/promises.png">![promises](https://raw.githubusercontent.com/ColaStar/static/master/images/promises.png)</a>
 
 思想的转变
 es6promise
@@ -220,8 +220,8 @@ await().then(function() {
   // xxx
 });
 ```
-<a data-fancybox title="promises" href="/images/04-Promise.png">![promises](/images/04-Promise.png)</a>
-<a data-fancybox title="promises" href="/images/05-Promise.png">![promises](/images/05-Promise.png)</a>
+<a data-fancybox title="promises" href="https://raw.githubusercontent.com/ColaStar/static/master/images/04-Promise.png">![promises](https://raw.githubusercontent.com/ColaStar/static/master/images/04-Promise.png)</a>
+<a data-fancybox title="promises" href="https://raw.githubusercontent.com/ColaStar/static/master/images/05-Promise.png">![promises](https://raw.githubusercontent.com/ColaStar/static/master/images/05-Promise.png)</a>
 ### 3. 其他新特性
 ```
 generators

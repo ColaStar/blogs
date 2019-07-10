@@ -245,7 +245,7 @@ app.listen(3000);
 6…
 
 7.最外层的中间件收回执行权后，执行next函数后面的代码。
-![](/images/koa.png)
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/koa.png)
 我们直接看下面的例子：
 ```
 const Koa = require('koa');

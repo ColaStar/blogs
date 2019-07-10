@@ -423,7 +423,7 @@ server {
 收费服务，使用超级简单，可以方便的对进程的服务情况进行监控。可以试用下，地址在[这里](https://app.keymetrics.io/)。
 
 这里贴个项目中试用的截图。
-![](./images/pm2监控图.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/pm2监控图.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/pm2监控图.png)</a>
 
 
 ## pm2编程接口

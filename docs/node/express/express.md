@@ -559,7 +559,7 @@ $ DEBUG=myapp:* npm start
 ## 总结
 
 express中间件是顺序执行，冲第一个中间件执行到最后一个中间件，发起响应。如下图
-<a data-fancybox title="" href="/images/express顺序.png">![](/images/express顺序.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/express顺序.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/express顺序.png)</a>
 
 在以上express介绍中只是入门的一些知识，更多api的可以前往[官网](http://www.expressjs.com.cn/4x/api.html)查看
 
