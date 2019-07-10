@@ -291,7 +291,7 @@ module.exports = {
             text: 'centos遇到的一些问题',
             items: [{
               text: 'centos遇到的一些问题',
-              link: '/no.3/centos遇到的一些问题'
+              link: '/no.3/centos_jenkins_nginx遇到的一些问题'
             }]
           },
           {
