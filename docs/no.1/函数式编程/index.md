@@ -8,7 +8,7 @@
 ### 范畴论
 1. 函数式编程是范畴论的数学分支是一门很复杂的数学，认为世界上所有概念体系都可以抽象出一个个范畴
 2. 彼此之间存在某种关系概念、事务、对象等等，都构成范畴。任何事物只要找出他们之间的关系，就能定义。3.箭头表示范畴成员之间的关系，正式名称叫做 "态射" 。范畴论认为，同一个范畴的所有成员，就是不同状态的变形关系。通过 "态射" ，一个成员可以变形成另一种成员。
-<a data-fancybox title="" href="https://github.com/ColaStar/static/blob/master/images/范畴论_category.png">![](https://github.com/ColaStar/static/blob/master/images/范畴论_category.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/范畴论_category.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/范畴论_category.png)</a>
 -------
 
 ### 函数编程基础理论
@@ -108,7 +108,7 @@ xs.splice(0,3);
 2. 不修改状态
 3. 引用透明（函数运行只靠参数）
 
-<a data-fancybox title="" href="https://github.com/ColaStar/static/blob/master/images/纯函数优缺点.png">![](https://github.com/ColaStar/static/blob/master/images/纯函数优缺点.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/纯函数优缺点.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/纯函数优缺点.png)</a>
 ----------------
 
 ### **纯度和幂等性**
@@ -466,7 +466,7 @@ var loudLastUpper = compose(angry, last);
 
 // 更多变种...
 ```
-<a data-fancybox title="" href="https://github.com/ColaStar/static/blob/master/images/函数组合.png">![](https://github.com/ColaStar/static/blob/master/images/函数组合.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/函数组合.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/函数组合.png)</a>
 
 #### Point Free
 - 把一些对象自带的方法转化成纯函数,不要命名转瞬即逝
@@ -592,7 +592,7 @@ function f(x) {
 
 我们知道，函数调用会在内存形成一个"调用记录"，又称"调用帧"（call frame），保存调用位置和内部变量等信息。如果在函数A的内部调用函数B，那么在A的调用记录上方，还会形成一个B的调用记录。等到B运行结束，将结果返回到A，B的调用记录才会消失。如果函数B内部还调用函数C，那就还有一个C的调用记录栈，以此类推。所有的调用记录，就形成一个"调用栈"（call stack）。
 
-<a data-fancybox title="" href="https://github.com/ColaStar/static/blob/master/images/调用栈.png">![](https://github.com/ColaStar/static/blob/master/images/调用栈.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/调用栈.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/调用栈.png)</a>
 
 尾调用由于是函数的最后一步操作，所以不需要保留外层函数的调用记录，因为调用位置、内部变量等信息都不会再用到了，只要直接用内层函数的调用记录，取代外层函数的调用记录就可以了。
 ```
@@ -621,7 +621,7 @@ g(3);
 
 简单的来说递归就是一个函数直接或间接地调用自身，是为直接或间接递归。一般来说，递归需要有边界条件、递归前进段和递归返回段。当边界条件不满足时，递归前进；当边界条件满足时，递归返回。用递归需要注意以下两点：(1) 递归就是在过程或函数里调用自身。(2) 在使用递归策略时，必须有一个明确的递归结束条件，称为递归出口。
 
-<a data-fancybox title="" href="https://github.com/ColaStar/static/blob/master/images/传统递归.png">![](https://github.com/ColaStar/static/blob/master/images/传统递归.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/传统递归.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/传统递归.png)</a>
 
 **递归一般用于解决三类问题：**
 
@@ -640,7 +640,7 @@ g(3);
 
 递归非常耗费内存，因为需要同时保存成千上百个调用记录，很容易发生"栈溢出"错误（stack overflow）。但对于尾递归来说，由于```只存在一个调用记录(一个函数堆栈)```，所以永远不会发生"栈溢出"错误。
 
-<a data-fancybox title="" href="https://github.com/ColaStar/static/blob/master/images/尾递归.png">![](https://github.com/ColaStar/static/blob/master/images/尾递归.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/尾递归.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/尾递归.png)</a>
 
 ##### 尾递归优化
 
@@ -657,7 +657,7 @@ return factorial(n - 1, n * total);
 } //ES6强制使用尾递归
 ```
 
-<a data-fancybox title="" href="https://github.com/ColaStar/static/blob/master/images/尾递归优化.png">![](https://github.com/ColaStar/static/blob/master/images/尾递归优化.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/尾递归优化.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/尾递归优化.png)</a>
 
 尾递归问题：
 1. 尾递归的判断标准是函数运行【最后一步】是否调用自身，
@@ -675,7 +675,7 @@ return factorial(n - 1, n * total);
 
 
 #### 闭包
-<a data-fancybox title="" href="https://github.com/ColaStar/static/blob/master/images/闭包.png">![](https://github.com/ColaStar/static/blob/master/images/闭包.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/闭包.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/闭包.png)</a>
 
 大白话理解：拿到你不应该拿到的东西，为什么这么说，本来这个东西不是你的但是在函数的私有的内部，但想取到，就用到了闭包。
 
@@ -707,7 +707,7 @@ return factorial(n - 1, n * total);
 单位和功能单位。它首先是一种范畴，也就是说，是一个容
 器，包含了值和变形关系。比较特殊的是，它的变形关系可
 以依次作用于每一个值，将当前容器变形成另一个容器。
-<a data-fancybox title="" href="https://github.com/ColaStar/static/blob/master/images/变形关系.png">![](https://github.com/ColaStar/static/blob/master/images/变形关系.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/变形关系.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/变形关系.png)</a>
 ---------------
 
 #### 容器、Functor（函子）
@@ -1058,10 +1058,10 @@ readFile('./user.txt')
 ```
 
 
-<a data-fancybox title="" href="https://github.com/ColaStar/static/blob/master/images/mound1.png">![](https://github.com/ColaStar/static/blob/master/images/mound1.png)</a>
-<a data-fancybox title="" href="https://github.com/ColaStar/static/blob/master/images/mound2.png">![](https://github.com/ColaStar/static/blob/master/images/mound2.png)</a>
-<a data-fancybox title="" href="https://github.com/ColaStar/static/blob/master/images/mound3.png">![](https://github.com/ColaStar/static/blob/master/images/mound3.png)</a>
-<a data-fancybox title="" href="https://github.com/ColaStar/static/blob/master/images/mound4.png">![](https://github.com/ColaStar/static/blob/master/images/mound4.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/mound1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/mound1.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/mound2.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/mound2.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/mound3.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/mound3.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/mound4.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/mound4.png)</a>
 
 
 #### Mound 函子

@@ -30,7 +30,7 @@
 * Macaca 一套完整的自动化测试解决方案 国产神器来自阿里巴巴
 
 
-![](https://github.com/ColaStar/static/blob/master/images/流程.png)
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/流程.png)
 
 #### karma 集成 Jasmine 进行单元测试
 
