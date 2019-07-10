@@ -330,7 +330,7 @@ jenkins服务器上生成密钥对，使用ssh-keygen -t rsa命令
 
 在jenkins页面“系统管理”-->"系统设置"中的Publish Over SSH标签配置如下
 
-<a data-fancybox title="" href="./images/Publish_Over_SSH1.png">![](./images/Publish_Over_SSH1.png)</a>
+<a data-fancybox title="" href="https://github.com/ColaStar/static/blob/master/images/Publish_Over_SSH1.png">![](https://github.com/ColaStar/static/blob/master/images/Publish_Over_SSH1.png)</a>
 
 Passphrase：密码（key的密码，如果你设置了）
 
