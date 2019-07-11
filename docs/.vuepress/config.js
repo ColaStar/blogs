@@ -117,6 +117,105 @@ module.exports = {
               }
             ]
           },
+          // 前端自动化与工程化
+          {
+            text: '前端工程化',
+            items: [{
+                text: '免密登录',
+                link: '/no.3/免密登录'
+              },
+              {
+                text: '前端自动化',
+                link: '/no.3/前端自动化'
+              },
+              {
+                text: '文件操作权限',
+                link: '/no.3/文件操作权限'
+              },
+              {
+                text: 'bower',
+                link: '/no.3/bower'
+              },
+              {
+                text: 'browserify',
+                link: '/no.3/browserify'
+              },
+              {
+                text: 'centos问题整理',
+                link: '/no.3/centos_jenkins_nginx遇到的一些问题'
+              },
+              {
+                text: 'CommoJS与ES6module对比',
+                link: '/no.3/CommoJS与ES6module对比'
+              },
+              {
+                text: 'grunt',
+                link: '/no.3/grunt'
+              },
+              {
+                text: 'gulp',
+                link: '/no.3/gulp'
+              },
+              {
+                text: 'jenkins',
+                link: '/no.3/jenkins'
+              },
+              {
+                text: 'sed与awk',
+                link: '/no.3/linux_sed_awk'
+              },
+              {
+                text: 'LINUX创建文件和目录的默认权限',
+                link: '/no.3/LINUX创建文件和目录的默认权限'
+              },
+              {
+                text: 'linux防火墙',
+                link: '/no.3/linux防火墙'
+              },
+              {
+                text: 'parcel',
+                link: '/no.3/parcel'
+              },
+
+              {
+                text: 'pm2指南',
+                link: '/no.3/pm2指南'
+              },
+              {
+                text: 'rollup',
+                link: '/no.3/rollup'
+              },
+              {
+                text: 'webpack',
+                link: '/no.3/webpack'
+              },
+              {
+                text: 'yeoman',
+                link: '/no.3/yeoman'
+              },
+            ]
+          },
+           // 前端优化
+           {
+            text: '前端优化',
+            items: [{
+                text: '雅虎军规',
+                link: '/no.4/雅虎军规'
+              },
+              {
+                text: '面向切面编程',
+                link: '/no.4/面向切面编程'
+              },
+              {
+                text: '前端高级调试',
+                link: '/no.4/前端高级调试'
+              },
+              {
+                text: 'js内存泄露',
+                link: '/no.4/js内存泄露'
+              }
+            ]
+          },
           //no.0   Linux
           {
             text: 'Linux',
