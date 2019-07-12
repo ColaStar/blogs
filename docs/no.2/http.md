@@ -585,6 +585,18 @@ Cache-Control 是最重要的规则。常见的取值有private、public、no-ca
 图中Cache-Control仅指定了max-age，所以默认为private，缓存时间为31536000秒（365天） 
 也就是说，在365天内再次请求这条数据，都会直接获取缓存数据库中的数据，直接使用。
 
+设置缓存方式
+
+1.通过HTTP的META设置expires和cache-control
+```
+ <meta http-equiv="Cache-Control" content="max-age=7200" />
+ <meta http-equiv="Expires" content="Sun Oct 15 2017 20:39:53 GMT+0800 (CST)" />
+ ```
+
+这样写的话仅对该网页有效，对网页中的图片或其他请求无效。
+2.在nginx上设置
+3.服务器直接设置
+
 ##### 比较缓存
 
 既然有了强缓，那对比缓存还会存在吗？答案是两类缓存规则可以同时存在，强制缓存优先级高于对比缓存，也就是说，当执行强制缓存的规则时，如果缓存生效，直接使用缓存，不再执行对比缓存规则。
