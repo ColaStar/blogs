@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /bg.png
+heroImage: https://raw.githubusercontent.com/ColaStar/static/master/images/head.jpeg
 actionText: Get Started →
 actionLink: /
 features:
