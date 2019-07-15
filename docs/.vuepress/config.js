@@ -213,7 +213,16 @@ module.exports = {
               {
                 text: 'js内存泄露',
                 link: '/no.4/js内存泄露'
-              }
+              },
+              {
+                text: '前端性能优化',
+                link: '/no.4/前端性能优化'
+              },
+              {
+                text: '前端性能优化之缓存利用',
+                link: '/no.4/前端性能优化之缓存利用'
+              },
+
             ]
           },
           //no.0   Linux
