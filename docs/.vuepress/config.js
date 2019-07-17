@@ -120,6 +120,18 @@ module.exports = {
               }
             ]
           },
+          //其他相关
+           //no.0   php&mysql
+           {
+            text: '其他相关',
+            items: [{
+              text: '优雅降级与渐进增强',
+              link: '/other/优雅降级与渐进增强'
+            },{
+              text: 'TypeScript',
+              link: '/other/TypeScript'
+            }]
+          },
           // 前端自动化与工程化
           {
             text: '前端工程化',
@@ -207,7 +219,7 @@ module.exports = {
               },
               {
                 text: '面向切面编程',
-                link: '/no.4/面向切面编程'
+                link: '/no.4/aop面向切面编程'
               },
               {
                 text: '前端高级调试',
@@ -225,7 +237,34 @@ module.exports = {
                 text: '前端性能优化之缓存利用',
                 link: '/no.4/前端性能优化之缓存利用'
               },
-
+              {
+                text: '前端性监控',
+                link: '/no.4/前端性监控'
+              },
+              {
+                text: 'basketJS',
+                link: '/no.4/basketJS'
+              },
+              {
+                text: 'IOC/DI',
+                link: '/no.4/ioc_DI'
+              },
+              {
+                text: 'fundbug',
+                link: '/no.4/fundbug'
+              },
+              {
+                text: 'localForage',
+                link: '/no.4/localForage'
+              },
+              {
+                text: 'pajax',
+                link: '/no.4/pajax'
+              },
+              {
+                text: 'quicklink',
+                link: '/no.4/quicklink'
+              },
             ]
           },
           //no.0   Linux
