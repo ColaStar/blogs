@@ -121,8 +121,7 @@ module.exports = {
             ]
           },
           //其他相关
-           //no.0   php&mysql
-           {
+          {
             text: '其他相关',
             items: [{
               text: '优雅降级与渐进增强',
