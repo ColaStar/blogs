@@ -64,3 +64,11 @@ function infiniteLoop(): never {
     while (true) {
     }
 }
+
+// 接口规则
+
+// interface obj
+function createdsquare(a:string,b:boolean,c?:string){
+   console.log(a,b,c)
+}
+createdsquare('1',true,3)
