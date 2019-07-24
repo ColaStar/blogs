@@ -129,6 +129,9 @@ module.exports = {
             },{
               text: 'TypeScript',
               link: '/other/TypeScript'
+            },{
+              text: '网站令浏览器崩溃的原因',
+              link: '/other/网站令浏览器崩溃的原因'
             }]
           },
           // 前端自动化与工程化
