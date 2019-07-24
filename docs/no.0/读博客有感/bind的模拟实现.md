@@ -137,7 +137,7 @@ Function.prototype.bind2 = function(context){
     throw new Error("Function.prototype.bind - what is trying to be bound is not callable");
   }
      var _self = this;
-     var args = Array.prototype.slice.call(1,arguments);
+     var args = Array.prototype.slice.call(arguments,1);
      var trfn = function(){}
      var returnFn = function(){
          var bindArgs = Array,prototype.slice.call(arguments);
