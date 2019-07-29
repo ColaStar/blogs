@@ -1,19 +1,14 @@
-webpack.md# webpack
+# webpack
 
-webpack的1版本和2版本都以及过时了,为了遇到一些老得项目时可用
-
-- webpack 1
-- webpack 2
-- webpack 3
-- webpack 4
-
-站在巨人的肩膀（抄的各种第三方）
+站在巨人的肩膀
  
-## .Webpack是什么?
+## Webpack是什么?
+
 Webpack是一个模块打包工具，在Webpack里一切文件皆模块。通过loader转换文件，通过plugin注入钩子，最后输出由多个模块组合的文件。Webpack专注构建模块化项目。
 Webpack可以看作是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其他一些不能被浏览器直接运行的扩展语音(如：Scss,TypeScript等)，并将其打包为合适的格式以供浏览器使用。
 
 ## Webpack与Grunt、Gulp的不同？
+
 Grunt/Gulp是一种能够优化前端开发流程的工具，而Webpack是一种模块化的解决方案。
 
 ### 工作方式不同
@@ -546,3 +541,6 @@ module.exports = {
 
 ![](https://raw.githubusercontent.com/ColaStar/static/master/images/手写loader.png)
 
+
+webpack的1版本和2版本都以及过时了,为了遇到一些老得项目时可用
+后期补webpack1 2 3 4 的不同
