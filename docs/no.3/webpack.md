@@ -195,7 +195,7 @@ module.exports = config;
 
 Webpack的热更新有称为热替换(Hot Module Replacement)，缩写为HMR。这个机制可以实现不刷新浏览器而将新变更的模块替换旧的模块。原来如下：
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack热更新.jpeg)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/webpack热更新.jpeg">![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack热更新.jpeg)</a>
 
 > server端和client端都做了哪些具体工作：
 
@@ -280,21 +280,36 @@ module.exports = {
 - 当前模块大小大于30kb, 如果此模块是按需加载，并行请求的最大数量小于等于5
 - 如果此模块在初始页面加载，并行请求的最大数量小于等于 3
 
+`runtimeChunk`的作用是将包含`chunks `映射关系的 `list`单独从 `app.js`里提取出来，因为每一个 `chunk` 的 `id` 基本都是基于内容 `hash` 出来的，所以你每次改动都会影响它，如果不将它提取出来的话，等于`app.js`每次都会改变。缓存就失效了。
+
 ```
 optimization: {
     runTimeChunk:{
       name:'runtime'
     },
     splitChunks: {
-        chunks: 'async', // all async initial（所有 异步 同步） 是否对异步代码进行的代码分割
-        minSize: 30000,  // 引入模块大于30kb才进行代码分割
+        chunks: 'async', 是否对异步代码进行的代码分割
+        //默认作用于异步chunk，值为all/initial/async/function(chunk),值为function时第一个参数为遍历所有入口chunk时的chunk模块，chunk._modules为gaichunk所有依赖的模块，通过chunk的名字和所有依赖模块的resource可以自由配置,会抽取所有满足条件chunk的公有模块，以及模块的所有依赖模块，包括css
+        minSize: 30000,  // 引入模块大于30kb才进行代码分割  //默认值是30kb
         maxSize: 0, // 引入模块大于Xkb时，尝试对引入模块二次拆分引入
-        minChunks: 2, // 引入模块至被使用2次后才进行代码分割
-        maxAsyncRequests: 5, // 最大请求次数
-        maxInitialRequests: 3,
+        minChunks: 2, // 引入模块至被使用2次后才进行代码分割  //被多少模块共享
+        maxAsyncRequests: 5, //  //所有异步请求不得超过5个，最大请求数
+        maxInitialRequests: 3,  //初始话并行请求不得超过3个
         automaticNameDelimiter: '~', // 模块间的连接符，默认为"~"
-        name: true,
-        cacheGroups: {//对缓存的文件生效
+        name: true,//打包后的名称，默认是chunk的名字通过分隔符（默认是～）分隔开，如vendor~
+        cacheGroups: {//对缓存的文件生效//设置缓存组用来抽取满足不同规则的chunk,下面以生成common为例
+            common: {
+              name: 'common',  //抽取的chunk的名字
+              chunks(chunk) { //同外层的参数配置，覆盖外层的chunks，以chunk为维度进行抽取
+              },
+              test(module, chunks) {  //可以为字符串，正则表达式，函数，以module为维度进行抽取，只要是满足条件的module都会被抽取到该common的chunk中，为函数时第一个参数是遍历到的每一个模块，第二个参数是每一个引用到该模块的chunks数组。自己尝试过程中发现不能提取出css，待进一步验证。
+              },
+              priority: 10,  //优先级，一个chunk很可能满足多个缓存组，会被抽取到优先级高的缓存组中
+              minChunks: 2,  //最少被几个chunk引用
+              reuseExistingChunk: true，//	如果该chunk中引用了已经被抽取的chunk，直接引用该chunk，不会重复打包代码
+              enforce: true  // 如果cacheGroup中没有设置minSize，则据此判断是否使用上层的minSize，true：则使用0，false：使用上层minSize
+            }
+
             vendors: {
                 test: /[\\/]node_modules[\\/]/,
                 priority: -10  // 优先级，越小优先级越高
@@ -308,6 +323,16 @@ optimization: {
     }
 }
 ```
+
+为啥移除呢？
+CommonsChunkPlugin存在以下三个问题：
+
+- 1:产出的chunk在引入的时候，会包含重复的代码；
+
+- 2: 无法优化异步chunk；
+- 3:高优的chunk产出需要的minchunks配置比较复杂。
+
+为了解决这些问题，webpack4中用splitchunks替代了CommonsChunkPlugin。
 
 > Smaller = false
 
@@ -526,7 +551,7 @@ module.exports = {
 
 ## 编写过webpack插件
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/编写过webpack插件.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/编写过webpack插件.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/编写过webpack插件.png)</a>
 
 - 1、Webpack 通过 Plugin 机制让其更加灵活，以适应各种应用场景。在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。
 - 2、Webpack 启动后，在读取配置的过程中会先执行 new BasicPlugin(options) 初始化一个 BasicPlugin 获得其实例。在初始化 compiler 对象后，再调用 basicPlugin.apply(compiler) 给插件实例传入 compiler 对象。插件实例在获取到 compiler 对象后，就可以通过 compiler.plugin(事件名称, 回调函数) 监听到 Webpack 广播出来的事件。并且可以通过 compiler 对象去操作 Webpack。
@@ -539,8 +564,7 @@ module.exports = {
 - 1、一个 Loader 的职责是单一的，只需要完成一种转换。如果一个源文件需要经历多步转换才能正常使用，就通过多个 Loader 去转换。在调用多个 Loader 去转换一个文件时，每个 Loader 会链式的顺序执行， 第一个 Loader 将会拿到需处理的原内容，上一个 Loader 处理后的结果会传给下一个接着处理，最后的 Loader 将处理后的最终结果返回给 Webpack。
 - 2、所以，在你开发一个 Loader 时，请保持其职责的单一性，你只需关心输入和输出。
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/手写loader.png)
-
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/手写loader.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/手写loader.png)</a>
 
 webpack的1版本和2版本都以及过时了,为了遇到一些老得项目时可用
 后期补webpack1 2 3 4 的不同
