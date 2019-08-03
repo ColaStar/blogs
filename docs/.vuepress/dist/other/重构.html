@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>重构 - 改善既有代码的设计</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.3e9a3537.css" as="style"><link rel="preload" href="/assets/js/app.8af69535.js" as="script"><link rel="preload" href="/assets/js/2.d648d88f.js" as="script"><link rel="preload" href="/assets/js/94.a55f0129.js" as="script"><link rel="prefetch" href="/assets/js/10.97610f94.js"><link rel="prefetch" href="/assets/js/11.59159f0c.js"><link rel="prefetch" href="/assets/js/12.efe3f21c.js"><link rel="prefetch" href="/assets/js/13.4a4c78f6.js"><link rel="prefetch" href="/assets/js/14.9b72df4f.js"><link rel="prefetch" href="/assets/js/15.3a6d7ce1.js"><link rel="prefetch" href="/assets/js/16.eac41172.js"><link rel="prefetch" href="/assets/js/17.b13e21b8.js"><link rel="prefetch" href="/assets/js/18.5f5840be.js"><link rel="prefetch" href="/assets/js/19.3c8bc831.js"><link rel="prefetch" href="/assets/js/20.2fd802c3.js"><link rel="prefetch" href="/assets/js/21.fe1c3bc8.js"><link rel="prefetch" href="/assets/js/22.b8dff5d8.js"><link rel="prefetch" href="/assets/js/23.4e04791f.js"><link rel="prefetch" href="/assets/js/24.48f5c1ac.js"><link rel="prefetch" href="/assets/js/25.c582d482.js"><link rel="prefetch" href="/assets/js/26.5548d10a.js"><link rel="prefetch" href="/assets/js/27.78bcd32b.js"><link rel="prefetch" href="/assets/js/28.2b769fda.js"><link rel="prefetch" href="/assets/js/29.82f7b390.js"><link rel="prefetch" href="/assets/js/3.06e36435.js"><link rel="prefetch" href="/assets/js/30.0f65a25c.js"><link rel="prefetch" href="/assets/js/31.572dbd84.js"><link rel="prefetch" href="/assets/js/32.dc820faa.js"><link rel="prefetch" href="/assets/js/33.c4d79304.js"><link rel="prefetch" href="/assets/js/34.8a5f4a08.js"><link rel="prefetch" href="/assets/js/35.2c795c98.js"><link rel="prefetch" href="/assets/js/36.789c9c9e.js"><link rel="prefetch" href="/assets/js/37.3b778f0f.js"><link rel="prefetch" href="/assets/js/38.6d1dd60a.js"><link rel="prefetch" href="/assets/js/39.cf555500.js"><link rel="prefetch" href="/assets/js/4.84833d8d.js"><link rel="prefetch" href="/assets/js/40.38d7da84.js"><link rel="prefetch" href="/assets/js/41.4eaa1dc4.js"><link rel="prefetch" href="/assets/js/42.5c79ceb8.js"><link rel="prefetch" href="/assets/js/43.58226bd6.js"><link rel="prefetch" href="/assets/js/44.722d8e47.js"><link rel="prefetch" href="/assets/js/45.8c4a2969.js"><link rel="prefetch" href="/assets/js/46.e4e5942d.js"><link rel="prefetch" href="/assets/js/47.e571d66e.js"><link rel="prefetch" href="/assets/js/48.3779b538.js"><link rel="prefetch" href="/assets/js/49.b62a8e2a.js"><link rel="prefetch" href="/assets/js/5.751146ce.js"><link rel="prefetch" href="/assets/js/50.840600be.js"><link rel="prefetch" href="/assets/js/51.907d2772.js"><link rel="prefetch" href="/assets/js/52.be2fc8cd.js"><link rel="prefetch" href="/assets/js/53.32c22580.js"><link rel="prefetch" href="/assets/js/54.7c74f55b.js"><link rel="prefetch" href="/assets/js/55.67be651f.js"><link rel="prefetch" href="/assets/js/56.3d130b37.js"><link rel="prefetch" href="/assets/js/57.c0e4f872.js"><link rel="prefetch" href="/assets/js/58.64090566.js"><link rel="prefetch" href="/assets/js/59.35dd6971.js"><link rel="prefetch" href="/assets/js/6.8e7ccfda.js"><link rel="prefetch" href="/assets/js/60.482cf2bf.js"><link rel="prefetch" href="/assets/js/61.a19ad285.js"><link rel="prefetch" href="/assets/js/62.7b18e1a1.js"><link rel="prefetch" href="/assets/js/63.5c77d49e.js"><link rel="prefetch" href="/assets/js/64.dd4fb2a7.js"><link rel="prefetch" href="/assets/js/65.48fd33a6.js"><link rel="prefetch" href="/assets/js/66.0d04e98a.js"><link rel="prefetch" href="/assets/js/67.07ba1b61.js"><link rel="prefetch" href="/assets/js/68.2fb5db48.js"><link rel="prefetch" href="/assets/js/69.61df01c4.js"><link rel="prefetch" href="/assets/js/7.df0e3edb.js"><link rel="prefetch" href="/assets/js/70.199971e9.js"><link rel="prefetch" href="/assets/js/71.d7777450.js"><link rel="prefetch" href="/assets/js/72.4d262caf.js"><link rel="prefetch" href="/assets/js/73.1924c279.js"><link rel="prefetch" href="/assets/js/74.f907ae48.js"><link rel="prefetch" href="/assets/js/75.7d8db399.js"><link rel="prefetch" href="/assets/js/76.5d637a94.js"><link rel="prefetch" href="/assets/js/77.931da172.js"><link rel="prefetch" href="/assets/js/78.27b3debd.js"><link rel="prefetch" href="/assets/js/79.86a40c03.js"><link rel="prefetch" href="/assets/js/8.58e59b8f.js"><link rel="prefetch" href="/assets/js/80.42daa631.js"><link rel="prefetch" href="/assets/js/81.2eb1325e.js"><link rel="prefetch" href="/assets/js/82.5fb6983f.js"><link rel="prefetch" href="/assets/js/83.482a58ff.js"><link rel="prefetch" href="/assets/js/84.f4b8414f.js"><link rel="prefetch" href="/assets/js/85.1c79c80f.js"><link rel="prefetch" href="/assets/js/86.4eae8bf0.js"><link rel="prefetch" href="/assets/js/87.b3991055.js"><link rel="prefetch" href="/assets/js/88.24233d08.js"><link rel="prefetch" href="/assets/js/89.7e4bb512.js"><link rel="prefetch" href="/assets/js/9.f8806773.js"><link rel="prefetch" href="/assets/js/90.a767744f.js"><link rel="prefetch" href="/assets/js/91.653caad6.js"><link rel="prefetch" href="/assets/js/92.7fe1d11c.js"><link rel="prefetch" href="/assets/js/93.793830f9.js"><link rel="prefetch" href="/assets/js/95.17c4d61f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3e9a3537.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="重构-改善既有代码的设计"><a href="#重构-改善既有代码的设计" aria-hidden="true" class="header-anchor">#</a> 重构 - 改善既有代码的设计</h1> <h2 id="_1-重构，第一个示例"><a href="#_1-重构，第一个示例" aria-hidden="true" class="header-anchor">#</a> 1 重构，第一个示例</h2> <ul><li>重构前，先检查自己是否有一套可靠的测试集。这些测试必须有自我验证能力。TDD</li> <li>重构技术就是以微小的步伐修改程序。如果犯下错误，很容易便可发现它。</li> <li>傻瓜都能写出计算机可以理解的代码。唯有能写出人类容易理解的代码的，才是优秀的程序员。</li> <li>编程时，需要遵循营地法则：保证你离开时，代码库一定比来的时候更健康。</li> <li>好代码验证的标准是人们是否能轻而易举的修改它。</li></ul> <h2 id="_2-重构的原则"><a href="#_2-重构的原则" aria-hidden="true" class="header-anchor">#</a> 2 重构的原则</h2> <h3 id="_2-1-何谓重构"><a href="#_2-1-何谓重构" aria-hidden="true" class="header-anchor">#</a> 2.1 何谓重构</h3> <ul><li>重构：对软件内部结构的一种调整，目的是在<em>不改变可观察行为的前提下</em>，提高其可理解性，降低其修改成本。</li> <li>重构的关键在于运用大量小且保证软件行为的步骤，一步步达到大规模的修改。</li> <li>如果有人说他们的代码在重构过程中有1-2天时间不可用，基本上可以确定，他们在做的事不是重构。</li></ul> <h2 id="_2-2-两顶帽子"><a href="#_2-2-两顶帽子" aria-hidden="true" class="header-anchor">#</a> 2.2 两顶帽子</h2> <ul><li>添加新功能，可能需要优化之前的程序结构；当功能开发好，也需要优化下程序的结构。不同的角色切换，是在添加功能过程中必不可少的步骤。</li></ul> <h3 id="_2-3-为何重构"><a href="#_2-3-为何重构" aria-hidden="true" class="header-anchor">#</a> 2.3 为何重构</h3> <ul><li>改进软件的设计</li> <li>使软件更容易理解</li> <li>帮助开发者找到bug</li> <li>提高编程速度</li></ul> <h3 id="_2-4-何时重构"><a href="#_2-4-何时重构" aria-hidden="true" class="header-anchor">#</a> 2.4 何时重构</h3> <ul><li>预备性：让添加新功能更容易</li> <li>帮助理解：使代码更易懂</li> <li>捡垃圾式重构</li> <li>有计划和见机行事的重构：肮脏的代码必须重构，但漂亮的代码也需要很多重构</li> <li>长期重构</li> <li>复审代码时重构</li> <li>何时不应该重构：
+<ul><li>只有当需要理解其工作原理时</li> <li>如果重写比重构容易。</li></ul></li></ul> <h3 id="_2-5-重构的挑战"><a href="#_2-5-重构的挑战" aria-hidden="true" class="header-anchor">#</a> 2.5 重构的挑战</h3> <ul><li>缓解新功能开发
+<ul><li>重构的唯一目的就是让我们开发更快，用更少的工作量创造更大的价值</li> <li>重构应该总是由经济利益驱动，而不是在于把代码库打磨得闪闪发光</li></ul></li></ul> <h2 id="_10-简化条件逻辑"><a href="#_10-简化条件逻辑" aria-hidden="true" class="header-anchor">#</a> 10 简化条件逻辑</h2> <h1 id="_10-1-分解条件表达式"><a href="#_10-1-分解条件表达式" aria-hidden="true" class="header-anchor">#</a> 10.1 分解条件表达式</h1> <ul><li><p>目的：简化条件，易于理解代码逻辑</p></li> <li><p>场景：当检查处理逻辑复杂时</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>if(!date.isBefore(plan.summerStart) &amp;&amp; !date.isAfter(plan.summerEnd)){
+	charge = quanlity * plan.summerRate;
+}else{
+	charge = quanlity * plan.regularRate + plan.regularServiceCharge;
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>const isSummer = !date.isBefore(plan.summerStart) &amp;&amp; !date.isAfter(plan.summerEnd);
+function summerCharge(){
+	return quanlity * plan.summerRate;
+}
+function regularCharge(){
+	return quanlity * plan.regularRate + plan.regularServiceCharge;
+}
+
+charge = isSummer() ? summerCharge() : regularCharge();
+
+</code></pre></div></li></ul> <h1 id="_10-2-合并条件表达式"><a href="#_10-2-合并条件表达式" aria-hidden="true" class="header-anchor">#</a> 10.2 合并条件表达式</h1> <ul><li><p>目的：统一处理条件语句</p></li> <li><p>场景：当检查条件各不相同，最终行为一致时</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>if(age &lt; 18) return 'younger';
+if(exprience &lt; 5) return 'younger';
+if(!isPassTest) return 'younger';
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>if(isYounger()) return 'younger';
+function isYounger(){
+	return age&lt;18 || exprience &lt; 5 || !isPassTest
+}
+</code></pre></div></li></ul> <h1 id="_10-3-卫语句取代嵌套条件表达式"><a href="#_10-3-卫语句取代嵌套条件表达式" aria-hidden="true" class="header-anchor">#</a> 10.3 卫语句取代嵌套条件表达式</h1> <ul><li><p>目的：减少逻辑的复杂度</p></li> <li><p>场景：当出现需要单独检查某个特定条件时</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>function getPayment(){
+	let result;
+	if(isRead){
+		result = deadAmount();
+	}else{
+		if(isSeparated){
+			result = seperatedAmount();
+		}else{
+			if(isRetired){
+				result = retiredAmount();
+			}else{
+				result = normalAmount();
+			}
+		}
+	}
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>function getPayment(){
+	if(isRead) return deadAmount();
+	if(isSeparated) return seperatedAmount();
+	if(isRetired) return retiredAmount();
+	
+	return normalAmount();
+}
+</code></pre></div></li></ul> <h1 id="_10-4-以多态取代条件表达式"><a href="#_10-4-以多态取代条件表达式" aria-hidden="true" class="header-anchor">#</a> 10.4 以多态取代条件表达式</h1> <ul><li><p>目的：增强扩展性，减少逻辑的复杂度</p></li> <li><p>场景：当多个逻辑处理情况</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>switch(bird.type){
+	case 'EuropeanSwallow':
+		return 'EuropeanSwallow';
+	case 'AfricanSwallow':
+		return 'AfricanSwallow';
+	default:
+		return 'unknown';
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>class EuropeanSwallow{
+	get name(){
+		return 'EuropeanSwallow';
+	}
+}
+class AfricanSwallow{
+	get name(){
+		return 'AfricanSwallow';
+	}
+}
+</code></pre></div></li></ul> <h1 id="_10-5-引入特例"><a href="#_10-5-引入特例" aria-hidden="true" class="header-anchor">#</a> 10.5 引入特例</h1> <ul><li><p>目的：提供复用性以及统一性</p></li> <li><p>场景：如果某部分逻辑都在检查某个特殊值，并且处理的逻辑也都相同</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>if(customer === 'unknown'){
+	customerName = 'occupant';
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>class UnknowCustomer{
+	get name(){
+		return 'occupant';
+	}
+}
+</code></pre></div></li></ul> <h1 id="_10-6-引入断言"><a href="#_10-6-引入断言" aria-hidden="true" class="header-anchor">#</a> 10.6 引入断言</h1> <ul><li><p>目的：保障传入值是可预测的，预习发现测试的BUG</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>if(this.discountRate){
+	base = base - this.discountRate * base;
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>asset(this.discountRate&gt;0);
+if(this.discountRate){
+	base = base - this.discountRate * base;
+}
+</code></pre></div></li></ul> <h2 id="_11-重构api"><a href="#_11-重构api" aria-hidden="true" class="header-anchor">#</a> 11 重构API</h2> <h1 id="_11-1-查询函数和修改函数分离"><a href="#_11-1-查询函数和修改函数分离" aria-hidden="true" class="header-anchor">#</a> 11.1 查询函数和修改函数分离</h1> <ul><li><p>目的：减少函数副作用 =》任何有返回值的函数，都要减少它的副作用</p></li> <li><p>场景：当函数中又有查询，又有命令</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>function getTotalOutstadingAndSendBill(person){
+	const result = customer.invoice.reduce((total, each)=&gt;each.amount + total, 0);
+	sendBill();
+	return result;
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>function getTotalOutstading(person){
+	return customer.invoice.reduce((total, each)=&gt;each.amount + total, 0);
+}
+function sendBill(){}
+function handler(){
+	const totalOutstading = getTotalstading();
+	sendBilld();
+}
+</code></pre></div></li></ul> <h1 id="_11-2-函数参数化"><a href="#_11-2-函数参数化" aria-hidden="true" class="header-anchor">#</a> 11.2 函数参数化</h1> <ul><li><p>目的：增强函数的功能</p></li> <li><p>场景：如果发现多个函数逻辑相似，只有某1-2个字面量不同</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>function tenPercentRaise(person){
+	person.salary = person.salary.multiply(1.1);
+}
+function fivePercentRaise(person){
+	person.salary = person.salary.multiply(0.05);
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>function raise(person, factor){
+	person.salary = person.salary.multiply(factor);
+}
+</code></pre></div></li></ul> <h1 id="_11-3-移除标记参数"><a href="#_11-3-移除标记参数" aria-hidden="true" class="header-anchor">#</a> 11.3 移除标记参数</h1> <ul><li><p>目的：代码更清晰，减少函数的复杂度</p></li> <li><p>场景：如果参数值影响函数内部的控制流</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>function setDimension(name, value){
+	if(name === 'height'){}
+	if(name === 'width'){}
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>function setHeight(value){
+	this._height = value
+}
+function setWidth(value){
+	this._width = value
+}
+</code></pre></div></li></ul> <h1 id="_11-4-保持对象完整性"><a href="#_11-4-保持对象完整性" aria-hidden="true" class="header-anchor">#</a> 11.4 保持对象完整性</h1> <ul><li><p>目的：缩短参数列表，参数配置灵活</p></li> <li><p>场景：如果传入多个参数传值</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>const{low, high} = temperature;
+if(isValidTemperature(low,high)){};
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>if(isValidTemperature(temperature)){};
+</code></pre></div></li></ul> <h1 id="_11-5-以查询取代参数"><a href="#_11-5-以查询取代参数" aria-hidden="true" class="header-anchor">#</a> 11.5 以查询取代参数</h1> <ul><li><p>对立：以参数取代查询</p></li> <li><p>目的：减少传参，从而减少调用者的成本，保持</p></li> <li><p>场景：如果传入多个参数，并且从一个参数推导出另一个参数</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>availableVacation(employee, employee.grade);
+function availableVacation(employee,grade){}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>availableVacation(employee);
+function availableVacation(employee){
+	const{grade} = employee;
+}
+</code></pre></div></li></ul> <h1 id="_11-6-以参数取代查询"><a href="#_11-6-以参数取代查询" aria-hidden="true" class="header-anchor">#</a> 11.6 以参数取代查询</h1> <ul><li><p>对立：以查询取代参数</p></li> <li><p>目的：减少函数的副作用，以及引用关系，保持函数的纯净度</p></li> <li><p>场景：如果函数引用了一个全局变量，或者引用想移除的元素</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>const weather ={};
+targetTemperature(plan)
+
+function targetTemperature(plan){
+	const{curTemperature} = weather;
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>const weather ={};
+targetTemperature(plan, weather)
+
+function targetTemperature(plan, weather){
+	const{curTemperature} = weather;
+}
+</code></pre></div></li></ul> <h1 id="_11-7-移除设置函数"><a href="#_11-7-移除设置函数" aria-hidden="true" class="header-anchor">#</a> 11.7 移除设置函数</h1> <ul><li><p>目的：防止某字段被修改</p></li> <li><p>场景：当不希望某个字段被修改时</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>class Person{
+	get id(){}
+	set id(name){}
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>class Person{
+	get id(){}
+}
+</code></pre></div></li></ul> <h1 id="_11-8-以工厂函数取代构造函数"><a href="#_11-8-以工厂函数取代构造函数" aria-hidden="true" class="header-anchor">#</a> 11.8 以工厂函数取代构造函数</h1> <ul><li><p>目的：增加灵活性</p></li> <li><p>场景：不存在继承关系时</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>const leadEngineer = new Employee('name','E');
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>const leadEngineer = createEngineer('name');
+</code></pre></div></li></ul> <h1 id="_11-9-以命令取代函数"><a href="#_11-9-以命令取代函数" aria-hidden="true" class="header-anchor">#</a> 11.9 以命令取代函数</h1> <ul><li><p>对立：以函数取代命令</p></li> <li><p>目的：命令对象提供更大的灵活性，并且还可以支持撤销、生命周期的管理等附加操作</p></li> <li><p>场景：当普通函数无法提供强有力灵活性</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>function score(candidate, media){
+	let result = 0;
+	let healthLevel = 0;
+}
+function hasPassMedicalExam(){}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>class Scorer{
+	constructor(candidate, medicalExam){
+		this._candidate = candidate;
+		this._medicalExam = medicalExam;
+	}
+	execute(){
+		let result = 0;
+		let healthLevel = 0;
+	}
+	hasPassMedicalExam(){}
+}
+</code></pre></div></li></ul> <h1 id="_11-10-以函数取代命令"><a href="#_11-10-以函数取代命令" aria-hidden="true" class="header-anchor">#</a> 11.10 以函数取代命令</h1> <ul><li><p>对立：以命令取代函数</p></li> <li><p>目的：函数简单化</p></li> <li><p>场景：大多数情况下，只想调用一个函数，完成自己的工作，不需要函数那么复杂</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>class ChargeCalculator{
+	constructor(customer, usage){
+		this._customer = customer;
+		this._usage = usage;
+	}
+	execute(){ 
+		return this._customer.rate * this._usage;
+	}
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>function charge(customer, usage){
+	return customer.rate * usage;
+}
+</code></pre></div></li></ul> <h2 id="_12-处理继承关系"><a href="#_12-处理继承关系" aria-hidden="true" class="header-anchor">#</a> 12 处理继承关系</h2> <p>继承体系里上下调整：<a href="#121-%E5%87%BD%E6%95%B0%E4%B8%8A%E7%A7%BB">函数上移</a>、<a href="#122-%E5%AD%97%E6%AE%B5%E4%B8%8A%E7%A7%BB">字段上移</a>、<a href="#123-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%9C%AC%E4%BD%93%E4%B8%8A%E7%A7%BB">构造函数本体上移</a>、<a href="#124-%E5%87%BD%E6%95%B0%E4%B8%8B%E7%A7%BB">函数下移</a>、<a href="#125-%E5%AD%97%E6%AE%B5%E4%B8%8B%E7%A7%BB">字段下移</a></p> <p>继承体系添加新类或者删除旧类：<a href="#127-%E7%A7%BB%E9%99%A4%E5%AD%90%E7%B1%BB">移除子类</a>、<a href="#128-%E6%8F%90%E5%8F%96%E8%B6%85%E7%B1%BB">提取超类</a>、<a href="#129-%E6%8A%98%E5%8F%A0%E7%BB%A7%E6%89%BF%E4%BD%93%E7%B3%BB">折叠继承体系</a></p> <p>一个字段仅用于类型码使用：<a href="#126-%E4%BB%A5%E5%AD%90%E7%B1%BB%E5%8F%96%E4%BB%A3%E7%B1%BB%E5%9E%8B%E7%A0%81">以子类取代类型码</a></p> <p>如果本来使用集成的场景变得不再适合：<a href="#1210-%E4%BB%A5%E5%A7%94%E6%89%98%E5%8F%96%E4%BB%A3%E5%AD%90%E7%B1%BB">以委托取代子类</a>、<a href="#1211-%E4%BB%A5%E5%A7%94%E6%89%98%E5%8F%96%E4%BB%A3%E8%B6%85%E7%B1%BB">以委托取代超类</a></p> <h3 id="_12-1-函数上移"><a href="#_12-1-函数上移" aria-hidden="true" class="header-anchor">#</a> 12.1 函数上移</h3> <ul><li><p>对立：函数下移</p></li> <li><p>目的：提高复用性，减少重复</p></li> <li><p>场景：当函数被大部分部分子类用到时</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>class Employee{}
+class Salesman extends Employee{
+	get name(){}
+}
+class Engineer extends Employee{
+	get name(){}
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>class Employee{
+	get name(){}
+}
+class Salesman extends Employee{}
+class Engineer extends Employee{}
+</code></pre></div></li></ul> <h3 id="_12-2-字段上移"><a href="#_12-2-字段上移" aria-hidden="true" class="header-anchor">#</a> 12.2 字段上移</h3> <p><a href="#123-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%9C%AC%E4%BD%93%E4%B8%8A%E7%A7%BB">移构造函数本体上移</a></p> <h3 id="_12-3-构造函数本体上移"><a href="#_12-3-构造函数本体上移" aria-hidden="true" class="header-anchor">#</a> 12.3 构造函数本体上移</h3> <ul><li><p>目的：提高复用性</p></li> <li><p>场景：当多个子类有公共字段</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>class Party{}
+class Employee extends Party{
+	constructor(id){
+		this._id = id;
+	}
+}
+class Salesman extends Employee{
+	constructor(id){
+		this._id = id;
+		this._name = name;
+	}
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>class Party{
+	constructor(id){
+		this._id = id;
+	}
+}
+class Employee extends Party{
+	constructor(id){
+		super(id);
+	}
+}
+class Salesman extends Employee{
+	constructor(id){
+		super(id);
+		this._name = name;
+	}
+}
+</code></pre></div></li></ul> <h3 id="_12-4-函数下移"><a href="#_12-4-函数下移" aria-hidden="true" class="header-anchor">#</a> 12.4 函数下移</h3> <ul><li><p>对立：函数上移</p></li> <li><p>目的：内聚子类的方法</p></li> <li><p>场景：当函数被小部分子类用到时</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>class Employee{
+	get quota(){}
+}
+class Salesman extends Employee{}
+class Engineer extends Employee{}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>class Employee{}
+class Salesman extends Employee{
+	get quota(){}
+}
+class Engineer extends Employee{}
+</code></pre></div></li></ul> <h3 id="_12-5-字段下移"><a href="#_12-5-字段下移" aria-hidden="true" class="header-anchor">#</a> 12.5 字段下移</h3> <ul><li><p>对立：字段上移</p></li> <li><p>目的：内聚子类的字段</p></li> <li><p>场景：当字段被小部分子类用到时</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>class Employee{
+	constuctor(quote){
+		this._quote = quote;
+	}
+}
+class Salesman extends Employee{
+	constuctor(quote){
+		super(quote);
+	}
+}
+class Engineer extends Employee{}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>class Employee{}
+class Salesman extends Employee{
+	constuctor(quote){
+		this._quote = quote;
+	}
+}
+class Engineer extends Employee{}
+</code></pre></div></li></ul> <h3 id="_12-6-以子类取代类型码"><a href="#_12-6-以子类取代类型码" aria-hidden="true" class="header-anchor">#</a> 12.6 以子类取代类型码</h3> <ul><li><p>对立：移除子类</p></li> <li><p>目的：更明确地表达数据与类型之间的关系，增强子类的扩展性</p></li> <li><p>场景：当不同的状态码表现不同的行为时</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>function createEmployee(name, type){
+	return new Employee(name, type);
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>function createEmployee(name, type){
+	const employeeTypes = (name) =&gt;{
+		return{
+			'engineer': new Engineer(name),
+			'salesman': new Salesman(name)
+		}
+	}
+	return employeeTypes(name)[type];
+}	
+</code></pre></div></li></ul> <h3 id="_12-7-移除子类"><a href="#_12-7-移除子类" aria-hidden="true" class="header-anchor">#</a> 12.7 移除子类</h3> <ul><li><p>对立：以子类取代类型码</p></li> <li><p>目的：减少系统复杂度</p></li> <li><p>场景：当子类的用处太少时，当子类简单</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>class Person{
+	get genderCode(){
+		return 'X';
+	}
+}
+class Male extends Person{
+	get genderCode(){
+		return 'M';
+	}
+}
+class Female extends Person {
+	get genderCode(){
+		return 'F';
+	}
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>class Person{
+	constructor(genderCode){
+		this._genderCode = genderCode;
+	}
+	get genderCode(){
+		return this._genderCode;
+	}
+}
+</code></pre></div></li></ul> <h3 id="_12-8-提取超类"><a href="#_12-8-提取超类" aria-hidden="true" class="header-anchor">#</a> 12.8 提取超类</h3> <ul><li><p>目的：把重复的行为收拢起来</p></li> <li><p>场景：当多个子类的方法基本一致时</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>class Department{
+	get totalAnnualCost(){}
+	get name(){}
+}
+class Employee{
+	get annualCost(){}
+	get name(){}
+	get id(){}
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>class Party{
+	get totalAnnualCost(){}
+	get name(){}
+}
+class Department extends Party{
+	get primaryCost(){}
+}
+class Employee extends Party{
+	get id(){}
+}
+</code></pre></div></li></ul> <h3 id="_12-9-折叠继承体系"><a href="#_12-9-折叠继承体系" aria-hidden="true" class="header-anchor">#</a> 12.9 折叠继承体系</h3> <ul><li><p>目的：合并子类，减少不必要的子类，降低系统复杂度</p></li> <li><p>场景：当超类与子类没有多大差别</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>class Employee{}
+class Sales extends Employee{}
+</code></pre></div><div class="language-transfer extra-class"><pre class="language-text"><code>class Employee{}
+</code></pre></div></li></ul> <h3 id="_12-10-以委托取代子类"><a href="#_12-10-以委托取代子类" aria-hidden="true" class="header-anchor">#</a> 12.10 以委托取代子类</h3> <ul><li><p>目的：增强类的扩展性</p></li> <li><p>场景：当子类可能存在多种类型上的变化</p></li> <li><p>例子</p> <div class="language- extra-class"><pre class="language-text"><code>class Booking{
+	constuctor(show, date){
+		this._show = show;
+		this._date = date;
+	}
+}
+
+class PremiumBooking extends Booking{
+	constructor(show, date, extras){
+		super(show, date);
+		this._extras = extras;
+	}
+}
+</code></pre></div><div class="language-transfer extra-class"><pre class="language-text"><code>class Booking{
+	constuctor(show, date){
+		this._show = show;
+		this._date = date;
+		this._premium = null;
+	}
+	bePremium(extras){
+		this._premium = new PremiumBookingDelegate(this, extras);
+	}
+}
+
+class PremiumBookingDelegate{
+	constructor(root, extras){
+		this._root = root;
+		this._extras = extras;
+	}
+}
+</code></pre></div></li></ul> <h3 id="_12-11-以委托取代超类"><a href="#_12-11-以委托取代超类" aria-hidden="true" class="header-anchor">#</a> 12.11 以委托取代超类</h3> <ul><li><p>目的：增强类的扩展性</p></li> <li><p>场景：当超类的部分方法不适用于子类，不清晰的继承关系</p></li> <li><p>例子：</p> <div class="language- extra-class"><pre class="language-text"><code>class List{}
+class Stack extends List{}
+</code></pre></div><div class="language-transfer extra-class"><pre class="language-text"><code>class List{}
+class Stack{
+	constructor(){
+		this._list = new List();
+	}
+}
+</code></pre></div></li></ul> <blockquote><p>超类的所有方法都适用于子类，子类的所有实例都是超类的实例 =&gt; 使用继承尽量使用继承</p></blockquote> <blockquote><p>如果发现继承有问题（扩展困难），再使用<a href="#1211-%E4%BB%A5%E5%A7%94%E6%89%98%E5%8F%96%E4%BB%A3%E8%B6%85%E7%B1%BB">以委托取代超类</a></p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.8af69535.js" defer></script><script src="/assets/js/2.d648d88f.js" defer></script><script src="/assets/js/94.a55f0129.js" defer></script>
+  </body>
+</html>
