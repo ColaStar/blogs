@@ -25,20 +25,20 @@ module.exports = {
   markdown: {
     lineNumbers: true // 代码块显示行号
   },
-    chainWebpack: (config, isServer) => {
-      // config is an instance of ChainableConfig
-      config.resolveLoader.staticOptions = '2222'
+  chainWebpack: (config, isServer) => {
+    // config is an instance of ChainableConfig
+    config.resolveLoader.staticOptions = '2222'
 
-      // console.log(config.resolveLoader,'eeeeeee')   
+    // console.log(config.resolveLoader,'eeeeeee')   
 
-      // .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
-      // config.loader('url-loader!limit: 100000')
-      // .options({
-      //   limit: 100000,
-      //   name: '/blogs/views/images/[name].[ext]'
-      // })
+    // .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
+    // config.loader('url-loader!limit: 100000')
+    // .options({
+    //   limit: 100000,
+    //   name: '/blogs/views/images/[name].[ext]'
+    // })
 
-    },
+  },
   themeConfig: {
     sidebarDepth: 4, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
     lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间,
@@ -126,10 +126,10 @@ module.exports = {
             items: [{
               text: '优雅降级与渐进增强',
               link: '/other/优雅降级与渐进增强'
-            },{
+            }, {
               text: 'TypeScript',
               link: '/other/TypeScript'
-            },{
+            }, {
               text: '网站令浏览器崩溃的原因',
               link: '/other/网站令浏览器崩溃的原因'
             }]
@@ -161,10 +161,7 @@ module.exports = {
                 text: 'centos问题整理',
                 link: '/no.3/centos_jenkins_nginx遇到的一些问题'
               },
-              {
-                text: 'CommoJS与ES6module对比',
-                link: '/no.3/CommoJS与ES6module对比'
-              },
+              
               {
                 text: 'grunt',
                 link: '/no.3/grunt'
@@ -193,7 +190,6 @@ module.exports = {
                 text: 'parcel',
                 link: '/no.3/parcel'
               },
-
               {
                 text: 'pm2指南',
                 link: '/no.3/pm2指南'
@@ -210,10 +206,18 @@ module.exports = {
                 text: 'yeoman',
                 link: '/no.3/yeoman'
               },
+              {
+                text: 'CommoJS与ES6module对比',
+                items: [{
+                  text: 'CommoJS与ES6module对比',
+                  link: '/no.3/CommoJS与ES6module对比'
+                }
+              ]
+              },
             ]
           },
-           // 前端优化
-           {
+          // 前端优化
+          {
             text: '前端优化',
             items: [{
                 text: '雅虎军规',
@@ -268,14 +272,6 @@ module.exports = {
                 link: '/no.4/quicklink'
               },
             ]
-          },
-          //no.0   Linux
-          {
-            text: 'Linux',
-            items: [{
-              text: 'Linux',
-              link: '/no.0/linux/linux'
-            }]
           },
           //no.0   Linux
           {
@@ -349,25 +345,6 @@ module.exports = {
         link: '/no.2/http'
       },
       {
-        text: 'nginx',
-        // no.1
-        items: [{
-            text: 'nginx',
-            items: [{
-              text: 'nginx',
-              link: '/no.3/nginx'
-            }]
-          },
-          {
-            text: '函数式编程',
-            items: [{
-              text: '函数式编程',
-              link: '/no.1/函数式编程/'
-            }]
-          }
-        ],
-      },
-      {
         text: '编程思想',
         // no.1
         items: [{
@@ -435,22 +412,22 @@ module.exports = {
           }
         ],
       },
-  ///no.3
+      ///no.3
       {
         text: '自动化文档',
         // no.1
         items: [{
+            text: 'nginx',
+            items: [{
+              text: 'nginx',
+              link: '/no.2/nginx'
+            }]
+          },
+          {
             text: 'centos遇到的一些问题',
             items: [{
               text: 'centos遇到的一些问题',
               link: '/no.3/centos_jenkins_nginx遇到的一些问题'
-            }]
-          },
-          {
-            text: 'CommoJS与ES6module对比',
-            items: [{
-              text: 'CommoJS与ES6module对比',
-              link: '/no.3/CommoJS与ES6module对比'
             }]
           },
           {
@@ -466,18 +443,30 @@ module.exports = {
               text: 'linux_sed_awk',
               link: '/no.3/linux_sed_awk'
             }]
-          },{
+          }, {
             text: 'linux防火墙',
             items: [{
               text: 'linux防火墙',
               link: '/no.3/linux防火墙'
             }]
-          },{
+          }, {
             text: 'webpack',
             items: [{
               text: 'webpack',
               link: '/no.3/webpack'
             }]
+          },
+          {
+            text: 'Git',
+            items: [{
+                text: 'git命令大全',
+                link: '/other/git/git命令全集'
+              },
+              {
+                text: 'git版本管理规范',
+                link: '/other/git/git版本管理规范'
+              }
+            ]
           },
           {
             text: '免密登陆',
