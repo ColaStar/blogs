@@ -293,14 +293,6 @@ module.exports = {
               link: '/no.0/linux/linux'
             }]
           },
-          //no.0   Linux
-          {
-            text: 'Linux',
-            items: [{
-              text: 'Linux',
-              link: '/no.0/linux/linux'
-            }]
-          },
           //no.0   php&mysql
           {
             text: 'MySQL & PHP',

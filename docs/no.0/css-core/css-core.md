@@ -228,12 +228,9 @@ float：left
 ### 弹性盒模型
 flex是CSS3的新属性，又叫弹性布局盒模型，是可以简洁，快速弹性布局的属性。  
 
-<div align="center">
-<img src="https://raw.githubusercontent.com/ColaStar/static/master/images/flex-content.png"/>°
-</div>
-<div align="center">
-<img src="https://raw.githubusercontent.com/ColaStar/static/master/images/flex-item.png"/>
-</div>
+<a data-fancybox title="flex" href="https://raw.githubusercontent.com/ColaStar/static/master/images/flex-content.png">![flex](https://raw.githubusercontent.com/ColaStar/static/master/images/flex-content.png)</a>
+
+<a data-fancybox title="flex_item" href="https://raw.githubusercontent.com/ColaStar/static/master/images/flex-item.png">![flex_item](https://raw.githubusercontent.com/ColaStar/static/master/images/flex-item.png)</a>
 
 
 **flex的兼容写法**

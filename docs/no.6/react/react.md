@@ -12,7 +12,7 @@ react有一个叫state，只要state变，views就变， -->
 
 - JSX 是React定义的一种Javascript语法扩展，类似与XML。JSX是可选的，我们完全可以使用Javascript来编写React应用，不过JSX提供了一套更为简单的方式；来写react的应用。
 
-![](react发展.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react发展.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react发展.png)</a>
 
 19年已经更新到了16.8的版本
 
@@ -42,30 +42,30 @@ const element = <h1>Hello, world!</h1>;
 要将 `React` 元素渲染到根 `DOM` 节点中，我们通过把它们都传递给 `ReactDOM.render()` 的方法来将其渲染到页面上：
 
 > ES5写法
-![](reactes5.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/reactes5.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/reactes5.png)</a>
 
 > ES6写法
-![](reactes6.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/reactes6.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/reactes6.png)</a>
 
 > react组件怎么用呢
-![](react组件怎么用呢.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react组件怎么用呢.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react组件怎么用呢.png)</a>
 
 > Dom diff
 
-![](reactdomdiff.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/reactdomdiff.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/reactdomdiff.png)</a>
 
-![](reactdomdiff例子1.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/reactdomdiff例子1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/reactdomdiff例子1.png)</a>
 
 Dom diff是为渲染的性能，最小化的一个渲染机制
 
 > JSX注意事项
-![](JSX注意事项.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/JSX注意事项.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/JSX注意事项.png)</a>
 
 ## 非Dom属性介绍
 
 ref与key
 
-![](非Dom属性介绍.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/非Dom属性介绍.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/非Dom属性介绍.png)</a>
 
 ## webApp缺点与优点
 
@@ -96,9 +96,9 @@ react-canvas这个包是基于canvas和react的把jsx语法化成canvas
 - 可以传入变量、number、string、数组、等
 - 数组形式用法（需要加key防止整体重新渲染）
 
-![](reactprops用法.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/reactprops用法.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/reactprops用法.png)</a>
 
-![](reactprops数组用法.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/reactprops数组用法.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/reactprops数组用法.png)</a>
 
 **默认 Props**
 
@@ -135,7 +135,7 @@ React 里，只需更新组件的 state，然后根据新的 state 重新渲染�
 
 如何优化呢？
 
-![](reactstate.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/reactstate.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/reactstate.png)</a>
  
 > 属性状态对比？
 
@@ -146,7 +146,7 @@ React 里，只需更新组件的 state，然后根据新的 state 重新渲染�
 - 都具有确定性
 - 组件在运行时需要修改的数据就是状态
 
-![](react属性与状态对比.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react属性与状态对比.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react属性与状态对比.png)</a>
 
 状态是自己的属性是组件之间的
 
@@ -161,17 +161,17 @@ React 里，只需更新组件的 state，然后根据新的 state 重新渲染�
 
 ## 生命周期
 **React v16.3之前生命周期**
-![](react16.3之前生命周期.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react16.3之前生命周期.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react16.3之前生命周期.png)</a>
 **React v16.3生命周期**
-![](react16.3生命周期.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react16.3生命周期.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react16.3生命周期.png)</a>
 
 **React v16.4生命周期**
-![](react16.4生命周期.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react16.4生命周期.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react16.4生命周期.png)</a>
 
 > 生命周期介绍与初始化阶段
 组件本质上是状态机，输入确定，输出确定。状态发生转换时会触发不同的钩子函数，从而让开发者有机会做出响应。可以用事件的思路来理解状态。
 初始化-> 运行中-> 销毁
-![](react初始化生命周期.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react初始化生命周期.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react初始化生命周期.png)</a>
 getDeaultProps
 getInitalState
 componentWill

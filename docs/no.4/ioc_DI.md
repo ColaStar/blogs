@@ -11,7 +11,7 @@ IoC 的全称叫做 Inversion of Control，可翻译为为「控制反转」或�
 
 想象一下多个模块的场景：
 
-![](ioc.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/ioc.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/ioc.png)</a>
 
 这里除了耦合之外，不同齿轮之间的依赖关系也是个头疼的问题，迭代个几个版本之后发现，这是什么东西，一动就有bug。。。。
 
@@ -93,7 +93,7 @@ kobe.info()
 这样再增加一个team3，改动也不大，复用就行了。
 其中之间的关系，如下面这个图：
 
-![](ioc2.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/ioc2.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/ioc2.png)</a>
 
 彼此不直接发生联系，依赖关系统一在中间模块来管理，更加清晰。
 
