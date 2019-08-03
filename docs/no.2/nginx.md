@@ -244,4 +244,208 @@ server_name和upstream{}的组名可以不一致，server_name是外网访问接
 ![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170419171408649-130031505.png)
 
 
-Nginx的负载功能就配置完成了，这只是简单设置了一下，生产环境中还有很多详细的调整，后续再逐渐增加，本
+Nginx的负载功能就配置完成了，这只是简单设置了一下，生产环境中还有很多详细的调整，后续再逐渐增加.
+
+## 静态服务器配置
+
+静态服务器概念非常简单：当用户请求静态资源时，把文件内容回复给用户。
+
+但是，要把静态服务做到极致，需要考虑的方面非常多：
+
+- 正确书写header：设置content-type、过期时间等
+- 效率：减小文件体积，合理设置缓存，使用策略减少服务器内存占用
+- 安全性，防盗链
+
+`Nginx`提供了强大的静态服务功能。
+
+### 基本配置
+`root`和`alias`：设置静态资源根目录
+`root`的取值最好使用绝对路径。
+`root` 指令可以放在 `http`、`server` 或 `location` 上下文的任何位置。
+
+例如：
+```
+server {
+    root /www/data;
+    location / {
+    }
+    location /images/ {
+    }
+    location ~ \.(mp3|mp4) {
+        root /www/media;
+    }
+}
+```
+在此配置中，如果 `URI` 以 `mp3` 或 `mp4` 后缀结尾，`Nginx` 会在 `/www/media/` 目录查找文件。否则在 `/www/data` 目录中查找。如果请求以 `/` 结尾，`Nginx` 会把这个请求当做一个目录请求，尝试找这个目录中的 index 文件。`index` 指令定义了 `index` 文件的文件名（默认使用 `index.html` 文件）。例如上面的配置，如果请求是 `/images/some/path/`，`Nginx` 会尝试寻找并返回文件 `/www/data/images/some/path/index.html`，如果文件不存在则返回 404。
+
+> autoindex：访问目录时列出文件列表
+
+`autoindex` 指令如果设置为 `on`，则 `Nginx` 会返回自动生成的目录列表。最终的效果和`ftp`服务相似。
+
+`alias`和`root`的区别在于：对于`root`而言，`location`匹配的全部路径就是`root`下的文件路径；对于`alias`而言，`location`匹配后的路径才是`root`下的文件路径。
+
+> index：默认文件
+`index`表示默认的文件。`index` 指令中可以列出多个文件。`Nginx` 会按顺序查找文件并返回第一个找到的文件。
+```
+location / {
+    index index.$geo.html index.htm index.html;
+}
+```
+
+### 性能调优
+
+> gzip：压缩文件
+```
+location ~ .*\.(jpg|gif|png)$ {
+    gzip on;
+    gzip_min_length 1k;
+    gzip_buffers 4 16k;  
+    #gzip_http_version 1.0; 
+    gzip_comp_level 2;
+    gzip_types text/plain application/x-javascript text/css application/xml text/javascript 
+    application/x-httpd-php image/jpeg image/gif image/png;
+    gzip_vary off;
+    gzip_disable "MSIE [1-6]\.";
+    root /nginxtest/images;
+}
+```
+gzip选项
+
+- gzip：开启Gzip
+- gzip_min_length ：不压缩临界值，大于1K的才压缩，一般不用改
+- buffer：缓存大小
+- gzip_http_version：用了反向代理的话，末端通信是HTTP/1.0，有需求的应该也不用看我这科普文了；有这句的话注释了就行了，默认是HTTP/1.1
+- gzip_comp_level :压缩级别，1-10，数字越大压缩的越好，时间也越长，看心情随便改吧
+- gzip_types :第6行：进行压缩的文件类型，缺啥补啥就行了，JavaScript有两种写法，最好都写上
+- gzip_vary：跟Squid等缓存服务有关，on的话会在Header里增加"Vary: Accept-Encoding"
+- gzip_disable：控制在某些情况下禁用gzip，例如：IE6对Gzip不怎么友好，不给它Gzip了
+> expires：启用缓存
+```
+location / {
+    expires 24h;
+    root   /usr/share/nginx/html;
+    index  index.html index.htm;
+}
+```
+> sendfile：把小文件加载在内存中
+如果静态文件很小，直接放在内存中可以加快传输效率（避免了读硬盘操作）。如果文件太大也放在内存中，会浪费内存资源。
+```
+location /mp3 {
+    sendfile           on;
+    sendfile_max_chunk 1m;
+    ...
+}
+```
+> tcp_nopush
+`tcp_nopush` 指令需要和 `sendfile` 指令配合使用。
+如果 `tcp_nopush` 指令和 `sendfile` 指令同时使能，则 `Nginx` 在通过`sendfile` 获取数据块后会立即在一个数据包中发送 `HTTP` 响应头。
+
+> tcp_nodelay
+`tcp_nodelay` 选项允许覆盖 `Nagle` 的算法，最初设计用于解决慢速网络中小数据包的问题。该算法将多个小数据包合并为较大的数据包，并以200毫秒的时延发送数据包。如今，在提供大的静态文件时，无论数据包大小如何，都可以立即发送数据。延迟还会影响在线应用程序（ssh，在线游戏，在线交易）。 `默认情况下，tcp_nodelay` 指令被使能，禁用 `Nagle` 的算法。 该选项仅用于保持连接:
+```
+location /mp3  {
+    tcp_nodelay       on;
+    keepalive_timeout 65;
+    ...
+}
+```
+### 高级调优
+
+> 测量监听队列（Measuring the Listen Queue）
+运行下面的命令可以测量监听队列（`Linux` 下的 `netstat` 命令不支持 `-L` 参数，需要使用命令` ss -l`）：
+```
+netstat -Lan
+```
+输出如下：
+```
+Current listen queue sizes (qlen/incqlen/maxqlen)
+Listen         Local Address         
+0/0/128        *.12345            
+10/0/128        *.80       
+0/0/128        *.8080
+```
+上面的输出显示，在 80 端口的监听队列有 10 个未接受的连接，最大连接数限制为 128，这种情况是正常的。
+
+然而，如果输出是下面这样子的：
+```
+Current listen queue sizes (qlen/incqlen/maxqlen)
+Listen         Local Address         
+0/0/128        *.12345            
+192/0/128        *.80       
+0/0/128        *.8080
+```
+上面显示有 10 个未接受的连接，超过了最大限制 128。在网站访问量大时这种情况挺常见的。为了达到最佳性能，可以修改操作系统和 Nginx 配置，增加 Nginx 可以等待接受的队列中的最大连接数。
+
+> 调整操作系统（Linux，FreeBSD）
+
+可以增加 `net.core.somaxconn` 参数的值（默认 128）以应对高并发流量：
+
+对于 `FreeBSD` 运行命令` sudo sysctl kern.ipc.somaxconn=4096`
+对于 `Linux` 运行命令 `sudo sysctl -w net.core.somaxconn=4096`
+打开文件 `/etc/sysctl.conf`，添加这一行：`net.core.somaxconn = 4096`
+
+> 调整 Nginx
+如果设置的 somaxconn 值大于 512，需要更改 Nginx 配置文件中的 backlog 参数匹配这个设置：
+```
+server {
+    listen 80 backlog=4096;
+    # The rest of server configuration
+}
+```
+### 安全
+使用`add_header`设置跨域访问
+```
+location / {
+    add_header Access-Control-Allow-Origin www.baidu.com;
+    add_header Access-Control-Allow-Methods GET,POST,PUT,DELETE,OPTIONS;
+    root   /usr/share/nginx/html;
+    index  index.html index.htm;
+}
+```
+> 使用referer防盗链
+```
+location ~ .*\.(jpg|gif|png)$ {
+    valid_referers none blocked 119.2x.1x3.218 支持增则匹配;
+    if ($invalid_referer) {
+            return 403;
+    }
+    root /nginxtest/images;
+}
+```
+> try_files：定制文件不存在时的操作
+
+`try_files` 指令可以检查指定的文件或目录是否存在，从而执行内部重定向或在文件不存在的时候返回指定的 `HTTP` 状态码。
+
+例如，通过 `try_files` 指令和 `$uri` 变量检查和请求中的 `URI` 相关的文件是否存在：
+```
+server {
+    root /www/data;
+
+    location /images/ {
+        try_files $uri /images/default.gif;
+    }
+}
+```
+文件以 `URI` 的形式指定，并且使用在当前 `location` 或 `server` 的上下文中设置的 `root` 或 `alias` 指令进行处理。此时如果源 `URI` 指定的文件不存在，`Nginx` 会内部重定向到最后一个参数指定的 `URI`，返回 `/www/data/images/default.gif`。
+
+最后一个参数也可以是状态码（前面需要加等号）或一个 `location` 的名字。下面的例子中，如果 `try_files` 指令指定的文件或目录都不存在，则返回 `404` 错误：
+```
+location / {
+    try_files $uri $uri/ $uri.html =404;
+}
+```
+下面的例子中，如果原始 `URI` 和带有附加斜线的 `URI` 指定的文件或目录都不存在，请求就会被重定向到指定名称的 `location：`
+```
+location / {
+    try_files $uri $uri/ @backend;
+}
+
+location @backend {
+    proxy_pass http://backend.example.com;
+}
+```
+### 参考资料
+https://blog.csdn.net/kikajack/article/details/79323643
+http://www.nginx.cn/doc/standard/httpcore.html
+http://www.nginx.cn/doc/standard/httpgzip.html
+http://www.nginx.cn/doc/standard/httpheaders.html
