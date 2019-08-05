@@ -2,7 +2,7 @@
 
 ## 介绍与发展
 
-- react是Feckbook开发的一款用来构建用户见面的js库，他只是做一个views，专门是用来用户界面的库。
+- react是Feckbook开发的一款用来构建用户见面的js库，他只是做一个views，专门是用来用户界面的库,所以react本身只涉及UI层，。
 - Virtual DOM 是一个模拟DOM树的Javascript对象。React使用 Virtual DOM来渲染UI，同时监听Virtual DOM上的数据变化并自动前一这些变化到UI上
 
 <!-- 什么是Virtual，就是用js构建DOm，然后js做分析，转换为真正要插入页面的html。
@@ -303,6 +303,10 @@ class App extends React.Component {
 }
 ```
 
+
+
+
+
 React可控与不可控控件
 ```
 //不可控控件
@@ -322,9 +326,42 @@ label  HtmlFor
 
 事件处理函数以及this
 驼峰
-this处理使用bind或剪头函数
+this处理使用bind或箭头函数
 
-flux架构
+
+
+
+## react性能调优
+
+循环渲染的组件，你改变一个组件所有的组件都跟着重新渲染，
+解决方法
+
+- 1.可以通过`shouldComponentUpdate`去判断上一个与现在这个状态判断解决，
+
+- 2.通过插件解决：`mixins：[React.addons.PureRenderMixin]`
+
+当对象里边套对象，这俩个东西就都挂了。
+
+终极解决方法：
+
+在`constructor`做一些操作
+
+```
+constructor(props){
+     super(props);
+     this.shouldComponentUpdate = React.addons.PureRenderMixin.shouldComponentUpdate.bind(this);
+}
+```
+
+子组件更新触发父组件。父组件更新所有的子组件要Diff，一旦更改了state类型，上边全部办法歇菜，相当于直接生成一颗新的树🌲可以使用IMMUTABLE库
+
+- IMMUTABLE库
+![](immuable1.png)
+通过fromjs方法包一下目标对象，后边用一个get和set方法去更改对象。
+![](immuable.png)
+从上图可以看出immuable库相当于生成俩个不一样的对象，不是在引用传递，相当于生成一个对象。
+![](immuable使用.png)
+使用
 
 
 
