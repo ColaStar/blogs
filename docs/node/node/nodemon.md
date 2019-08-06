@@ -61,12 +61,12 @@ nodemon 比较流行的原因之一就是它的`可配置性比较高`，下面�
 
 `verbose：true` 表示输出详细启动与重启信息，如下图：
 
-![](http://img2.tuicool.com/fERfuu.png!web)
+<a data-fancybox title="" href="http://img2.tuicool.com/fERfuu.png!web">![](http://img2.tuicool.com/fERfuu.png!web)</a>
 
 
 `false` 表示不输出这些运行信息，如下图：
 
-![](http://img1.tuicool.com/uEJJZfv.png!web)
+<a data-fancybox title="" href="http://img1.tuicool.com/uEJJZfv.png!web">![](http://img1.tuicool.com/uEJJZfv.png!web)</a>
 
 
 

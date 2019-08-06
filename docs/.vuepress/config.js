@@ -134,6 +134,18 @@ module.exports = {
               link: '/other/网站令浏览器崩溃的原因'
             }]
           },
+          {
+            text: 'Git相关',
+            items: [{
+                text: 'git命令大全',
+                link: '/other/git/git命令全集'
+              },
+              {
+                text: 'git版本管理规范',
+                link: '/other/git/git版本管理规范'
+              }
+            ]
+          },
           // 前端自动化与工程化
           {
             text: '前端工程化',
@@ -210,6 +222,10 @@ module.exports = {
                 text: 'yeoman',
                 link: '/no.3/yeoman'
               },
+              {
+                text: 'CommoJS与ES6module对比',
+                link: '/no.3/CommoJS与ES6module对比'
+              }
             ]
           },
            // 前端优化
@@ -268,14 +284,6 @@ module.exports = {
                 link: '/no.4/quicklink'
               },
             ]
-          },
-          //no.0   Linux
-          {
-            text: 'Linux',
-            items: [{
-              text: 'Linux',
-              link: '/no.0/linux/linux'
-            }]
           },
           //no.0   Linux
           {
@@ -347,25 +355,6 @@ module.exports = {
       {
         text: 'HTTP',
         link: '/no.2/http'
-      },
-      {
-        text: 'nginx',
-        // no.1
-        items: [{
-            text: 'nginx',
-            items: [{
-              text: 'nginx',
-              link: '/no.3/nginx'
-            }]
-          },
-          {
-            text: '函数式编程',
-            items: [{
-              text: '函数式编程',
-              link: '/no.1/函数式编程/'
-            }]
-          }
-        ],
       },
       {
         text: '编程思想',
@@ -447,10 +436,10 @@ module.exports = {
             }]
           },
           {
-            text: 'CommoJS与ES6module对比',
+            text: 'nginx',
             items: [{
-              text: 'CommoJS与ES6module对比',
-              link: '/no.3/CommoJS与ES6module对比'
+              text: 'nginx',
+              link: '/no.2/nginx'
             }]
           },
           {

@@ -12,9 +12,9 @@
 开局我们讨论一下一直以来很火热的面试题当我们输入网址后发生了一些什么事？
 
 来上图：
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/输入url图解.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/输入url图解.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/输入url图解.png)</a>
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/万维网.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/万维网.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/万维网.png)</a>
 
 接下来我们解析以下这些图，分析以下当我们输入网址后发生了一些什么事？
 
@@ -37,7 +37,7 @@ DNS查询过程如下：
 
 5） 如果用的是转发模式，此DNS服务器就会把请求转发至上一级DNS服务器，由上一级服务器进行解析，上一级服务器如果不能解析，或找根DNS或把转请求转至上上级，以此循环。不管是本地DNS服务器用是是转发，还是根提示，最后都是把结果返回给本地DNS服务器，由此DNS服务器再返回给客户机。
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/dns.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/dns.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/dns.png)</a>
 **注意：**
 
 - 从客户端到本地DNS服务器是属于递归查询，而DNS服务器之间就是的交互查询就是迭代查询。
@@ -98,7 +98,7 @@ Cookie: BAIDUID=3C67AA3EF6B3347D3AA986CE489268C4:FG=1; BIDUPSID=3C67AA3EF6B3347D
 
 详细过程如下图
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/tcp三次握手1.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/tcp三次握手1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/tcp三次握手1.png)</a>
 
 TCP三次握手的的好处在于：发送方可以确认接收方仍然在线，不会因为白发送而浪费资源。
 
@@ -106,7 +106,7 @@ TCP三次握手的的好处在于：发送方可以确认接收方仍然在线�
 
 IP协议的作用是把TCP分割好的各种数据包传送给接收方（路由选择协议：主要做的是通过查找路由表确定如何到达服务器，期间可能经过多个路由器，这些都是由路由器来完成的工作，通过查找路由表决定通过那个路径到达服务器）。
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/IP协议.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/IP协议.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/IP协议.png)</a>
 
 > 链路层 传输数据的硬件部分
 
@@ -114,7 +114,7 @@ IP协议的作用是把TCP分割好的各种数据包传送给接收方（路由
 
 具体过程如下图：
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/ARP.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/ARP.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/ARP.png)</a>
 
 > 服务器接收报文
 
@@ -167,7 +167,7 @@ Set-Cookie: H_PS_PSSID=1451_21116_17001_21408_21417_21554_20929; path=/;
 > 客户端收到页面，浏览器渲染页面
 
 执行以下过程： 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/浏览器渲染过程.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/浏览器渲染过程.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/浏览器渲染过程.png)</a>
 
 > 1.解析HTML
 
@@ -195,7 +195,7 @@ Set-Cookie: H_PS_PSSID=1451_21116_17001_21408_21417_21554_20929; path=/;
 
 在聊浏览器渲染之前，我们先明确一个概念： 事实上，我们看到的页面并不是直观所见的一层图页，而是由许多DOM元素渲染层(Layers)组成的，如下图。
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/DOM元素渲染层.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/DOM元素渲染层.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/DOM元素渲染层.png)</a>
 
 > 2.页面的渲染过程
 
@@ -203,7 +203,7 @@ Set-Cookie: H_PS_PSSID=1451_21116_17001_21408_21417_21554_20929; path=/;
 
 - 构建渲染树(Render Tree): 根据DOM和CSSOM树渲染，不可见元素不被会渲染
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/渲染树.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/渲染树.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/渲染树.png)</a>
 
 为了更好地用户体验效果，浏览器会在构建DOM树的同时，也在构建render树。呈现树的每一个节点即为与其相对应的DOM节点的CSS框，框的类型与DOM节点的display属性有关，block元素生成block框，inline元素生成inline框。每一个呈现树节点都有与之相对应的DOM节点，但DOM节点不一定有与之相对应的呈现树节点，比如display属性为none的DOM节点，而且呈现树节点在呈现树中的位置与他们在DOM树中的位置不一定相同，比如float与绝对定位元素。在构建render树的时候需要为DOM树匹配CSS规则，在这个阶段因为匹配规则是从右往左匹配的，所以css的编写规则很重要。不好的CSS选择器写法会影响到页面渲染的效率，具体是如何编写高效的CSS规则的可参考这篇文章CSS[选择器性能分析](https://www.cnblogs.com/jesse131/p/6135773.html)
 
@@ -261,7 +261,7 @@ CPU根据渲染树布局计算元素的具体位置和大小，转换成绝对�
 
 ### HTTP协议的历史进程
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/http的历史进程.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/http的历史进程.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/http的历史进程.png)</a>
 
 ### 了解TCP/IP协议栈
 
@@ -277,7 +277,7 @@ CPU根据渲染树布局计算元素的具体位置和大小，转换成绝对�
 - 4. 网络接口层
     - 负责监视数据在主机和网络之间的交换（）
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/TCP-IP协议栈.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/TCP-IP协议栈.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/TCP-IP协议栈.png)</a>
 
 ### 在TCP/IP协议栈中的位置
 
@@ -289,7 +289,7 @@ HTTP协议在TCP/IP协议栈的应用层，他依赖TCP，属于应用层协议
 - HTTPS默认端口号为443
 - TCL、SSL用来加密是一个方案，是一种模块。
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/HTTP协议在TCP位置.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/HTTP协议在TCP位置.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/HTTP协议在TCP位置.png)</a>
 
 ### HTTP的工作过程
 
@@ -317,12 +317,12 @@ HTTP协议在TCP/IP协议栈的应用层，他依赖TCP，属于应用层协议
 
 #### 请求报文
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/请求头.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/请求头.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/请求头.png)</a>
 
 #### 响应报文
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/响应头.png)
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/响应头2.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/响应头.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/响应头.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/响应头2.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/响应头2.png)</a>
 
 #### 请求方法
 
@@ -510,11 +510,11 @@ SessionID随每个连接请求发送到服务器，服务器根据sessionID来�
 
 服务器在响应消息中用Set-Cookie头将Cookie的内容回送给客户端，客户端在新的请求中将相同的内容携带在Cookie头中发送给服务器。从而实现会话的保持.
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/cookie-setcookie.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/cookie-setcookie.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/cookie-setcookie.png)</a>
 > Session的使用
 - 使用Cookie来实现
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/session.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/session.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/session.png)</a>
 
 - 使用URL回显来实现
 
@@ -537,17 +537,17 @@ SessionID随每个连接请求发送到服务器，服务器根据sessionID来�
 
 在客户端第一次请求数据时，此时缓存数据库中没有对应的缓存数据，需要请求服务器，服务器返回后，将数据存储至缓存数据库中。
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/缓存数据库.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/缓存数据库.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/缓存数据库.png)</a>
 
 强制缓存与对比缓存
 
 已存在缓存数据时，仅基于强制缓存，请求数据的流程如下
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/强制缓存.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/强制缓存.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/强制缓存.png)</a>
 
 已存在缓存数据时，仅基于对比缓存，请求数据的流程如下
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/对比缓存.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/对比缓存.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/对比缓存.png)</a>
 
 我们可以看到两类缓存规则的不同，强制缓存如果生效，不需要再和服务器发生交互，而对比缓存不管是否生效，都需要与服务端发生交互。 
 
@@ -559,7 +559,7 @@ SessionID随每个连接请求发送到服务器，服务器根据sessionID来�
 对于强制缓存来说，响应header中会有两个字段来标明失效规则（`Expires/Cache-Control`） 
 使用chrome的开发者工具，可以很明显的看到对于强制缓存生效时，网络请求的情况
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/强制缓存-浏览器.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/强制缓存-浏览器.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/强制缓存-浏览器.png)</a>
 
 **Expires**
 
@@ -580,7 +580,7 @@ Cache-Control 是最重要的规则。常见的取值有private、public、no-ca
 - no-cache: 需要使用对比缓存来验证缓存数据（后面介绍）
 - no-store: 所有内容都不会缓存，强制缓存，对比缓存都不会触发（对于前端开发来说，缓存越多越好，so…基本上和它说886）
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/强缓存-请求头.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/强缓存-请求头.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/强缓存-请求头.png)</a>
 
 图中Cache-Control仅指定了max-age，所以默认为private，缓存时间为31536000秒（365天） 
 也就是说，在365天内再次请求这条数据，都会直接获取缓存数据库中的数据，直接使用。
@@ -605,7 +605,7 @@ Cache-Control 是最重要的规则。常见的取值有private、public、no-ca
 
 浏览器第一次请求数据时，服务器会将缓存标识与数据一起返回给客户端，客户端将二者备份至缓存数据库中。 再次请求数据时，客户端将备份的缓存标识发送给服务器，服务器根据缓存标识进行判断，判断成功后，返回304状态码，通知客户端比较成功，可以使用缓存数据。
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/比较缓存-浏览器.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/比较缓存-浏览器.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/比较缓存-浏览器.png)</a>
 
 通过两图的对比，我们可以很清楚的发现，在对比缓存生效时，状态码为304，并且报文大小和请求时间大大减少。 
 原因是，服务端在进行标识比较后，只返回header部分，通过状态码通知客户端使用缓存，不再需要将报文主体部分返回给客户端。
@@ -617,7 +617,7 @@ Cache-Control 是最重要的规则。常见的取值有private、public、no-ca
 
 **Last-Modified：**服务器在响应请求时，告诉浏览器资源的最后修改时间。
 
-![](images/Last-Modified.png)
+<a data-fancybox title="" href="images/Last-Modified.png">![](images/Last-Modified.png)</a>
 
 
 **If-Modified-Since：**
@@ -626,7 +626,7 @@ Cache-Control 是最重要的规则。常见的取值有private、public、no-ca
 若资源的最后修改时间大于`If-Modified-Since`，说明资源又被改动过，则响应整片资源内容，返回状态码`200`； 
 若资源的最后修改时间小于或等于`If-Modified-Since`，说明资源无新修改，则响应`HTTP 304`，告知浏览器继续使用所保存的cache。
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/If-Modified-Since.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/If-Modified-Since.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/If-Modified-Since.png)</a>
 
 > **Etag/If-None-Match策略**
 
@@ -635,7 +635,7 @@ Cache-Control 是最重要的规则。常见的取值有private、public、no-ca
 **Etag：**
 服务器响应请求时，告诉浏览器当前资源在服务器的唯一标识（生成规则由服务器决定）
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/Etag.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/Etag.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/Etag.png)</a>
 
 **If-None-Match:**
 
@@ -644,15 +644,15 @@ Cache-Control 是最重要的规则。常见的取值有private、public、no-ca
 不同，说明资源又被改动过，则响应整片资源内容，返回状态码200； 
 相同，说明资源无新修改，则响应HTTP 304，告知浏览器继续使用所保存的cache
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/If-None-Match.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/If-None-Match.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/If-None-Match.png)</a>
 
 ##### 总结
 对于强制缓存，服务器通知浏览器一个缓存时间，在缓存时间内，下次请求，直接用缓存，不在时间内，执行比较缓存策略。 
 对于比较缓存，将缓存信息中的Etag和Last-Modified通过请求发送给服务器，由服务器校验，返回304状态码时，浏览器直接使用缓存。
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/请求no.1.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/请求no.1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/请求no.1.png)</a>
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/请求no.2.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/请求no.2.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/请求no.2.png)</a>
 
 ## HTTPS协议分析
 一些概念
@@ -667,7 +667,7 @@ Cache-Control 是最重要的规则。常见的取值有private、public、no-ca
     - SSL协议是一种记录协议，扩展性良好，可以很方便的添加子协议，而握手协议便是SSL协议的一个子协议。
     - TLS协议是SSL协议的后续版本，本文中涉及的SSL协议默认是TLS协议1.2版本。
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/https通信过程1.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/https通信过程1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/https通信过程1.png)</a>
 
 
 HTTP协议由于是明文传送，所以存在三大风险：
@@ -708,7 +708,7 @@ HTTP协议由于是明文传送，所以存在三大风险：
 
 - 8、浏览器以R为密钥使用之前约定好的解密算法获取网页内容。
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/https通信过程.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/https通信过程.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/https通信过程.png)</a>
 
 备注1：前5步其实就是HTTPS的握手过程，这个过程主要是认证服务端证书（内置的公钥）的合法性。因为非对称加密计算量较大，整个通信过程只会用到一次非对称加密算法（主要是用来保护传输客户端生成的用于对称加密的随机数私钥）。后续内容的加解密都是通过一开始约定好的对称加密算法进行的。
 
@@ -763,7 +763,7 @@ HTTP协议由于是明文传送，所以存在三大风险：
     - HTTP/1.x 有个问题叫线端阻塞(head-of-line blocking), 它是指一个连接(connection)一次只提交一个请求的效率比较高, 多了就会变慢
     - HTTP1.x用多个链路去做并发传输（多任务），一般是链式的一个链路完成在进行下一个
     - HTTP2以切块的形式，用同一个链路复用去做并行传输
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/http2多路复用.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/http2多路复用.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/http2多路复用.png)</a>
 
 
 - 服务器主动推送，减少请求的延迟
@@ -787,7 +787,7 @@ key，用于替代HTTP/1.x中请求行/响应行中的信
 （请求）
 - :status 响应头中的HTTP状态码部分（响应）
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/http2请求头.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/http2请求头.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/http2请求头.png)</a>
 
 
 ## 了解HTTP 3
@@ -801,7 +801,7 @@ Connection）
 - HTTP 3将会是一个全新的WEB协议
 - HTTP 3目前处于制订和测试阶段
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/http3.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/http3.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/http3.png)</a>
 
 ## HTTP与反向代理
 - 什么是代理?
@@ -818,11 +818,11 @@ Connection）
 
 现在的“FQ”技术也是如何，我们把请求发给一台可以连接外面世界的Web服务器，由它转发我们的请求，再将结果返回给我们。这台Web服务器就是“正向代理服务器”。
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/http正向代理.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/http正向代理.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/http正向代理.png)</a>
 
 简单一点：A向C借钱，由于一些情况不能直接向C借钱，于是A想了一个办法，他让B去向C借钱，这样B就代替A向C借钱，A就得到了C的钱，C并不知道A的存在，B就充当了A的代理人的角色。 
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/正向代理.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/正向代理.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/正向代理.png)</a>
 
 综上所述：正向代理服务器是客户端和目的服务器之间的一个中介，客户端通过正向代理服务器访问客户端原本无法访问的目标服务器。
 
@@ -843,11 +843,11 @@ Connection）
 
 　客户端向一个服务器A提交请求后，服务器A偷偷地去服务器B上获取资源，并返回给客户端。客户端天真地以为数据是服务器A给他的。在这过程中，服务器A称为“反向代理服务器”，服务器B称为反向代理服务器的“后端服务器”（代理服务器内部网络上的服务器）。
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/反向代理.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/反向代理.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/反向代理.png)</a>
 
 理解起来有些抽象，可以这么说：A向B借钱，B没有拿自己的钱，而是悄悄地向C借钱，拿到钱之后再交给A,A以为是B的钱，他并不知道C的存在。 
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/反向代理抽象.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/反向代理抽象.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/反向代理抽象.png)</a>
 
 
 
@@ -861,7 +861,7 @@ Connection）
 - 正向代理，代理客户端，服务端不知道实际发起请求的客户端； 
 - 反向代理，代理服务端，客户端不知道实际提供服务的服务端；
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/正反向代理区别.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/正反向代理区别.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/正反向代理区别.png)</a>
 
 > 安全性不同 
 - 正向代理允许客户端通过它访问任意网站并且隐藏客户端自身，因此必须采取安全措施以确保仅为授权的客户端提供服务； 
@@ -893,8 +893,8 @@ Connection）
 
 例子如：12306网站容易奔溃（做集群，代理服务器根据集群中所有服务器的负载量与负载规则对请求进行分发，所以处理高并发so easy，注意不能用用，因为要保持数据一致性）
 
-<!-- ![](images/负载均衡.png) -->
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/负载均衡1.png)
+<!-- <a data-fancybox title="" href="images/负载均衡.png">![](images/负载均衡.png)</a> -->
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/负载均衡1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/负载均衡1.png)</a>
 
 - 缓存静态内容
 

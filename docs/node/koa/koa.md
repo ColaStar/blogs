@@ -109,7 +109,7 @@ const app = new Koa();
 const main = ctx => {
   if (ctx.request.path !== '/') {
     ctx.response.type = 'html';
-    ctx.response.body = '<a href="/">Index Page</a>';
+    ctx.response.body = '';
   } else {
     ctx.response.body = 'Hello World';
   }
@@ -130,11 +130,11 @@ const app = new Koa();
 
 const about = ctx => {
   ctx.response.type = 'html';
-  ctx.response.body = '<a href="/">Index Page</a>';
+  ctx.response.body = '';
 };
 
 const main = ctx => {
-  ctx.response.body ='<a href="/">to About</a>';
+  ctx.response.body ='';
 };
 
 app.use(route.get('/', main));
@@ -245,7 +245,7 @@ app.listen(3000);
 6…
 
 7.最外层的中间件收回执行权后，执行next函数后面的代码。
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/koa.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/koa.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/koa.png)</a>
 我们直接看下面的例子：
 ```
 const Koa = require('koa');
