@@ -11,6 +11,9 @@ module.exports = {
     ['script', {
       src: 'https://raw.githubusercontent.com/ColaStar/static/master/tj.js'
     }],
+    ['script', {
+      src: './public/js/tj.js'
+    }],
     ['link', {
       rel: 'stylesheet',
       type: 'text/css',
