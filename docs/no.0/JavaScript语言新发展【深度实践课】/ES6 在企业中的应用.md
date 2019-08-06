@@ -221,7 +221,7 @@ await().then(function() {
 });
 ```
 <a data-fancybox title="promises" href="https://raw.githubusercontent.com/ColaStar/static/master/images/04-Promise.png">![promises](https://raw.githubusercontent.com/ColaStar/static/master/images/04-Promise.png)</a>
-<a data-fancybox title="promises" href="https://raw.githubusercontent.com/ColaStar/static/master/images/05-Promise.png">![promises](https://raw.githubusercontent.com/ColaStar/static/master/images/05-Promise.png)</a>
+<a data-fancybox title="promises" href="https://raw.githubusercontent.com/ColaStar/static/master/images/05-promise.png">![promises](https://raw.githubusercontent.com/ColaStar/static/master/images/05-promise.png)</a>
 ### 3. 其他新特性
 ```
 generators

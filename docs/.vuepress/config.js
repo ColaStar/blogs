@@ -9,10 +9,7 @@ module.exports = {
       src: 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js'
     }],
     ['script', {
-      src: 'https://raw.githubusercontent.com/ColaStar/static/master/tj.js'
-    }],
-    ['script', {
-      src: './public/js/tj.js'
+      src: 'https://raw.githubusercontent.com/ColaStar/static/master/js/tj.js'
     }],
     ['link', {
       rel: 'stylesheet',
