@@ -339,11 +339,7 @@ module.exports = {
               {
                 text: '闭包',
                 link: '/no.0/读博客有感/闭包'
-              },
-              {
-                text: '闭包与GC',
-                link: '/no.0/读博客有感/闭包与GC'
-              },
+              }
             ]
           },
         ]
