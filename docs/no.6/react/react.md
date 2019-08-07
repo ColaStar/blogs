@@ -5,7 +5,7 @@
 - react是Feckbook开发的一款用来构建用户见面的js库，他只是做一个views，专门是用来用户界面的库,所以react本身只涉及UI层，。
 - Virtual DOM 是一个模拟DOM树的Javascript对象。React使用 Virtual DOM来渲染UI，同时监听Virtual DOM上的数据变化并自动前一这些变化到UI上
 
-<!-- 什么是Virtual，就是用js构建DOm，然后js做分析，转换为真正要插入页面的html。
+<!-- 什么是Virtual DOM，就是用js构建DOm，然后js做分析，转换为真正要插入页面的html。
 react有一个叫state，只要state变，views就变， -->
 
 - 传入属性 构建Virtual DOM，状态对应一个内容。
@@ -365,9 +365,12 @@ constructor(props){
 
 
 
+React 16.8的新特性
 
+函数式组件与hooks
 
-、
+函数式组件其实就是对函数式编程的践行。
+
 
 
 
