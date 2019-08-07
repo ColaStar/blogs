@@ -2,11 +2,11 @@
 $(document).ready(function () {
     var bodyobj = document.querySelector("body"); 
     var divobj = document.createElement("div"); 
-    divobj.innerHTML= "<canvas id='matrixBG' width='2560' height='1440'></canvas>"
+    divobj.innerHTML= "<canvas id='matrixBG' width='2560' height='200'></canvas>"
     bodyobj.appendChild(divobj);
     // document.write("");  
     $('#matrixBG').css({"position": "fixed",
-        "top": 0,
+        "bottom": 0,
         "left": 0,
         "z-index": 9999,
         "opacity": 0.8,})
