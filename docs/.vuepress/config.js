@@ -12,10 +12,10 @@ module.exports = {
       src: 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js'
     }],
     ['script', {
-      src: 'https://raw.githubusercontent.com/ColaStar/static/master/js/tj.js'
+      src: './js/tj.js'
     }],
     ['script', {
-      src: 'https://raw.githubusercontent.com/ColaStar/static/master/js/code.js'
+      src: './js/code.js'
     }],
     ['link', {
       rel: 'stylesheet',
