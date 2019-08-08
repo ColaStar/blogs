@@ -8,9 +8,8 @@ $(document).ready(function () {
     $('#matrixBG').css({"position": "fixed",
         "bottom": 0,
         "left": 0,
-        "z-index": 9999,
-        "opacity": 0.8,})
-        console.log('canvas')
+        "z-index": -1,
+        "opacity": 0.3})
     var width = matrixBG.width = window.screen.width;
     var height = matrixBG.height = window.screen.height;
     var yPositions = Array(300).join(0).split('');
