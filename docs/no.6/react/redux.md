@@ -2,9 +2,13 @@ redux是flux架构的一个衍生
 
 - rudux用的核心js  
 
-redux.min.js本身的库、
-react-redux.js、redux-thunk.min.js
-keyMirror.js、immutable.js、request.js、ReduxThunk.js
+redux.min.js本身的库、react
+react-redux.js、连接react与redux
+redux-thunk.min.js  中间件处理
+keyMirror.js、键值对
+immutable.js、创建不同的对象
+request.js、请求
+ReduxThunk.js
 - 管理应用的state
 通过`store.getState()`可以获取`state`、
 
@@ -29,7 +33,6 @@ keyMirror.js、immutable.js、request.js、ReduxThunk.js
 
 6.`components-> App`容器 `react-redux `提供 `connect` 的方法 链接`React 组件`和`Redux`类
 
-
 注意当有5个state的话就要考虑抽离了
 
 ![](redux原理1.png)
@@ -39,6 +42,7 @@ keyMirror.js、immutable.js、request.js、ReduxThunk.js
 redux是用来管理状态的，有了redux以后就不需要state了，那么数据怎么来的呢，当然就需要props了，props怎么来的redux给的，
 
 redux怎么组成的呢？
+
 ![](redux组件.png)
 
 views->action（接收事件） ->middiewares（处理异步事件等）->dispatcher（派发）->reducer（具体执行产生一个store）->state(immuable拦着)->props->views
