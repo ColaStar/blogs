@@ -14,9 +14,9 @@ module.exports = {
     ['script', {
       src: './js/tj.js'
     }],
-    // ['script', {
-    //   src: './js/code.js'
-    // }],
+    ['script', {
+      src: './js/code.js'
+    }],
     ['link', {
       rel: 'stylesheet',
       type: 'text/css',
