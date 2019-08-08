@@ -617,7 +617,7 @@ Cache-Control 是最重要的规则。常见的取值有private、public、no-ca
 
 **Last-Modified：**服务器在响应请求时，告诉浏览器资源的最后修改时间。
 
-<a data-fancybox title="" href="images/Last-Modified.png">![](images/Last-Modified.png)</a>
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/Last-Modified.png)
 
 
 **If-Modified-Since：**
