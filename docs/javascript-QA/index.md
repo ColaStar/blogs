@@ -67,7 +67,7 @@ npm install karma --save-dev
 
 （Karma安装完毕后）：
 
-<a data-fancybox title="" href="https://images0.cnblogs.com/blog2015/455688/201505/291838190796907.png">![](https://images0.cnblogs.com/blog2015/455688/201505/291838190796907.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/karma-jasmine-install1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/karma-jasmine-install1.png)</a>
 
 现在我们可以使用 node 来运行 karma  了
 
@@ -80,8 +80,7 @@ npm install karma --save-dev
 
 -g 表示全局安装，这样可以在系统的任何文件夹中直接执行 karma 命令。
 
-<a data-fancybox title="" href="https://images0.cnblogs.com/blog2015/455688/201505/291849002194312.png">![](https://images0.cnblogs.com/blog2015/455688/201505/291849002194312.png)</a>
-
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/karma-jasmine-install2.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/karma-jasmine-install2.png)</a>
 安装之后，可以直接使用 karma 来启动测试了，首先检查一下当前的版本。
 
 ```
@@ -105,8 +104,7 @@ PS C:\study\mykarma>
 ```
 npm i -D jasmine-core karma-jasmine karma-chrome-launcher
 ```
-
-<a data-fancybox title="" href="https://images0.cnblogs.com/blog2015/455688/201505/291843192194601.png">![](https://images0.cnblogs.com/blog2015/455688/201505/291843192194601.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/karma-jasmine-install.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/karma-jasmine-install.png)</a>
 
 ##### 步骤五：使用Karma进行测试
 > Karma 的命令
@@ -121,7 +119,8 @@ karma init
 ```
 
 所有默认配置问题：
-<a data-fancybox title="" href="https://images0.cnblogs.com/blog2015/455688/201505/291917575947190.png">![](https://images0.cnblogs.com/blog2015/455688/201505/291917575947190.png)</a>
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/karma-init.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/karma-init.png)</a>
 
  说明：
 * 1. 测试框架：我们当然选jasmine
@@ -247,15 +246,16 @@ karma start
 
 由于这次加上了配置文件karma.conf.js，因此Karma会按照配置文件中指定的参数执行操作了，由于我们配置的是在Chrome中测试，因此Karma会自动启动Chrome实例，并运行测试用例：(**如果在无头浏览器可以直接用PhantomJS，切记它不支持es6语法**)
 
-<a data-fancybox title="" href="https://images0.cnblogs.com/blog2015/455688/201505/300040234542993.png">![](https://images0.cnblogs.com/blog2015/455688/201505/300040234542993.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/karma-start.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/karma-start.png)</a>
 
 （如果我们点击上图中的debug按钮，进入debug.html并按F12打开开发者工具，选择Console窗口，我们将能看到jasmine的执行日志）：
 
-<a data-fancybox title="" href="https://images0.cnblogs.com/blog2015/455688/201505/300042547044534.png">![](https://images0.cnblogs.com/blog2015/455688/201505/300042547044534.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/karma-start1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/karma-start1.png)</a>
 
 在这个页面，我们可以在源码中设置断点，检查测试。
 
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/13475/201602/13475-20160222124607338-1321324004.png">![](https://images2015.cnblogs.com/blog/13475/201602/13475-20160222124607338-1321324004.png)</a>
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/describe.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/describe.png)</a>
 
 ##### 代码覆盖率检查
 
@@ -646,7 +646,7 @@ node官网：https://nodejs.org/en/download/
 
 打开cmd，输入node -v，然后回车
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/b12476cf8ed666ed7d3b63dd336b6f37d72.jpg">![](https://oscimg.oschina.net/oscnet/b12476cf8ed666ed7d3b63dd336b6f37d72.jpg)</a>[](https://oscimg.oschina.net/oscnet/b12476cf8ed666ed7d3b63dd336b6f37d72.jpg)（看到版本号，就说明安装成功。这一步一般不会出问题。）
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/node-v.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/node-v.png)</a>（看到版本号，就说明安装成功。这一步一般不会出问题。）
 
 #### **2、安装 chrome（谷歌浏览器）**
 
@@ -678,15 +678,15 @@ cnpm install uirecorder mocha -g`
 
 a)查看chrome版本：[chrome://settings/help](http://chrome://settings/help)
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/fdff2cb8f5e03b919b9fdd046b2eb040ea1.jpg">![](https://oscimg.oschina.net/oscnet/fdff2cb8f5e03b919b9fdd046b2eb040ea1.jpg)</a>[](https://oscimg.oschina.net/oscnet/fdff2cb8f5e03b919b9fdd046b2eb040ea1.jpg)<span style="color:#7f8c8d">（我的chrome是68版本）</span>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/chrome-v.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/chrome-v.png)</a><span style="color:#7f8c8d">（我的chrome是68版本）</span>
 
 b)查看chromedierver的版本：
 ```
 npm ls chromedriver -g
 ```
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/b555ce8f1f9f9fb3373aa07f6a8c5beda6b.jpg">![](https://oscimg.oschina.net/oscnet/b555ce8f1f9f9fb3373aa07f6a8c5beda6b.jpg)</a>[](https://oscimg.oschina.net/oscnet/b555ce8f1f9f9fb3373aa07f6a8c5beda6b.jpg)
 
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/uirecorder.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/uirecorder.png)</a>
 可以看到uirecorder是2.5.42版本，uirecorder依赖的chromedriver是2.41.0版本
 
 c)根据[selenium之 chromedriver与chrome版本映射表](https://blog.csdn.net/huilan_same/article/details/51896672)，应该下载2.40.0版本的chromedriver：
@@ -699,7 +699,7 @@ c)根据[selenium之 chromedriver与chrome版本映射表](https://blog.csdn.net
 
 修改uirecorder依赖chromedriver的版本号：
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/7c7e7f934f157cdc949fd3facd13b92b899.jpg">![](https://oscimg.oschina.net/oscnet/7c7e7f934f157cdc949fd3facd13b92b899.jpg)</a>[](https://oscimg.oschina.net/oscnet/7c7e7f934f157cdc949fd3facd13b92b899.jpg)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/chromedriver-v.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/chromedriver-v.png)</a>
 
 
 然后在cmd执行：
@@ -714,7 +714,8 @@ cnpm install
 
 <span class="hljs-comment">// 查看chromedriver的版本</span>
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/b00e7d613d892e718a061aac522167a49da.jpg">![](https://oscimg.oschina.net/oscnet/b00e7d613d892e718a061aac522167a49da.jpg)</a>[图片地址](https://oscimg.oschina.net/oscnet/b00e7d613d892e718a061aac522167a49da.jpg)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/chromedriver-v1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/chromedriver-v1.png)</a>
+
 
 <span id="OSC_h2_8"></span>
 
@@ -763,9 +764,7 @@ at Function.Module._load (<span class="hljs-class"><span class="hljs-keyword">mo
 
 <span style="color:#7f8c8d">_（编者注：我在新的电脑安装uirecorder，大于缺失了10几个包，如此循环了十几次，是很正常的。）_</span>
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/0ac948f2e851c3bccb3bc7af24b14571b4b.jpg">![](https://oscimg.oschina.net/oscnet/0ac948f2e851c3bccb3bc7af24b14571b4b.jpg)</a>
-
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/0ac948f2e851c3bccb3bc7af24b14571b4b.jpg">![](https://oscimg.oschina.net/oscnet/0ac948f2e851c3bccb3bc7af24b14571b4b.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/uirecorder-init.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/uirecorder-init.png)</a>
 
 ##### **2、开始录制测试用例**
 
@@ -773,11 +772,10 @@ at Function.Module._load (<span class="hljs-class"><span class="hljs-keyword">mo
 
 <pre>`uirecorder start`</pre> 
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/ceec348ff6cbbbc313efce0ff514d10db43.jpg">![](https://oscimg.oschina.net/oscnet/ceec348ff6cbbbc313efce0ff514d10db43.jpg)</a>
-
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/uirecorder-start.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/uirecorder-start.png)</a>
 此时会打开两个chrome浏览器，一个用来校验的，一个用来录制脚本的：
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/b2266cd36c6f08dc40593f5d2478a7e80f3.jpg">![](https://oscimg.oschina.net/oscnet/b2266cd36c6f08dc40593f5d2478a7e80f3.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/uirecorder-luzhi.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/uirecorder-luzhi.png)</a>
 
 我们去百度，搜索一下uirecorder。
 
@@ -787,7 +785,7 @@ at Function.Module._load (<span class="hljs-class"><span class="hljs-keyword">mo
 
 3）然后录制的浏览器会自动关闭，然后，cmd展示：
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/14ec681461a57d31033fc71864840909c0f.jpg">![](https://oscimg.oschina.net/oscnet/14ec681461a57d31033fc71864840909c0f.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/uirecorder-录制过程.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/uirecorder-录制过程.png)</a>
 
 4）具体如何录制，如何使用断言，这些，官方提供了视频教程：视频教程：[PC中文教程](http://v.youku.com/v_show/id_XMTY4NTk5NjI4MA==.html)
 
@@ -801,7 +799,7 @@ at Function.Module._load (<span class="hljs-class"><span class="hljs-keyword">mo
 
 此时报错了：
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/2697bd426950cbe68cfcc5005f00366df2e.jpg">![](https://oscimg.oschina.net/oscnet/2697bd426950cbe68cfcc5005f00366df2e.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/uirecorder-error1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/uirecorder-error1.png)</a>
 
 原因：回放的时候，需要运行**selenium-standalone**，所以重新打开一个cmd，运行：
 
@@ -811,23 +809,23 @@ _说明：下面前两个命令为**安装selenium-standalone**的，如果已�
 selenium-<span class="hljs-keyword">standalone</span> <span class="hljs-keyword">install</span>                    // 运行这个需要<span class="hljs-keyword">java</span>，安装<span class="hljs-keyword">java</span>自行百度。最低也要安装java8
 selenium-<span class="hljs-keyword">standalone</span> <span class="hljs-keyword">start</span>`</pre> 
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/9cc3df9cf1ad8f85f3c84647e975c70037c.jpg">![](https://oscimg.oschina.net/oscnet/9cc3df9cf1ad8f85f3c84647e975c70037c.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/uirecorder-安装java.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/uirecorder-安装java.png)</a>
 
 
 
 安装好java8，看一下版本：
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/021504b533dc5e14c1c30836b9614047681.jpg">![](https://oscimg.oschina.net/oscnet/021504b533dc5e14c1c30836b9614047681.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/java-v.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/java-v.png)</a>
 
 然后在运行之前的命令：**selenium-standalone install，则报错：**
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/315ce459b1bba93cc2576961025a7e339b9.jpg">![](https://oscimg.oschina.net/oscnet/315ce459b1bba93cc2576961025a7e339b9.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/selenium-standalone-install.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/selenium-standalone-install.png)</a>
 
 或者去百度云下载：[百度云盘地址](https://pan.baidu.com/s/1ggpgZ7jQp78xBbW6DR8aqQ)，下载之后，保存到指定位置。并且正确命名文件名称。
 
 把文件下载下来，并放到指定的目录中，并重命名之后，执行**selenium-standalone start&nbsp; &nbsp;&nbsp;**，入股看到下图，Selenium started，就说明启动成功了。
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/3d1f2b56a5c2d6a9d59d90f8f07118ad821.jpg">![](https://oscimg.oschina.net/oscnet/3d1f2b56a5c2d6a9d59d90f8f07118ad821.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/selenium-standalone-start.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/selenium-standalone-start.png)</a>
 
 <span style="color:#7f8c8d">_如果报下面的错误，说明是下载的driver没有放到指定文件夹下，或者是文件命名不对。要该文件的名称的。_</span>
 ```
@@ -844,11 +842,11 @@ at FSReqWrap.cb [as oncomplete] (fs.js:312:19)
 
 启动了**selenium-standalone**，在**工作目录**下运行：**run.bat sample/test.spec.js**
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/84c8f80a1d3068f2a5ce9a2ce5e54b6b54c.jpg">![](https://oscimg.oschina.net/oscnet/84c8f80a1d3068f2a5ce9a2ce5e54b6b54c.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/run.bat.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/run.bat.png)</a>
 
 查看一下测试用例报告：使用浏览器打开，工作目录下的**reports\index.html：**
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/733250e49729987865165f6afc0a04b85b8.jpg">![](https://oscimg.oschina.net/oscnet/733250e49729987865165f6afc0a04b85b8.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/run-bat-reports.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/run-bat-reports.png)</a>
 
 #### 上传文件
 
@@ -856,11 +854,11 @@ UI Recorder仅支持Native文件上传, 不支持FLASH上传
 
 直接点击“选择文件”按钮或点击“Upload file”, 占位按钮必需要用role或data-role标注为upload
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/d0f83f8f7d9dc5e236cf64cf41a3630daf9.jpg">![](https://oscimg.oschina.net/oscnet/d0f83f8f7d9dc5e236cf64cf41a3630daf9.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/Ui-Recorder-upload.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/Ui-Recorder-upload.png)</a>
 
 上传的文件必需保存在/uploadfiles/文件夹中。
 
-<a data-fancybox title="" href="https://oscimg.oschina.net/oscnet/48d3f9958f4c4529a8a33405ef15773993f.jpg">![](https://oscimg.oschina.net/oscnet/48d3f9958f4c4529a8a33405ef15773993f.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/uploadfiles.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/uploadfiles.png)</a>
 
 <span id="OSC_h1_13"></span>
 

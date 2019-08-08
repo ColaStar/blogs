@@ -39,7 +39,7 @@ ReduxThunk.js
 ![同步](redux原理2.png)
 ![异步](redux原理2.png)
 
-redux是用来管理状态的，有了redux以后就不需要state了，那么数据怎么来的呢，当然就需要props了，props怎么来的redux给的，
+redux是用来管理状态的，有了redux以后就不需要state了，那么数据怎么来的呢，当然就需要props了，props怎么来的? redux给的，
 
 redux怎么组成的呢？
 
@@ -47,3 +47,18 @@ redux怎么组成的呢？
 
 views->action（接收事件） ->middiewares（处理异步事件等）->dispatcher（派发）->reducer（具体执行产生一个store）->state(immuable拦着)->props->views
 
+- redux具体实现
+
+applyMiddleware.js     redux管理中间件
+
+bindActionCreators.js   能让我们直接的调用action
+
+combineReducers.js     合并reducer
+
+compose.js              组合函数 
+
+createStore.js           创建一个store容器
+
+index.js                
+
+utils
