@@ -355,14 +355,14 @@ constructor(props){
 
 子组件更新触发父组件。父组件更新所有的子组件要Diff，一旦更改了state类型，上边全部办法歇菜，相当于直接生成一颗新的树🌲可以使用IMMUTABLE库
 
-- IMMUTABLE库
+- IMMUTABLE库  不可变对象
 ![](immuable1.png)
 通过fromjs方法包一下目标对象，后边用一个get和set方法去更改对象。
 ![](immuable.png)
-从上图可以看出immuable库相当于生成俩个不一样的对象，不是在引用传递，相当于生成一个对象。
-![](immuable使用.png)
-使用
+从上图可以看出immuable库相当于生成俩个不一样的对象，不是在引用传递，相当于生成一个对象，深拷贝过了。
+![使用](immuable使用.png)
 
+- react
 
 
 React 16.8的新特性
@@ -370,6 +370,11 @@ React 16.8的新特性
 函数式组件与hooks
 
 函数式组件其实就是对函数式编程的践行。
+
+
+
+
+不可变对象imm
 
 
 

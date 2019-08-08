@@ -9,7 +9,7 @@ $(document).ready(function () {
         "bottom": 0,
         "left": 0,
         "z-index": -1,
-        "opacity": 0.3})
+        "opacity": 0.07})
     var width = matrixBG.width = window.screen.width;
     var height = matrixBG.height = window.screen.height;
     var yPositions = Array(300).join(0).split('');
