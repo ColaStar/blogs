@@ -45,7 +45,14 @@ ReduxThunk.js（）
 
 ![](redux组件.png)
 
-views -> provider ->action（接收事件） ->middiewares（处理异步事件等）->dispatcher（派发）->reducer（具体执行产生一个store）->state(所有组件进行重新渲染，如果不要重新渲染有俩种方式？方法一：进行深克隆，方法二：immuable拦着)->props->views
+views -> provider ->action（接收事件） ->middiewares（处理异步事件等）->dispatcher（派发）->reducer（具体执行产生一个store）->state(所有组件进行重新渲染，如果不要重新渲染有俩种方式？方法一：进行深克隆，方法二
+
+
+
+
+
+
+\immuable拦着)->props->views
 
 
 
