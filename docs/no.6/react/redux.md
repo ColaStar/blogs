@@ -32,14 +32,14 @@ ReduxThunk.js（）
 
 6.`components-> App`容器 `react-redux `提供 `connect` 的方法 链接`React 组件`和`Redux`类
 
-
 注意当有5个`state`的话就要考虑抽离了
 
 ![](redux原理1.png)
 ![同步](redux原理2.png)
 ![异步](redux原理2.png)
 
-`redux`是用来管理状态的，有了`redux`以后就不需要`state`了，那么数据怎么来的呢，当然就需要`props`了，`props`怎么来的，`redux`给的，
+
+`redux`是用来管理状态的，有了`redux`以后就不需要`state`了，那么数据怎么来的呢，当然就需要`props`了，`props`怎么来的?，`redux`给的，
 
 `redux`怎么组成的呢？
 
@@ -56,7 +56,18 @@ views -> provider ->action（接收事件） ->middiewares（处理异步事件�
 
 
 
+- redux具体实现
 
+applyMiddleware.js     redux管理中间件
 
+bindActionCreators.js   能让我们直接的调用action
 
+combineReducers.js     合并reducer
 
+compose.js              组合函数 
+
+createStore.js           创建一个store容器
+
+index.js                
+
+utils
