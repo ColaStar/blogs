@@ -1,6 +1,6 @@
-import { createStore, combineReducers } from "./redux/index.js";
-import counterReduer from "./reducers/counter.js";
-import infoReduer from "./reducers/info.js";
+import { createStore, combineReducers } from "./redux/index.js.js";
+import counterReduer from "./reducers/counter.js.js";
+import infoReduer from "./reducers/info.js.js";
 // let initState = {
 //   counter: {
 //     count: 0

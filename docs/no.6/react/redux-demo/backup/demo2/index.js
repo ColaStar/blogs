@@ -1,7 +1,7 @@
 import {
     createStore
-} from './redux/index.js';
-import reducer from './reducer.js';
+} from './redux/index.js.js';
+import reducer from './reducer.js.js';
 
 let initState = {
     count: 0

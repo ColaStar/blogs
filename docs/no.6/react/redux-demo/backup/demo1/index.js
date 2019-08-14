@@ -1,4 +1,4 @@
-import { createStore } from './redux/index.js';
+import { createStore } from './redux/index.js.js';
 
 let initState = {
     counter: {
