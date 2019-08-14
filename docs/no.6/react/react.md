@@ -17,7 +17,7 @@ react有一个叫state，只要state变，views就变， -->
 
 - `components`：React是专注于View层开发的，View是基于组件的，每一个JSX是一个组件。组件化开发可以创建可复用的UI组件，提高开发效率。 
 
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react发展.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react发展.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react发展史.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react发展史.png)</a>
 
 19年已经更新到了16.8的版本，就在8.10号更新到了16.9，表示学不动了。
 
@@ -53,7 +53,7 @@ const element = <h1>Hello, world!</h1>;
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/reactes6.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/reactes6.png)</a>
 
 > react组件怎么用呢
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react组件怎么用呢.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react组件怎么用呢.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react组件怎么用.jpg">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react组件怎么用.jpg)</a>
 
 > Dom diff
 
@@ -336,7 +336,7 @@ export default class Hello extends React.Component{
 
 > 使用 setState 的时候，需要注意:
 使用 setState 是一件很复杂的事情。即使是熟练的 React 开发，也很有可能因为 React 的一些机制而产生一些bug，比如下面这个例子：
-<a data-fancybox title="" href="react-setstate.gif">![](react-setstate.gif)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-setstate.gif">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-setstate.gif)</a>
 
 **注意：**
 绝对不要 直接改变 this.state ，因为之后调用 setState() 可能会替换掉你做的改
