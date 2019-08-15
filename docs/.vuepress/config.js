@@ -129,7 +129,11 @@ module.exports = {
           //其他相关
           {
             text: '其他相关',
-            items: [{
+            items: [
+              {
+                text: 'React',
+                link: '/no.6/react/react'
+              },{
               text: '优雅降级与渐进增强',
               link: '/other/优雅降级与渐进增强'
             },{
