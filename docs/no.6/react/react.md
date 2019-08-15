@@ -1905,13 +1905,13 @@ React16.8中加入了Hooks，让React函数式组件再一次升华，那么到�
 
 React 没有提供可复用性行为“附加”到组件的途径，在写类组件的时候，一个类是一个闭包并且`state`在组件间传递并不怎么友好，虽然可以使用`props`和**高阶组件**来解决，但是这样会组件的结构更麻烦。如果你在 `React DevTools` 中观察过 `React` 应用，你会发现由 **providers，consumers，高阶组件，render props** 等其他抽象层组成的组件会形成“嵌套地狱”。
 
-![](react-hooks1.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks1.png)</a>
 
 使用Hooks，您可以从组件中提取有状态逻辑，以便可以独立测试并重复使用。钩子允许您在不更改组件层次结构的情况下重用有状态逻辑。这样可以轻松地在许多组件之间或与页面之间共享Hook。
 
 - 2.复杂的组件变得难以理解
 
-![](react-hooks2.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks2.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks2.png)</a>
 每个生命周期方法通常包含不相关逻辑的混合。比如说我就想实现一个非常简单的功能，必须要带一堆钩子函数，让一个简单的组件变得很复杂。而且由于不同的生命周期在不同的阶段调用，导致我们会在相应的地方作一些处理，有可能把一些完全不相干的代码因为执行周期相同必须放在同一个生命周期中,这就很容易引发bug;再比如，组件可能会在`componentDidMount`和中执行一些数据提取`componentDidUpdate`。但是，相同的`componentDidMount`方法可能还包含一些不相关的逻辑，用于设置事件侦听器，并执行清理`componentWillUnmount`。一起更改的相互关联的代码被拆分，但完全不相关的代码最终组合在一个方法中。bug又来了。
 
 为了解决这个问题，Hooks允许您根据相关的部分（例如设置订阅或获取数据）将一个组件拆分为较小的函数，而不是基于生命周期方法强制拆分。您还可以选择使用reducer管理组件的本地状态，以使其更具可预测性。
@@ -1922,7 +1922,7 @@ React 没有提供可复用性行为“附加”到组件的途径，在写类�
 
 为了解决这些问题，Hooks允许您在没有类的情况下使用更多React的功能。从概念上讲，React组件始终更接近功能。Hooks拥抱功能，但不会牺牲React的实际精神,简单点说可以这么理解，Hooks 的出现本质是把这种面向生命周期编程变成了面向业务逻辑编程。
 
-![](react-hooks3.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks3.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks3.png)</a>
 
 ### 什么是Hooks？
 
@@ -2014,7 +2014,7 @@ const Greeting = () => {
 export default Greeting;
 ```
 
-![](react-hooks-usestate.gif)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-usestate.gif">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-usestate.gif)</a>
 
 我们发现，一般函数调用完成之后，其中的变量都会被回收，而上面代码和图上可以看出每次都是在count的基上相加，并没有消失，为什么呢？ 先埋下疑问点，在Hook的执行机制会提到。
 
@@ -2038,7 +2038,7 @@ const Greeting = () => {
 export default Greeting;
 ```
 
-![](react-hooks-usestate1.gif)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-usestate1.gif">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-usestate1.gif)</a>
 
 上面代码使用两次useState，完美的完成了功能。
 
@@ -2069,7 +2069,7 @@ const EffectComponent = () => {
 }
 export default EffectComponent
 ```
-![](react-hooks-effect.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-effect.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-effect.png)</a>
 ##### 与类组件生命周期的比较
 
 我们都知道在类组件中可以在`componentDidMount`和`componentDidUpdate`中执行副作用，那么在函数组件中`useEffect`的参数函数就具有类组件的这两个生命周期的用途，如果`useEffect`的第一个参数有返回值为函数的话，函数的返回值相当于`componentWillUnmount`。可以说useEffect把这三个API合成了一个。
@@ -2095,7 +2095,7 @@ const EffectComponent = () => {
 }
 export default EffectComponent
 ```
-![](react-hooks-effect1.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-effect1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-effect1.png)</a>
 
 ##### useEffect的执行时机
 
@@ -2120,7 +2120,7 @@ const EffectComponent = () => {
 }
 export default EffectComponent
 ```
-![](react-hooks-effect2.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-effect2.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-effect2.png)</a>
 
 在开始的时候有提到，useEffec执行副作时机在渲染后，确实是这样。细心的你会发现，当我点击+号的时候，怎么会出现注销事件接口？ useEffec函数中的返回函数不是在组件卸载的时候被调用吗？
 
@@ -2186,7 +2186,7 @@ const EffectComponent = () => {
     );
 }
 ```
-![](react-hooks-effect4.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-effect4.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-effect4.png)</a>
 
 ##### 写多个useEffect
 当我们在写类组件的时候，通常会把定义事件写在`componentDidMount`中，如果只是一个事件处理，项目不大还好，那如果项目很大，所有的事件处理都定义在一个生命周期中，难道就不乱吗？乱是肯定的，而且还容易出bug。
@@ -2218,7 +2218,7 @@ const EffectComponent = () => {
     );
 }
 ```
-![](react-hooks-effect3.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-effect3.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-effect3.png)</a>
 
 useEffect在函数组件中的作用非常大，好好利用必成神器。
 
@@ -2383,7 +2383,7 @@ let Todo = ({todo,change}) => {
     );
 }
 ```
-![](react-hooks-usereducer.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-usereducer.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-usereducer.png)</a>
 从图片上可以看出,无论我怎么点击li都不会发生改变。
 
 那么我们来改变一下reducer，让它返回一个全新的数组。
@@ -2396,7 +2396,7 @@ case "CHANGE_TODO":
         return todo;
     } )
 ```
-![](react-hooks-usereducer1.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-usereducer1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-usereducer1.png)</a>
 当返回一个新的数组的时候，点击li都发生了改变，默认有了`shouldComponentUpdate`的功能。
 
 #### useCallback
@@ -2424,9 +2424,9 @@ const CallbackComponent = () => {
     )
 }
 ```
-![](react-hooks-useCallback.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-useCallback.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-useCallback.png)</a>
 如果没有传入依赖项数组，那么记忆函数在每次渲染的时候都会更新。
-![](react-hooks-useCallback1.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-useCallback1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-useCallback1.png)</a>
 
 #### useMemo
 
@@ -2466,7 +2466,7 @@ const RefComponent = () => {
 
 上面例子在input上绑定一个ref，使得input在渲染后自动焦点聚焦。 
 
-![](react-hooks-useRef.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-useRef.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-useRef.png)</a>
 
 #### useImperativeHandle
 
@@ -2507,7 +2507,7 @@ export default () => {
 }
 ```
 上面是一个父子组件中ref传递的例子，使用到了forwardRef(这是一个高阶函数，主要用于ref在父子组件中的传递)，使用useImperativeHandle把第二个参数的返回值绑定到父组件传来的ref上。
-![](react-hooks-useImperativeHandle.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-useImperativeHandle.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-hooks-useImperativeHandle.png)</a>
 
 #### useLayoutEffect
 

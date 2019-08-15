@@ -31,20 +31,20 @@ module.exports = {
   markdown: {
     lineNumbers: true // 代码块显示行号
   },
-    chainWebpack: (config, isServer) => {
-      // config is an instance of ChainableConfig
-      config.resolveLoader.staticOptions = '2222'
+  chainWebpack: (config, isServer) => {
+    // config is an instance of ChainableConfig
+    config.resolveLoader.staticOptions = '2222'
 
-      // console.log(config.resolveLoader,'eeeeeee')   
+    // console.log(config.resolveLoader,'eeeeeee')   
 
-      // .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
-      // config.loader('url-loader!limit: 100000')
-      // .options({
-      //   limit: 100000,
-      //   name: '/blogs/views/images/[name].[ext]'
-      // })
+    // .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
+    // config.loader('url-loader!limit: 100000')
+    // .options({
+    //   limit: 100000,
+    //   name: '/blogs/views/images/[name].[ext]'
+    // })
 
-    },
+  },
   themeConfig: {
     sidebarDepth: 4, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
     lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间,
@@ -129,20 +129,26 @@ module.exports = {
           //其他相关
           {
             text: '其他相关',
-            items: [
-              {
+            items: [{
                 text: 'React',
                 link: '/no.6/react/react'
-              },{
-              text: '优雅降级与渐进增强',
-              link: '/other/优雅降级与渐进增强'
-            },{
-              text: 'TypeScript',
-              link: '/other/TypeScript'
-            },{
-              text: '网站令浏览器崩溃的原因',
-              link: '/other/网站令浏览器崩溃的原因'
-            }]
+              },
+              {
+                text: '优雅降级与渐进增强',
+                link: '/other/优雅降级与渐进增强'
+              },
+              {
+                text: 'socket',
+                link: '/no.2/webSocket与socket.io'
+              },
+              {
+                text: 'TypeScript',
+                link: '/other/TypeScript'
+              }, {
+                text: '网站令浏览器崩溃的原因',
+                link: '/other/网站令浏览器崩溃的原因'
+              }
+            ]
           },
           {
             text: 'Git相关',
@@ -238,8 +244,8 @@ module.exports = {
               }
             ]
           },
-           // 前端优化
-           {
+          // 前端优化
+          {
             text: '前端优化',
             items: [{
                 text: '雅虎军规',
@@ -363,10 +369,6 @@ module.exports = {
         link: '/no.2/http'
       },
       {
-        text: 'socket',
-        link: '/no.2/webSocket与socket.io'
-      },
-      {
         text: '编程思想',
         // no.1
         items: [{
@@ -434,7 +436,7 @@ module.exports = {
           }
         ],
       },
-  ///no.3
+      ///no.3
       {
         text: '自动化文档',
         // no.1
@@ -465,13 +467,13 @@ module.exports = {
               text: 'linux_sed_awk',
               link: '/no.3/linux_sed_awk'
             }]
-          },{
+          }, {
             text: 'linux防火墙',
             items: [{
               text: 'linux防火墙',
               link: '/no.3/linux防火墙'
             }]
-          },{
+          }, {
             text: 'webpack',
             items: [{
               text: 'webpack',
