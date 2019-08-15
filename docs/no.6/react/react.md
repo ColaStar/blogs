@@ -1585,8 +1585,8 @@ export default class TodoList extends Component {
 
 可以看出来这个组件的出现，可以说把函数式组件又推上了一个地位。
 
-## Context API
-
+## ContextAPI
+<span id="ContextAPI"></span>
 `Context API` 主要解决`props`向对层嵌套的子组件传递的问题(爷孙组件props传递)，原理是定义一个全局对象，通过订阅发布的方式进行数据的传递。
 
 > `React.crateContext`
@@ -1851,7 +1851,615 @@ export default class Greeting extends Component {
 
 React16同样也除了一个插槽组件，作用是把组件中的数据渲染到特定的Dom元素中。错误组件和插槽组件配合来使用就可以把错误信息渲染到指定的地方显示出来，用来提示用户，从而提高用体验。very beautiful
 
+## Hooks一览，拥抱函数式编程
 
+React16.8中加入了Hooks，让React函数式组件再一次升华，那么到底什么是Hooks？
+
+官网是这么说的：Hook是React 16.8中的新增功能。它们允许您在不编写类的情况下使用状态和其他React功能。
+
+### 动机
+
+- 1.在组件之间重用有状态逻辑很困难
+
+React 没有提供可复用性行为“附加”到组件的途径，在写类组件的时候，一个类是一个闭包并且`state`在组件间传递并不怎么友好，虽然可以使用`props`和**高阶组件**来解决，但是这样会组件的结构更麻烦。如果你在 `React DevTools` 中观察过 `React` 应用，你会发现由 **providers，consumers，高阶组件，render props** 等其他抽象层组成的组件会形成“嵌套地狱”。
+
+![](react-hooks1.png)
+
+使用Hooks，您可以从组件中提取有状态逻辑，以便可以独立测试并重复使用。钩子允许您在不更改组件层次结构的情况下重用有状态逻辑。这样可以轻松地在许多组件之间或与页面之间共享Hook。
+
+- 2.复杂的组件变得难以理解
+
+![](react-hooks2.png)
+每个生命周期方法通常包含不相关逻辑的混合。比如说我就想实现一个非常简单的功能，必须要带一堆钩子函数，让一个简单的组件变得很复杂。而且由于不同的生命周期在不同的阶段调用，导致我们会在相应的地方作一些处理，有可能把一些完全不相干的代码因为执行周期相同必须放在同一个生命周期中,这就很容易引发bug;再比如，组件可能会在`componentDidMount`和中执行一些数据提取`componentDidUpdate`。但是，相同的`componentDidMount`方法可能还包含一些不相关的逻辑，用于设置事件侦听器，并执行清理`componentWillUnmount`。一起更改的相互关联的代码被拆分，但完全不相关的代码最终组合在一个方法中。bug又来了。
+
+为了解决这个问题，Hooks允许您根据相关的部分（例如设置订阅或获取数据）将一个组件拆分为较小的函数，而不是基于生命周期方法强制拆分。您还可以选择使用reducer管理组件的本地状态，以使其更具可预测性。
+
+- 3. 难以理解的class
+
+文档上说这点主要是学习class是一个难点。因为我自己写es6 class有一段时间了，所以class对我自己来说还是可以的，并且this理解的还可以。
+
+为了解决这些问题，Hooks允许您在没有类的情况下使用更多React的功能。从概念上讲，React组件始终更接近功能。Hooks拥抱功能，但不会牺牲React的实际精神,简单点说可以这么理解，Hooks 的出现本质是把这种面向生命周期编程变成了面向业务逻辑编程。
+
+![](react-hooks3.png)
+
+### 什么是Hooks？
+
+那么什么是Hook，Hook顾名思义就是钩子的意思。在函数组件中把React的状态和生命周期等这些特性**钩入进入**，这就是React的Hook。
+
+- Hooks 本质是把面向生命周期编程变成了面向业务逻辑编程；
+
+- Hooks 使用上是一个逻辑状态盒子，输入输出表示的是一种联系
+
+- 特指表明React的Hook作用是把类组件的一些特性钩入函数组件中，因在类组件中是不可以使Hook的。
+
+### Hooks的使用规则
+
+Hook就是javascript函数，但是使用有两个规则：
+
+- 1.只能在函数的最外层调用hook。不要在循环、条件判断或者子函数中调用。(这个关系到了hooks的执行机制，会在下面hook中说到)
+- 2.只能在React的函数组件中调用Hook。不要在其他javascript函数中调用(自定义hooks中也可以调用)
+
+### 使用Hooks的好处
+
+- 使用hooks，如果业务变更，就不需要把函数组件修改成类组件。
+- 告别了繁杂的this和合并了难以记忆的生命周期。
+- 支持包装自己的Hooks(自定义Hooks)，是基于纯命令式的api，只关注输入与输出。
+- 更好的完成状态之间的共享，解决原来class组件内部封装的问题，也解决了高阶组件和函数组件的嵌套过深。一个组件一个自己的state，一个组件内可以公用。
+
+### 内置的Hook
+
+React一共内置了9种Hook。
+
+- [useState](#useState)
+- [usEffect](#usEffect)
+- [useContext](#useContext)
+- [useReducer](#useReducer)
+- [useCallback](#useCallback)
+- [useMemo](#useMemo)
+- [useRef](#useRef)
+- [useImperativeHandle](#useImperativeHandle)
+- [useLayoutEffect](#useLayoutEffect)
+
+
+#### useState
+
+<span id="useState"></span>
+
+以前的函数式组件被成为纯函数组件或者无状态组件，是只能接受父组件传来的props并且只能做展示功能，不能使用state也没有生命周期。
+
+现在State Hook 可以让函数式组件使用状态。
+
+`useState`是React的一个Hook，它是一个方法，可以传入值作为state的默认值，返回一个数组，数组的第一项是对应的状态(默认值会赋予状态)，数组的第二项是更新状态的函数。
+
+```
+import React, { useState } from "react";
+
+const Greeting = () => {
+    const states = useState(0);
+    const count = states[0];
+    const setCount = states[1];
+    return (
+       <>
+            <h1> {count} </h1>
+            <button onClick={() => {setCount(count + 1)}}> + </button>
+       </>
+    )
+}
+export default Greeting;
+```
+
+每次取数组的第几项太麻烦，所以官方建议使用ES6数组的解构赋值的方式。
+
+```
+const [count, setCount] = useState(1);
+```
+
+看起来是不是简便多了。更新代码
+
+```
+import React, { useState } from "react";
+const Greeting = () => {
+    const [count, setCount] = useState(0);
+    return (
+       <>
+            <h1> {count} </h1>
+            <button onClick={() => {setCount(count + 1)}}> + </button>
+       </>
+    )
+}
+export default Greeting;
+```
+
+![](react-hooks-usestate.gif)
+
+我们发现，一般函数调用完成之后，其中的变量都会被回收，而上面代码和图上可以看出每次都是在count的基上相加，并没有消失，为什么呢？ 先埋下疑问点，在Hook的执行机制会提到。
+
+##### 使用多次useState
+
+在一个组件中我们不可能只有一个state，useState允许在一个组件中使多次，并且每次使用都是一个全新的状态。
+
+```
+import React, { useState } from "react";
+const Greeting = () => {
+    const [count, setCount] = useState(0);      //第一次使用
+    const [istrue, setIstrue] = useState(true); //第二次使用
+    return (
+       <>
+            {istrue ? <h1> {count} </h1> : void 0}
+            <button onClick={ () => {setIstrue(!istrue)}}>change</button>
+            <button onClick={() => {setCount(count + 1)}}> + </button>
+       </>
+    )
+}
+export default Greeting;
+```
+
+![](react-hooks-usestate1.gif)
+
+上面代码使用两次useState，完美的完成了功能。
+
+那么现在又有疑问了，React是怎么区别多次调用的hooks的呢？先埋下疑问点，在Hook的执行机制的时候会谈到(所有的Hook都是这)。
+
+#### useEffect
+
+<span id="useEffect"></span>
+
+既然React Hooks给了函数式组件（或者说是纯函数组件）那么强大的功能(抛弃类组件)，那么组件中总是要会执行副作用操作，纯函数组件保持了函数渲染的纯度，那么要怎么执行副作用呢？
+
+React Hooks 提供了 Effect Hook，可以在函数组件中执行副作用操作，并且是在函数渲染DOM完成后执行副作用操作。
+
+```
+import React, {useEffect} from "react";
+```
+
+`useEffect`这个方法传入一个函数作为参数，在函数里面执行副作用代码，并且**useEffec的第一个参数还支持返回值为一个函数，这个函数执行相当于组件更新和卸载**。
+
+```
+import React, {useState, useEffect} from "react";
+
+const EffectComponent = () => {
+    useEffect(() => {
+        console.log("useEffect Hook");
+    })
+    return null;
+}
+export default EffectComponent
+```
+![](react-hooks-effect.png)
+##### 与类组件生命周期的比较
+
+我们都知道在类组件中可以在`componentDidMount`和`componentDidUpdate`中执行副作用，那么在函数组件中`useEffect`的参数函数就具有类组件的这两个生命周期的用途，如果`useEffect`的第一个参数有返回值为函数的话，函数的返回值相当于`componentWillUnmount`。可以说useEffect把这三个API合成了一个。
+
+**最常见的做法就是就是在函数参数中写事件注册，在函数的返回函数中写事件销毁。**
+```
+import React, {useState, useEffect} from "react";
+
+const EffectComponent = () => {
+    const [width, setWidth] = useState(window.innerWidth);
+    const resizeHandle = () => {
+        setWidth(window.innerWidth);
+    }
+    useEffect(() => {
+        window.addEventListener("resize", resizeHandle);
+        return () => {
+            window.removeEventListener("resize", resizeHandle)
+        }
+    })
+    return (
+        <h1>{width}</h1>
+    );
+}
+export default EffectComponent
+```
+![](react-hooks-effect1.png)
+
+##### useEffect的执行时机
+
+从上面我们知道了useEffect可以说是类组件中三种生命周期的结合，但是它的执行时机是什么样的呢？从一个小Demo来说
+```
+import React, {useState, useEffect} from "react";
+const EffectComponent = () => {
+    const [count, setCount] = useState(1);
+    useEffect(() => {
+        console.log("定义事件接口")
+        return () => {
+            console.log("注销事件接口")
+        }
+    })
+    return (
+        <>  
+            {console.log("渲染")}
+            <h1>{count}</h1>
+            <button onClick={() => {setCount(count + 1)}}> + </button>
+        </>
+    );
+}
+export default EffectComponent
+```
+![](react-hooks-effect2.png)
+
+在开始的时候有提到，useEffec执行副作时机在渲染后，确实是这样。细心的你会发现，当我点击+号的时候，怎么会出现注销事件接口？ useEffec函数中的返回函数不是在组件卸载的时候被调用吗？
+
+我个人的理解是`useEffect`函数参数中返回函数所代表的销毁是上一次`useEffect`自己的销毁，**因为每次重新执行函数组件都会重新生成新的Effect**。假如没有销毁，由于useEffect的函数参数会在首次渲染和更新的时候调用，这就有了一致命的缺点：如果我是定义的事件，每次更新都会执行，那么岂不是在事件还没有移除掉又定义了一次，所以`useEffect`加入了这个功能。
+
+
+我们来验证一下上述论述是否正确。
+```
+import React, {useState, useEffect} from "react";
+
+const EffectComponent = () => {
+    const [width, setWidth] = useState(window.innerWidth);
+    const [count, setCount] = useState(1);
+    const resizeHandle = () => {
+        setWidth(window.innerWidth);
+        console.log(window.innerWidth);
+    }
+    useEffect(() => {
+        window.addEventListener("resize", resizeHandle);
+        return () => {
+            // window.removeEventListener("resize", resizeHandle)
+        }
+    })
+    return (
+        <>
+            <h1>{count}</h1>
+            <button onClick={() => {setCount(count + 1)}}>+</button>
+        </>
+    );
+}
+export default EffectComponent
+```
+
+上面代码我把`useEffect` 中`return`的事件移除注释掉，同时在事件处理函数中打印一下窗口宽度。 可以看出当我第一次触发窗口事件的时候，直接打印了三次。
+
+##### useEffect的第二个参数
+
+**当`useEffect`的第二个参数不写的话(上面都没写),任何更新都会触发`useEffect`。**那么下面说一下`useEffect`的第二个参数。
+
+`useEffect`的第二个参数是一个数组，表示哪些`state`和`props`来执行副作用。
+
+数组为空的时候，`useEffect`就相当于`componentDidMount`和`componentWillUnmount`这两个生命周期，只在首次渲染和卸载的时候执行。 
+
+当数组中值是状态的时候，就会只监听这一个状态的变化。当然数组中可以多个值，监听存放`state`的变化。
+
+```
+const EffectComponent = () => {
+    const [count, setCount] = useState(1);
+    const [num, setNum] = useState(2);
+    useEffect(() => {
+        console.log("count状态更新");
+        return () => {
+            console.log("useEffect卸载")
+        }
+    },[count])
+    return (
+        <>
+            <h1>{count}</h1>
+            <button onClick={() => {setCount(count + 1)}}>+</button>
+            <h1>{num}</h1>
+            <button onClick={() => {setNum(num + 1)}}>+</button>
+        </>
+    );
+}
+```
+![](react-hooks-effect4.png)
+
+##### 写多个useEffect
+当我们在写类组件的时候，通常会把定义事件写在`componentDidMount`中，如果只是一个事件处理，项目不大还好，那如果项目很大，所有的事件处理都定义在一个生命周期中，难道就不乱吗？乱是肯定的，而且还容易出bug。
+
+React Hook 允许函数式组件中定义多个`useEffect`(和`useState`类似)，多个`useEffect`互相不受干扰。
+```
+const EffectComponent = () => {
+    const [count, setCount] = useState(1);
+    const [num, setNum] = useState(2);
+    useEffect(() => {
+        console.log("count状态更新");
+        return () => {
+            console.log("count卸载")
+        }
+    },[count])
+    useEffect(() => {
+        console.log("num状态更新");
+        return () => {
+            console.log("num卸载")
+        }
+    },[num])
+    return (
+        <>
+            <h1>{count}</h1>
+            <button onClick={() => {setCount(count + 1)}}>+</button>
+            <h1>{num}</h1>
+            <button onClick={() => {setNum(num + 1)}}>+</button>
+        </>
+    );
+}
+```
+![](react-hooks-effect3.png)
+
+useEffect在函数组件中的作用非常大，好好利用必成神器。
+
+#### useContext
+
+<span id="useContext"></span>
+
+React16中更新了Context API，Context主要用于爷孙组件的传值问题，新的Context API使用订阅发布者模式方式实现在爷孙组件中传值。 上文中我写了一篇简单的使用方法[Context API](#ContextAPI)，不了解的可以参考一下。
+
+React Hooks出现之后也对Context API出了响应的Hook `useContext`。**同样也是解传值的问题**。
+
+`useContext` Hook接受一个`context`对象(由`createContext`创建的对象)作为参数，并返回`Context.Consumer`。例如：
+```
+const stateContext = createContext('default');
+```
+
+- 正确： `useContext(stateContext)`
+- 错误： `useContext(stateContext.Consumer)`
+- 错误： `useContext(stateContext.Provider)`
+
+##### 使用方式
+
+比如说有一个简单的ContextComponent组件
+```
+const ContextComponent = () => {
+    return (
+        <>
+            <h1>{value}</h1>
+        </>
+    );
+}
+```
+通过**Context API**给这个组件发信息。
+```
+export default () => (
+    <stateContext.Provider
+        value={"Hello React"}
+    >
+        <ContextComponent/>
+    </stateContext.Provider>
+)
+```
+
+使用`useContext()`
+```
+const value = useContext(stateContext);
+```
+使用`useContext`，必须在函数式组件中，否则会报错。
+
+
+
+可以看出，使用`useContext`仍然需要在上层组件中使用来为下层组件提供context。
+
+#### useReducer
+
+<span id="useReducer"></span>
+
+看到`useReducer`,肯定会想到`Redux`，没错它和`Redux`的工作方式是一样的。**`useReducer`的出现是`useState`的替代方案**，能够让我们更好的管理状态。
+
+`useReducer`一共可以接受三个参数并返回当前的`state`与其配套的`dispatch`。
+
+##### 第一个参数
+`useReducer`的第一个参数就是形如`(state,action) => newState`这样的`reducer`，没错就是`reducer`，和`redux`完全相同。我们来定义一个简单的reducer。
+
+```
+const reducer = (state, action) => {
+    switch(action.type){
+        case "ADD_TODO":
+            return [
+                ...state,
+                action.todo
+            ];
+        default:
+            return state;
+
+    }
+}
+```
+
+上面是一个简单的`reducer`，细心的你会发现，`state`参数难道不需要指定一下默认值吗？不需要，React不需要使用指定`state = initialState`，有时候初始值需要依赖于`props`，所以初始值在`useReducer`上指定，也许已经猜到第二个参数是什么了？
+
+##### 第二个参数
+
+`useReducer`的第二个参数和Redux的createStore也相同，指定状态的默认值。例如：
+
+```
+useReducer(reducer,[{
+    id: Date.now(),
+    value: "Hello react"
+}])
+```
+
+##### 第三个参数
+
+`useReducer`的第三个参数接受一个函数作为参数，并把第二个参数当作函数的参数执行。主要作用是初始值的惰性求值，把一些对状态的逻辑抽离出来，有利于重置`state`。
+
+定义一个init函数
+```
+function init(initialCount) {
+    return [
+        ...initialCount,
+    ];
+}
+```
+##### useReducer使用
+
+```
+useReducer(reducer,[
+        {
+            id: Date.now(),
+            value: "Hello react"
+        }
+    ],init)
+```
+
+##### useReducer的返回值
+
+`useReducer`的返回值为一个数组，数组的第一项为当前`state`，第二项为与当前`state`对应的`dispatch`，可以使用ES6的解构赋值拿到这两个
+```
+const [state,dispatch] = useReducer(reducer,[
+    {
+        id: Date.now(),
+        value: "Hello react"
+    }
+],init)
+```
+
+##### 浅比较渲染
+
+如果 `Reducer Hook` 的返回值与当前 `state` 相同，`React` 将跳过子组件的渲染及副作用的执行。
+
+这种方式 `react` 使用`Objec.is`比较算法来比较`state`，因此这是一个浅比较，来测验一下。
+
+我们先在`reducer`中添加一个改变的Todo值的case。
+```
+case "CHANGE_TODO":
+return state[action.id] = 'change' && state;
+```
+修改一下`return`,给下层组件传一个change属性
+```
+const change = (id) => {
+    dispatch({
+        type: "CHANGE_TODO",
+        id,
+    })
+}
+return (
+    <>
+        <button onClick={() => {dispatch({type: "ADD_TODO",todo:{id:Date.now(),value:"Hello Hook"}})}}> Add </button>
+        {state.map((todo,index) => (
+           <Todo key={index} todo={todo.value} change={()=>{change(todo.id)}}/>
+        ))}
+    </>
+)
+```
+给Todo组件添加一点击事件,当点击触发上层组件传来的方法,使组件值修改.
+```
+let Todo = ({todo,change}) => {
+    return (
+        console.log("render"),
+        <li onClick={change}>{todo}</li>
+    );
+}
+```
+![](react-hooks-usereducer.png)
+从图片上可以看出,无论我怎么点击li都不会发生改变。
+
+那么我们来改变一下reducer，让它返回一个全新的数组。
+```
+case "CHANGE_TODO":
+    return state.map((todo,index) =>{
+        if(todo.id === action.id){
+            todo.value="change";
+        }
+        return todo;
+    } )
+```
+![](react-hooks-usereducer1.png)
+当返回一个新的数组的时候，点击li都发生了改变，默认有了`shouldComponentUpdate`的功能。
+
+#### useCallback
+
+<span id="useCallback"></span>
+
+`useCallback`可以认为是对依赖项的监听，把接受一个回调函数和依赖项数组，返回一个该回调函数的memoized(记忆)版本，该回调函数仅在某个依赖项改变时才会更新。
+
+一个简单的小例子
+```
+const CallbackComponent = () => {
+    let [count, setCount] = useState(1);
+    let [num, setNum] = useState(1);
+    
+    const memoized = useCallback( () => {
+        return num;
+    },[count])
+    console.log("记忆：",memoized());
+    console.log("原始：",num);
+    return (
+        <>
+            <button onClick={() => {setCount(count + 1)}}> count+ </button>
+            <button onClick={() => {setNum(num + 1)}}> num+ </button>
+        </>
+    )
+}
+```
+![](react-hooks-useCallback.png)
+如果没有传入依赖项数组，那么记忆函数在每次渲染的时候都会更新。
+![](react-hooks-useCallback1.png)
+
+#### useMemo
+`useMemo`和`useCallback`很像，唯一不同的就是
+```
+useCallback(fn, deps) 相当于 useMemo(() => fn, deps
+```
+
+这里就不过多介绍了。
+
+#### useRef
+React16出现了可用`Object.createRef`创建ref的方法，因此也出了这样一个Hook。
+
+使用语法：
+```
+const refContainer = useRef(initialValue);
+```
+`useRef`返回一个可变的ref对象，`useRef`接受一个参数绑定在返回的ref对象的`current`属性上，返回的ref对象在整个生命周期中保持不变。
+
+例子：
+```
+const RefComponent = () => {
+    let inputRef = useRef(null);
+    useEffect(() => {
+        inputRef.current.focus();
+    })
+    return (
+        <input type="text" ref={inputRef}/>
+    ) 
+}
+```
+上面例子在input上绑定一个ref，使得input在渲染后自动焦点聚焦。 
+![](react-hooks-useRef.png)
+#### useImperativeHandle
+
+> `useImperativeHandle` 可以让你在使用 `ref` 时自定义暴露给父组件的实例值。
+
+就是说：当我们使用父组件把`ref`传递给子组件的时候，这个Hook允许在子组件中把自定义实例附加到父组件传过来的`ref`上，有利于父组件控制子组件。
+
+使用方式
+```
+useImperativeHandle(ref, createHandle, [deps])
+```
+一个例子：
+```
+function FancyInput(props, ref) {
+    const inputRef = useRef();
+    useImperativeHandle(ref, () => ({
+        focus: () => {
+            inputRef.current.value="Hello";
+        }
+    }));
+    return <input ref={inputRef} />;
+}
+FancyInput = forwardRef(FancyInput);
+
+export default () => {
+    let ref = useRef(null);
+    useEffect(() => {
+        console.log(ref);
+        ref.current.focus();
+    })
+    return (
+        <>
+            <FancyInput ref={ref}/>
+        </>
+    )
+}
+```
+上面是一个父子组件中ref传递的例子，使用到了forwardRef(这是一个高阶函数，主要用于ref在父子组件中的传递)，使用useImperativeHandle把第二个参数的返回值绑定到父组件传来的ref上。
+![](react-hooks-useImperativeHandle.png)
+
+#### useLayoutEffect
+这个钩子函数和`useEffect`相同，都是用来执行副作用。但是它会在所有的DOM变更之后同步调用effect。`useLayoutEffect`和`useEffect`最大的区别就是一个是同步一个是异步。
+
+从这个Hook的名字上也可以看出，它主要用来读取DOM布局并触发同步渲染，在浏览器执行绘制之前，`useLayoutEffect` 内部的更新计划将被同步刷新。
+
+官网建议还是尽可能的是使用标准的useEffec以避免阻塞视觉更新。
 
 
 <!-- 
@@ -1864,7 +2472,6 @@ this处理使用bind或箭头函数
 
 ## fiber架构
 
-## reactHooks
 
 ## redux总结
 
