@@ -363,6 +363,10 @@ module.exports = {
         link: '/no.2/http'
       },
       {
+        text: 'socket',
+        link: '/no.2/webSocket与socket.io'
+      },
+      {
         text: '编程思想',
         // no.1
         items: [{

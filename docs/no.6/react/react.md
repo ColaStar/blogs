@@ -831,7 +831,35 @@ export default class App extends React.Component{
 - 数据存储在state中便于取用
 - 便于对数据进行处理
 
-## React事件表
+## React事件处理与表单元素
+
+React 元素的事件处理和 DOM 元素类似。但是有一点语法上的不同:
+
+- React 事件绑定属性的命名采用驼峰式写法，而不是小写。
+- 如果采用 JSX 的语法你需要传入一个函数作为事件处理函数，而不是一个字符串(DOM 元素的写法)
+- 在 React 中另一个不同是你不能使用返回 false 的方式阻止默认行为， 你必须明确的使用 preventDefault
+
+```
+//html
+
+<button onclick="activateLasers()">
+  激活按钮
+</button>
+
+//react
+
+ <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? '激活按钮' : '注销按钮'}
+ </button>
+```
+### 向事件处理程序传递参数
+
+通常我们会为事件处理程序传递额外的参数。例如，若是 id 是你要删除那一行的 id，以下两种方式都可以向事件处理程序传递参数：
+```
+<button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
+<button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
+```
+### React事件表
 
 > 触摸事件
 
@@ -877,6 +905,17 @@ export default class App extends React.Component{
 - onDragLeave
 - onDragOver
 - onDragStar
+
+### 表单元素
+
+HTML 表单元素与 React 中的其他 DOM 元素有所不同,因为表单元素生来就保留一些内部状态。
+
+在 HTML 当中，像 `<input>`, `<textarea>`, 和 `<select>` 这类表单元素会维持自身状态，并根据用户输入进行更新。但在React中，可变的状态通常保存在组件的状态属性中，并且只能用 `setState()` 方法进行更新。
+
+- 1.lable中的for使用HtmlFor
+- 2.input、textarea，我们可以使用 onChange 事件来监听 input 的变化，通过修改 state来修改表单的value
+- 3.在 React 中，不使用 selected 属性，而在根 select 标签上用 value 属性来表示选中项。
+- 4.当你有处理多个 input 元素时，你可以通过给每个元素添加一个 name 属性，来让处理函数根据 event.target.name 的值来选择做什么。
 
 ## render函数的多种返回值
 
@@ -927,6 +966,7 @@ render(){
         )
     }
 ```
+
 
 ## 数据的不可变性
 
@@ -1020,6 +1060,8 @@ export default CounterButton;
 ```
 
 ### 纯函数组件
+
+函数式组件其实就是对函数式编程的践行。
 
 没有自身的状态，相同的`props`输入必然会获得完全相同的组件展示。不需要关心组件的一些生命周期函数和渲染的钩子更简洁。
 
@@ -1919,6 +1961,8 @@ React一共内置了9种Hook。
 - [useRef](#useRef)
 - [useImperativeHandle](#useImperativeHandle)
 - [useLayoutEffect](#useLayoutEffect)
+- [Hook的执行机制](#Hook的执行机制)
+
 
 
 #### useState
@@ -2385,6 +2429,9 @@ const CallbackComponent = () => {
 ![](react-hooks-useCallback1.png)
 
 #### useMemo
+
+<span id="useMemo"></span>
+
 `useMemo`和`useCallback`很像，唯一不同的就是
 ```
 useCallback(fn, deps) 相当于 useMemo(() => fn, deps
@@ -2393,6 +2440,9 @@ useCallback(fn, deps) 相当于 useMemo(() => fn, deps
 这里就不过多介绍了。
 
 #### useRef
+
+<span id="useRef"></span>
+
 React16出现了可用`Object.createRef`创建ref的方法，因此也出了这样一个Hook。
 
 使用语法：
@@ -2413,9 +2463,14 @@ const RefComponent = () => {
     ) 
 }
 ```
+
 上面例子在input上绑定一个ref，使得input在渲染后自动焦点聚焦。 
+
 ![](react-hooks-useRef.png)
+
 #### useImperativeHandle
+
+<span id="useImperativeHandle"></span>
 
 > `useImperativeHandle` 可以让你在使用 `ref` 时自定义暴露给父组件的实例值。
 
@@ -2455,23 +2510,126 @@ export default () => {
 ![](react-hooks-useImperativeHandle.png)
 
 #### useLayoutEffect
+
+<span id="useLayoutEffect"></span>
+
 这个钩子函数和`useEffect`相同，都是用来执行副作用。但是它会在所有的DOM变更之后同步调用effect。`useLayoutEffect`和`useEffect`最大的区别就是一个是同步一个是异步。
 
 从这个Hook的名字上也可以看出，它主要用来读取DOM布局并触发同步渲染，在浏览器执行绘制之前，`useLayoutEffect` 内部的更新计划将被同步刷新。
 
 官网建议还是尽可能的是使用标准的useEffec以避免阻塞视觉更新。
 
+#### Hook的执行机制
 
+<span id="Hook的执行机制"></span>
+
+上面一共埋了2个疑问点。
+
+> **第一个：函数调用完之后会把函数中的变量清除，但ReactHook是怎么复用状态呢？**
+
+`React` 保持对当先渲染中的组件的追踪，每个组件内部都有一个
+**「记忆单元格」**列表。它们只不过是我们用来存储一些数据的 JavaScript 对象。当你用 `useState()` 调用一个Hook的时候，它会读取当前的单元格（或在首次渲染时将其初始化），然后把指针移动到下一个。这就是多个 `useState()` 调用会得到各自独立的本地 `state` 的原因。
+
+之所以不叫`createState`，而是叫`useState`，因为 `state` 只在组件首次渲染的时候被创建。在下一次重新渲染时，`useState` 返回给我们当前的 `state`。
+
+```
+    const [count, setCount] = useState(1);
+    setCount(2);
+    //第一次渲染
+        //创建state，
+        //设置count的值为2
+    //第二次渲染
+        //useState(1)中的参数忽略，并把count赋予2
+```
+
+> `**React是怎么区分多次调用的hooks的呢，怎么知道这个hook就是这个作用呢？**`
+React 靠的是 `Hook` **调用的顺序**。在一个函数组件中每次调用Hooks的顺序是相同。借助官网的一个例子：
+
+```
+// ------------
+// 首次渲染
+// ------------
+useState('Mary')           // 1. 使用 'Mary' 初始化变量名为 name 的 state
+useEffect(persistForm)     // 2. 添加 effect 以保存 form 操作
+useState('Poppins')        // 3. 使用 'Poppins' 初始化变量名为 surname 的 state
+useEffect(updateTitle)     // 4. 添加 effect 以更新标题
+
+// -------------
+// 二次渲染
+// -------------
+useState('Mary')           // 1. 读取变量名为 name 的 state（参数被忽略）
+useEffect(persistForm)     // 2. 替换保存 form 的 effect
+useState('Poppins')        // 3. 读取变量名为 surname 的 state（参数被忽略）
+useEffect(updateTitle)     // 4. 替换更新标题的 effect
+
+// ...
+```
+
+在上面hook规则的时候提到**Hook一定要写在函数组件的对外层，不要写在判断、循环中，正是因为要保证Hook的调用顺序相同**。
+
+如果有一个Hook写在了判断语句中
+```
+if (name !== '') {
+    useEffect(function persistForm() {
+      localStorage.setItem('formData', name);
+    });
+}
+```
+借助上面例子，如果说name是一个表单需要提交的值，在第一次渲染中，name不存在为true，所以第一次Hook的执行顺序为
+```
+useState('Mary')           // 1. 使用 'Mary' 初始化变量名为 name 的 state
+useEffect(persistForm)     // 2. 添加 effect 以保存 form 操作
+useState('Poppins')        // 3. 使用 'Poppins' 初始化变量名为 surname 的 state
+useEffect(updateTitle)     // 4. 添加 effect 以更新标题
+```
+在第二次渲染中，如果有表单中有信息填入，那么name就不等于空，Hook的渲染顺序如下：
+```
+useState('Mary')           // 1. 读取变量名为 name 的 state（参数被忽略）
+// useEffect(persistForm)  // 🔴 此 Hook 被忽略！
+useState('Poppins')        // 🔴 2 （之前为 3）。读取变量名为 surname 的 state 失败
+useEffect(updateTitle)     // 🔴 3 （之前为 4）。替换更新标题的 effect 失败
+```
+这样就会引发Bug的出现。因此在写Hook的时候一定要在函数组件的最外层写，不要写在判断，循环中。
+
+#### 自定义Hook
+
+<span id="自定义Hook"></span>
+
+自定义hooks可以说成是一种约定而不是功能。**当一个函数以use开头并且在函数内部调用其他hooks，那么这个函数就可以成为自定义hooks**，比如说useSomething。
+
+**自定义Hooks可以封装状态，能够更好的实现状态共享。**
+
+我们来封装一个数字加减的Hook
+```
+const useCount = (num) => {
+    let [count, setCount] = useState(num);
+    return [count,()=>setCount(count + 1), () => setCount(count - 1)]
+};
+```
+
+这个自定义Hook内部使用useState定义一个状态，返回一个数组，数组中有状态的值、状态++的函数，状态–的函数。
+
+```
+const CustomComp = () => {
+    let [count, addCount, redCount] = useCount(1);
+
+    return (
+        <>
+            <h1>{count}</h1>
+            <button onClick={addCount}> + </button>
+            <button onClick={redCount}> - </button>
+        </>
+    )
+}
+```
+
+主函数中使用解构赋值的方式接受这三个值使用，这是一种非常简单的自定义Hook。如果项目大的话使用自定义Hook会抽离可以抽离公共代码，极大的减少我们的代码量，提高开发效率。
+
+
+## 让方法
 <!-- 
-React不同表单元素的使用
-label  HtmlFor
-
-事件处理函数以及this
-驼峰
-this处理使用bind或箭头函数
 
 ## fiber架构
-
 
 ## redux总结
 
@@ -2500,29 +2658,6 @@ constructor(props){
 ```
 
 子组件更新触发父组件。父组件更新所有的子组件要Diff，一旦更改了state类型，上边全部办法歇菜，相当于直接生成一颗新的树🌲可以使用IMMUTABLE库
-
-
-
-- react
-
-
-React 16.8的新特性
-
-函数式组件与hooks
-
-函数式组件其实就是对函数式编程的践行。
-
-
-
-
-不可变对象imm
-
-
-
-
-
-
-
 
 
 ## webApp缺点与优点
