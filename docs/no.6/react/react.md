@@ -305,7 +305,7 @@ export default class Hello extends React.Component{
     }
 }
 ```
-上面两种方式同样是通过this.setState()改变状态。
+上面两种方式同样是通过`this.setState()`改变状态。
 
 以ES6为例
 ```
@@ -334,22 +334,23 @@ export default class Hello extends React.Component{
 }
 ```
 
-> 使用 setState 的时候，需要注意:
-使用 setState 是一件很复杂的事情。即使是熟练的 React 开发，也很有可能因为 React 的一些机制而产生一些bug，比如下面这个例子：
+> 使用 `setState` 的时候，需要注意:
+
+使用 `setState` 是一件很复杂的事情。即使是熟练的 `React` 开发，也很有可能因为 `React` 的一些机制而产生一些`bug`，比如下面这个例子：
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-setstate.gif">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-setstate.gif)</a>
 
 **注意：**
-绝对不要 直接改变 this.state ，因为之后调用 setState() 可能会替换掉你做的改
+绝对不要 直接改变 `this.state` ，因为之后调用 `setState()` 可能会替换掉你做的改
 
-变。把 this.state 当做是不可变的。
+变。把 `this.state` 当做是不可变的。
 
-setState() 不会立刻改变 this.state ，而是创建一个即将处理的 state 转变。在调用该方法之后访问 this.state 可能会返回现有的值。
+`setState() `不会立刻改变 this.state ，而是创建一个即将处理的 state 转变。在调用该方法之后访问 this.state 可能会返回现有的值。
 
-对 setState 的调用没有任何同步性的保证，并且调用可能会为了性能收益批量执行。
+对 `setState` 的调用没有任何同步性的保证，并且调用可能会为了性能收益批量执行。
 
-setState() 将总是触发一次重绘，除非在 shouldComponentUpdate() 中实现了条件渲染逻辑。如果可变对象被使用了，但又不能在 shouldComponentUpdate() 中实现这种逻辑，仅在新 state 和之前的 state 存在差异的时候调用 setState() 可以避免不必要的重新渲染。
+`setState() `将总是触发一次重绘，除非在 shouldComponentUpdate() 中实现了条件渲染逻辑。如果可变对象被使用了，但又不能在 shouldComponentUpdate() 中实现这种逻辑，仅在新 state 和之前的 state 存在差异的时候调用 setState() 可以避免不必要的重新渲染。
 
-总结出来，当使用 setState 的时候，有三个问题需要注意:
+总结出来，当使用 `setState` 的时候，有三个问题需要注意:
 
 - 1.setState是异步的
 
@@ -988,7 +989,7 @@ Immutable是一个基于函数式编程的库，Facebook致力于3年时间把�
 
 Immutable采用一种共享引用的方式，只会改变改变节点数据的那个分支的节点，其他分支节点空想引用。
 
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/immuable1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/immuable1.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-Immutable.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-Immutable.png)</a>
 > 使用方式
 安装Immutable包
 ```
@@ -1082,6 +1083,7 @@ class Greeting extends Component {
   }
 }
 ```
+
 ### 高阶组件
 
 高阶组件可以说也是高阶函数,就是一个没有副作用的纯函数,只是增强剂是一个组件，被增强的也组件，返回的也是组件。。
@@ -1893,6 +1895,10 @@ export default class Greeting extends Component {
 
 React16同样也除了一个插槽组件，作用是把组件中的数据渲染到特定的Dom元素中。错误组件和插槽组件配合来使用就可以把错误信息渲染到指定的地方显示出来，用来提示用户，从而提高用体验。very beautiful
 
+## react性能调优
+
+### 单个react组件性能优化
+
 ## Hooks一览，拥抱函数式编程
 
 React16.8中加入了Hooks，让React函数式组件再一次升华，那么到底什么是Hooks？
@@ -2625,8 +2631,23 @@ const CustomComp = () => {
 
 主函数中使用解构赋值的方式接受这三个值使用，这是一种非常简单的自定义Hook。如果项目大的话使用自定义Hook会抽离可以抽离公共代码，极大的减少我们的代码量，提高开发效率。
 
+## webApp缺点与优点
 
-## 让方法
+缺点：
+
+- 1.Web基于DOM，而DOM很慢
+- 2.DOM拖慢JavaScript。
+- 3.网页是单线程的
+- 4.网页没有硬件加速
+
+优点：
+
+- 1.跨平台：所有系统都能使用
+- 2.免安装：打开浏览器就能使用
+- 3.快速部署：升级只需在服务器更新代码
+- 4.超链接：可以与其他网站互联，可以被搜索引擎检索
+
+react-canvas这个包是基于canvas和react的把jsx语法化成canvas
 <!-- 
 
 ## fiber架构
@@ -2639,7 +2660,6 @@ const CustomComp = () => {
 
 循环渲染的组件，你改变一个组件所有的组件都跟着重新渲染，
 解决方法
-
 - 1.可以通过`shouldComponentUpdate`去判断上一个与现在这个状态判断解决，
 
 - 2.通过插件解决：`mixins：[React.addons.PureRenderMixin]`
@@ -2658,23 +2678,7 @@ constructor(props){
 ```
 
 子组件更新触发父组件。父组件更新所有的子组件要Diff，一旦更改了state类型，上边全部办法歇菜，相当于直接生成一颗新的树🌲可以使用IMMUTABLE库
+ -->
 
 
-## webApp缺点与优点
-
-缺点：
-
-- 1.Web基于DOM，而DOM很慢
-- 2.DOM拖慢JavaScript。
-- 3。网页是单线程的
-- 网页没有硬件加速
-
-优点：
-
-- 1.跨平台：所有系统都能使用
-- 2.免安装：打开浏览器就能使用
-- 3.快速部署：升级只需在服务器更新代码
-- 4.超链接：可以与其他网站互联，可以被搜索引擎检索
-
-react-canvas这个包是基于canvas和react的把jsx语法化成canvas -->
 

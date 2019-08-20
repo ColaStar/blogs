@@ -161,8 +161,221 @@ getComponent().then(element => {
   document.body.appendChild(element);
 })
 ```
+## 开发中的server---devServer配置
+[官网介绍](https://www.webpackjs.com/configuration/dev-server/)
+
+下边简单介绍一下
+> contentBase
+
+该配置项指定了服务器资源的根目录，如果不配置`contentBase`或使用`false`的话，那么contentBase默认是当前执行的目录,一般是项目的根目录。
+可能如上解析还不够清晰，没有关系，我们下面还是先看下我整个项目的目录结构，然后进行相关的配置，使用`contentBase`配置项再来理解下：
+
+```
+### 目录结构如下：
+demo1                                       # 工程名
+|   |--- dist                               # dist是打包后生成的目录文件             
+|   |--- node_modules                       # 所有的依赖包
+|   |--- js                                 # 存放所有js文件
+|   | |-- demo1.js  
+|   | |-- main.js                           # js入口文件
+|   |
+|   |--- webpack.config.js                  # webpack配置文件
+|   |--- index.html                         # html文件
+|   |--- styles                             # 存放所有的css样式文件                              
+|   |--- .gitignore  
+|   |--- README.md
+|   |--- package.json
+```
+在webpack配置加上如下配置，即配置项指定了服务器资源的根目录。比如我们打包后的文件放入 dist目录下。
+
+```
+module.exports = {
+  devServer: {
+    contentBase: path.join(__dirname, "dist")
+  },
+}
+```
+如上配置完成后，我们再运行 npm run dev, 再在地址栏中 运行 http://localhost:8080/ 后看到如下信息：
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver.png)</a>
+
+也就是说 配置了 contentBase后，服务器就指向了资源的根目录，而不再指向项目的根目录。因此再访问 http://localhost:8080/index.html 是访问不到的。但是访问 http://localhost:8080/bundle.js 该js文件是可以访问的到的。
+
+> port
+
+该配置属性指定了开启服务器的端口号
+
+> host
+
+该配置属性指定了开启服务器的IP
+> headers
+该配置项可以在HTTP响应中注入一些HTTP响应头。 比如如下：
+```
+module.exports = {
+  devServer: {
+    headers: {
+      'X-foo': '112233'
+    }
+  }
+}
+```
+如上配置完成后，打包下，刷新下浏览器，可以看到请求头加了上面的信息，如下所示：
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver1.png)</a>
+
+> historyApiFallback
+
+该配置项属性是用来应对返回404页面时定向跳转到特定页面的。一般是应用在 `HTML5中History API` 的单页应用，比如在访问路由时候，访问不到该路由的时候，会跳转到index.html页面。
+
+```
+module.exports = {
+  devServer: {
+    historyApiFallback: true
+  },
+}
+```
+当然如上只是简单的配置下，当然我们也可以手动通过 正则来匹配路由，比如访问 /user 跳转到 user.html，访问 /home 跳转到 home.html, 如下配置：
+
+当然我们需要在 dist 目录下 新建 home.html 和 user.html 了，如下基本配置：
+
+```
+ historyApiFallback: {
+      // 使用正则来匹配路由
+      rewrites: [
+        { from: /^\/user/, to: '/user.html' },
+        { from: /^\/home/, to: '/home.html' }
+      ]
+    }
+```
+
+>  hot
+
+该配置项是指模块替换换功能，`DevServer` 默认行为是在发现源代码被更新后通过自动刷新整个页面来做到实时预览的，
+
+但是开启模块热替换功能后，它是通过在不刷新整个页面的情况下通过使用新模块替换旧模块来做到实时预览的。
+
+> inline
+
+webpack-dev-server 有两种模式可以实现**自动刷新**和**模块热替换机制**。
+
+- 1.iframe 
+
+页面是被嵌入到一个iframe页面，并且在模块变化的时候重载页面。
+
+可能如上解释，我们还不能完全能理解到底是什么意思，没有关系，我们继续来看下配置和实践效果。
+
+```
+module.exports = {
+  devServer: {
+    inline: false
+  },
+}
+```
+如上代码配置 inline: false 就是使用iframe模式来重载页面了。
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver2.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver2.png)</a>
+
+接着我们在浏览器下 输入 http://0.0.0.0:8081/webpack-dev-server/ 地址后 回车，即可看到页面，我们查看源代码的时候，会看到嵌入了一个iframe页面，如下图所示：
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver3.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver3.png)</a>
+
+当我们重新修改main.js 或 它的依赖文件 demo1.js 的时候，保存后，它也会自动重新加载页面，这就是使用 iframe 模式来配置加载页面的。
+
+iframe 模式的特点有：
+1. 在网页中嵌入了一个iframe，将我们自己的应用代码注入到 这个 iframe中去了。
+2. 在页面头部会有一个 App ready. 这个提示，用于显示构建过程的状态信息。
+3. 加载了 live.bundle.js文件，还同时包含了 socket.io的client代码，进行了 websocket通讯，从而完成了自动编译打包，页面自动刷新功能。
+
+我们看下请求的所有文件有如下：
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver4.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver4.png)</a>
+
+- 2.inline 模式
+
+开启模式，只需要把上面的配置代码变为 inline: true即可，它在构建变化后的代码会通过代理客户端来控制网页刷新。
+
+如上配置后，我们运行 webpack-dev-server 命令后，如下所示：
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver5.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver5.png)</a>
+
+接着我们在地址栏中 http://0.0.0.0:8081/ 运行下 就可以访问到 项目中的根目录 index.html了，当我们修改入口文件的代码保存也一样
+能实时刷新，其实效果是一样的。
+
+inline模式的特点有：
+
+1. 构建的消息在控制台中直接显示出来。
+2. socket.io的client代码被打包进bundle.js当中，这样就能和websocket通讯，从而完成自动编译工作，页面就能实现自动刷新功能。
+3. 以后的每一个入口文件都会插入上面的socket的一段代码，这样会使的打包后的bundle.js文件变得臃肿。
+
+>  open
+
+该属性用于DevServer启动且第一次构建完成时，自动使用我们的系统默认浏览器去打开网页。
+
+> overlay
+
+该属性是用来在编译出错的时候，在浏览器页面上显示错误。该属性值默认为false，需要的话，设置该参数为true。
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver6.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver6.png)</a>
+
+> stats(字符串)
+
+该属性配置是用来在编译的时候再命令行中输出的内容，我们没有设置 stats的时候，输出是如下的样子：如下所示：
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver7.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver7.png)</a>
+
+该属性值可以有如下值：
+
+stats:`'errors-only'` 表示只有错误的才会被打印，没有错误就不打印，因此多余的信息就不会显示出来了。，我们添加下这个配置到devServer中；
+
+该属性值还有 'minimal', 'normal', 'verbose' 等。
+
+> compress
+
+该属性是一个布尔型的值，默认为false，当他为true的时候，它会对所有服务器资源采用gzip进行压缩。
+
+> proxy 实现跨域
+
+有时候我们使用webpack在本地启动服务器的时候，由于我们使用的访问的域名是 http://localhost:8081 这样的，但是我们服务端的接口是其他的，
+
+那么就存在域名或端口号跨域的情况下，但是很幸运的是 devServer有一个叫proxy配置项，可以通过该配置来解决跨域的问题，那是因为 dev-server 使用了 http-proxy-middleware 包(了解该包的更多用法 )。
+
+假如现在我们本地访问的域名是 http://localhost:8081, 但是我现在调用的是百度页面中的一个接口，该接口地址是：http://news.baidu.com/widget?ajax=json&id=ad。现在我们只需要在devServer中的proxy的配置就可以了：
+如下配置：
+
+```
+proxy: {
+  '/api': {
+    target: 'http://news.baidu.com', // 目标接口的域名
+    // secure: true,  // https 的时候 使用该参数
+    changeOrigin: true,  // 是否跨域
+    pathRewrite: {
+      '^/api' : ''  // 重写路径
+    }
+  }
+}
+```
+
+调用
+
+```
+axios.get('/api/widget?ajax=json&id=ad').then(res => {
+  console.log(res);
+});
+```
+下面我们来理解下上面配置的含义：
+
+1. 首先是百度的接口地址是这样的：http://news.baidu.com/widget?ajax=json&id=ad;
+2. proxy 的配置项 '/api' 和 target: 'http://news.baidu.com' 的含义是，匹配请求中 /api 含有这样的域名 重定向 到 'http://news.baidu.com'来。因此我在接口地址上 添加了前缀 '/api', 如： axios.get('/api/widget?ajax=json&id=ad'); 因此会自动补充前缀，也就是说，url: '/api/widget?ajax=json&id=ad' 等价
+于 url: 'http://news.baidu.com/api/widget?ajax=json&id=ad'.
+3. changeOrigin: true/false 还参数值是一个布尔值，含义是 是否需要跨域。
+4. secure: true, 如果是https请求就需要改参数配置，需要ssl证书吧。
+5. pathRewrite: {'^/api' : ''}的含义是重写url地址，把url的地址里面含有 '/api' 这样的 替换成 '', 
+因此接口地址就变成了 http://news.baidu.com/widget?ajax=json&id=ad； 因此就可以请求得到了，最后就返回
+接口数据了。
+
+如下图所示：
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver8.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_devserver8.png)</a>
+
 
 ## 什么 是模块热更新？
+
 模块热更新是Webpack是的一个功能，它可以使得代码修改以后不需刷新浏览器就可以更新，是高级版的自动刷新浏览器。devServer通过hot属性可以控制模块热更替。
 
 > 通过配置文件
@@ -174,7 +387,7 @@ let env = process.env.NODE_ENV == "development" ? "development" : "production";
 const config = {
   mode: env,
   devServer: {
-     hot:true
+     hot:true //模块热替换特性
   },
   plugins: [
      new webpack.HotModuleReplacementPlugin(), //热加载插件
