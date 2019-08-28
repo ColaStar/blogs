@@ -108,9 +108,9 @@ npm i -D jasmine-core karma-jasmine karma-chrome-launcher
 
 ##### 步骤五：使用Karma进行测试
 > Karma 的命令
-* start [<configFile>] [<options>] 启动 Karma 持续执行，也可以执行单次的测试，然后直接收集测试结果.
-* init [<configFile>] 初始化配置文件.
-* run [<options>] [ -- <clientArgs>] Trigger a test run. 
+* start `[<configFile>]` `[<options>]` 启动 Karma 持续执行，也可以执行单次的测试，然后直接收集测试结果.
+* init `[<configFile>]` 初始化配置文件.
+* run `[<options>]`` [ -- <clientArgs>]` Trigger a test run. 
 > 创建 karma 配置文件
 执行命令init命令进行配置：
 
