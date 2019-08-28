@@ -351,9 +351,10 @@ setState() 将总是触发一次重绘，除非在 shouldComponentUpdate() 中�
 
 总结出来，当使用 setState 的时候，有三个问题需要注意:
 
-- 1.setState是异步的
+- 1.setState是同步的
 
-很多开发刚开始没有注意到 setState 是异步的。如果你修改一些 state ，然后直接查看它，你会看到之前的 state 。这是 setState 中最容易出错的地方。 setState 这个词看起来并不像是异步的，所以如果你不假思索的用它，可能会造成 bugs 。下面这个例子很好的展示了这个问题：
+很多开发以为 setState 是异步的。如果你修改一些 state ，然后直接查看它，你会看到之前的 state 。这是 setState 中最容易出错的地方。 setState 这个词看起来并不像是异步的，所以如果你不假思索的用它，可能会造成 bugs 。其实 `setState` 是同步执行的，但是不会立马更新，因为他在批量处理中会等待组件render才真正触发,不在批处理中的任务可能会立马更新。到底更新不更新要取决于setState是否在Async的渲染过程中，因为他会进入到异步调度过程。如果setState处于我们某个生命周期中，暂时不会BatchUpdate参与，因为组件要尽早的提前渲染。下面这个例子很好的展示了这个问题：
+
 
 ```
 class Select extends React.Component {

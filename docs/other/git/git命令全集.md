@@ -326,7 +326,19 @@ $ git archive
 ```
 
 ### 十二、高级操作
+#### git命令及别名
 
+<!-- |1### 常用git命令及别名 2 3 -->
+|别名 Alias |命令 Command |如何设置 What to Type| 
+|- |- |- | 
+|git cm |git commit |git config --global alias.cm commit 
+|git co |git checkout |git config --global alias.co checkout 
+|git ac |git add . -A git commit |git config --global alias.ac '!git add -A && git commit' 
+|git st |git status -sb |git config --global alias.st 'status -sb' 
+|git tags |git tag -l |git config --global alias.tags 'tag -l' 
+|git branches |git branch -a |git config --global alias.branches 'branch -a' 
+|git remotes |git remote -v |git config --global alias.remotes 'remote -v' 
+|git lg |git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -- |git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
 #### Rebase 合并
 该命令可以让和 `merge` 命令得到的结果基本是一致的。
 

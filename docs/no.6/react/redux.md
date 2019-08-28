@@ -7,7 +7,7 @@ redux-thunk.min.js（专门处理一些代码片段的，就比如一些中间�
 keyMirror.js（给变量赋值的,定义一些关键的key）
 immutable.js（不可变对象所用）
 request.js（异步请求）
-ReduxThunk.js（）   
+ReduxThunk.js（）
 
 - 管理应用的state
 通过`store.getState()`可以获取`state`；

@@ -256,6 +256,11 @@ npm install --save-dev rollup-plugin-node-resolve
 rollup-plugin-commonjs 就是这样的插件。
 注意，rollup-plugin-commonjs 需要在其他插件转换代码之前引入，这样可以避免 CommonJS 语法规范被其他插件破坏。
 
+> rollup-plugin-commonjs与rollup-plugin-vue
+
+配置roolup的vue环境
+
+
 > rollup-plugin-babel
 
 - 安装插件
