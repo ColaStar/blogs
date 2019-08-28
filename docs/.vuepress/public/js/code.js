@@ -54,11 +54,11 @@ $(document).ready(function () {
     var a_idx = 0;
     $("body").click(function (e) {
         var a = new Array("难凉热血");
-        var $i = $("<span></span>").text(a[a_idx]);
+        var span = $("<span></span>").text(a[a_idx]);
         a_idx = (a_idx + 1) % a.length;
         var x = e.pageX,
             y = e.pageY;
-        $($i).css({
+        $(span).css({
             "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
             "top": y - 20,
             "left": x,
@@ -66,14 +66,14 @@ $(document).ready(function () {
             "font-weight": "bold",
             "color": "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ") "
         });
-        $("body").append($i);
-        $($i).animate({
+        $("body").append(span);
+        $(span).animate({
                 "top": y - 180,
                 "opacity": 0
             },
             1500,
             function () {
-                $($i).remove();
+                $(span).remove();
             });
     });
 });
