@@ -2,12 +2,12 @@ module.exports = {
   title: '个人博客', // 设置网站标题
   head: [
     // add jquert and fancybox
-    ['script', {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js'
-    }],
-    ['script', {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js'
-    }],
+    // ['script', {
+    //   src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js'
+    // }],
+    // ['script', {
+    //   src: 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js'
+    // }],
     ['script', {
       src: 'https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'
     }],
