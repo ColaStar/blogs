@@ -58,7 +58,7 @@ $(document).ready(function () {
         a_idx = (a_idx + 1) % a.length;
         var x = e.pageX,
             y = e.pageY;
-        $i.css({
+        $($i).css({
             "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
             "top": y - 20,
             "left": x,
@@ -67,13 +67,13 @@ $(document).ready(function () {
             "color": "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ") "
         });
         $("body").append($i);
-        $i.animate({
+        $($i).animate({
                 "top": y - 180,
                 "opacity": 0
             },
             1500,
             function () {
-                $i.remove();
+                $($i).remove();
             });
     });
 });
