@@ -8,7 +8,7 @@ function Watcher(vm, node, name, type) {
     this.vm = vm; //vm 
     this.type = type; //nodeValue
     this.update();
-    Dep.target = null;
+    Dep.target = null; 
 }
 // function queueWatcher(watcher){
 //     var id = watcher.id;

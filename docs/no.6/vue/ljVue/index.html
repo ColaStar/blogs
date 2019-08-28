@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="inputValue">
+        {{inputValue}}
+    </div>
+</body>
+
+</html>
+<script src="./src/Batcher.js"></script>
+<script src="./src/Dep.js"></script>
+<script src="./src/Observe.js"></script>
+<script src="./src/watcher.js"></script>
+<script src="./src/compile.js"></script>
+<script src="./src/MVVM.js"></script>
+
+
+<script>
+    const vm = new Vue({
+        el: 'app',
+        data:{
+            inputValue:'张三的梦'
+        }
+    })
+</script>
