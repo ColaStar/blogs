@@ -1,5 +1,6 @@
 // JavaScript Document
 $(document).ready(function () {
+    //背景
     var bodyobj = document.querySelector("body");
     var divobj = document.createElement("div");
     divobj.innerHTML = "<canvas id='matrixBG' width='2560' height='200'></canvas>"
@@ -10,7 +11,7 @@ $(document).ready(function () {
         "bottom": 0,
         "left": 0,
         "z-index": -1,
-        "opacity": 0.07
+        "opacity": 0.2
     })
     var width = matrixBG.width = window.screen.width;
     var height = matrixBG.height = window.screen.height;
@@ -54,7 +55,8 @@ $(document).ready(function () {
     var a_idx = 0;
     $("body").click(function (e) {
         // var arr = ["难凉热血","斗志昂扬" ,"发奋图强" ,"精益求精", "笨鸟先飞", "闻鸡起舞", "自强不息", "只争朝夕", "不甘示弱", "全力以赴", "力争上游", "披荆斩棘", "不屈不挠","囊萤映雪" ,"凿壁借光", "手不释卷", "闻鸡起舞", "夙兴夜寐" ,"焚膏继晷", "孜孜不倦" ,"锲而不舍" ,"闻鸡起舞", "悬梁刺股", "卧薪尝胆", "韦编三绝", "兀兀穷年", "聚沙成塔", "水滴石穿", "绳锯木断", "通宵达旦"];
-        var arr = ["难凉热血","笨鸟先飞", "不屈不挠","只争朝夕"]
+        // var arr = ["难凉热血","笨鸟先飞", "不屈不挠","只争朝夕"]
+        var arr = ["难凉热血"]
         var span = $("<span></span>")
         var num = Math.ceil(Math.random()*arr.length-1);
         span.text(arr[num]);
