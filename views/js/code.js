@@ -53,9 +53,12 @@ $(document).ready(function () {
     /* 鼠标特效 */
     var a_idx = 0;
     $("body").click(function (e) {
-        var a = new Array("难凉热血");
-        var span = $("<span></span>").text(a[a_idx]);
-        a_idx = (a_idx + 1) % a.length;
+        // var arr = ["难凉热血","斗志昂扬" ,"发奋图强" ,"精益求精", "笨鸟先飞", "闻鸡起舞", "自强不息", "只争朝夕", "不甘示弱", "全力以赴", "力争上游", "披荆斩棘", "不屈不挠","囊萤映雪" ,"凿壁借光", "手不释卷", "闻鸡起舞", "夙兴夜寐" ,"焚膏继晷", "孜孜不倦" ,"锲而不舍" ,"闻鸡起舞", "悬梁刺股", "卧薪尝胆", "韦编三绝", "兀兀穷年", "聚沙成塔", "水滴石穿", "绳锯木断", "通宵达旦"];
+        var arr = ["难凉热血","笨鸟先飞", "不屈不挠","只争朝夕"]
+        var span = $("<span></span>")
+        var num = Math.ceil(Math.random()*arr.length-1);
+        span.text(arr[num]);
+        a_idx = (a_idx + 1) % arr.length;
         var x = e.pageX,
             y = e.pageY;
         $(span).css({
@@ -67,13 +70,14 @@ $(document).ready(function () {
             "color": "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ") "
         });
         $("body").append(span);
-        $(span).animate({
+        span.animate({
                 "top": y - 180,
                 "opacity": 0
             },
             1500,
             function () {
-                $(span).remove();
+                span.remove();
             });
     });
+  
 });
