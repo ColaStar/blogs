@@ -24,6 +24,7 @@ $(document).ready(function () {
             "z-index": -1,
             "opacity": 1
         })
+        var matrixBG = document.getElementById('matrixBG')
         var width = matrixBG.width = window.screen.width;
         var height = matrixBG.height = window.screen.height;
         var yPositions = Array(300).join(0).split('');
