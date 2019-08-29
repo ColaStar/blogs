@@ -72,15 +72,14 @@ $(document).ready(function () {
             "color": "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ") "
         });
         $("body").append(span);
-        $(span).slideUp("fast").hide()
-        // $(span).animate({
-        //         "top": y - 180,
-        //         "opacity": 0
-        //     },
-        //     1500,
-        //     function () {
-        //         $(span).remove();
-        //     });
+        $(span).animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function () {
+                $(span).remove();
+            });
     });
   
 });
