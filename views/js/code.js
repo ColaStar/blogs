@@ -1,6 +1,6 @@
 // JavaScript Document
 $(document).ready(function () {
-    //背景
+    //炫背景
     var bodyobj = document.querySelector("body");
     var divobj = document.createElement("div");
     divobj.innerHTML = "<canvas id='matrixBG' width='2560' height='200'></canvas>"
@@ -10,8 +10,8 @@ $(document).ready(function () {
         "position": "fixed",
         "bottom": 0,
         "left": 0,
-        "z-index": -1,
-        "opacity": 0.2
+        "z-index": 0,
+        "opacity": 0.1
     })
     var width = matrixBG.width = window.screen.width;
     var height = matrixBG.height = window.screen.height;
