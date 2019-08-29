@@ -7,11 +7,13 @@ function Watcher(vm, node, name, type) {
     this.node = node;
     this.id = ++uid;
     this.vm = vm;
+    //初始化更新
     this.update();
     Dep.target = null;
 }
 Watcher.prototype = {
     update: function () {
+        // 每次更新的时候调用get方法，查看当前
         this.get();
         if (!batcher) {
             var batcher = new Batcher()
