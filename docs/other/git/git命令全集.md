@@ -328,7 +328,7 @@ $ git archive
 ### 十二、高级操作
 #### git命令及别名
 
-<!-- |1### 常用git命令及别名 2 3 -->
+
 |别名 Alias |命令 Command |如何设置 What to Type| 
 |- |- |- | 
 |git cm |git commit |git config --global alias.cm commit 
