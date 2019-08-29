@@ -21,7 +21,7 @@ $(document).ready(function () {
             "position": "fixed",
             "bottom": 0,
             "left": 0,
-            "z-index": 0,
+            "z-index": 9999,
             "opacity": 1
         })
         var matrixBG = document.getElementById('matrixBG')
