@@ -920,6 +920,6 @@ UI Recorder仅支持Native文件上传, 不支持FLASH上传
   * 确保功能
 * ui测试
   * 确保样式
-* f2etest测试
+* f2etest测试 [](https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=f2etest%E6%B5%8B%E8%AF%95&oq=%25E6%25B5%258F%25E8%25A7%2588%25E5%2599%25A8%25E6%2598%25AF%25E4%25BB%2580%25E4%25B9%2588%25E8%25AF%25AD%25E8%25A8%2580%25E5%25BC%2580%25E5%258F%2591%25E7%259A%2584&rsv_pq=c944e5c6000e3139&rsv_t=1607CULT%2BvC1cpwxt00TCtIiUxou7CrBiMHJaUb3OWQonEg%2Bh%2B4RW0%2FrG%2FE&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_sug3=2&rsv_sug1=1&rsv_sug7=000&bs=%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E4%BB%80%E4%B9%88%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%9A%84)
 * 冒烟测试
 * 黑盒测试
