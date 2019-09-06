@@ -1,10 +1,11 @@
 es5简介
 ----
 
-#### 对象的一些方法
-**Object.assign()**    
+## 对象的一些方法
 
-> 复制对象
+### 复制合并对象（assign）
+
+**Object.assign()**    
 ```
 const obj = {a:1};
 const copy = Object.assign({},obj)
@@ -60,6 +61,7 @@ const obj = Object.create({foo: 1}, { // foo 是个继承属性。
 const copy = Object.assign({}, obj);
 console.log(copy); // { baz: 3 }
 ```
+### 创建对象 create
 **Object.create()**    
 创建一个新对象，使用现有的对象来提供新创建的对象的__proto__
 ```
@@ -93,7 +95,7 @@ console.log('Is rect an instance of Shape?',
   rect instanceof Shape); // true
 rect.move(1, 1); // Outputs, 'Shape moved.'
 ```
-> 使用 Object.create 的 propertyObject参数
+> 使用 Object.create 的 property Object参数
 ```
 var o;
 
@@ -158,16 +160,19 @@ o2 = Object.create({}, {
   } 
 });
 ```
+### Object.defineProperty
+
 Object.defineProperty(obj, prop, descriptor)
----
+
 **描述**：该方法允许精确添加或修改对象的属性。通过赋值操作添加的普通属性是可枚举的，能够在属性枚举期间呈现出来（for...in 或 Object.keys 方法）， 这些属性的值可以被改变，也可以被删除。这个方法允许修改默认的额外选项（或配置）。默认情况下，使用 Object.defineProperty() 添加的属性值是不可修改的。
 
 
 
-#### 额外的数组
+## 额外的数组
+
 > **Array.isArray()**  
 
-判断是不是数组
+**判断是不是数组**
 ```
 //语法
 Array.isArray(obj)
@@ -190,7 +195,8 @@ function isArray (obj) {
   return obj instanceof Array;
 }
 ```
-> Array.form
+
+### Array.form
 
 从一个类似数组或可迭代对象中创建一个新的数组实例
 
@@ -216,7 +222,7 @@ Array.from('123456').map(ele=>{
   return ele+1
 })
 ```
-> Array.of() 
+### Array.of() 
 
 创建一个具有可变数量参数的新数组实例，而不考虑参数的数量和类型
 返回一个新的Array实例
@@ -238,7 +244,7 @@ Array.prototype.of = function() {
   };
 ```
 
-> Array.concat()
+### Array.concat()
 
 合并俩个或多个数组，不会改变现有数组，会返回一个新的数组
 
@@ -273,7 +279,7 @@ num1[0].push(4);
 console.log(nums);
 // results in [[1, 4], 2, [3]]
 ```
-> Array.copyWithin()
+### Array.copyWithin()
 
 浅复制数组的一部分到同一数组中的另一个位置，并返回它，而不修改其大小。
 
@@ -318,7 +324,7 @@ i32a.copyWithin(0, 2);
 // Int32Array [4, 2, 3, 4, 5]
 ```
 
-> Array.entries()
+### Array.entries()
 
 返回一个新的Array Iterator对象，该对象包含数组中每个索引的键/值对。
 
@@ -370,7 +376,7 @@ function sortArr(arr) {
 var arr = [[1,34],[456,2,3,44,234],[4567,1,4,5,6],[34,78,23,1]];
 sortArr(arr);
 ```
-> Array.prototype.fill()
+### Array.prototype.fill()
 
 ```
 //语法
@@ -396,7 +402,7 @@ Array(3).fill(4);                // [4,4,4]
 var arr = Array(3).fill({}) // [{}, {}, {}];
 arr[0].hi = "hi"; // [{ hi: "hi" }, { hi: "hi" }, { hi: "hi" }]
 ```
-> Array.prototype.find() 
+### Array.prototype.find() 
 
 **ie浏览器不兼容**
 
@@ -441,7 +447,7 @@ function isPrime(element, index, array) {
 console.log([4, 6, 8, 12].find(isPrime)); // undefined, not found
 console.log([4, 5, 8, 12].find(isPrime)); // 5
 ```
-> Array.prototype.findIndex
+### Array.prototype.findIndex
 
 返回数组中中第一个满足测试函数的元素的索引值，否则返回-1
 
@@ -475,7 +481,7 @@ function isPrime(element, index, array) {
 console.log([4, 6, 8, 12].findIndex(isPrime)); // -1, not found
 console.log([4, 6, 7, 12].findIndex(isPrime)); // 2
 ```
-> Array.prototype.flat()
+### Array.prototype.flat()
 
 会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。
 
@@ -558,7 +564,7 @@ flatten(arr1);// [1, 2, 3, 1, 2, 3, 4, 2, 3, 4]
 
 ```
 
-> Array.prototype.some
+### Array.prototype.some
 
 判断是否至少有一个元素通过由提供的函数实现的测试。不会改变原数组
 ```
@@ -580,7 +586,7 @@ thisArg 执行回调时用做的this对象
 //判断数组元素中是否存在某个值
 //使用箭头函数判断数组元素中是否存在某个值
 ```
-> Array.prototype.every()
+### Array.prototype.every()
 
 判断是否所有元素通过指定函数的测试,不会改变原数组
 ```
@@ -633,7 +639,7 @@ if (!Array.prototype.every)
 }
 ```
 
-> Array.prototype.filter()
+### Array.prototype.filter()
 
 filter() 方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素，不会改变原素组
 
@@ -674,7 +680,7 @@ console.log(filterItems('an')); // ['banana', 'mango', 'orange']
 
 
 
-> Array.prototype.includes()
+### Array.prototype.includes()
 
 **兼容性**：
 不兼容IE
@@ -703,7 +709,7 @@ fromIndex 可选：
 待补充
 ```
 
->  Array.forEach()
+### Array.forEach()
 
 对数组的每个元素执行一次提供的函数
 
@@ -734,7 +740,7 @@ Array.forEach((item,index,arr)=>{
 //对象复制函数
 ```
 
-> Array.indexOf()
+### Array.indexOf()
 
 返回数组中可以找到一个给定元素的第一个索引，如果不存在，返回-1；
 
@@ -758,7 +764,7 @@ while(index != -1){
 }
 ```
 
-> Array.lastIndexOf()
+### Array.lastIndexOf()
 
 返回指定元素（也即有效的 JavaScript 值或变量）在数组中的最后一个的索引，如果不存在则返回 -1。从数组的后面向前查找，从 fromIndex 处开始。
 
@@ -772,7 +778,7 @@ index:从此位置开始逆向查找。默认为数组的长度减 1，即整个
 数组中最后一个元素的索引，如未找到返回-1
 ```
 
-> Array.map()
+### Array.map()
 创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
 
 **语法**
@@ -799,7 +805,7 @@ thisArg:执行 callback 函数时使用的this 值。
 
   ```
 
-> Array.reduceRight()
+### Array.reduceRight()
 
 接受一个函数作为累加器（accumulator）和数组的每个值（从右到左）将其减少为单个值。
 
@@ -832,7 +838,7 @@ console.log(left);  // "12345"
 console.log(right); // "54321"
 ```
 
-> Array.reduce()
+### Array.reduce()
 
 **兼容到IE9**
 
@@ -880,7 +886,7 @@ function fn(a,b){
 mapReduce(arr,initItem)
 ```
 
-> arr.join
+### arr.join()
 
 **兼容IE5**
 将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。如果数组只有一个项目，那么将返回该项目而不使用分隔符。
@@ -899,7 +905,7 @@ arr.join([separator])
 Array.prototype.join.call(arguments)
 ```
 
-> Array.keys()
+### Array.keys()
 **不兼容IE**
 
 返回一个包含数组中每个索引键的Array Iterator对象。
@@ -913,7 +919,7 @@ console.log(sparseKeys); // ['0', '2']
 console.log(denseKeys);  // [0, 1, 2]
 ```
 
-> Array.shift()
+### Array.shift()
 **兼容到IE5**
 
 
@@ -922,7 +928,7 @@ console.log(denseKeys);  // [0, 1, 2]
 **注意**
 **返回值**：从数组中**删除的元素**; 如果数组为空则返回undefined 。
 
-> Array.pop
+### Array.pop()
 
 **兼容到IE5**
 删除数组中最后一个元素并返回该元素的值，此方法改变原数组
@@ -930,18 +936,18 @@ console.log(denseKeys);  // [0, 1, 2]
 **注意**  
 从数组中删除的元素(当数组为空时返回undefined)。
 
-> Array.push()
+### Array.push()
 
 **兼容到IE5**   
 
 一个或多个元素添加到数组的末尾，并返回该数组的新长度
 
-> Array.unshift()
+### Array.unshift()
 **兼容到IE5**   
 
 将一个或多个元素添加到数组的开头，并返回该数组的新长度
 
-> Array.slice()
+### Array.slice()
 返回一个新的数组对象，这一对象是一个由 begin和 end（不包括end）决定的原数组的浅拷贝。原始数组**不会被改变**
 
 **语法**
@@ -969,7 +975,7 @@ slice(1,4) 提取原数组中的第二个元素开始直到第四个元素的所
 4.如果 end 大于数组长度，slice 也会一直提取到原数组末尾。
 ```
 
-> Array.splice()
+### Array.splice()
 通过删除或替换现有元素来修改数组,并以数组形式返回被修改的内容。此方法会**改变原数组**。
 **语法**
 ```
@@ -990,13 +996,13 @@ deleteCount 可选
   由被删除的元素组成的一个数组。如果只删除了一个元素，则返回只包含一个元素的数组。如果没有删除元素，则返回空数组。
 ```
 
-> Array.reverse()
+### Array.reverse()
 
 **兼容到IE5**
 
 将数组中元素的位置颠倒,并返回该数组。该方法会改变原数组。
 
-> Array.sort()
+### Array.sort()
 用原地算法对数组的元素进行排序，并返回数组。排序算法现在是稳定的。默认排序顺序是根据字符串Unicode码点。
 
 
@@ -1022,7 +1028,8 @@ secondEl
 如果 compareFunction(a, b) 大于 0 ， b 会被排列到 a 之前。
 compareFunction(a, b) 必须总是对相同的输入返回相同的比较结果，否则排序的结果将是不确定的。
 
-> Array.toLocaleString() 
+### Array.toLocaleString() 
+
 返回一个字符串表示数组中的元素。数组中的元素将使用各自的 toLocaleString 方法转成字符串，这些字符串将使用一个特定语言环境的字符串（例如一个逗号 ","）隔开。
 
 **语法**   
@@ -1041,7 +1048,7 @@ prices.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY' });
 // "￥7,￥500,￥8,123,￥12"
 ```
 
-> Array.toString
+### Array.toString
 
 返回一个字符串，表示指定的数组及其元素。
 
