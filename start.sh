@@ -5,7 +5,7 @@ set -e
 
 # sudo rm -rf './views/'
 
-# 生成静态文件
+printf '生成静态文件'
 sudo npm run build
 
 # 进入生成的文件夹
@@ -13,13 +13,17 @@ sudo npm run build
 
 # 如果是发布到自定义域名
 # echo 'www.example.com' > CNAME
-# 查看git 变动
+printf '查看git 变动'
+
 git st
+
+printf '本地缓存'
 
 git ac -m 'deploy'
 
+printf '拉代码'
 git pull
-
+printf 'push代码'
 git push
 # 如果发布到 https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
