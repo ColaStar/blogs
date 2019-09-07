@@ -1,6 +1,7 @@
 module.exports = {
   title: '个人博客', // 设置网站标题
   head: [
+    ['link', { rel: 'icon', href: `/favicon.ico` }],
     // add jquert and fancybox
     ['script', {
       src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js'
@@ -48,6 +49,10 @@ module.exports = {
   themeConfig: {
     sidebarDepth: 4, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
     lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间,
+    // serviceWorker:   pwa
+    // shouldPrefetch
+    // displayAllHeaders: true
+    //toc
     nav: [{
         text: '前端资料',
         items: [
