@@ -4,6 +4,7 @@
 set -e
 
 # sudo rm -rf './views/'
+chmod +x views
 
 printf '生成静态文件'
 sudo npm run build
