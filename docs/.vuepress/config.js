@@ -49,6 +49,16 @@ module.exports = {
   themeConfig: {
     sidebarDepth: 4, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
     lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间,
+    docsDir: "docs",
+    editLinks: true,
+    editLinkText: "本文源码地址",
+    '@vuepress/medium-zoom': {
+      selector: 'img',
+      options: {
+          margin: 16
+      }
+    },
+    '@vuepress/back-to-top':true,
     // serviceWorker:   pwa
     // shouldPrefetch
     // displayAllHeaders: true
