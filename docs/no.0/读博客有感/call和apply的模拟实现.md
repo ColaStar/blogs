@@ -153,10 +153,10 @@ Function.prototype.apply = function(context,arr){
     for(var i = 0;i<arr.length;i++){
         args.push('arr['+i+']')
     }    
-    
+    //'' + [1,2,3] => '1,2,3'
     result = eval('context.fn(' + args + ')');
     }
-    delete context.fn;
+    delete context.fn;                                                                 
     return result
 }
-```
+```p;.
