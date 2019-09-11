@@ -67,7 +67,7 @@ module.exports = {
       { text: '主页', link: '/' },
       { text: '博文',
         items: [
-          // { text: '前端基础', link: '/no.0/' },
+          { text: '前端基础', link: '/no.0/' },
           // { text: 'javaScript与测试工程师', link: '/ios/' },
           { text: '网络', link: '/no.2/' }
           // { text: '前端优化', link: '/ios/' },

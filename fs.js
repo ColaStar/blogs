@@ -32,4 +32,4 @@ function getJsonFiles(jsonPath){
     console.log(jsonFiles);
 }
  
-getJsonFiles("./docs/");
+getJsonFiles("./docs/no.0");
