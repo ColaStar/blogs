@@ -50,8 +50,8 @@ module.exports = {
     // displayAllHeaders: true
     //toc
     sidebar: {
-      '/no.1/': [
-                  "读博客有感/闭包", 
+      '/no.0/': [
+                "读博客有感/闭包", 
                    ],
           // "/ios/":[
           //         "",
