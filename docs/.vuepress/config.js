@@ -56,7 +56,7 @@ module.exports = {
       //          ],
       "/no.2/":[
               "http"
-              ],
+              ]
       // "/web/":[
       //         "",
       //         "web1",
@@ -69,7 +69,7 @@ module.exports = {
         items: [
           // { text: '前端基础', link: '/no.0/' },
           // { text: 'javaScript与测试工程师', link: '/ios/' },
-          { text: '网络', link: '/no.2/' },
+          { text: '网络', link: '/no.2/' }
           // { text: '前端优化', link: '/ios/' },
           // { text: '前端自动化', link: '/ios/' },
           // { text: 'css相关', link: '/ios/' },
