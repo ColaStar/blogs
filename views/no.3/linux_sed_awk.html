@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>centos7之sed和awk常用 | 个人博客</title>
+    <meta name="description" content="来了老弟">
+    <link rel="icon" href="/blogs/views/favicon.ico">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script src="./js/tj.js"></script>
+  <script src="./js/code.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    
+    <link rel="preload" href="/blogs/views/assets/css/0.styles.16aae78f.css" as="style"><link rel="preload" href="/blogs/views/assets/js/app.bb7cbd3d.js" as="script"><link rel="preload" href="/blogs/views/assets/js/2.6537fdfb.js" as="script"><link rel="preload" href="/blogs/views/assets/js/54.756bc365.js" as="script"><link rel="prefetch" href="/blogs/views/assets/js/10.932d4919.js"><link rel="prefetch" href="/blogs/views/assets/js/100.057c04dd.js"><link rel="prefetch" href="/blogs/views/assets/js/101.7806d9b3.js"><link rel="prefetch" href="/blogs/views/assets/js/102.57078739.js"><link rel="prefetch" href="/blogs/views/assets/js/103.a5c8dbed.js"><link rel="prefetch" href="/blogs/views/assets/js/104.8cb7259c.js"><link rel="prefetch" href="/blogs/views/assets/js/105.455df91e.js"><link rel="prefetch" href="/blogs/views/assets/js/106.02a47c49.js"><link rel="prefetch" href="/blogs/views/assets/js/107.20885888.js"><link rel="prefetch" href="/blogs/views/assets/js/108.8edbf7a2.js"><link rel="prefetch" href="/blogs/views/assets/js/109.5d90a8b4.js"><link rel="prefetch" href="/blogs/views/assets/js/11.64603393.js"><link rel="prefetch" href="/blogs/views/assets/js/110.10795712.js"><link rel="prefetch" href="/blogs/views/assets/js/111.71453449.js"><link rel="prefetch" href="/blogs/views/assets/js/112.dcc37123.js"><link rel="prefetch" href="/blogs/views/assets/js/113.1baec07d.js"><link rel="prefetch" href="/blogs/views/assets/js/114.56ffbd33.js"><link rel="prefetch" href="/blogs/views/assets/js/115.2b07e8fd.js"><link rel="prefetch" href="/blogs/views/assets/js/116.97b0e9cc.js"><link rel="prefetch" href="/blogs/views/assets/js/117.ad8f3480.js"><link rel="prefetch" href="/blogs/views/assets/js/118.b8dfd9e4.js"><link rel="prefetch" href="/blogs/views/assets/js/12.5a00a1ba.js"><link rel="prefetch" href="/blogs/views/assets/js/13.6e81be0b.js"><link rel="prefetch" href="/blogs/views/assets/js/14.122cd894.js"><link rel="prefetch" href="/blogs/views/assets/js/15.aca81b88.js"><link rel="prefetch" href="/blogs/views/assets/js/16.69792c2c.js"><link rel="prefetch" href="/blogs/views/assets/js/17.bdbbcb17.js"><link rel="prefetch" href="/blogs/views/assets/js/18.704dfd56.js"><link rel="prefetch" href="/blogs/views/assets/js/19.309ff7c2.js"><link rel="prefetch" href="/blogs/views/assets/js/20.ad79d6b4.js"><link rel="prefetch" href="/blogs/views/assets/js/21.2fecae92.js"><link rel="prefetch" href="/blogs/views/assets/js/22.c71dd583.js"><link rel="prefetch" href="/blogs/views/assets/js/23.1e625cf7.js"><link rel="prefetch" href="/blogs/views/assets/js/24.d458ce16.js"><link rel="prefetch" href="/blogs/views/assets/js/25.19806b72.js"><link rel="prefetch" href="/blogs/views/assets/js/26.802ed6e4.js"><link rel="prefetch" href="/blogs/views/assets/js/27.4d950584.js"><link rel="prefetch" href="/blogs/views/assets/js/28.57503bd6.js"><link rel="prefetch" href="/blogs/views/assets/js/29.a1328713.js"><link rel="prefetch" href="/blogs/views/assets/js/3.8ed98096.js"><link rel="prefetch" href="/blogs/views/assets/js/30.202a56aa.js"><link rel="prefetch" href="/blogs/views/assets/js/31.db62bc4b.js"><link rel="prefetch" href="/blogs/views/assets/js/32.8b1e3aa9.js"><link rel="prefetch" href="/blogs/views/assets/js/33.0b36df8d.js"><link rel="prefetch" href="/blogs/views/assets/js/34.874f18ab.js"><link rel="prefetch" href="/blogs/views/assets/js/35.0fc0ed03.js"><link rel="prefetch" href="/blogs/views/assets/js/36.b3623d7a.js"><link rel="prefetch" href="/blogs/views/assets/js/37.8fe3a774.js"><link rel="prefetch" href="/blogs/views/assets/js/38.2da926a1.js"><link rel="prefetch" href="/blogs/views/assets/js/39.2eb57d04.js"><link rel="prefetch" href="/blogs/views/assets/js/4.0f9d034c.js"><link rel="prefetch" href="/blogs/views/assets/js/40.1c3752fa.js"><link rel="prefetch" href="/blogs/views/assets/js/41.53e2b0dd.js"><link rel="prefetch" href="/blogs/views/assets/js/42.8531781b.js"><link rel="prefetch" href="/blogs/views/assets/js/43.f3830cb9.js"><link rel="prefetch" href="/blogs/views/assets/js/44.896c1c44.js"><link rel="prefetch" href="/blogs/views/assets/js/45.164597cf.js"><link rel="prefetch" href="/blogs/views/assets/js/46.66da5b1f.js"><link rel="prefetch" href="/blogs/views/assets/js/47.d2d4daf6.js"><link rel="prefetch" href="/blogs/views/assets/js/48.f138bb8a.js"><link rel="prefetch" href="/blogs/views/assets/js/49.0e5b057c.js"><link rel="prefetch" href="/blogs/views/assets/js/5.08b256cc.js"><link rel="prefetch" href="/blogs/views/assets/js/50.73615bce.js"><link rel="prefetch" href="/blogs/views/assets/js/51.e759ea02.js"><link rel="prefetch" href="/blogs/views/assets/js/52.d38be575.js"><link rel="prefetch" href="/blogs/views/assets/js/53.ff375a2a.js"><link rel="prefetch" href="/blogs/views/assets/js/55.33e04dbf.js"><link rel="prefetch" href="/blogs/views/assets/js/56.cbad6606.js"><link rel="prefetch" href="/blogs/views/assets/js/57.2c99cfff.js"><link rel="prefetch" href="/blogs/views/assets/js/58.b6e7bca8.js"><link rel="prefetch" href="/blogs/views/assets/js/59.9d9da796.js"><link rel="prefetch" href="/blogs/views/assets/js/6.1035ed7e.js"><link rel="prefetch" href="/blogs/views/assets/js/60.d819d949.js"><link rel="prefetch" href="/blogs/views/assets/js/61.d3e04987.js"><link rel="prefetch" href="/blogs/views/assets/js/62.295dc923.js"><link rel="prefetch" href="/blogs/views/assets/js/63.16dfbaa5.js"><link rel="prefetch" href="/blogs/views/assets/js/64.16b83901.js"><link rel="prefetch" href="/blogs/views/assets/js/65.55f46bdd.js"><link rel="prefetch" href="/blogs/views/assets/js/66.38bf4096.js"><link rel="prefetch" href="/blogs/views/assets/js/67.a6ad575a.js"><link rel="prefetch" href="/blogs/views/assets/js/68.764a7d6c.js"><link rel="prefetch" href="/blogs/views/assets/js/69.e6ffffbb.js"><link rel="prefetch" href="/blogs/views/assets/js/7.18638365.js"><link rel="prefetch" href="/blogs/views/assets/js/70.78b2f75e.js"><link rel="prefetch" href="/blogs/views/assets/js/71.345bd679.js"><link rel="prefetch" href="/blogs/views/assets/js/72.a49d6dd5.js"><link rel="prefetch" href="/blogs/views/assets/js/73.b9b13019.js"><link rel="prefetch" href="/blogs/views/assets/js/74.aee2e634.js"><link rel="prefetch" href="/blogs/views/assets/js/75.825558c0.js"><link rel="prefetch" href="/blogs/views/assets/js/76.ecb30538.js"><link rel="prefetch" href="/blogs/views/assets/js/77.79699e40.js"><link rel="prefetch" href="/blogs/views/assets/js/78.78ee5cac.js"><link rel="prefetch" href="/blogs/views/assets/js/79.9b8ac85e.js"><link rel="prefetch" href="/blogs/views/assets/js/8.ad9919da.js"><link rel="prefetch" href="/blogs/views/assets/js/80.34a654de.js"><link rel="prefetch" href="/blogs/views/assets/js/81.62025402.js"><link rel="prefetch" href="/blogs/views/assets/js/82.fad9b26c.js"><link rel="prefetch" href="/blogs/views/assets/js/83.6d4de3cc.js"><link rel="prefetch" href="/blogs/views/assets/js/84.1b70c7fd.js"><link rel="prefetch" href="/blogs/views/assets/js/85.6c1ebdf0.js"><link rel="prefetch" href="/blogs/views/assets/js/86.43d7becc.js"><link rel="prefetch" href="/blogs/views/assets/js/87.486e9cdd.js"><link rel="prefetch" href="/blogs/views/assets/js/88.1516f859.js"><link rel="prefetch" href="/blogs/views/assets/js/89.cc5f81f3.js"><link rel="prefetch" href="/blogs/views/assets/js/9.667bb88c.js"><link rel="prefetch" href="/blogs/views/assets/js/90.8e849bea.js"><link rel="prefetch" href="/blogs/views/assets/js/91.120b9000.js"><link rel="prefetch" href="/blogs/views/assets/js/92.04dd249c.js"><link rel="prefetch" href="/blogs/views/assets/js/93.ef33d6bc.js"><link rel="prefetch" href="/blogs/views/assets/js/94.3dbaf76a.js"><link rel="prefetch" href="/blogs/views/assets/js/95.7f26da2e.js"><link rel="prefetch" href="/blogs/views/assets/js/96.f71c27db.js"><link rel="prefetch" href="/blogs/views/assets/js/97.0f49811c.js"><link rel="prefetch" href="/blogs/views/assets/js/98.45706c71.js"><link rel="prefetch" href="/blogs/views/assets/js/99.bb3e1ef7.js">
+    <link rel="stylesheet" href="/blogs/views/assets/css/0.styles.16aae78f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blogs/views/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blogs/views/" class="nav-link">主页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/views/aaa/" class="nav-link">网络</a></li></ul></div></div><div class="nav-item"><a href="/blogs/views/no.1/" class="nav-link">面试</a></div><div class="nav-item"><a href="https://www.github.com/codeteenager" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blogs/views/" class="nav-link">主页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/views/aaa/" class="nav-link">网络</a></li></ul></div></div><div class="nav-item"><a href="/blogs/views/no.1/" class="nav-link">面试</a></div><div class="nav-item"><a href="https://www.github.com/codeteenager" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>centos7之sed和awk常用</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="centos7之sed和awk常用"><a href="#centos7之sed和awk常用" aria-hidden="true" class="header-anchor">#</a> centos7之sed和awk常用</h1> <p>sed是一种流编辑器，它是文本处理中非常中的工具，能够完美的配合正则表达式使用，功能不同凡响。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。</p> <blockquote><p>sed的选项、命令、替换标记
+命令格式</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>sed [options] 'command' file(s)
+sed [options] -f scriptfile file(s)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>常用选项：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>-n∶使用安静(silent)模式。在一般 sed 的用法中，所有来自 STDIN的资料一般都会被列出到萤幕上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。
+-e∶直接在指令列模式上进行 sed 的动作编辑；
+-f∶直接将 sed 的动作写在一个档案内， -f filename 则可以执行 filename 内的sed 动作；
+-r∶sed 的动作支援的是延伸型正规表示法的语法。(预设是基础正规表示法语法)
+-i∶直接修改读取的档案内容，而不是由萤幕输出。   
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>常用命令：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>a ∶新增， a 的后面可以接字符串，而这些字符串会在目前的下一行出现。
+c ∶取代， c 的后面可以接字符串，这些字符串可以取代 n1,n2 之间的行。
+d ∶删除，后面不接任何东西；
+i ∶插入， 与a只有一点不同，增加的字符串会在目前的上一行出现；
+p ∶列印，亦即将某个选择的资料印出。在使用p的时候一般会加上-n参数。
+s ∶取代，可以直接进行取代的工作。
+　　
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><blockquote><p>基本用法</p></blockquote> <p>d∶删除，后面不接任何东西；</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>删除某行
+  
+$ sed '1d' filename               删除第一行
+ 
+$ sed '$ d' filename              删除最后一行
+ 
+$ sed '1,2d' filename            删除第一行到第二行
+ 
+$ sed '2,$ d' filename           删除第二行到最后一行
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>p∶列印，亦即将某个选择的资料印出。在使用p的时候一般会加上-n参数。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>显示某行
+ 
+$ sed -n '1p' filename           显示第一行
+ 
+$ sed -n '$ p' filename           显示最后一行
+ 
+$ sed -n '1,2p' filename        显示第一行到第二行
+ 
+$ sed -n '2,$ p' filename        显示第二行到最后一行
+ 
+使用模式进行查询
+ 
+$ sed -n '/world/p' filename    查询包括关键字world所在所有行
+ 
+$ sed -n '/\$ /p' filename        查询包括关键字$ 所在所有行，使用反斜线\屏蔽特殊含义
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>a∶新增， a 的后面可以接字符串，而这些字符串会在目前的下一行出现。
+i ∶插入， 与a只有一点不同，增加的字符串会在目前的上一行出现；</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@localhost ~]# cat filename
+Hello!
+world!
+end
+[root@localhost ~]# sed '1a people' filename   第一行后增加字符串&quot;people&quot;
+Hello!
+people
+world!
+end
+[root@localhost ~]# sed '1,3a people' filename   第一行到第三行后增加字符串&quot;people&quot;
+Hello!
+people
+world!
+people
+end
+people
+[root@localhost ~]# sed '1i people\nperson' filename   第一行前增加多行，使用换行符\n
+people
+person
+Hello!
+world!
+end
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>c∶取代， c 的后面可以接字符串，这些字符串可以取代 n1,n2 之间的行。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@localhost ~]# cat filename
+Hello!
+world!
+end
+[root@localhost ~]# sed '1c Hi' filename
+Hi
+world!
+end
+[root@localhost ~]# sed '1,2c Hi' filename
+Hi
+end
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>s ∶取代，可以直接进行取代的工作。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>格式：sed 's/要替换的字符串/新的字符串/g'   修改的文件
+[root@localhost ~]# cat filename
+Hello!
+world!
+end
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>[root@localhost ~]# sed -i 's/Hello!/start/g' filename  把Hello！替换为start
+[root@localhost ~]# cat filename
+start
+world!
+end
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>[root@localhost ~]# cat filename
+start
+world!
+end
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>[root@localhost ~]# sed -i '$a bye' filename   在最后一行后面新加bye（$代表最后一样，a表示在当前行下一面添加，bye是新加内容，中间有没有空格都行）
+[root@localhost ~]# cat filename
+start
+world!
+end
+bye
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><blockquote><p>awk</p></blockquote> <p>awk其名称得自于它的创始人 Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母。实际上 AWK 的确拥有自己的语言： AWK 程序设计语言 ， 三位创建者已将它正式定义为“样式扫描和处理语言”。它允许您创建简短的程序，这些程序读取输入文件、为数据排序、处理数据、对输入执行计算以及生成报表，还有无数其他的功能。</p> <p>awk 是一种很棒的语言，它适合文本处理和报表生成，其语法较为常见，借鉴了某些语言的一些精华，如 C 语言等。在 linux 系统日常处理工作中，发挥很重要的作用，掌握了 awk将会使你的工作变的高大上。 awk 是三剑客的老大，利剑出鞘，必会不同凡响。</p> <p>1、首先我们看一下常用的cut命令的基本使用方法，cut英文意思是切，它的功能和和awk基本相同，唯一不同的是awk可以说是cut的plus版本（但不是一个厂家）。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cut -d（指定以什么为分割符） -f（指定列）   第一列
+#cut -d  ‘ ’ -f  5
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>cut无法切割以空格为分割符的数据。
+<a data-fancybox="" title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/awk_cut.png"><img src="https://raw.githubusercontent.com/ColaStar/static/master/images/awk_cut.png" alt=""></a></p> <p>2、awk的基本常用写法</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>awk  ‘条件一{动作一}条件二{动作二} ’  文件
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>当然我们也可用使用管道符|awk。。。。。</p> <p>3、awk的基本写法</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#我们使用printf的话最后必须要加上\n换号符号，$数字是表示第几列
+df -h | awk '{printf $1 &quot;\t&quot; $5 &quot;\n&quot;}'
+#如果使用print的话就不需要再多写一个\n了
+df -h | awk '{print $1 &quot;\t&quot; $5}'
+#注意，为了不想让两行数据黏在一起，所以中间需要用“\t”空格符隔开。最外面的必须是单引号，而里面的\t和\n必须使用双引号。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><a data-fancybox="" title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/awk2.png"><img src="https://raw.githubusercontent.com/ColaStar/static/master/images/awk2.png" alt=""></a></p> <p>4、实例</p> <p>我们想试试判断linux的根分区的使用情况，或者是某个分区的使用情况，我们怎么判断呢。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#df -h | grep sda3 | awk '{print $5}' | cut -d '%' -f 1
+解释：
+df -h | grep sda3是我的根分区，awk抓取第五列，也就是拿到6%这个数字，但是不想要百分号，那我们在用cut切一下，就OK了
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p><a data-fancybox="" title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/awk3.png"><img src="https://raw.githubusercontent.com/ColaStar/static/master/images/awk3.png" alt=""></a></p> <p>5、BEGIN（实际上就是在打印结果的开始打印里面动作的一句话）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#df -h | grep sda3 | awk 'BEGIN{print &quot;This is the use of the root partition&quot;}{print $5}' | cut -d '%' -f 1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><a data-fancybox="" title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/awk4.png"><img src="https://raw.githubusercontent.com/ColaStar/static/master/images/awk4.png" alt=""></a>
+BEGIN的关键用法。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#awk '{FS=&quot;:&quot;}{print $1 &quot;\t&quot; $3}' /etc/passwd
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><a data-fancybox="" title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/awk5.png"><img src="https://raw.githubusercontent.com/ColaStar/static/master/images/awk5.png" alt=""></a></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#awk 'BEGIN{FS=&quot;:&quot;}{print $1 &quot;\t&quot; $3}' /etc/passwd
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><a data-fancybox="" title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/awk6.png"><img src="https://raw.githubusercontent.com/ColaStar/static/master/images/awk6.png" alt=""></a>
+关键：我们知道awk是每次提取的时候都是先读取第一行后，才开始执行后面的动作语句，所以第一行没有被处理。这个时候就需要使用BEGIN，这个时候它就会处理所有数据。</p> <p>END的用法</p> <p>有BEGIN当然就有END了</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#awk 'END{print&quot;END!!!&quot;}{print $1 &quot;\t&quot; $3}' /etc/passwd
+#和BEGIN的用法基本相同，只不过是在处理数据动作的最后加打印而已。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><a data-fancybox="" title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/awk7.png"><img src="https://raw.githubusercontent.com/ColaStar/static/master/images/awk7.png" alt=""></a></p> <p>6、关系运算符</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>关系运算符
+&gt;  大于
+&lt;  小于
+=   等于 #这里的等于就把结果都改成这等于后面的数值，如下图
+&gt;=  大于等于
+&lt;=   小于等于　
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">7/11/2019, 1:38:34 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/blogs/views/assets/js/app.bb7cbd3d.js" defer></script><script src="/blogs/views/assets/js/2.6537fdfb.js" defer></script><script src="/blogs/views/assets/js/54.756bc365.js" defer></script>
+  </body>
+</html>
