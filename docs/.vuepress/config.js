@@ -582,6 +582,6 @@ module.exports = {
     //     ]
     //   }
     ],
-    sidebar: 'auto', //如果你希望自动生成仅包含当前页面的标题链接的侧边栏，则可以在该页面上使用 YAML front matter
+    // sidebar: 'auto', //如果你希望自动生成仅包含当前页面的标题链接的侧边栏，则可以在该页面上使用 YAML front matter
   }
 };
