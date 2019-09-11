@@ -32,6 +32,19 @@ module.exports = {
   markdown: {
     lineNumbers: true // 代码块显示行号
   },
+  sidebar: {
+    // "/no.0/": [
+    //       "读博客有感/闭包.md"
+    //          ],
+    "/no.2/":[
+            "http"
+            ],
+    // "/web/":[
+    //         "",
+    //         "web1",
+    //         ...
+    //              ],
+},
   themeConfig: {
     sidebarDepth: 4, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
     lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间,
@@ -49,25 +62,13 @@ module.exports = {
     // shouldPrefetch
     // displayAllHeaders: true
     //toc
-    sidebar: {
-      '/no.0/': [
-                "读博客有感/闭包.md"
-                   ],
-          "/no.2/":[
-                  "http"
-                  ],
-          // "/web/":[
-          //         "",
-          //         "web1",
-          //         ...
-          //              ],
-      },
+    
     sidebarDepth: 2,
     nav: [
       { text: '主页', link: '/' },
       { text: '博文',
         items: [
-          { text: '前端基础', link: '/no.0/' },
+          // { text: '前端基础', link: '/no.0/' },
           // { text: 'javaScript与测试工程师', link: '/ios/' },
           { text: '网络', link: '/no.2/' },
           // { text: '前端优化', link: '/ios/' },
