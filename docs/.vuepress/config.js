@@ -55,7 +55,7 @@ module.exports = {
       //       "读博客有感/闭包.md"
       //          ],
       "/no.2/":[
-              "http"
+              "http.md"
               ]
       // "/web/":[
       //         "",
