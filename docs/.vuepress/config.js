@@ -51,9 +51,9 @@ module.exports = {
     // displayAllHeaders: true
     //toc
     sidebar: {
-      // "/no.0/": [
-      //       "读博客有感/闭包.md"
-      //          ],
+      "/no.0/": [
+            "读博客有感/闭包.md"
+               ],
       "/no.2/":[
               "http.md"
               ]
