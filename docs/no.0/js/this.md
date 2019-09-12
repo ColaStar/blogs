@@ -1,4 +1,4 @@
-JS里的this
+# JS里的this
 ---
 this本身很简单，总是指向当前类的实例，即谁调用它指向谁
 
@@ -7,7 +7,7 @@ this本身很简单，总是指向当前类的实例，即谁调用它指向谁
 - this不能赋值，但可以被call，apply，bind改变
 - 构造函数内的优先级要比原型链内的优先级要高
 
-this 和构造器
+#### this 和构造器
 ```
 function Tab(nav, content) {
     this.nav = nav
@@ -21,7 +21,7 @@ Tab.prototype.setNav = function(nav) {
     this.nav = nav;
 };
 ```
-this 和对象
+#### this 和对象
 var tab = {
     nav: '',
     content: '',
@@ -32,7 +32,7 @@ var tab = {
         this.nav = n;
     }
 }
-this 和函数
+#### this 和函数
 ```
 function showMsg() {
     alert(this.message)
@@ -56,7 +56,7 @@ showMsg.call(m2) // '输入的身份证号不正确'
 })(this);
 ```
 
-this 和 DOM/事件
+#### this 和 DOM/事件
 ```
 <div id="nav"></div>
 <script>
@@ -76,7 +76,7 @@ this 和 DOM/事件
 判断 this 指向谁，看执行时而非定义时，只要函数(function)没有绑定在对象上调用，它的 this 就是 window
 ```
 
-this 可以被 call/apply 改变
+#### this 可以被 call/apply 改变
 ```
 var m1 = {
     message: 'This is A'
@@ -94,7 +94,7 @@ showMsg.call(m1) // 'This is A'
 showMsg.call(m2) // 'This is B'
 ```
 
-me/self/that/_this 暂存 this  
+#### me/self/that/_this 暂存 this  
 ES5 中新增的 bind 和 this
 ```
 var modal = {
@@ -109,7 +109,7 @@ var otherShowMsg = showMsg.bind(modal)
 otherShowMsg() // 'This is A'
 ```
 
-ES6 箭头函数(arrow function) 和 this
+#### ES6 箭头函数(arrow function) 和 this
 ```
 。箭头函数的特征就是，定义在哪，this 就指向那。即箭头函数定义在一个对象里，那箭头函数里的 this 就指向该对象。
 

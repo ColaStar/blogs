@@ -1,4 +1,4 @@
-bind、call、apply
+# bind、call、apply
 ---
 > 区别
 

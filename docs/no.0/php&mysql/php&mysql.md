@@ -1,4 +1,4 @@
-MySQL & PHP
+# MySQL & PHP
 ---
 #### 安装开发集成环境
 XAMPP就是X-系统，A-Apache，M-Mysql，P-php，P-Phpmyadmin/Perl的缩写
