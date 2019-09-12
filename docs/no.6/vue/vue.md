@@ -367,9 +367,9 @@ p.a // -> Get 'a' = 2`
 ```
 
 ![Vue源码详细解析](https://segmentfault.com/a/1190000008500946)
-## Vue对Domdiff的优化方案
+<!-- ## Vue对Domdiff的优化方案 -->
 
-
+<!-- 
 ## vue组件间的参数传递是如何做到的
 
 ### 
@@ -392,7 +392,7 @@ Vdom实现
 
 调用MVVM.js与Observe.js 进行遍历vm的每个key，使用object.difinePropty为vm设置getter和setter，当获取的时候首先判断是否加入了订阅者subs的队列中，如果加入了直接返回，未加入的话，进行
 
-自动调用watcher.js
+自动调用watcher.js -->
 
 
 
