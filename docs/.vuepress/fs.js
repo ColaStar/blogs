@@ -13,13 +13,11 @@ function getJsonFiles(jsonPath){
             }
             var reg = /.\md$/g
             var reg1 = /^un/g
-            
-            // var pathList = fPath.split('/');
-            // var directory = pathList.slice(pathList.length-2)
-            // var fileName = pathList[pathList.length-1]
+            var pathList = fPath.split('/');
+            var directory = pathList.slice(pathList.length-1)
             if (stat.isFile() === true&&reg.test(fPath) ) {
-                spath =  jsonPath.substring(2)
-                if(!reg1.test(spath)){
+                let spath =  jsonPath.substring(2)
+                if(!reg1.test(directory)){
                     nPath = fPath.replace(spath, '');
                     jsonFiles.push(nPath);
                 }

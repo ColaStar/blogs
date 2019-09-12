@@ -11,6 +11,9 @@ undefined = 42;
 alert(undefined);	// undefined;
 ```
 
+
+
+
 #### jquery = jquery.fn.init?    why?
 ```
 (function(window, undefined) {
