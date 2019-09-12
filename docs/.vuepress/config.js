@@ -57,9 +57,7 @@ module.exports = {
       "/no.0/": getJsonFiles('./docs/no.0/'),
       "/javascript-QA/": getJsonFiles('./docs/javascript-QA/'),
       "/no.1/":  getJsonFiles('./docs/no.1/'),
-      "/no.2/":[
-              "http.md"
-              ]
+      "/no.2/":  getJsonFiles('./docs/no.2/'),
       // "/web/":[
       //         "",
       //         "web1",
@@ -73,7 +71,7 @@ module.exports = {
           { text: '前端基础', link: '/no.0/js/es6.md' },
           { text: 'javaScript与测试工程师', link: '/javascript-QA/javascriptqa' },
           { text: '编程相关', link: '/no.1/函数式编程/函数式编程' },
-          { text: '网络', link: '/no.2/' }
+          { text: '网络', link: '/no.2/http' }
           // { text: '前端优化', link: '/ios/' },
           // { text: '前端自动化', link: '/ios/' },
           // { text: 'css相关', link: '/ios/' },
