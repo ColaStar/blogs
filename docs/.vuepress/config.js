@@ -1,3 +1,6 @@
+const getJsonFiles = require('./fs.js')
+console.log(getJsonFiles('./docs/no.0/'))
+
 module.exports = {
   title: '个人博客', // 设置网站标题
   head: [
@@ -51,9 +54,7 @@ module.exports = {
     // displayAllHeaders: true
     //toc
     sidebar: {
-      "/no.0/": [
-            "读博客有感/闭包.md"
-               ],
+      "/no.0/":  getJsonFiles('./docs/no.0/'),
       "/no.2/":[
               "http.md"
               ]
