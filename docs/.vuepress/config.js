@@ -1,10 +1,12 @@
 const getJsonFiles = require('./fs.js')
-console.log(getJsonFiles('./docs/no.0/'))
 
 module.exports = {
+  repo: "ColaStar/blogs/views",
   title: '个人博客', // 设置网站标题
   head: [
-    ['link', { rel: 'icon', href: `/favicon.ico` }],
+    ['link', { rel: 'icon', href: `./public/favicon.ico` }],
+    ['link', { rel: 'manifest', href: './public/manifest.json' }],
+    ['link', { rel: 'apple-touch-icon', href: './public/images/logo.png' }],
     // add jquert and fancybox
     ['script', {
       src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js'
@@ -35,25 +37,28 @@ module.exports = {
   markdown: {
     lineNumbers: true // 代码块显示行号
   },
-  
+  serviceWorker: true,
   themeConfig: {
     sidebarDepth: 4, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
     lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间,
     docsDir: "docs",
     editLinks: true,
     editLinkText: "本文源码地址",
-    '@vuepress/medium-zoom': {
-      selector: 'img',
-      options: {
-          margin: 16
-      }
-    },
-    '@vuepress/back-to-top':true,
-    // serviceWorker:   pwa
+    
     // shouldPrefetch
     // displayAllHeaders: true
     //toc
     sidebar: {
+      // {
+      //   title: '前端',
+      //   collapsable: false,
+      //   children: [
+      //     "js",
+      //     "css",
+      //     "html",
+      //     "framework"
+      //   ]
+      // },      
       "/no.0/": getJsonFiles('./docs/no.0/'),
       "/javascript-QA/": getJsonFiles('./docs/javascript-QA/'),
       "/no.1/":  getJsonFiles('./docs/no.1/'),
@@ -87,21 +92,6 @@ module.exports = {
       },
       { text: '面试', link: '/no.1/' },
       { text: 'Github', link: 'https://www.github.com/codeteenager' },
-      //前端资料
-         //前端基础
-         //javaScript与测试工程师
-         //网络
-         //前端优化
-         //前端自动化
-         //css相关
-         //框架相关
-         //跨界
-         //数据结构与算法
-         //图形学
-         //设计模式
-      //面试
-      //阅读
-      //GitHub
     //   {
     //     text: '前端资料',
     //     items: [
@@ -588,5 +578,14 @@ module.exports = {
     //   }
     ],
     // sidebar: 'auto', //如果你希望自动生成仅包含当前页面的标题链接的侧边栏，则可以在该页面上使用 YAML front matter
+  },
+  plugins: {
+    '@vuepress/medium-zoom': {
+      selector: 'img',
+      options: {
+          margin: 16
+      }
+    },
+    '@vuepress/back-to-top':true
   }
 };
