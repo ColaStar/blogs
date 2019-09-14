@@ -1,5 +1,6 @@
 const getJsonFiles = require('./fs.js')
-
+const poem = require('tang-poems')
+// poem()
 module.exports = {
   repo: "ColaStar/blogs/views",
   title: '个人博客', // 设置网站标题
@@ -29,7 +30,7 @@ module.exports = {
       href: 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css'
     }]
   ],
-  description: '来了老弟', //网站描述。这将在页面 HTML 中表现为一个 <meta> 标签。
+  description: poem(), //网站描述。这将在页面 HTML 中表现为一个 <meta> 标签。
   base: '/blogs/views/',
   assestsPublicPath: '/blogs/views/',
   port: 9527, //dev 服务器的端口
