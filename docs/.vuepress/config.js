@@ -3,11 +3,12 @@ const axios = require('axios');
 var str = ''
 function getStr() {
   axios.get('http://v2.jinrishici.com/one.json?client=npm-sdk/1.0', {}).then(res => {
-    str = res.data.content
+    str = res.data
+    console.log(str)
   })
   return str
 }
-console.log(getStr)
+console.log(getStr())
 
 module.exports = {
   repo: "ColaStar/blogs/views",
