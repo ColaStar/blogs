@@ -65,16 +65,6 @@ module.exports = {
     // displayAllHeaders: true
     //toc
     sidebar: {
-      // {
-      //   title: '前端',
-      //   collapsable: false,
-      //   children: [
-      //     "js",
-      //     "css",
-      //     "html",
-      //     "framework"
-      //   ]
-      // },      
       "/no.0/": getJsonFiles('./docs/no.0/'),
       "/javascript-QA/": getJsonFiles('./docs/javascript-QA/'),
       "/no.1/": getJsonFiles('./docs/no.1/'),
