@@ -1,10 +1,11 @@
 const getJsonFiles = require('./fs.js')
 const axios = require('axios');
-
+var str = ''
 function getStr() {
   axios.get('http://v2.jinrishici.com/one.json?client=npm-sdk/1.0', {}).then(res => {
-    return res.data.content
+    str = res.data.content
   })
+  return str
 }
 console.log(getStr)
 
