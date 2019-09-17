@@ -1,6 +1,7 @@
 let fs = require('fs') //读写文件就需要引入fs--文件系统模块
 let path = require('path')
 let { sep } = path
+
 class generateDir {
   constructor(repPath, outputFile, path) {
     this.repPath = repPath

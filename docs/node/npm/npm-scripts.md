@@ -1,5 +1,9 @@
 
-## 一、什么是 npm 脚本？npm 允许在package.json文件里面，使用scripts字段定义脚本命令。
+# npm 脚本
+
+## 概念
+
+> 一、什么是 npm 脚本？npm 允许在package.json文件里面，使用scripts字段定义脚本命令。
 ```
 {
   // ...
@@ -28,7 +32,7 @@ $ node build.js
 ```
 $ npm run
 ```
-## 二、原理
+## 原理
 npm 脚本的原理非常简单。每当执行`npm run`，就会自动新建一个 Shell，在这个 Shell 里面执行指定的脚本命令。因此，只要是 Shell（一般是 Bash）可以运行的命令，就可以写在 npm 脚本里面。
 
 比较特别的是，`npm run`新建的这个 Shell，会将当前目录的`node_modules/.bin`子目录加入`PATH`变量，执行结束后，再将`PATH`变量恢复原样。
@@ -47,7 +51,7 @@ npm 脚本的原理非常简单。每当执行`npm run`，就会自动新建一�
 
 npm 脚本的退出码，也遵守 Shell 脚本规则。如果退出码不是`0`，npm 就认为这个脚本执行失败。
 
-## 三、通配符
+## 通配符
 由于 npm 脚本就是 Shell 脚本，因为可以使用 Shell 通配符。
 
 ```
@@ -77,7 +81,7 @@ $ npm run lint --  --reporter checkstyle > checkstyle.xml
 "lint": "jshint **.js",
 "lint:checkstyle": "npm run lint -- --reporter checkstyle > checkstyle.xml"
 ```
-## 五、执行顺序
+## 执行顺序
 如果 npm 脚本里面需要执行多个任务，那么需要明确它们的执行顺序。
 
 如果是并行执行（即同时的平行执行），可以使用`&`符号。
@@ -92,7 +96,7 @@ $ npm run script1.js && npm run script2.js
 ```
 这两个符号是 Bash 的功能。此外，还可以使用 node 的任务管理模块：`script-runner、npm-run-all、redrun。`
 
-## 六、默认值
+## 默认值
 一般来说，npm 脚本由用户提供。但是，npm 对两个脚本提供了默认值。也就是说，这两个脚本不用定义，就可以直接使用。
 
 ```
@@ -155,7 +159,7 @@ if (TARGET === 'posttest') {
 
 注意，`prepublish`这个钩子不仅会在`npm publish`命令之前运行，还会在`npm install`（不带任何参数）命令之前运行。这种行为很容易让用户感到困惑，所以 npm 4 引入了一个新的钩子`prepare`，行为等同于`prepublish`，而从 npm 5 开始，`prepublish`将只在`npm publish`命令之前运行。
 
-## 八、简写形式
+## 简写形式
 
 四个常用的 npm 脚本有简写形式。
 
@@ -176,7 +180,7 @@ npm start、npm stop和npm restart都比较好理解，而npm restart是一个�
 8、poststart  
 9、postrestart  
 
-## 九、变量
+## 变量
 npm 脚本有一个非常强大的功能，就是可以使用 npm 的内部变量。
 
 首先，通过`npm_package_`前缀，npm 脚本可以拿到`package.json`里面的字段。比如，下面是一个`package.json`。
@@ -247,7 +251,7 @@ $ npm config set foo:port 80
 ```
 "env": "env"
 ```
-## 十、常用脚本示例
+## 常用脚本示例
 
 ```
 // 删除目录

@@ -25,6 +25,8 @@
     "vuepress": "^1.0.1"
   },
   "dependencies": {
-    "node-ts": "^5.0.1"
+    "jinrishici": "^1.0.6",
+    "node-ts": "^5.0.1",
+    "tang-poems": "^1.0.1"
   }
 }

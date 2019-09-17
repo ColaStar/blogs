@@ -1,4 +1,4 @@
-call 和 apply 的模拟实现
+# call 和 apply 的模拟实现
 ------------------------------------------------------------------------------------------------
 
 > call: 在使用一个指定的 this 值和若干个指定的参数的前提下调用某个函数或方法。
@@ -153,10 +153,10 @@ Function.prototype.apply = function(context,arr){
     for(var i = 0;i<arr.length;i++){
         args.push('arr['+i+']')
     }    
-    
+    //'' + [1,2,3] => '1,2,3'
     result = eval('context.fn(' + args + ')');
     }
-    delete context.fn;
+    delete context.fn;                                                                 
     return result
 }
-```
+```p;.

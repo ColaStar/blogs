@@ -1,4 +1,4 @@
-linux防火墙linux防火墙linux防火墙linux防火墙# linux防火墙
+# linux防火墙
 ## 1、关闭防火墙
 centos 7：
 ```
