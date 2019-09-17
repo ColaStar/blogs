@@ -3,12 +3,10 @@ const axios = require('axios');
 var str = ''
 function getStr() {
   axios.get('http://v2.jinrishici.com/one.json?client=npm-sdk/1.0', {}).then(res => {
-    str = res.data
-    console.log(str)
+    str = res.data.data.content
   })
   return str
 }
-console.log(getStr())
 
 module.exports = {
   repo: "ColaStar/blogs/views",
@@ -48,7 +46,7 @@ module.exports = {
       href: 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css'
     }]
   ],
-  description: '来了老弟', //网站描述。这将在页面 HTML 中表现为一个 <meta> 标签。
+  description: getStr(), //网站描述。这将在页面 HTML 中表现为一个 <meta> 标签。
   base: '/blogs/views/',
   assestsPublicPath: '/blogs/views/',
   port: 9527, //dev 服务器的端口
