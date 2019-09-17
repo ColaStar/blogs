@@ -1,4 +1,6 @@
 const {getJsonFiles,getStr} = require('./fs.js')
+console.log(getStr(Math.ceil(Math.random()*10)))
+console.log(typeof getStr(Math.ceil(Math.random()*10)))
 module.exports = {
   repo: "ColaStar/blogs/views",
   title: '个人博客', // 设置网站标题
