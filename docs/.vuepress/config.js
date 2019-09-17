@@ -7,7 +7,7 @@ function getStr() {
   })
   return str
 }
-
+console.log(getStr())
 module.exports = {
   repo: "ColaStar/blogs/views",
   title: '个人博客', // 设置网站标题
