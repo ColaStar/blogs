@@ -47,7 +47,7 @@ module.exports = {
       href: 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css'
     }]
   ],
-  description: 'zhangsan',s //网站描述。这将在页面 HTML 中表现为一个 <meta> 标签。
+  description: 'zhangsan', //网站描述。这将在页面 HTML 中表现为一个 <meta> 标签。
   base: '/blogs/views/',
   assestsPublicPath: '/blogs/views/',
   port: 9527, //dev 服务器的端口
