@@ -4,7 +4,10 @@ var str = ''
 function getStr() {
   axios.get('http://v2.jinrishici.com/one.json?client=npm-sdk/1.0', {}).then(res => {
     str = res.data.data.content
+  console.log(str)
+
   })
+  console.log(str)
   return str
 }
 console.log(getStr())
