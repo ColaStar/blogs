@@ -1,12 +1,6 @@
-const getJsonFiles = require('./fs.js')
-const http = require('http');
-
-// function getStr() {
-//   http.get('http://v2.jinrishici.com/one.json?client=npm-sdk/1.0', function (data) {
-//       console.log(data)
-//   })
-// }
-
+const {getJsonFiles,getStr} = require('./fs.js')
+console.log(getStr(Math.ceil(Math.random()*10)))
+console.log(typeof getStr(Math.ceil(Math.random()*10)))
 module.exports = {
   repo: "ColaStar/blogs/views",
   title: '个人博客', // 设置网站标题
@@ -45,7 +39,7 @@ module.exports = {
       href: 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css'
     }]
   ],
-  description: '来了老弟', //网站描述。这将在页面 HTML 中表现为一个 <meta> 标签。
+  description: getStr(Math.ceil(Math.random()*10)), //网站描述。这将在页面 HTML 中表现为一个 <meta> 标签。
   base: '/blogs/views/',
   assestsPublicPath: '/blogs/views/',
   port: 9527, //dev 服务器的端口
@@ -65,16 +59,6 @@ module.exports = {
     // displayAllHeaders: true
     //toc
     sidebar: {
-      // {
-      //   title: '前端',
-      //   collapsable: false,
-      //   children: [
-      //     "js",
-      //     "css",
-      //     "html",
-      //     "framework"
-      //   ]
-      // },      
       "/no.0/": getJsonFiles('./docs/no.0/'),
       "/javascript-QA/": getJsonFiles('./docs/javascript-QA/'),
       "/no.1/": getJsonFiles('./docs/no.1/'),
