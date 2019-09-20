@@ -830,3 +830,5 @@ io.on('connection', socket => {
 - io.emit()发送消息是给所有人看的
 - socket.broadcast.emit()发送消息除了自己都能看到
 
+[参考文章](https://www.cnblogs.com/tugenhua0707/p/8699309.html)
+
