@@ -76,7 +76,7 @@ coverageReporter:{
 - 2.PV网站当日访问人数UV独立访问人数。PV每天几十万甚至上百万就是需要考虑压力测试。换算公式QPS = PV/t  ps:1000000/10*60*60 = 27.7(100万请求集中在10个小时，服务器每秒处理27.7个业务请求)（养猪）
 - 3.常用的压力测试工具是ab、siege、http_load。
 ```
-ab -c 100 -n   100http://localhost:8080每秒持续发出28个请求
+ab -c 100 -n   100  http://localhost:8080每秒持续发出28个请求
 Request per second 表示服务器每秒处理请求数即QPS
 Failed requests表示此次请求就结束  请求数理论上压力测压值越大增加
 
