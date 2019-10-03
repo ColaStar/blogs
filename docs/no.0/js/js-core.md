@@ -905,7 +905,7 @@ arr.join([separator])
 Array.prototype.join.call(arguments)
 ```
 
-### Array.keys()
+### Object.keys()
 **不兼容IE**
 
 返回一个包含数组中每个索引键的Array Iterator对象。

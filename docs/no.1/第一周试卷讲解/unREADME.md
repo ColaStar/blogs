@@ -11,3 +11,4 @@ var f = function foo(){
 typeof foo; // "undefined"
 f(); // "function"
 ```
+

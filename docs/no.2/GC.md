@@ -22,7 +22,7 @@ JavaScript 使用垃圾回收机制来自动管理内存。
 
 一般的 GC 耗时在 100ms 左右，对于一般的程序来说够了。但是对于一些流畅度要求高的程序来说就很麻烦，这就需要新引擎需要优化的地方。
 
-![](何时启动gc.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/何时启动gc.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/何时启动gc.png)</a>
 
 # chrome 的 GC 优化（V8 下的垃圾回收机制）
 
@@ -35,7 +35,7 @@ JavaScript 使用垃圾回收机制来自动管理内存。
 在新生代空间中，内存空间分为两部分，每一个空间称为semispace。分别为 From 空间（使用）和 To 空间(闲置)。在这两个空间中，必定有一个空间是使用的，另一个空间是空闲的。新分配的对象会被放入 From 空间中，当 From 空间被占满时，新生代 GC 就会启动了。算法会检查 From 空间中存活的对象并复制到 To 空间中，如果有失活的对象就会销毁。当复制完成后将 From 空间和 To 空间互换，这样 GC 就结束了，所以所有的内存分配操作发生在 From 空间。而当再次进行回收，会发现被回收过直接晋升， 或者发现To空间已经使用了超过25%。
 
 **缺点**：是只能使 用堆内存的一半，这是一个典型的空间换时间的办法，但 是新生代声明周期较短，恰恰就适合这个算法。
-![](gc新生代.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/gc新生代.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/gc新生代.png)</a>
 
 ## 老生代算法
 
@@ -75,7 +75,7 @@ enum AllocationSpace {
 在这个阶段中，会遍历堆中所有的对象，然后标记活的对象，在标记完成后，销毁所有没有被标记的对象。在标记大型对内存时，可能需要几百毫秒才能完成一次标记。这就会导致一些性能上的问题。为了解决这个问题，2011 年，V8 从 stop-the-world 标记切换到增量标志。在增量标记期间，GC 将标记工作分解为更小的模块，可以让 JS 应用逻辑在模块间隙执行一会，从而不至于让应用出现停顿情况。但在 2018 年，GC 技术又有了一个重大突破，这项技术名为并发标记。该技术可以让 GC 扫描和标记对象时，同时允许 JS 运行，你可以点击 [该博客](https://v8.dev/blog/concurrent-marking) 详细阅读。
 
 清除算法完成之后会使内存空间出现不连续的状态，这种内存碎片会对后续的内存分配造成问题。因此在内存空间不足的时候采用标记合并算法，将活着的对象移动到内存的一端，完成之后清除另外一端的对象,当CPU空间不足的时候会非常的高效。 V8后续还引入了延迟处理，增量处理，并计划引入 并行标记处理。
-![](gc老生代.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/gc老生代.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/gc老生代.png)</a>
 
 
 - 新生代的 GC 触发要比老龄代的频繁
@@ -98,4 +98,4 @@ heaptTotal:堆区占用内存heapUsed:
 已使用到的堆部分external:
 V8引擎C++对象占用(GC动态变化)
 ```
-![](gc空间.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/gc空间.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/gc空间.png)</a>
