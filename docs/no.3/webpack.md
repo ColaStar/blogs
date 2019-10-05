@@ -84,7 +84,23 @@ Webpack 的运行流程是一个串行的过程，从启动到结束会依次执
 - uglifyjs-plugin: 通过Uglifyjs压缩JavaScript代码
 - mini-css-extract-plugin: 分离CSS文件
 - clean-webpack-plugin: 删除打包文件
-- happypack: 实现多线程加速编译
+- happypack: 实现多线程加速编译（多核编译）
+```
+const HappyPack = require('happypack');
+const os = require('os');
+//开辟一个线程池
+const happyThreadPoll = HappyPack.ThreadPool({ size: os.cpus().length }); module.exports.plugins = [
+new HappyPack({
+id: 'babel',
+threadPool: happyThreadPoll,
+loaders: [{
+loader: 'babel-loader'
+}] })
+];
+
+
+//use: 'happypack/loader?id=babel',
+```
 
 ## Tree Shaking
 
@@ -334,7 +350,7 @@ stats:`'errors-only'` 表示只有错误的才会被打印，没有错误就不�
 
 有时候我们使用webpack在本地启动服务器的时候，由于我们使用的访问的域名是 http://localhost:8081 这样的，但是我们服务端的接口是其他的，
 
-那么就存在域名或端口号跨域的情况下，但是很幸运的是 devServer有一个叫proxy配置项，可以通过该配置来解决跨域的问题，那是因为 dev-server 使用了 http-proxy-middleware 包(了解该包的更多用法 )。
+那么就存在域名或端口号跨域的情况下，但是很幸运的是 devServer有一个叫proxy配置项，可以通过该配置来解决跨域的问题，那是因为 dev-server 使用了 http-proxy-middleware 包([了解该包的更多用法](https://www.npmjs.com/package/http-proxy-middleware) )。
 
 假如现在我们本地访问的域名是 http://localhost:8081, 但是我现在调用的是百度页面中的一个接口，该接口地址是：http://news.baidu.com/widget?ajax=json&id=ad。现在我们只需要在devServer中的proxy的配置就可以了：
 如下配置：
@@ -756,13 +772,69 @@ module.exports = {
 ```
 
 ## 分析工具
+> speed-measure-webpack-plugin
+为你的原始配置包一层 smp.wrap 就可以了，接下来执行构建，你就能在 console 面板看到如它 demo 所示的各类型的模块的执行时长。
+```
+
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");	
+const smp = new SpeedMeasurePlugin();	
+module.exports = smp.wrap(YourWebpackConfig);
+```
 > webpack-bundle-awalyzer
 会把所有打包后的文件生成一份文档
 > webpack-jarvis
 这个比上一个
 叫美观和详细
 
+## 如何优雅的编写你的Entry
+```
+if (/.+\/([a-zA-Z]+-[a-zA-Z]+)(\.entry\.js$)/g.test(item) == true) { const entrykey = RegExp.$1
+_entry[entrykey] = item;
+const [dist, template] = entrykey.split(“-");
+}
+```
+
+
+## 开发webpack loader
+
+### loader源码分析 
+
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/loader源码分析.png)
+
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/loader源码分析code.png)
+
+
+
+> ⚠️注意：
+- 1、一个 Loader 的职责是单一的，只需要完成一种转换。如果一个源文件需要经历多步转换才能正常使用，就通过多个 Loader 去转换。在调用多个 Loader 去转换一个文件时，每个 Loader 会链式的顺序执行， 第一个 Loader 将会拿到需处理的原内容，上一个 Loader 处理后的结果会传给下一个接着处理，最后的 Loader 将处理后的最终结果返回给 Webpack。
+- 2、所以，在你开发一个 Loader 时，请保持其职责的单一性，你只需关心输入和输出。
+- 3.use: ['bar-loader', 'foo-loader'] 时，loader 是以相反的顺序执行的
+- 4.最后的 loader 最早调用，传入原始的资源内容(可能是代码，也可能是二进制文件，用 buffer 处理)第一个 loader 最后调用，期望返回是 JS 代码和 sourcemap 对象(可选)中间 的 loader 执行时，传入的是上一个 loader 执行的结果 
+- 5.多个 loader 时遵循这样的执行顺序，但对于大多数单个 loader 来说无须感知这一点，只负 责好处理接受的内容就好。
+- 6.还有一个场景是 loader 中的异步处理。有一些 loader 在执行过程中可能依赖于外部 I/O 的结果，导致它必须使用异步的方式来处理，这个使用需要在 loader 执行时使用 this.async() 来标识该 loader 是异步处理的，然后使用 this.callback 来返回 loader 处理结果。
+
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/loader源码分析ast.png)
+
+在计算机科学中，抽象语法树(abstract syntax tree 或者缩写为 AST)，或者语法树(syntax tree)，是源 代码的抽象语法结构的树状表现形式，这里特指编程语言的源代码。树上的每个节点都表示源代码中的一种结 构。之所以说语法是「抽象」的，是因为这里的语法并不会表示出真实语法中出现的每个细节。
+
+Webpack 提供的一个很大的便利就是能将所有资源都整合成模块，不仅仅是 js 文件。所以需要一些loader ，比如 url-loader 等等来让我们可以直接在源文件中引用各类资源。最后调用 acorn(Esprima) 解析经 loader 处理后的源文件生成抽象语法树 AST
+
+- type:描述该语句的类型 --变量声明语句
+- kind:变量声明的关键字 -- var
+- declaration: 声明的内容数组，里面的每一项也是一个对象 type: 描述该语句的类型
+- id: 描述变量名称的对象 type:定义
+- name: 是变量的名字 init: 初始化变量值得对象
+- type: 类型
+- value: 值 "is tree" 不带引号 row: "\"is tree"\" 带引号
+
+<a data-fancybox title="" href="https://raw.githubusercontent.cwom/ColaStar/static/master/images/手写loader.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/手写loader.png)</a>
+
 ## 编写过webpack插件
+
+webpack实现插件机制的⼤大体⽅方式是:
+- 「创建」—— webpack在其内部对象上创建各种钩⼦; 
+「注册」—— 插件将⾃己的方法注册到对应钩⼦子上，交给webpack; 
+「调⽤」—— webpack编译过程中，会适时地触发相应钩⼦子，因此也 就触发了插件的⽅法。
 
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/编写过webpack插件.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/编写过webpack插件.png)</a>
 
@@ -771,13 +843,6 @@ module.exports = {
 - 3、在开发 Plugin 时最常用的两个对象就是 Compiler 和 Compilation，它们是 Plugin 和 Webpack 之间的桥梁。Compiler 和 Compilation 的含义如下：Compiler 对象包含了 Webpack 环境所有的的配置信息，包含 options，loaders，plugins 这些信息，这个对象在 Webpack 启动时候被实例化，它是全局唯一的，可以简单地把它理解为 Webpack 实例；Compilation 对象包含了当前的模块资源、编译生成资源、变化的文件等。当 Webpack 以开发模式运行时，每当检测到一个文件变化，一次新的 Compilation 将被创建。Compilation 对象也提供了很多事件回调供插件做扩展。通过 Compilation 也能读取到 Compiler 对象。
 - 4、Compiler 和 Compilation 的区别在于：Compiler 代表了整个 Webpack 从启动到关闭的生命周期，而 Compilation 只是代表了一次新的编译。
 - 5、开发插件时需要注意：只要能拿到 Compiler 或 Compilation 对象，就能广播出新的事件，所以在新开发的插件中也能广播出事件，给其它插件监听使用、传给每个插件的 Compiler 和 Compilation 对象都是同一个引用。也就是说在一个插件中修改了 Compiler 或 Compilation 对象上的属性，会影响到后面的插件、有些事件是异步的，这些异步的事件会附带两个参数，第二个参数为回调函数，在插件处理完任务时需要调用回调函数通知 Webpack，才会进入下一处理流程。
-
-## 开发webpack loader
-
-- 1、一个 Loader 的职责是单一的，只需要完成一种转换。如果一个源文件需要经历多步转换才能正常使用，就通过多个 Loader 去转换。在调用多个 Loader 去转换一个文件时，每个 Loader 会链式的顺序执行， 第一个 Loader 将会拿到需处理的原内容，上一个 Loader 处理后的结果会传给下一个接着处理，最后的 Loader 将处理后的最终结果返回给 Webpack。
-- 2、所以，在你开发一个 Loader 时，请保持其职责的单一性，你只需关心输入和输出。
-
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/手写loader.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/手写loader.png)</a>
 
 webpack的1版本和2版本都以及过时了,为了遇到一些老得项目时可用
 后期补webpack1 2 3 4 的不同

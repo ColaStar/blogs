@@ -107,7 +107,7 @@ css样式：css-loader/style-loader/less-loader/sass-loader
 ```
 webpack使用优化
 ```
-1.b别名alias
+1.别名alias
 2.忽略对已知模块的解析 noParse
 3.将模块暴露到全局；不需要在html中引入文件了expose-loader
 4.通过providePlugin将模块暴露到全局
