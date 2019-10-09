@@ -830,6 +830,55 @@ Webpack 提供的一个很大的便利就是能将所有资源都整合成模块
 
 <a data-fancybox title="" href="https://raw.githubusercontent.cwom/ColaStar/static/master/images/手写loader.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/手写loader.png)</a>
 
+```
+//入口文件
+const a = 20;
+-------------------------
+loader/index.js
+-------------------------
+//loader执行之前
+module.exports.pitch = function(r1,r2,data){
+    data.value = 'yd';
+}
+//同步loader
+module.exports = function(content, map, meta){
+    console.log('得到的数据', content);//将const a = 20;转化成buffer <Buffer xxxxx ... >
+    console.log('loader预先得到的数据', this.data.value);//yd
+    return '{};'+content;
+    // this.callback(null, content, map, meta);
+};
+//异步loader
+module.exports = function(content, map, meta){
+ var callback = this.async();
+ (funciton(){....}).then(function(){
+     if(err){
+         callback(err);
+     }else{
+         callback(null, ......)
+     }
+ })
+};
+//流的方式
+//module.exports.raw = true;
+-----------------------------------
+webpack.config.js
+-----------------------------------
+const path = require('path');
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                loader: path.resolve('./loader/index.js')
+            }
+        ]
+    }
+};
+
+//最后生成代码
+eval("{};const a = 20;\r\n\r\n//import bar from './bar.js';\r\n//bar.init();\n\n//# sourceURL=webpack:///./src/index.js?");
+```
+
 ## 编写过webpack插件
 
 webpack实现插件机制的⼤大体⽅方式是:
@@ -888,6 +937,15 @@ compiler.hooks.done.tapPromise('PluginName', (stats) => {
 
 
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/手写webpack插件.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/手写webpack插件.png)</a>
+```
+compiler.hooks.done.tapPromise('PluginName', (stats) => {
+    return new Promise((resolve, reject) => {
+    // 处理promise的返回结果 reject(err) : resolve()
+});
+compiler.hooks.done.tapAsync('PluginName', (stats, callback) => {
+    callback( err)) 
+});
+```
 
 - 1、Webpack 通过 Plugin 机制让其更加灵活，以适应各种应用场景。在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。
 - 2、Webpack 启动后，在读取配置的过程中会先执行 new BasicPlugin(options) 初始化一个 BasicPlugin 获得其实例。在初始化 compiler 对象后，再调用 basicPlugin.apply(compiler) 给插件实例传入 compiler 对象。插件实例在获取到 compiler 对象后，就可以通过 compiler.plugin(事件名称, 回调函数) 监听到 Webpack 广播出来的事件。并且可以通过 compiler 对象去操作 Webpack。
@@ -899,37 +957,59 @@ compiler.hooks.done.tapPromise('PluginName', (stats) => {
 
 webpack 本质上就是一个 JS Module Bundler，用于将多个代码模块进行打包。bundler 从一个构 建入口出发，解析代码，分析出代码模块依赖关系，然后将依赖的代码模块组合在一起，在 JavaScript bundler 中，还需要提供一些胶水代码让多个代码模块可以协同工作，相互引用。下边会 举一些简单的例子来说明一下这几个关键的部分是怎么工作的。
 ```
+// 分别将各个依赖模块的代码⽤ modules 的⽅式组织起来打包成⼀个⽂件
+================================entry======================================
 // entry.js
-import { bar } from './bar.js'; // 依赖 ./bar.js 模块 // bar.js
+import { bar } from './bar.js'; // 依赖 ./bar.js 模块 
+
+// bar.js
 const foo = require('./foo.js'); // 依赖 ./foo.js 模块
+
 递归下去，直至没有更多的依赖模块，最终形成一颗模块依赖树。
-```
+
 分析出依赖关系后，webpack 会利用 JavaScript Function 的特性提供一些代码来将各个模块整 合到一起，即是将每一个模块包装成一个 JS Function，提供一个引用依赖模块的方法，如下面例子 中的 __webpack__require__，这样做，既可以避免变量相互干扰，又能够有效控制执行顺序
-```
-================================entry====================================== 
+
+================================moudles====================================== 
 // entry.js
 modules['./entry.js'] = function() {
 const { bar } = __webpack__require__('./bar.js')
 }
-// 分别将各个依赖模块的代码用 modules 的方式组织起来打包成一个文件 ================================moudles====================================== 
 
 // bar.js
-modules['./bar.js'] = function() {
-const foo = __webpack__require__('./foo.js') };
+ modules['./bar.js'] = function() {
+    const foo = __webpack__require__('./foo.js')
+ };
+ // foo.js
+ modules['./foo.js'] = function() {
+    // ... 
+ }
 
-// foo.js
-modules['./foo.js'] = function() {
-// ... }
-
+// 分别将各个依赖模块的代码用 modules 的方式组织起来打包成一个文件 
 
 ================================output===========================
-// 已经执行的代码模块结果会保存在这里 const installedModules = {}
-function __webpack__require__(id) {
+// 已经执⾏的代码模块结果会保存在这⾥
+(function(modules){
+    const installedModules = {}
+    function __webpack__require__(id) {
+        // 如果 installedModules 中有就直接获取
+        // 没有的话从 modules 中获取 function 然后执⾏，
+        //将结果缓存在 installedModules 中然后返回结果
+    }
+})({
+    "./entry.js": (function(__webpack_require__){
+        var bar = __webpack_require__(/*code内容*/)
+    }),
+    "./bar.js": (function(){}),
+    "./foo.js": (function(){}),
+})
+其实webpack就是把AST分析树 转化成 链表
+
 // 如果 installedModules 中有就直接获取
 // 没有的话从 modules 中获取 function 然后执行，
-//将结果缓存在 installedModules 中然后返回结果 }
+//将结果缓存在 installedModules 中然后返回结果 
 ```
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/webpack运行流程.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack运行流程.png)</a>
+<!-- <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/webpack运行流程.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack运行流程.png)</a> -->
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_整体行流程.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_整体行流程.png)</a>
 
 - 1.`Compiler` webpack 的运行入口，`compiler `对象代表了完整的 `webpack` 环境配置。这个对象 在启动 `webpack` 时被一次性建立，并配置好所有可操作的设置，包括 `options`，`loader` 和 `plugin`。当在 `webpack` 环境中应用一个插件时，插件将收到此 `compiler` 对象的引用，可以使用 它来访问 `webpack` 的主环境。
 - 2.`Compilation` 对象代表了一次资源版本构建。当运行 `webpack` 开发环境中间件时，每当检 测到一个文件变化，就会创建一个新的 `compilation`，从而生成一组新的编译资源。一个 `compilation` 对象表现了当前的模块资源、编译生成资源、变化的文件、以及被跟踪依赖的状 态信息。`compilation `对象也提供了很多关键步骤的回调，以供插件做自定义处理时选择使 用。
