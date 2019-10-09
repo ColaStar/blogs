@@ -230,7 +230,7 @@ History 模式是 HTML5 新推出的功能，html5 增加了两个方法，分�
 
 ### 源码目录
 
-![](vue-router目录.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/https://raw.githubusercontent.com/ColaStar/static/master/images/vue-router目录.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/https://raw.githubusercontent.com/ColaStar/static/master/images/vue-router目录.png)</a>
 
 
 这里，先大概说明一下各个文件的作用，下面会详细讲解

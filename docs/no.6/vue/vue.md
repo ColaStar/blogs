@@ -2,18 +2,18 @@
 
 ## Vue源码架构分析
 3年前的vue
-![](vue-star.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vue-star.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vue-star.png)</a>
 现在的vue2019.8
-![](vue-star1.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vue-star1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vue-star1.png)</a>
 ## Vue源码目录结构
 来一张源码截图：
-![](vue-core目录.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vue-core目录.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vue-core目录.png)</a>
 
-![](vue-core目录1.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vue-core目录1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vue-core目录1.png)</a>
 
 我们再来看一下，core 文件夹下的目录：
 
-![](vue-core目录2.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vue-core目录2.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vue-core目录2.png)</a>
 
 结论：Vue.js 的组成是由 core + 对应的 "平台" 补充代码构成（独立构建和运行时构建
 只是 platforms 下 web 平台的两种选择）。
@@ -23,7 +23,7 @@
 ## 数据双向绑定
 
 最浅显易懂的话：**数据变化更新视图，视图变化更新数据**
-![](vue-数据双向绑定.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vue-数据双向绑定.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vue-数据双向绑定.png)</a>
 
 也就是说
 
@@ -110,7 +110,7 @@ Dep.prototype = {
 从代码上看，我们设计了一个订阅器Dep类，该类里面定义了一些属性和方法，这里需要特别注意的是它有一个静态属性 target，这是一个全局唯一 的Watcher，这是一个非常巧妙的设计，因为在同一时间只能有一个全局的 Watcher 被计算，另外它的自身属性 subs 也是 Watcher 的数组。
 
 我们将订阅器Dep添加订阅者的操作设计在getter里面，这是为了让Watcher初始化时进行触发，因此需要判断是否要添加订阅者。在setter函数里面，如果数据变化，就会去通知所有订阅者，订阅者们就会去执行对应的更新的函数。
-![](vue-双向绑定1.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vue-双向绑定1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vue-双向绑定1.png)</a>
 到此，订阅器Dep设计完毕，接下来，我们设计订阅者Watcher.
 
 ### 订阅者Watcher
@@ -150,7 +150,7 @@ Watcher.prototype = {
     }
 }
 ```
-![](vue-data.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vue-data.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vue-data.png)</a>
 写到这是不是就完了，答案必然是没有，哈哈。如果我在一次初始化过程为data上的一个属性赋值100次，难道我们就要执行一百次么？
 
 ### 批处理
@@ -206,7 +206,7 @@ Batcher.prototype = {
 
 ### 编译器
 关于编译这块vue分了两种类型，一种是文本节点，一种是元素节点
-![](vue-ast-text.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vue-ast-text.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vue-ast-text.png)</a>
 vue内置了这么多的指令， 这些指令都会抛出两个接口 bind 和 update，这两个接口 的作用是，编译的最后一步是 执行所有用到的指令的bind方 法，而 update 方法则是当 watcher 触发 update 时， Directive会触发指令的update 方法
 
 Directive指令负责将model和DOM关联起来，在watcher触发下，它可以根据最新的数据重新编译模板，并最终重绘UI（vue2.0在重绘DOM时，采用虚拟DOM树机制，用最小的开销更新UI）
@@ -223,7 +223,7 @@ this._directives.push(descriptor,this,node,host,scope,frag)
 ### 总结
 
 实现数据的双向绑定，首先要对数据进行劫持监听，所以我们需要设置一个监听器Observer，用来监听所有属性。如果属性发上变化了，就需要告诉订阅者Watcher看是否需要更新。因为订阅者是有很多个，所以我们需要有一个消息订阅器Dep来专门收集这些订阅者，然后在监听器Observer和订阅者Watcher之间进行统一管理的。
-![](vue-core23.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vue-core23.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vue-core23.png)</a>
 
 
 
@@ -366,7 +366,7 @@ p.a = 2 // bind `value` to `2`
 p.a // -> Get 'a' = 2`
 ```
 
-![Vue源码详细解析](https://segmentfault.com/a/1190000008500946)
+<a data-fancybox title="Vue源码详细解析" href="https://segmentfault.com/a/1190000008500946">![Vue源码详细解析](https://segmentfault.com/a/1190000008500946)</a>
 <!-- ## Vue对Domdiff的优化方案 -->
 
 <!-- 
