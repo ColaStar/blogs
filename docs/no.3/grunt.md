@@ -1,5 +1,16 @@
 # grunt
-[toc]
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [grunt](#grunt)
+  - [简介](#%E7%AE%80%E4%BB%8B)
+  - [安装与配置](#%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE)
+  - [插件](#%E6%8F%92%E4%BB%B6)
+  - [api](#api)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## 简介
 摘抄至官网
 
