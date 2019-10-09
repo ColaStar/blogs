@@ -1,4 +1,6 @@
-# jenkins介绍和初始化安装
+# jenkins
+
+## jenkins介绍和初始化安装
 
 ## 1.jenkins介绍
 jenkins目前最流行的一款持续集成及自动化部署工具。
