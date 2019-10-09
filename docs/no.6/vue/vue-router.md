@@ -5,22 +5,60 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [VueRouter](#vuerouter)
-  - [路由原理](#%E8%B7%AF%E7%94%B1%E5%8E%9F%E7%90%86)
-  - [VueRouter 源码解析](#vuerouter-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90)
-    - [源码目录](#%E6%BA%90%E7%A0%81%E7%9B%AE%E5%BD%95)
+- [什么是路由](#%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%AF%E7%94%B1)
+- [前端路由](#%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1)
+- [路由原理](#%E8%B7%AF%E7%94%B1%E5%8E%9F%E7%90%86)
+    - [hash 模式](#hash-%E6%A8%A1%E5%BC%8F)
+    - [HTML5 history API路由实现](#html5-history-api%E8%B7%AF%E7%94%B1%E5%AE%9E%E7%8E%B0)
+- [VueRouter 源码解析](#vuerouter-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90)
+  - [源码目录](#%E6%BA%90%E7%A0%81%E7%9B%AE%E5%BD%95)
   - [路由注册](#%E8%B7%AF%E7%94%B1%E6%B3%A8%E5%86%8C)
   - [插件安装](#%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85)
   - [创建 router 实例](#%E5%88%9B%E5%BB%BA-router-%E5%AE%9E%E4%BE%8B)
-      - [创建匹配器](#%E5%88%9B%E5%BB%BA%E5%8C%B9%E9%85%8D%E5%99%A8)
-      - [如何生成map表](#%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90map%E8%A1%A8)
-      - [路由跳转函数](#%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%87%BD%E6%95%B0)
-    - [router-link](#router-link)
-    - [router-view](#router-view)
-      - [总结一下](#%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B)
-    - [重要函数思维导图](#%E9%87%8D%E8%A6%81%E5%87%BD%E6%95%B0%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE)
+    - [创建匹配器](#%E5%88%9B%E5%BB%BA%E5%8C%B9%E9%85%8D%E5%99%A8)
+    - [如何生成map表](#%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90map%E8%A1%A8)
+    - [路由跳转函数](#%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%87%BD%E6%95%B0)
+  - [router-link](#router-link)
+  - [router-view](#router-view)
+  - [总结一下](#%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B)
+  - [重要函数思维导图](#%E9%87%8D%E8%A6%81%E5%87%BD%E6%95%B0%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+## 什么是路由
+
+对于没有后端项目经验或者SPA项目来说，路由可能会比较陌生。这里的路由不是指硬件路由，也不是我们通常所说的网络协议中的路由，但是它们表达的思想都是一样的，就是路径和资源的识别。
+
+我们先来看访问一个网站，假如我们访问这三个页面：
+
+http://sports.sina.com.cn/nba/
+
+http://sports.sina.com.cn/tennis/
+
+http://sports.sina.com.cn/csl/
+
+那么其路径就分别是 /nba，/tennis，/csl
+
+当用户使用http://sports.sina.com.cn/nba/来访问该页面时，Web 服务会接收到这个请求，然后会解析 URI 中的路径 /nba，在 Web 服务的程序中，该路径对应着相应的处理逻辑，程序会把请求交给路径所对应的处理逻辑，这样就完成了一次「路由分发」，这个分发就是通过「路由」来完成的。
+
+## 前端路由
+随着前端技术的发展，现在很多web应用都采用了SPA的形式，之前是通过服务端根据 url 的不同返回不同的页面实现无法满足需求，所以这里需要把不同路由对应不同的内容或页面的任务交给前端来做。通过这种前端路由实现的单页面应用有好也有坏。
+
+> 好处：
+
+- 1、良好的前后端分离。SPA和RESTful架构一起使用，后端不再负责模板渲染、输出页面工作，web前端和各种移动终端地位对等，后端API通用化。
+
+- 2、用户体验好、快，内容的改变不需要重新加载整个页面，web应用更具响应性和更令人着迷
+
+- 3、同一套后端程序代码，不用修改就可以用于Web界面、手机、平板等多种客户端
+
+> 缺点
+
+- 1、不利于SEO。
+
+- 2、初次加载耗时相对增多。
+
+- 3、导航不可用，如果一定要导航需要自行实现前进、后退。
+
 ## 路由原理
 
 在解析源码前，先来了解下前端路由的实现原理。 前端路由实现起来其实很简单，本质就是监听 URL 的变化，然后匹配路由规则，显示相应的页面，并且无须刷新。目前单页面使用的路由就只有两种实现方式
@@ -28,12 +66,163 @@
 - hash 模式
 - history 模式
 
+#### hash 模式
+在HTML5的 history API 出现之前，前端的路由都是通过 hash 来实现的，hash 能兼容低版本的浏览器。当 `url` 的 `hash` 发生变化时，触发 `hashchange` 注册的回调，回调中去进行不同的操作，进行不同的内容的展示。
 
-www.test.com/##/ 就是 Hash URL，当 ## 后面的哈希值发生变化时，不会向服务器请求数据，可以通过 hashchange 事件来监听到 URL 的变化，从而进行跳转页面。
+www.test.com/##/ 就是 Hash URL，当 ## 后面的哈希值发生变化时，不会向服务器请求数据，然后通过 `hashchange` 事件来监听到 URL 的变化，从而进行跳转页面。
+```
+//一个小例子
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>路由</title>
+  </head>
+  <body>
+     <ul>
+        <li><a href="#/">默认路由</a></li>
+        <li><a href="#/router1">路由1</a></li>
+        <li><a href="#/router2">路由2</a></li>
+    </ul>
+    <div id="content"></div>
+  </body>
+  <script type="text/javascript">
+    class Router{
+       constructor(routes = {}) {
+            this.routes = routes;
+            this.curUrl = "";
+        } 
+        route(path,callback){
+          this.routes[path] = callback || function(){
+          }
+        }
+        refresh(){
+          this.curUrl = location.hash.slice(1) || '/';
+          if(this.routes[this.curUrl]){
+            this.routes[this.curUrl]();
+          }else{
+            console.log('路由没有注册');
+          }
+        }
+        init(){
+           window.addEventListener('load', this.refresh.bind(this), false);
+           window.addEventListener('hashchange', this.refresh.bind(this), false);
+        }
+    }
+    
+    function changeContent(text){
+      document.getElementById('content').innerHTML = text;
+    }
+    let router = new Router({
+      '/' : function(){
+        changeContent('默认路由');
+      },
+      '/router1':function(){
+        changeContent('路由1');
+      }
+    })
 
+    router.route('/router2',function(){
+      changeContent('路由2');
+    })
+
+    router.init();
+  </script>
+</html>
+```
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vue-router-hash.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vue-router-hash.png)</a>
 
-History 模式是 HTML5 新推出的功能，比之 Hash URL 更加美观
+#### HTML5 history API路由实现
+
+History 模式是 HTML5 新推出的功能，html5 增加了两个方法，分别是pushState，replaceState，比之 Hash URL 更加美观
+
+`pushState`和`replaceState`是用来手动插入历史记录，然后执行`AJAX`请求，而`popstate`就是当浏览器前进后退的时候获得相应的`state`再执行相应操作
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History Roter</title>
+</head>
+<body>
+    <ul>
+        <li><a href="#/">默认路由</a></li>
+        <li><a href="#/router1">路由1</a></li>
+        <li><a type="replace" href="#/router2">路由2</a></li>
+    </ul>
+    <div id="content"></div>
+    <script>
+    class Router {
+       constructor(routes = {}) {
+            this.routes = routes;
+            this.curUrl = "";
+        } 
+        notify(state){
+          this.curUrl = state.path || '/';
+          if(this.routes[this.curUrl]){
+            this.routes[this.curUrl]();
+          }else{
+            console.log('路由没有注册');
+          }
+        }
+        route(path,callback){
+          this.routes[path] = callback || function(){
+
+          }
+        }
+        init(){
+          let that = this;
+          //浏览器点击前进后退时触发的事件
+           window.addEventListener('popstate',function(event){
+              that.notify(event.state || {})
+           }, false);
+
+           //监控页面A标签，跳转做处理
+           document.querySelector('body').addEventListener('click', function(event){
+            if(event.target.tagName === 'A'){
+              let link = event.target.getAttribute('href');
+              if(!/^http/.test(link)){
+                event.preventDefault();
+                let path = link.slice(1) || '/';
+                that.notify({ 'path' : path} || {})
+                if(event.target.getAttribute('type') == 'replace'){
+                  history.replaceState({ 'path' : path},'',event.target.href); 
+                }else{
+                  history.pushState({ 'path' : path},'',event.target.href); 
+                }             
+              }       
+            }   
+           }, false)
+
+           //首次进入页面进行路由
+          let path = location.hash.slice(1) || '/';
+          that.notify({ 'path' : path} || {})
+        }
+    }
+
+    function changeContent(text){
+      document.getElementById('content').innerHTML = text;
+    }
+    let router = new Router({
+      '/' : function(){
+        changeContent('默认路由');
+      },
+      '/router1':function(){
+        changeContent('路由1');
+      }
+    })
+
+    router.route('/router2',function(){
+      changeContent('路由2');
+    })
+
+    router.init();
+    </script>
+</body>
+
+</html>
+```
 
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/https://raw.githubusercontent.com/ColaStar/static/master/images/vue-router-history.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/https://raw.githubusercontent.com/ColaStar/static/master/images/vue-router-history.png)</a>
 
@@ -58,7 +247,7 @@ index是整个插件的入口
 
 Install 提供安装的方法
 
-## 路由注册
+### 路由注册
 
 利用 `Vue.js` 提供的插件机制 `.use(plugin)` 来安装 `VueRouter`，而这个插件机制则会调用该 `plugin` 对象的 `install` 方法
 
@@ -119,7 +308,7 @@ if (inBrowser && window.Vue) {
 }
 ```
 
-## 插件安装
+### 插件安装
 
 这里是vue插件的经典写法，给插件对象增加 `install` 方法用来安装插件具体逻辑，同时在最后判断下如果是在浏览器环境且存在 `window.Vue` 的话就会自动使用插件。
 
@@ -198,7 +387,7 @@ install做了以下操作
 
 - 4、注册两个组件`router-view`和`router-link`
 
-## 创建 router 实例
+### 创建 router 实例
 
 在使用的实例中，我们看到安装完插件后，会实例一个`router`对象，把路由配置的数组作为参数传入，并且将其传入`vue`实例的`options`中。接下来我们看`VueRouter`类的作用。`VueRouter`在index.js文件中
 
@@ -989,7 +1178,7 @@ export default {
 
 可以看到逻辑还是比较简单的，根据route拿到匹配的组件进行渲染就可以了。里面比较复杂的是对于组件的缓存处理。
 
-#### 总结一下
+### 总结一下
 这里，整个流程就完全走完了。可能还有些懵，我们下面就在总结一下整个流程。
 
 - 1、安装插件
