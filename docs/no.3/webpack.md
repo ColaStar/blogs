@@ -888,7 +888,7 @@ webpack实现插件机制的⼤大体⽅方式是:
 
 打开 Webpack 4.0 的源码中一定会看到下面这些以 Sync、Async 开头，以 Hook 结尾的方法，这些都是 tapable 核心库的类，为我们提供不同的事件流执行机制，我们称为 “钩子”。
 
-<a data-fancybox title="" href="https://raw.githubusercontent.cwom/ColaStar/static/master/images/tapable.png">![](https://raw.githubusercontent.cwom/ColaStar/static/master/images/tapable.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/tapable.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/tapable.png)</a>
 
 ```
 // 引入 tapable 如下
@@ -922,7 +922,7 @@ webpack 利用了 tapable 这个库([](https://github.com/webpack/tapable))来�
 使用 Module 和 Dependency 管理代码模块相互关系 -> 
  使用 Template 基于 Compilation 的数据生成结果代码
 ```
-<a data-fancybox title="" href="https://raw.githubusercontent.cwom/ColaStar/static/master/images/plugin.png">![](https://raw.githubusercontent.cwom/ColaStar/static/master/images/plugin.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/plugin.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/plugin.png)</a>
 ⚠️注意：
 - 1.事件钩子会有不同的类型 SyncBailHook，AsyncSeriesHook，SyncHook等。
 - 2.如果是异步的事件钩子，那么可以使用 tapPromise 或者 tapAsync 来注册事件函数， tapPromise 要求方法返回 Promise 以便处理异 步，而 tapAsync 则是需要用 callback 来返回结 果。
