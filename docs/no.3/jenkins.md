@@ -239,26 +239,26 @@ http://192.168.0.104:8080
 
 
 
-![](https://raw.githubusercontent.com/Cojenkins_item24laStar/static/master/images/jenkins_item24.png)
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item24.png)
 2、查看密码，将内容填写到密码处点击继续
 ```
 cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 3、选择默认插件即可　　
-![](https://raw.githubusercontent.com/Cojenkins_item24laStar/static/master/images/jenkins_item25.png)
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item25.png)
 
 
 安装插件随意选择，对后续没有太大影响，因为有需要的插件我们还会在之后安装
 
-![](https://raw.githubusercontent.com/Cojenkins_item24laStar/static/master/images/jenkins_item26.png)
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item26.png)
 此处安装需要联网下载，耐心等待安装完
 
 4、设置管理员
 
-![](https://raw.githubusercontent.com/Cojenkins_item24laStar/static/master/images/jenkins_item27.png)
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item27.png)
 
 创建一个账号，然后下一步
-![](https://raw.githubusercontent.com/Cojenkins_item24laStar/static/master/images/jenkins_item28.png)
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item28.png)
 
 
 到这里jenkins已经初始化好了
@@ -266,11 +266,11 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 
 ## jenkins配置（系统管理）
 
-![](https://raw.githubusercontent.com/Cojenkins_item24laStar/static/master/images/jenkins_item29.png)
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item29.png)
 
 ### 1.**全局安全**配置
 
-![](https://raw.githubusercontent.com/Cojenkins_item24laStar/static/master/images/jenkins_item30.png)
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item30.png)
 
 目前是为了学习Jenkins，所有把安全性问题都放开，不做限制
 
