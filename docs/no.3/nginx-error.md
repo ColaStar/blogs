@@ -1,5 +1,5 @@
 # centos错误集合
-
+[toc]
 ## 启动Nginx提示nginx: [emerg] still could not bind()
 
 centos7中启动Nginx： /usr/local/nginx/sbin/nginx，提示以下内容

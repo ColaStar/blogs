@@ -1,3 +1,20 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [gulp](#gulp)
+  - [gulp简介](#gulp%E7%AE%80%E4%BB%8B)
+  - [安装](#%E5%AE%89%E8%A3%85)
+  - [作用](#%E4%BD%9C%E7%94%A8)
+  - [应用](#%E5%BA%94%E7%94%A8)
+  - [API](#api)
+    - [src](#src)
+    - [symlink](#symlink)
+    - [lastRun](#lastrun)
+    - [series](#series)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # gulp
 
 ## gulp简介
