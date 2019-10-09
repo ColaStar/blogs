@@ -990,6 +990,7 @@ Immutable是一个基于函数式编程的库，Facebook致力于3年时间把�
 
 Immutable采用一种共享引用的方式，只会改变改变节点数据的那个分支的节点，其他分支节点空想引用。
 
+
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-immutable.gif">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-immutable.gif)</a>
 
 > 使用方式
