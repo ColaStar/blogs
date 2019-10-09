@@ -1,4 +1,4 @@
-# Linux笔记
+# Linux
 ## Linux操作系统的介绍
 > Linux的历史
 
@@ -478,7 +478,7 @@ $ whereis systemctl
 
 > 管理单个 unit
 systemctl 提供了一组子命令来管理单个的 unit，其命令格式为：
-systemctl [command] [unit]
+systemctl `[command] [unit]`
 command 主要有：
 start：立刻启动后面接的 unit。
 stop：立刻关闭后面接的 unit。
