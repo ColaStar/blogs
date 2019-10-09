@@ -814,7 +814,7 @@ const [dist, template] = entrykey.split(“-");
 - 5.多个 loader 时遵循这样的执行顺序，但对于大多数单个 loader 来说无须感知这一点，只负 责好处理接受的内容就好。
 - 6.还有一个场景是 loader 中的异步处理。有一些 loader 在执行过程中可能依赖于外部 I/O 的结果，导致它必须使用异步的方式来处理，这个使用需要在 loader 执行时使用 this.async() 来标识该 loader 是异步处理的，然后使用 this.callback 来返回 loader 处理结果。
 
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/loader源码分析ast.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/loader源码分析ast.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/loader源码ast.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/loader源码ast.png)</a>
 
 在计算机科学中，抽象语法树(abstract syntax tree 或者缩写为 AST)，或者语法树(syntax tree)，是源 代码的抽象语法结构的树状表现形式，这里特指编程语言的源代码。树上的每个节点都表示源代码中的一种结 构。之所以说语法是「抽象」的，是因为这里的语法并不会表示出真实语法中出现的每个细节。
 
@@ -922,7 +922,9 @@ webpack 利用了 tapable 这个库([](https://github.com/webpack/tapable))来�
 使用 Module 和 Dependency 管理代码模块相互关系 -> 
  使用 Template 基于 Compilation 的数据生成结果代码
 ```
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/plugin.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/plugin.png)</a>
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/plugin1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/plugin1.png)</a>
+
 ⚠️注意：
 - 1.事件钩子会有不同的类型 SyncBailHook，AsyncSeriesHook，SyncHook等。
 - 2.如果是异步的事件钩子，那么可以使用 tapPromise 或者 tapAsync 来注册事件函数， tapPromise 要求方法返回 Promise 以便处理异 步，而 tapAsync 则是需要用 callback 来返回结 果。

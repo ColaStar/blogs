@@ -1,4 +1,6 @@
-# 深入 CommonJs 与 ES6 Module
+# 模块规范对比
+
+## 深入 CommonJs 与 ES6 Module
 目前主流的模块规范
 
 UMD  
