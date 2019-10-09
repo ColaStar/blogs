@@ -591,7 +591,7 @@ DESCRIPTION：描述信息。
 $ sudo systemctl list-unit-files
 ```
 
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux13.jpg">![](https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux13.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/linux13.jpg">![](https://raw.githubusercontent.com/ColaStar/static/master/images/linux13.jpg)</a>
 
 结果也非常的多，我们仍然只截取一部分结果。这里的 STATE 就是我们前面介绍的 服务的启动状态，有 enable 和 disable、static 和 mask。
 
@@ -604,7 +604,7 @@ $ systemctl list-units --type=service --all
 这次只有以 .service 结尾的 unit 才会出现。
 如果要看 mount 类型的 unit 指定 --type=mount 就可以了：
 
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux14.jpg">![](https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux14.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/linux14.jpg">![](https://raw.githubusercontent.com/ColaStar/static/master/images/linux14.jpg)</a>
 
 > 查看加载失败的 unit
 如果发现某个 unit 不工作，可以查看是否有 unit 加载失败：
@@ -613,12 +613,12 @@ $ systemctl list-units --type=service --all
 $ systemctl --failed
 ```
 
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux15.jpg">![](https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux15.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/linux15.jpg">![](https://raw.githubusercontent.com/ColaStar/static/master/images/linux15.jpg)</a>
 
 管理不同的操作环境(target unit)
 通过指定 --type=target 就可以用 systemctl list-units 命令查看系统中默认有多少种 target：
 
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux16.jpg">![](https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux16.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/linux16.jpg">![](https://raw.githubusercontent.com/ColaStar/static/master/images/linux16.jpg)</a>
 
 
 笔者的 ubuntu 16.04 中居然有 27 个 target！我们在此仅介绍几个常用的 target。
@@ -644,7 +644,7 @@ $ systemctl --failed
 $ sudo systemctl get-default
 ```
 
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux17.jpg">![](https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux17.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/linux17.jpg">![](https://raw.githubusercontent.com/ColaStar/static/master/images/linux17.jpg)</a>
 
 笔者系统的默认 target 为 graphical.target，所以启动时默认启动图形界面。下面我们把它设置为 multi-user.target：
 
@@ -682,7 +682,7 @@ $ sudo systemctl emergency # 强制进入紧急救援模式
 systemctl list-dependencies [unit] [--reverse] 选项 --reverse 会反向追踪是谁在使用这个 unit。
 下面让我们看看当前运行的 target 的依赖关系：
 
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux18.jpg">![](https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux18.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/linux18.jpg">![](https://raw.githubusercontent.com/ColaStar/static/master/images/linux18.jpg)</a>
 
 
 我们当前运行在 graphical.target 下，它由一个长长的依赖列表(上图并未展示所有的项目)，其中最重要的依赖项目为 multi-user.target。下面我们使用 --reverse 选项查看 multi-user.target unit 被谁使用：
@@ -690,7 +690,7 @@ systemctl list-dependencies [unit] [--reverse] 选项 --reverse 会反向追踪�
 $ systemctl list-dependencies multi-user.target --reverse
 ```
 
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux19.jpg">![](https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux19.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/linux19.jpg">![](https://raw.githubusercontent.com/ColaStar/static/master/images/linux19.jpg)</a>
 
 
 从上面两张图上我们可以确定下面的关系：graphical.target 依赖 multi-user.target。
@@ -717,7 +717,7 @@ $ systemctl list-dependencies multi-user.target --reverse
 $ systemctl list-sockets
 ```
 
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux20.jpg">![](https://raw.githubusercontent.com/ColaStar/static/mastlinux13er/images/linux20.jpg)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/linux20.jpg">![](https://raw.githubusercontent.com/ColaStar/static/master/images/linux20.jpg)</a>
 
 其实，绝大多数的 socket 文件都存放在 /run 目录及其子目录中。
 
