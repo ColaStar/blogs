@@ -26,7 +26,7 @@ basket.js 的使用非常简单，只要引入相应的js脚本，然后使用 b
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/basketjs1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/basketjs1.png)</a>
 
 第一次加载，由于helloworld.js 只有一行代码alert('hello world');， 所以运行该demo时就会弹出 "hello world"。并且对应的 js 会被保存到 LocalStorage：
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/basketjs2.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/basketjs2.js.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/basketjs2.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/basketjs2.png)</a>
 
 
 此时对应的资源加载情况：
