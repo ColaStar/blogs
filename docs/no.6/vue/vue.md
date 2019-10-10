@@ -366,7 +366,8 @@ p.a = 2 // bind `value` to `2`
 p.a // -> Get 'a' = 2`
 ```
 
-<a data-fancybox title="Vue源码详细解析" href="https://segmentfault.com/a/1190000008500946">![Vue源码详细解析](https://segmentfault.com/a/1190000008500946)</a>
+[Vue源码详细解析](https://segmentfault.com/a/1190000008500946)
+
 <!-- ## Vue对Domdiff的优化方案 -->
 
 <!-- 
