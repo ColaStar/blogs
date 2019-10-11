@@ -368,6 +368,24 @@ p.a // -> Get 'a' = 2`
 
 [Vue源码详细解析](https://segmentfault.com/a/1190000008500946)
 
+
+## DOM diff算法
+
+>（1）为什么有diff算法：
+
+diff算法用来修改一小段dom，不会引起dom树的重绘
+>（2）diff算法实现原理：
+
+diff算法将virtual dom的某个节点数据改变后生成的新的vnode与旧的节点比较，并替换为新的node
+diff的过程就是调用名为patch的函数，比较新旧节点，一边比较一边给真实的DOM打补丁。
+>（3）过程：
+
+当数据发生改变时，set方法会让调用Dep.notify通知所有订阅者Watcher，订阅者就会调用patch给真实的DOM打补丁，更新相应的视图。
+参考链接：https://www.cnblogs.com/wind-lanyan/p/9061684.html
+
+2.vue虚拟dom
+
+ vdom完全是用js去实现，和宿主浏览器没有任何联系，此外得益于js的执行速度，将原本需要在真实dom进行的创建节点,删除节点,添加节点等一系列复杂的dom操作全部放到vdom中进行，这样就通过操作vdom来提高直接操作的dom的效率和性能。
 <!-- ## Vue对Domdiff的优化方案 -->
 
 <!-- 

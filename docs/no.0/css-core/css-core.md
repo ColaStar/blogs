@@ -368,6 +368,11 @@ clear：both正儿八经的清除浮动
 }
 ```
 
+### 标准盒模型和怪异盒模型
+
+标准盒模型：width+padding+margin+border组成宽
+怪异盒模型：width+margin组成宽
+通过doctype设置标准盒模型，如果没有的化由浏览器自己判断
 
 
 
