@@ -25,7 +25,7 @@
 最浅显易懂的话：**数据变化更新视图，视图变化更新数据**
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vue-数据双向绑定.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vue-数据双向绑定.png)</a>
 
-也就是说
+也就是说   
 
 - 输入框内容变化时，data 中的数据同步变化。即 view => model 的变化。
 - data 中的数据变化时，文本节点的内容同步变化。即 model => view 的变化。
