@@ -30,3 +30,8 @@
 
 
 
+作业盒子面试：
+css命名规范：BEM，oocss；盒模型介绍；垂直居中的n种方法，flex；mate标签，预加载profeth，proload
+
+
+
