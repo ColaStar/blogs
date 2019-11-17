@@ -112,7 +112,7 @@ module.exports = {
             link: '/no.6/react/react'
           },
           {
-            text: '跨界',
+            text: '计算机组成原理',
             link: '/no.7/计算机组成原理'
           },
           {
