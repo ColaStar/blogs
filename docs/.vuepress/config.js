@@ -69,6 +69,7 @@ module.exports = {
       "/no.6/": getJsonFiles('./docs/no.6/'),
       "/no.7/": getJsonFiles('./docs/no.7/'),
       "/no.8/": getJsonFiles('./docs/no.8/'),
+      "/no.10/": getJsonFiles('./docs/no.10/'),
       "/node/": getJsonFiles('./docs/node/'),
       "/other/": getJsonFiles('./docs/other/'),
     },
@@ -121,6 +122,10 @@ module.exports = {
           {
             text: 'node相关',
             link: '/node/node/node'
+          },
+          {
+            text: '网络安全',
+            link: '/no.10/网络安全'
           },
           {
             text: '其他相关',
