@@ -1,11 +1,15 @@
-# jenkins介绍和初始化安装
+
+
+# jenkins
+
+## jenkins介绍和初始化安装
 
 ## 1.jenkins介绍
 jenkins目前最流行的一款持续集成及自动化部署工具。
 
 jenkins产品发布流程(**java**)
 
-<a data-fancybox title="" href="https://img-blog.csdn.net/20180928144418846?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzNjAzNDM3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">![](https://img-blog.csdn.net/20180928144418846?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzNjAzNDM3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)</a>
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins产品发布流程.png)
 
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_流程图3.jpg">![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_流程图3.jpg)</a>
 
@@ -52,7 +56,8 @@ make prefix=/usr/local/git all
 make prefix=/usr/local/git install
 ```
 因为服务器时间不对编译的过程中报错如下图，使用ntpdate自动校正系统时间。报错“`Writing perl.mak for Git make[2]: *** [perl.mak] Error 1`”，请重启a服务，`service httpd restart`。
-<a data-fancybox title="" href="https://images2017.cnblogs.com/blog/1006797/201710/1006797-20171026141916664-2135602158.png">![](https://images2017.cnblogs.com/blog/1006797/201710/1006797-20171026141916664-2135602158.png)</a>
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/ntpdate.png)
+
 - 4.编译完成之后使用git --version 
 
 查看git版本，居然还是1.7.1，
@@ -65,8 +70,9 @@ $ whereis git
 
 git: /usr/bin/git /usr/local/git /usr/share/man/man1/git.1.gz
 ```
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/whereis-git.png)
 
-<a data-fancybox title="" href="https://images2017.cnblogs.com/blog/1006797/201710/1006797-20171026141816133-979409184.png">![](https://images2017.cnblogs.com/blog/1006797/201710/1006797-20171026141816133-979409184.png)</a>
+
 - 5.把git路径放到环境变量里
 
 我们要把编译安装的git路径放到环境变量里，让它替换"/usr/bin"下的git。为此我们可以修改“/etc/profile”文件（或者/etc/bashrc文件）
@@ -77,14 +83,15 @@ vim /etc/profile
 
 export PATH=/usr/local/git/bin:$PATH
 ···
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/unset-f.png)
 
-<a data-fancybox title="" href="https://images2017.cnblogs.com/blog/1006797/201710/1006797-20171026141837445-945021371.png">![](https://images2017.cnblogs.com/blog/1006797/201710/1006797-20171026141837445-945021371.png)</a>
 然后执行一下profile文件
 ```
 source /etc/profile
 ```
 然后再次使用git --version 查看git版本，发现输出2.3.0，表明安装成功。
-<a data-fancybox title="" href="https://images2017.cnblogs.com/blog/1006797/201710/1006797-20171026141847648-256182599.png">![](https://images2017.cnblogs.com/blog/1006797/201710/1006797-20171026141847648-256182599.png)</a>
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item22.png)
+
 
 
 
@@ -122,7 +129,9 @@ sudo chkconfig jenkins on
 ```
 systemctl status jenkins.service
 ```
-<a data-fancybox title="" href="https://images2018.cnblogs.com/blog/1267938/201806/1267938-20180605141640065-2067254947.png">![](https://images2018.cnblogs.com/blog/1267938/201806/1267938-20180605141640065-2067254947.png)</a>
+
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item23.png)
+
 如上错误是java配置错误，需要修改jenkins配置文件
 
 ```
@@ -232,36 +241,40 @@ JENKINS_PORT="8080"
 http://192.168.0.104:8080
 ```
 
-<a data-fancybox title="" href="https://images2017.cnblogs.com/blog/1267938/201712/1267938-20171228171402241-902610828.png">![](https://images2017.cnblogs.com/blog/1267938/201712/1267938-20171228171402241-902610828.png)</a>
 
+
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item24.png)
 2、查看密码，将内容填写到密码处点击继续
 ```
 cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 3、选择默认插件即可　　
-<a data-fancybox title="" href="https://img-blog.csdn.net/20180928150738731?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzNjAzNDM3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">![](https://img-blog.csdn.net/20180928150738731?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzNjAzNDM3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)</a>
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item25.png)
+
 
 安装插件随意选择，对后续没有太大影响，因为有需要的插件我们还会在之后安装
-<a data-fancybox title="" href="https://img-blog.csdn.net/20180928150839383?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzNjAzNDM3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">![](https://img-blog.csdn.net/20180928150839383?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzNjAzNDM3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)</a>
 
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item26.png)
 此处安装需要联网下载，耐心等待安装完
 
 4、设置管理员
 
-<a data-fancybox title="" href="https://img-blog.csdn.net/20180928151125831?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzNjAzNDM3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">![](https://img-blog.csdn.net/20180928151125831?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzNjAzNDM3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)</a>
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item27.png)
+
 创建一个账号，然后下一步
-<a data-fancybox title="" href="https://img-blog.csdn.net/20180928151208128?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzNjAzNDM3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">![](https://img-blog.csdn.net/20180928151208128?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzNjAzNDM3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)</a>
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item28.png)
 
 
 到这里jenkins已经初始化好了
 
 
 ## jenkins配置（系统管理）
-<a data-fancybox title="" href="https://img-blog.csdn.net/20180928151924281?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzNjAzNDM3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">![](https://img-blog.csdn.net/20180928151924281?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzNjAzNDM3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)</a>
+
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item29.png)
 
 ### 1.**全局安全**配置
 
-<a data-fancybox title="" href="https://img-blog.csdn.net/20180928152007757?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzNjAzNDM3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">![](https://img-blog.csdn.net/20180928152007757?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzNjAzNDM3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)</a>
+![](https://raw.githubusercontent.com/ColaStar/static/master/images/jenkins_item30.png)
 
 目前是为了学习Jenkins，所有把安全性问题都放开，不做限制
 

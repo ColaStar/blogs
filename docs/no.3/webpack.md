@@ -14,7 +14,7 @@ Grunt/Gulp是一种能够优化前端开发流程的工具，而Webpack是一种
 ### 工作方式不同
 
 - Grunt/Gulp的工作方式是：在一个配置文件中，指明某些文件进行类似编译/组合/压缩等任务的具体步骤，之后工具可以自动帮你完成这些任务
-
+ 
 - Webpack的工作方式是：把项目当作是一个整体，通过指定的入口文件，Webpack会从这个入口文件开始找到项目所有的依赖文件，然后使用loader处理它们，最后打包成一个或多个浏览器能够识别的JavaScript文件
 
 ### 构建思路不同
@@ -31,17 +31,6 @@ Webpack是基于入口的。Webpack会自动的递归解析入口所需要加载
 
 Grunt/Gulp更像是后端开发者的思路，需要对整个流程了如指掌。Webpack更倾向于前端开发者的思路。
 
-## webpack编译过程或构建流程是什么？
-
-Webpack 的运行流程是一个串行的过程，从启动到结束会依次执行以下流程，
-
-- 1、初始化参数：从配置文件和 Shell 语句中读取与合并参数，得出最终的参数；
-- 2、开始编译：用上一步得到的参数初始化 Compiler 对象，加载所有配置的插件，执行对象的 run 方法开始执行编译；
-- 3、确定入口：根据配置中的 entry 找出所有的入口文件；
-- 4、编译模块：从入口文件出发，调用所有配置的 Loader 对模块进行翻译，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理；
-- 5、完成模块编译：在经过第4步使用 Loader 翻译完所有模块后，得到了每个模块被翻译后的最终内容以及它们之间的依赖关系；
-- 6、输出资源：根据入口和模块之间的依赖关系，组装成一个个包含多个模块的 Chunk，再把每个 Chunk 转换成一个单独的文件加入到输出列表，这步是可以修改输出内容的最后机会；
-- 7、输出完成：在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写入到文件系统。在以上过程中，Webpack 会在特定的时间点广播出特定的事件，插件在监听到感兴趣的事件后会执行特定的逻辑，并且插件可以调用 Webpack 提供的 API 改变 Webpack 的运行结果。
 
 ## 分别介绍bundle，chunk，module是什么？
 
@@ -72,7 +61,7 @@ Webpack 的运行流程是一个串行的过程，从启动到结束会依次执
 - file-loader: 将文件输出到一个文件夹中，在代码中通过相对路径(url)去引用输出的文件
 - url-loader: 和file-loader类似，但是能在文件很小的情况下，以base64的方式将内容注入到代码中
 - image-loader: 加载并压缩图片文件
-- babel-lodader: 将ES6转成ES5
+- babel-lodader: 脚本js
 - css-loader: 加载CSS，支持模块化/压缩/文件导入等特性
 - style-loader：把CSS代码注入到JavaScript中，通过DOM操作去加载CSS
 - eslint-loader: 通过ESlint检查JavaScript代码
@@ -84,7 +73,23 @@ Webpack 的运行流程是一个串行的过程，从启动到结束会依次执
 - uglifyjs-plugin: 通过Uglifyjs压缩JavaScript代码
 - mini-css-extract-plugin: 分离CSS文件
 - clean-webpack-plugin: 删除打包文件
-- happypack: 实现多线程加速编译
+- happypack: 实现多线程加速编译（多核编译）
+```
+const HappyPack = require('happypack');
+const os = require('os');
+//开辟一个线程池
+const happyThreadPoll = HappyPack.ThreadPool({ size: os.cpus().length }); module.exports.plugins = [
+new HappyPack({
+id: 'babel',
+threadPool: happyThreadPoll,
+loaders: [{
+loader: 'babel-loader'
+}] })
+];
+
+
+//use: 'happypack/loader?id=babel',
+```
 
 ## Tree Shaking
 
@@ -334,7 +339,7 @@ stats:`'errors-only'` 表示只有错误的才会被打印，没有错误就不�
 
 有时候我们使用webpack在本地启动服务器的时候，由于我们使用的访问的域名是 http://localhost:8081 这样的，但是我们服务端的接口是其他的，
 
-那么就存在域名或端口号跨域的情况下，但是很幸运的是 devServer有一个叫proxy配置项，可以通过该配置来解决跨域的问题，那是因为 dev-server 使用了 http-proxy-middleware 包(了解该包的更多用法 )。
+那么就存在域名或端口号跨域的情况下，但是很幸运的是 devServer有一个叫proxy配置项，可以通过该配置来解决跨域的问题，那是因为 dev-server 使用了 http-proxy-middleware 包([了解该包的更多用法](https://www.npmjs.com/package/http-proxy-middleware) )。
 
 假如现在我们本地访问的域名是 http://localhost:8081, 但是我现在调用的是百度页面中的一个接口，该接口地址是：http://news.baidu.com/widget?ajax=json&id=ad。现在我们只需要在devServer中的proxy的配置就可以了：
 如下配置：
@@ -756,15 +761,181 @@ module.exports = {
 ```
 
 ## 分析工具
+> speed-measure-webpack-plugin
+为你的原始配置包一层 smp.wrap 就可以了，接下来执行构建，你就能在 console 面板看到如它 demo 所示的各类型的模块的执行时长。
+```
+
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");	
+const smp = new SpeedMeasurePlugin();	
+module.exports = smp.wrap(YourWebpackConfig);
+```
 > webpack-bundle-awalyzer
 会把所有打包后的文件生成一份文档
 > webpack-jarvis
 这个比上一个
 叫美观和详细
 
+## 如何优雅的编写你的Entry
+```
+if (/.+\/([a-zA-Z]+-[a-zA-Z]+)(\.entry\.js$)/g.test(item) == true) { const entrykey = RegExp.$1
+_entry[entrykey] = item;
+const [dist, template] = entrykey.split(“-");
+}
+```
+
+
+## 开发webpack loader
+
+### loader源码分析 
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/loader源码分析.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/loader源码分析.png)</a>
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/loader源码分析code.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/loader源码分析code.png)</a>
+
+
+
+> ⚠️注意：
+- 1、一个 Loader 的职责是单一的，只需要完成一种转换。如果一个源文件需要经历多步转换才能正常使用，就通过多个 Loader 去转换。在调用多个 Loader 去转换一个文件时，每个 Loader 会链式的顺序执行， 第一个 Loader 将会拿到需处理的原内容，上一个 Loader 处理后的结果会传给下一个接着处理，最后的 Loader 将处理后的最终结果返回给 Webpack。
+- 2、所以，在你开发一个 Loader 时，请保持其职责的单一性，你只需关心输入和输出。
+- 3.use: ['bar-loader', 'foo-loader'] 时，loader 是以相反的顺序执行的
+- 4.最后的 loader 最早调用，传入原始的资源内容(可能是代码，也可能是二进制文件，用 buffer 处理)第一个 loader 最后调用，期望返回是 JS 代码和 sourcemap 对象(可选)中间 的 loader 执行时，传入的是上一个 loader 执行的结果 
+- 5.多个 loader 时遵循这样的执行顺序，但对于大多数单个 loader 来说无须感知这一点，只负 责好处理接受的内容就好。
+- 6.还有一个场景是 loader 中的异步处理。有一些 loader 在执行过程中可能依赖于外部 I/O 的结果，导致它必须使用异步的方式来处理，这个使用需要在 loader 执行时使用 this.async() 来标识该 loader 是异步处理的，然后使用 this.callback 来返回 loader 处理结果。
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/loader源码ast.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/loader源码ast.png)</a>
+
+在计算机科学中，抽象语法树(abstract syntax tree 或者缩写为 AST)，或者语法树(syntax tree)，是源 代码的抽象语法结构的树状表现形式，这里特指编程语言的源代码。树上的每个节点都表示源代码中的一种结 构。之所以说语法是「抽象」的，是因为这里的语法并不会表示出真实语法中出现的每个细节。
+
+Webpack 提供的一个很大的便利就是能将所有资源都整合成模块，不仅仅是 js 文件。所以需要一些loader ，比如 url-loader 等等来让我们可以直接在源文件中引用各类资源。最后调用 acorn(Esprima) 解析经 loader 处理后的源文件生成抽象语法树 AST
+
+- type:描述该语句的类型 --变量声明语句
+- kind:变量声明的关键字 -- var
+- declaration: 声明的内容数组，里面的每一项也是一个对象 type: 描述该语句的类型
+- id: 描述变量名称的对象 type:定义
+- name: 是变量的名字 init: 初始化变量值得对象
+- type: 类型
+- value: 值 "is tree" 不带引号 row: "\"is tree"\" 带引号
+
+<a data-fancybox title="" href="https://raw.githubusercontent.cwom/ColaStar/static/master/images/手写loader.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/手写loader.png)</a>
+
+```
+//入口文件
+const a = 20;
+-------------------------
+loader/index.js
+-------------------------
+//loader执行之前
+module.exports.pitch = function(r1,r2,data){
+    data.value = 'yd';
+}
+//同步loader
+module.exports = function(content, map, meta){
+    console.log('得到的数据', content);//将const a = 20;转化成buffer <Buffer xxxxx ... >
+    console.log('loader预先得到的数据', this.data.value);//yd
+    return '{};'+content;
+    // this.callback(null, content, map, meta);
+};
+//异步loader
+module.exports = function(content, map, meta){
+ var callback = this.async();
+ (funciton(){....}).then(function(){
+     if(err){
+         callback(err);
+     }else{
+         callback(null, ......)
+     }
+ })
+};
+//流的方式
+//module.exports.raw = true;
+-----------------------------------
+webpack.config.js
+-----------------------------------
+const path = require('path');
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                loader: path.resolve('./loader/index.js')
+            }
+        ]
+    }
+};
+
+//最后生成代码
+eval("{};const a = 20;\r\n\r\n//import bar from './bar.js';\r\n//bar.init();\n\n//# sourceURL=webpack:///./src/index.js?");
+```
+
 ## 编写过webpack插件
 
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/编写过webpack插件.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/编写过webpack插件.png)</a>
+webpack实现插件机制的⼤大体⽅方式是:
+- 「创建」—— webpack在其内部对象上创建各种钩⼦; 
+- 「注册」—— 插件将⾃己的方法注册到对应钩⼦子上，交给webpack; 
+- 「调⽤」—— webpack编译过程中，会适时地触发相应钩⼦子，因此也 就触发了插件的⽅法。
+
+打开 Webpack 4.0 的源码中一定会看到下面这些以 Sync、Async 开头，以 Hook 结尾的方法，这些都是 tapable 核心库的类，为我们提供不同的事件流执行机制，我们称为 “钩子”。
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/tapable.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/tapable.png)</a>
+
+```
+// 引入 tapable 如下
+const {
+    SyncHook,  //串行同步执行，不关心事件处理函数的返回值，在触发事件之后，会按照事件注册的先后顺序执行所有的事件处理函数。
+    SyncBailHook, //同样为串行同步执行，如果事件处理函数执行时有一个返回值不为空（即返回值为 undefined），则跳过剩下未执行的事件处理函数（如类的名字，意义在于保险）。
+    SyncWaterfallHook, // 为串行同步执行，上一个事件处理函数的返回值作为参数传递给下一个事件处理函数，依次类推，正因如此，只有第一个事件处理函数的参数可以通过 call 传递，而 call 的返回值为最后一个事件处理函数的返回值。
+    SyncLoopHook, // 为串行同步执行，事件处理函数返回 true 表示继续循环，即循环执行当前事件处理函数，返回 undefined 表示结束循环，SyncLoopHook 与 SyncBailHook 的循环不同，SyncBailHook 只决定是否继续向下执行后面的事件处理函数，而 SyncLoopHook 的循环是指循环执行每一个事件处理函数，直到返回 undefined 为止，才会继续向下执行其他事件处理函数，执行机制同理。
+    AsyncParallelHook, //异步并行执行,通过 tapAsync 注册的事件，通过 callAsync 触发，通过 tapPromise 注册的事件，通过 promise 触发（返回值可以调用 then 方法）。
+    AsyncParallelBailHook,异步并行执行，返回值不为 undefined，即有返回值，则立即停止向下执行其他事件处理函数，
+    AsyncSeriesHook, //异步串行同上
+    SyncBailHook。
+    AsyncSeriesBailHook,
+    AsyncSeriesWaterfallHook
+ } = require("tapable");
+```
+详细[Webpack 核心模块 tapable 解析](https://www.jianshu.com/p/273e1c9904d2)
+
+上面的实现事件流机制的 “钩子” 大方向可以分为两个类别，“同步” 和 “异步”，“异步” 又分为两个类别，“并行” 和 “串行”，而 “同步” 的钩子都是串行的。
+
+webpack 利用了 tapable 这个库([](https://github.com/webpack/tapable))来协助实现对于整个 构建流程各个步骤的控制。 tapable 定义了主要构建流程后，使用 tapable 这个库添加了各种各样的 钩子方法来将 webpack 扩展至功能十分丰富,这就是plugin 的机制。也可以说webpack核心使用Tapable 来实现插件(plugins)的binding和applying.Tapable是一个用于事件发布订阅执行的插件架构。Tapable就是webpack用来创建钩子的库。
+
+那么让我们打开webpack->package.json->main -> webpac.js 一起分析~
+
+```
+创建 Compiler -> 
+调用 compiler.run 开始构建 -> 
+创建 Compilation -> 
+基于配置开始创建 Chunk -> 
+使用 Parser 从 Chunk 开始解析依赖 -> 
+使用 Module 和 Dependency 管理代码模块相互关系 -> 
+ 使用 Template 基于 Compilation 的数据生成结果代码
+```
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/plugin1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/plugin1.png)</a>
+
+⚠️注意：
+- 1.事件钩子会有不同的类型 SyncBailHook，AsyncSeriesHook，SyncHook等。
+- 2.如果是异步的事件钩子，那么可以使用 tapPromise 或者 tapAsync 来注册事件函数， tapPromise 要求方法返回 Promise 以便处理异 步，而 tapAsync 则是需要用 callback 来返回结 果。
+- 3.
+```
+compiler.hooks.done.tapPromise('PluginName', (stats) => {
+   return new Promise((resolve, reject) => {
+// 处理promise的返回结果 reject(err) : resolve()})
+```
+- 4.compiler.hooks.done.tapAsync('PluginName', (stats, callback) => { callback(err)) }) 
+- 5.除了同步和异步的，名称带有 parallel 的，注册的事件函数会并行调用，名称带有 bail 的，注册的事件函数会被顺序调用，直至一个处理方法有返回值名称带有 waterfall 的，每个 注册的事件函数，会将上一个方法的返回结果作为输入参数。有一些类型是可以结合到一起 的，如 AsyncParallelBailHook，这样它就具备了更加多样化的特性。
+
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/手写webpack插件.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/手写webpack插件.png)</a>
+```
+compiler.hooks.done.tapPromise('PluginName', (stats) => {
+    return new Promise((resolve, reject) => {
+    // 处理promise的返回结果 reject(err) : resolve()
+});
+compiler.hooks.done.tapAsync('PluginName', (stats, callback) => {
+    callback( err)) 
+});
+```
 
 - 1、Webpack 通过 Plugin 机制让其更加灵活，以适应各种应用场景。在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。
 - 2、Webpack 启动后，在读取配置的过程中会先执行 new BasicPlugin(options) 初始化一个 BasicPlugin 获得其实例。在初始化 compiler 对象后，再调用 basicPlugin.apply(compiler) 给插件实例传入 compiler 对象。插件实例在获取到 compiler 对象后，就可以通过 compiler.plugin(事件名称, 回调函数) 监听到 Webpack 广播出来的事件。并且可以通过 compiler 对象去操作 Webpack。
@@ -772,12 +943,91 @@ module.exports = {
 - 4、Compiler 和 Compilation 的区别在于：Compiler 代表了整个 Webpack 从启动到关闭的生命周期，而 Compilation 只是代表了一次新的编译。
 - 5、开发插件时需要注意：只要能拿到 Compiler 或 Compilation 对象，就能广播出新的事件，所以在新开发的插件中也能广播出事件，给其它插件监听使用、传给每个插件的 Compiler 和 Compilation 对象都是同一个引用。也就是说在一个插件中修改了 Compiler 或 Compilation 对象上的属性，会影响到后面的插件、有些事件是异步的，这些异步的事件会附带两个参数，第二个参数为回调函数，在插件处理完任务时需要调用回调函数通知 Webpack，才会进入下一处理流程。
 
-## 开发webpack loader
+## webpack编译过程或构建流程是什么？
 
-- 1、一个 Loader 的职责是单一的，只需要完成一种转换。如果一个源文件需要经历多步转换才能正常使用，就通过多个 Loader 去转换。在调用多个 Loader 去转换一个文件时，每个 Loader 会链式的顺序执行， 第一个 Loader 将会拿到需处理的原内容，上一个 Loader 处理后的结果会传给下一个接着处理，最后的 Loader 将处理后的最终结果返回给 Webpack。
-- 2、所以，在你开发一个 Loader 时，请保持其职责的单一性，你只需关心输入和输出。
+Webpack 的运行流程是一个串行的过程，从启动到结束会依次执行以下流程，
 
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/手写loader.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/手写loader.png)</a>
+- 1、初始化参数：从配置文件和 Shell 语句中读取与合并参数，得出最终的参数；
+- 2、开始编译：用上一步得到的参数初始化 Compiler 对象，加载所有配置的插件，执行对象的 run 方法开始执行编译；
+- 3、确定入口：根据配置中的 entry 找出所有的入口文件；
+- 4、编译模块：从入口文件出发，调用所有配置的 Loader 对模块进行翻译，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理；
+- 5、完成模块编译：在经过第4步使用 Loader 翻译完所有模块后，得到了每个模块被翻译后的最终内容以及它们之间的依赖关系；
+- 6、输出资源：根据入口和模块之间的依赖关系，组装成一个个包含多个模块的 Chunk，再把每个 Chunk 转换成一个单独的文件加入到输出列表，这步是可以修改输出内容的最后机会；
+- 7、输出完成：在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写入到文件系统。在以上过程中，Webpack 会在特定的时间点广播出特定的事件，插件在监听到感兴趣的事件后会执行特定的逻辑，并且插件可以调用 Webpack 提供的 API 改变 Webpack 的运行结果。
 
+详细的可以看下边的源码分析
+
+##  Webpack整体运行流程
+
+webpack 本质上就是一个 JS Module Bundler，用于将多个代码模块进行打包。bundler 从一个构 建入口出发，解析代码，分析出代码模块依赖关系，然后将依赖的代码模块组合在一起，在 JavaScript bundler 中，还需要提供一些胶水代码让多个代码模块可以协同工作，相互引用。下边会 举一些简单的例子来说明一下这几个关键的部分是怎么工作的。
+```
+// 分别将各个依赖模块的代码⽤ modules 的⽅式组织起来打包成⼀个⽂件
+================================entry======================================
+// entry.js
+import { bar } from './bar.js'; // 依赖 ./bar.js 模块 
+
+// bar.js
+const foo = require('./foo.js'); // 依赖 ./foo.js 模块
+
+递归下去，直至没有更多的依赖模块，最终形成一颗模块依赖树。
+
+分析出依赖关系后，webpack 会利用 JavaScript Function 的特性提供一些代码来将各个模块整 合到一起，即是将每一个模块包装成一个 JS Function，提供一个引用依赖模块的方法，如下面例子 中的 __webpack__require__，这样做，既可以避免变量相互干扰，又能够有效控制执行顺序
+
+================================moudles====================================== 
+// entry.js
+modules['./entry.js'] = function() {
+const { bar } = __webpack__require__('./bar.js')
+}
+
+// bar.js
+ modules['./bar.js'] = function() {
+    const foo = __webpack__require__('./foo.js')
+ };
+ // foo.js
+ modules['./foo.js'] = function() {
+    // ... 
+ }
+
+// 分别将各个依赖模块的代码用 modules 的方式组织起来打包成一个文件 
+
+================================output===========================
+// 已经执⾏的代码模块结果会保存在这⾥
+(function(modules){
+    const installedModules = {}
+    function __webpack__require__(id) {
+        // 如果 installedModules 中有就直接获取
+        // 没有的话从 modules 中获取 function 然后执⾏，
+        //将结果缓存在 installedModules 中然后返回结果
+    }
+})({
+    "./entry.js": (function(__webpack_require__){
+        var bar = __webpack_require__(/*code内容*/)
+    }),
+    "./bar.js": (function(){}),
+    "./foo.js": (function(){}),
+})
+其实webpack就是把AST分析树 转化成 链表
+
+// 如果 installedModules 中有就直接获取
+// 没有的话从 modules 中获取 function 然后执行，
+//将结果缓存在 installedModules 中然后返回结果 
+```
+<!-- <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/webpack运行流程.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack运行流程.png)</a> -->
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_整体行流程.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/webpack_整体行流程.png)</a>
+
+- 1.`Compiler` webpack 的运行入口，`compiler `对象代表了完整的 `webpack` 环境配置。这个对象 在启动 `webpack` 时被一次性建立，并配置好所有可操作的设置，包括 `options`，`loader` 和 `plugin`。当在 `webpack` 环境中应用一个插件时，插件将收到此 `compiler` 对象的引用，可以使用 它来访问 `webpack` 的主环境。
+- 2.`Compilation` 对象代表了一次资源版本构建。当运行 `webpack` 开发环境中间件时，每当检 测到一个文件变化，就会创建一个新的 `compilation`，从而生成一组新的编译资源。一个 `compilation` 对象表现了当前的模块资源、编译生成资源、变化的文件、以及被跟踪依赖的状 态信息。`compilation `对象也提供了很多关键步骤的回调，以供插件做自定义处理时选择使 用。
+- 3.`Chunk`，即用于表示 `chunk` 的类，对于构建时需要的 `chunk` 对象由 `Compilation` 创建后保存 管理(**webpack中最核心的负责编译的Compiler和负责创建bundles的Compilation都是Tapable的实 例**)
+- 4.[Module](https://github.com/webpack/webpack/blob/master/lib/Module.js)，用于表示代码 模块的基础类，衍生出很多子类用于处理不同的情况([NormalModule](https://github.com/webpack/webpack/blob/master/lib/NormalModule.js))关于代码模块的所有信息都会存在 Module 实例中，例如 dependencies 记录代码模块的依赖等,当一个 `Module` 实例被创建后，比较重要的一步是执行 `compilation.buildModule `这个方法，它 会调用 `Module` 实例的 `build` 方法来创建 `Module` 实例需要的一些东西，然后调用自身的 `runLoaders` 方法。`runLoaders `:[loader-runner](https://github.com/webpack/loader-runner)，执 行对应的 `loaders`，将代码源码内容一一交由配置中指定的 `loader` 处理后，再把处理的结果保 存起来。
+
+- 5.`Parser`，其中相对复杂的一个部分，基于 `acorn` 来分析 `AST` 语法树，解析出代码模块的依 赖
+
+- 6.`Dependency`，解析时用于保存代码模块对应的依赖使用的对象。 `Module` 实例的 `build` 方法 在执行完对应的 `loader`时，处理完模块代码自身的转换后，继续调用 `Parser` 的实例来解析自 身依赖的模块，解析后的结果存放在 `module.dependencies` 中，首先保存的是依赖的路径，后续会经由 `compilation.processModuleDependencies` 方法，再来处理各个依赖模块，递归地去建立 整个依赖。
+
+- 7.`Template`，生成最终代码要使用到的代码模板，像上述提到的胶水代码就是用对应的 `Template` 来生成。
+`Template` 基础类:[lib/Template.js](https://github.com/webpack/webpack/blob/master/lib/Template.js)
+常用的主要 `Template` 类:[lib/MainTemplate.js](https://github.com/webpack/webpack/blob/master/lib/MainTemplate.js)
+
+最后就是尝试给babel写个插件(https://github.com/jamiebuilds/babel-handbook/)
 webpack的1版本和2版本都以及过时了,为了遇到一些老得项目时可用
 后期补webpack1 2 3 4 的不同

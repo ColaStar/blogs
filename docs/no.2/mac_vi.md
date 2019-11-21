@@ -1,4 +1,7 @@
-# Mac终端 vi/vim 的简单使用
+# vi/vim 
+
+Mac终端 vi/vim 的简单使用
+
 ## vi/vim 的使用
 
 基本上 vi/vim 共分为三种模式，分别是命令模式（Command mode），插入模式（Insert mode）和底线命令模式（Last line mode）

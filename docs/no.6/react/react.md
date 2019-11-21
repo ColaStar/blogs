@@ -990,7 +990,9 @@ Immutable是一个基于函数式编程的库，Facebook致力于3年时间把�
 
 Immutable采用一种共享引用的方式，只会改变改变节点数据的那个分支的节点，其他分支节点空想引用。
 
-<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-Immutable.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-Immutable.png)</a>
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/react-immutable.gif">![](https://raw.githubusercontent.com/ColaStar/static/master/images/react-immutable.gif)</a>
+
 > 使用方式
 安装Immutable包
 ```
@@ -1000,8 +1002,11 @@ npm install immutable –save
 ```
 import { List } from “immutable”;
 ```
+
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/immuable.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/immuable.png)</a>
+
 从上图可以看出immuable库相当于生成俩个不一样的对象，不是在引用传递，相当于生成一个对象，深拷贝过了。
+
 <a data-fancybox title="使用" href="https://raw.githubusercontent.com/ColaStar/static/master/images/immuable使用.png">![使用](https://raw.githubusercontent.com/ColaStar/static/master/images/immuable使用.png)</a>
 
 通过fromjs方法包一下目标对象，后边用一个get和set方法去更改对象。

@@ -1,3 +1,5 @@
+# Nginx
+
 ## 一、Nginx简介
 
 Nginx是一个web服务器也可以用来做负载均衡及反向代理使用，目前使用最多的就是负载均衡，具体简介我就不介绍了百度一下有很多，下面直接进入安装步骤
@@ -7,12 +9,11 @@ Nginx是一个web服务器也可以用来做负载均衡及反向代理使用，
 ### 1、下载Nginx及相关组件
 
 Linux系统是Centos 6.5 64位，我直接切换到root用户下安装
-
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418152744852-939208787.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418152744852-939208787.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vim1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vim1.png)</a>
 
 进入用户目录下载程序
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vim2.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vim2.png)</a>
 
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418153003446-820207739.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418153003446-820207739.png)</a>
 
 下载相关组件
 
@@ -80,11 +81,10 @@ openssl相关插件per5-https安装
 ### 3、启动Nginx
 
 先找一下nginx安装到什么位置上了
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vim3.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vim3.png)</a>
 
- <a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418154742915-713647057.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418154742915-713647057.png)</a>
 进入nginx目录并启动
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418154804759-1842869219.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418154804759-1842869219.png)</a>
-
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vim4.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vim4.png)</a>
 
 报错了，error while loading shared libraries: libpcre.so.1: cannot open shared object file: No such file or directory，按照下面方式解决
 ```
@@ -98,9 +98,13 @@ openssl相关插件per5-https安装
 [root@localhost nginx]# ps -aux | grep nginx 
 ```
 
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418162004024-2058687645.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418162004024-2058687645.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vim5.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vim5.png)</a>
+
+
 1.进入Linux系统的图形界面，打开浏览器输入localhost会看到下图，说明nginx启动成功
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418162145790-461736932.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418162145790-461736932.png)</a>
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vim6.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vim6.png)</a>
+
 2.其他机器链接linux系统测试是否链接成功
 
 
@@ -122,8 +126,8 @@ nginx的基本操作
 ### 4、简单配置Nginx
 
 打开nginx配置文件位于nginx目录下的conf文件夹下
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418164812196-1164065507.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418164812196-1164065507.png)</a>
 
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vim7.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vim7.png)</a>
 
 简单介绍一下vim的语法
 
@@ -138,11 +142,14 @@ nginx的基本操作
 ```
 "#"代表注释，最重要的是server{}块这部分就代表每一个web站点，详细的配置介绍可以查阅我的另一片配置文章，此处我们先暂时设置三个站点
 
- <a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418173628696-1685332558.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418173628696-1685332558.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vim8.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vim8.png)</a>
+
+
 
 分别使用不同的端口80、81、82保存退出并且重启nginx
 
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418174444118-588824024.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418174444118-588824024.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vim9.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vim9.png)</a>
+
 
 ### 5、开启外网访问
 
@@ -157,7 +164,8 @@ nginx的基本操作
 [root@localhost ~]# chkconfig --list|grep ipt
 ```
 下面是防火墙的其他操作命令
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418175910868-1921833075.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418175910868-1921833075.png)</a>
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/nginx1.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/nginx1.png)</a>
 
 
 方法二将开启的端口加入防火墙白名单中，这种方式较安全但性能也相对较差
@@ -169,32 +177,39 @@ nginx的基本操作
 保存退出，重启防火墙
 [root@localhost ~]# service iptables restart
 ```
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418180736931-1955851185.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418180736931-1955851185.png)</a>
- 
+
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/nginx2.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/nginx2.png)</a>
+
 
 Linux配置完毕了，使用另一台电脑而非安装nginx的电脑，我是用的windows系统，配置一下host在“C:\Windows\System32\drivers\etc”下的hosts中配置一下域名重定向
 ```
 10.11.13.22 nginx.test.com nginx.test1.com nginx.test2.com
 ```
 然后cmd再ping一下这个域名是否正确指向了这个IP上
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418174908977-27238342.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418174908977-27238342.png)</a>
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/nginx3.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/nginx3.png)</a>
 
 
 正确指向后在telnet一下80端口看一下是否可以与端口通信（如果telnet提示没有此命令是没有安装客户端，在启用或禁用windows功能处安装后再操作即可）
 
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418175445712-2089843604.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418175445712-2089843604.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/nginx4.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/nginx4.png)</a>
+
+
 
 得到以下界面及代表通信成功
 
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418175512790-352719306.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418175512790-352719306.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/nginx5.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/nginx5.png)</a>
+
 
 打开这台Windows系统内的浏览器，输入nginx.test.com会得到以下结果，就说明外网访问成功
 
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418181546415-521855633.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418181546415-521855633.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/nginx6.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/nginx6.png)</a>
 
 如果防火墙你依然启用，只是设置了启用端口，那我们访问81那个端口会发现无法访问，因为我并没有加入白名单
 
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170418181649259-174579881.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170418181649259-174579881.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/nginx7.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/nginx7.png)</a>
+
 到此Nginx服务器雏形部署完成。
 
 ### 6、Nginx负载均衡配置
@@ -230,18 +245,23 @@ proxy_pass;代表后端服务器组名，此组名必须为后端服务器站点
 
 server_name和upstream{}的组名可以不一致，server_name是外网访问接收请求的域名，upstream{}的组名是跳转后端服务器时站点访问的域名
 ```
- <a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170419165116649-972950787.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170419165116649-972950787.png)</a>
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/nginx8.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/nginx8.png)</a>
 
 配置一下Windows的host将我们要访问的域名aaa.test.com指向Linux
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170419170949509-1331178335.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170419170949509-1331178335.png)</a>
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/nginx9.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/nginx9.png)</a>
+
 
 
 因为硬件有限，我是将Windows中的IIS作为Nginx的后端服务器，所以配置一下IIS的站点域名
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170419171121993-488143433.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170419171121993-488143433.png)</a>
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/nginx10.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/nginx10.png)</a>
 
 
 打开cmd再ping一下aaa.test.com确实指向Linux系统了，再打开浏览器输入aaa.test.com会显示bbb这个站点就代表负载成功了。
-<a data-fancybox title="" href="https://images2015.cnblogs.com/blog/172889/201704/172889-20170419171408649-130031505.png">![](https://images2015.cnblogs.com/blog/172889/201704/172889-20170419171408649-130031505.png)</a>
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/nginx11.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/nginx11.png)</a>
 
 
 Nginx的负载功能就配置完成了，这只是简单设置了一下，生产环境中还有很多详细的调整，后续再逐渐增加.
