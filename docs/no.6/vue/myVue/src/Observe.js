@@ -23,3 +23,5 @@
         defineReactive(vm, key, obj[key]);
       })
     }
+//第一步：new vue 获取元素id，依赖收集data，有个drtive对data的key做遍历，然后放到objectdefineprototype里边，get方法把它放到监听器（全局只有一个）
+//队列里边，

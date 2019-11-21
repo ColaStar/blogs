@@ -1,0 +1,155 @@
+
+> 事件传播的顺序对应浏览器的两种事件流模型：
+
+捕获型事件流和冒泡型事件流。
+
+- 冒泡型事件流：事件的传播是从最特定的事件目标到最不特定的事件目标。即从DOM树的叶子到根。（由内向外）【推荐】
+
+- 捕获型事件流：事件的传播是从最不特定的事件目标到最特定的事件目标。即从DOM树的根到叶子。（由外向内）
+
+事件捕获的思想就是不太具体的节点应该更早接收到事件，而最具体的节点最后接收到事件。
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件流</title>
+    <script>
+
+    window.onload = function(){
+
+        var oBtn = document.getElementById('btn');
+
+        oBtn.addEventListener('click',function(){
+            console.log('btn处于事件捕获阶段');
+        }, true);
+        oBtn.addEventListener('click',function(){
+            console.log('btn处于事件冒泡阶段');
+        }, false);
+
+        document.addEventListener('click',function(){
+            console.log('document处于事件捕获阶段');
+        }, true);
+        document.addEventListener('click',function(){
+            console.log('document处于事件冒泡阶段');
+        }, false);
+
+        document.documentElement.addEventListener('click',function(){
+            console.log('html处于事件捕获阶段');
+        }, true);
+        document.documentElement.addEventListener('click',function(){
+            console.log('html处于事件冒泡阶段');
+        }, false);
+
+        document.body.addEventListener('click',function(){
+            console.log('body处于事件捕获阶段');
+        }, true);
+        document.body.addEventListener('click',function(){
+            console.log('body处于事件冒泡阶段');
+        }, false);
+
+    };
+
+    </script>
+</head>
+<body>
+    <a href="javascript:;" id="btn">按钮</a>
+</body>
+</html>
+```
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/事件流.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/事件流.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/事件流2.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/事件流2.png)</a>
+一段代码带给你，
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 20px;
+            transition: background 800ms;
+        }
+
+        html {
+            height: 100%;
+            background: hsl(193, 66%, 55%);
+            font: bold 40px helvetica, sans-serif;
+            color: red;
+        }
+
+        body {
+            height: 100%;
+            background: hsl(193, 66%, 65%);
+        }
+
+        div {
+            height: 100%;
+            background: hsl(193, 66%, 75%);
+        }
+
+        ul {
+            height: 100%;
+            list-style: none;
+            background: hsl(193, 66%, 85%);
+        }
+
+        li {
+            height: 100%;
+            background: hsl(193, 66%, 95%);
+        }
+
+        .highlight {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div class="">
+    <ul>
+        <li>Click on a layer to watch the event move through the DOM tree.</li>
+    </ul>
+</div>
+<script>
+    var html = document.documentElement;
+    var body = document.body;
+    var div = body.querySelector('div');
+    var ul = body.querySelector('ul');
+    var li = body.querySelector('li');
+    var pause = 200;
+
+    // Capture
+    html.addEventListener('click', callback, true);
+    body.addEventListener('click', callback, true);
+    div.addEventListener('click', callback, true);
+    html.addEventListener('click', callback, true);
+    ul.addEventListener('click', callback, true);
+    li.addEventListener('click', callback, true);
+
+    // Bubble
+    html.addEventListener('click', callback, false);
+    body.addEventListener('click', callback, false);
+    div.addEventListener('click', callback, false);
+    html.addEventListener('click', callback, false);
+    ul.addEventListener('click', callback, false);
+    li.addEventListener('click', callback, false);
+
+    function callback(event) {
+        var ms = event.timeout = (event.timeout + pause) || 0;
+        var target = event.currentTarget;
+
+        setTimeout(function() {
+            target.classList.add('highlight');
+            setTimeout(function() {
+                target.classList.remove('highlight');
+            }, pause);
+        }, ms);
+    }
+</script>
+</body>
+</html>
+```
