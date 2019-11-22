@@ -3,31 +3,32 @@
 ## 深入 CommonJs 与 ES6 Module
 目前主流的模块规范
 
-UMD  
-CommonJs  
-es6 module  
+- UMD：可以同时运行在node环境与浏览器的代码（amd+commonjs+全局变量）
+- CommonJs  （运行在NODE环境下）
+- AMD - RequireJs（运行在浏览器环境下）
+- CMD - seaJS
+- es6 module  
 
+## 模块化的发展
+- 1.**最开始的时候**，JS自身是没有模块机制的。项目有多个js文件。但是随着项目的增加，代码量的增多，所需要加载的文件就会原来越多，这个时候就要考虑一些，比如：
+  - 命名问题：命名是否会冲突
+  - 依赖问题：因为javascript是顺序加载，我们就需要考虑加载的顺序
+  - 网络问题：如果文件过多，加载时间会很长。
 
+- 从`Commonjs`说起，`nodejs`是`commonjs`的实现，`webpack`也也是`commonjs`的实现，思想就是一个单独的文件就是一个模块
 
-## umd 模块（通用模块）
-
-
-```
-(function (global, factory) {
-    typeof exports === 'object' &amp;&amp; typeof module !== 'undefined' ? module.exports = factory() :
-    typeof define === 'function' &amp;&amp; define.amd ? define(factory) :
-    (global.libName = factory());
-}(this, (function () { 'use strict';})));
-```
-
-如果你在js文件头部看到这样的代码，那么这个文件使用的就是 UMD 规范
-实际上就是 `amd` + `commonjs` + `全局变量` 这三种风格的结合
-这段代码就是对当前运行环境的判断，如果是 `Node` 环境 就是使用 `CommonJs` 规范， 如果**不是**就判断是否为 `AMD` 环境， 最后导出全局变量
-有了 UMD 后我们的代码和同时运行在 Node 和 浏览器上
-所以现在前端大多数的库最后打包都使用的是 UMD 规范
+- `AMD` 但是由于`commonjs`只适用于服务端（因为`require`是一个同步操作，在服务端内，因为所有的模块都存放在硬盘里，可以同步加载，等待时间就是一个读写时间，这样的情况在服务端是很正常的，但是在浏览器端执行这样一个同步任务可能就会把dom阻塞），所以在浏览器端就不能通过同步加载了，只能是异步加载，于是 amd（异步加载定义） 就出现了，他采用了异步加载的方式，模块加载会影响后边语句的执行，所有依赖这个模块的语句都定义到一个回调函数内，等加载完成之后，这个回调才会执行.提前加载，提前执行
+- `CMD`由于AMD的运行逻辑是依赖前置，所以AMD就做了优化，依赖就近，谁用谁取。
+- `UMD`因为commonjs与AMD模块化规范不能同时使用，就出现了UMD，他同时支持AMD与Commonjs，还支持老式的全局变量规范。
+-  `ES6` 因为如果用AMD或者CMD的化我们就需要引入一些必要的js，所以就有了es6的模块化的出现，他支持commonjs，每一个模块内声明的变量都是局部变量， 不会污染全局作用域；模块内部的变量或者函数可以通过export导出；；一个模块可以导入别的模块；每一个模块只加载一次， 每一个JS只执行一次， 如果下次再去加载同目录下同文件，直接从内存中读取。 一个模块就是一个单例，或者说就是一个对象；
 
 ## CommonJs
-Nodejs 环境所使用的模块系统就是基于CommonJs规范实现的，我们现在所说的CommonJs规范也大多是指Node的模块系统
+Nodejs 环境所使用的模块系统就是基于CommonJs规范实现的，我们现在所说的CommonJs规范也大多是指Node的模块系统。
+
+CommonJS规范，主要运行于服务器端，同步加载模块，而加载的文件资源大多数在本地服务器，所以执行速度或时间没问题。Node.js很好的实现了该规范。
+该规范指出，一个单独的文件就是一个模块。
+
+模块功能主要的几个命令：`require`和`module.exports`。`require`命令用于输入其他模块提供的功能，`module.exports`命令用于规范模块的对外接口，输出的是一个值的拷贝，输出之后就不能改变了，会缓存起来。
 
 ### 模块导出
 
@@ -58,11 +59,11 @@ exports = { age: 1, a: 'hello', foo:function(){} }
 const foo = require('./foo.js')
 console.log(foo.age) //1
 ```
-> 模块导入规则：
+#### 模块导入规则：
 
 假设以下目录为 `src/app/index.js` 的文件 调用 `require()`
 
-1、`./moduleA `相对路径开头
+##### 1、`./moduleA `相对路径开头
 
 在没有指定后缀名的情况下
 
@@ -72,21 +73,18 @@ console.log(foo.age) //1
 - `src/app/moduleA.js` js文件 按照`javascrip`t解析
 - `src/app/moduleA.json` json文件 按照`json`解析
 - `src/app/moduleA.node` node文件 按照加载的编译插件模块`dlopen`
-
 同级目录没有 `moduleA` 文件会去找同级的 `moduleA目录`：`src/app/moduleA`
-
 - `src/app/moduleA/package.json` 判断该目录是否有`package.json`文件， 如果有 找到`main`字段定义的文件返回， 如果 `main` 字段指向文件不存在 或 `main`字段不存在 或 `package.json`文件不存在向下执行
 - `src/app/moduleA/index.js`
 - `src/app/moduleA/index.json`
 - `src/app/moduleA/index.node`
+- 结束
 
-结束
-
-2、`/module/moduleA `绝对路径开头
+##### 2、`/module/moduleA `绝对路径开头
 
 直接在/module/moduleA目录中寻找 `规则同上`
 
-3、`react` 没有路径开头
+##### 3、`react` 没有路径开头
 
 没有路径开头则视为导入一个包
 
@@ -101,7 +99,7 @@ console.log(foo.age) //1
 
 直到最后找不到 结束
 
-4、require wrapper
+##### 4、require wrapper
 
 `Node`的模块 实际上可以理解为代码被包裹在一个函数包装器内
 
@@ -140,6 +138,7 @@ function require(id) {
 
 - 模块导出就是return这个变量的其实跟a = b赋值一样， 基本类型导出的是值， 引用类型导出的是引用地址
 `exports` 和 `module.exports` 持有相同引用，因为最后导出的是 `module.exports`， 所以对`exports`进行赋值会导致`exports`操作的不再是`module.exports`的引用
+
 ### 循环引用
 ```
 // a.js
@@ -161,25 +160,131 @@ console.log(a)
 
 运行此段代码结合上面的require demo，分析每一步过程：
 
-1、执行 node main.js -> 第一行 require(a.js)，（node 执行也可以理解为调用了require方法，我们省略require(main.js)内容）
+- 1、执行 node main.js -> 第一行 require(a.js)，（node 执行也可以理解为调用了require方法，我们省略require(main.js)内容）
 
-2、进入 require(a)方法： 判断缓存（无） -> 初始化一个 module -> 将 module 加入缓存 -> 执行模块 a.js 内容，（需要注意 是`先加入缓存， 后执行模块内容`）
+- 2、进入 require(a)方法： 判断缓存（无） -> 初始化一个 module -> 将 module 加入缓存 -> 执行模块 a.js 内容，（需要注意 是`先加入缓存， 后执行模块内容`）
 
-3、a.js： 第一行导出 a = 1 -> 第二行 require(b.js)（a 只执行了第一行）
+- 3、a.js： 第一行导出 a = 1 -> 第二行 require(b.js)（a 只执行了第一行）
 
-4、进入 require(b) 内 同 1 -> 执行模块 b.js 内容
+- 4、进入 require(b) 内 同 1 -> 执行模块 b.js 内容
 
-5、b.js： 第一行 b = 11 -> 第二行 require(a.js)
+- 5、b.js： 第一行 b = 11 -> 第二行 require(a.js)
 
-6、require(a) 此时 a.js 是第二次调用 require -> 判断缓存（有）-> cachedModule.exports -> 回到 b.js（因为js对象引用问题 此时的 cachedModule.exports = { a: 1 }）
+- 6、require(a) 此时 a.js 是第二次调用 require -> 判断缓存（有）-> cachedModule.exports -> 回到 b.js（因为js对象引用问题 此时的 cachedModule.exports = { a: 1 }）
 
-7、b.js：第三行 输出 { a: 1 } -> 第四行 修改 b = 22 -> 执行完毕回到 a.js
+- 7、b.js：第三行 输出 { a: 1 } -> 第四行 修改 b = 22 -> 执行完毕回到 a.js
 
-8、a.js：第二行 require 完毕 获取到 b -> 第三行 输出 { b: 22 } -> 第四行 导出 a = 2 -> 执行完毕回到 main.js
+- 8、a.js：第二行 require 完毕 获取到 b -> 第三行 输出 { b: 22 } -> 第四行 导出 a = 2 -> 执行完毕回到 main.js
 
-9、main.js：获取 a -> 第二行 输出 { a: 2 } -> 执行完毕
+- 9、main.js：获取 a -> 第二行 输出 { a: 2 } -> 执行完毕
 
 以上就是node的module模块解析和运行的大致规则
+
+## AMD
+
+`AMD`(Asynchronous Module Definition - 异步加载模块定义)规范，制定了定义模块的规则,一个单独的文件就是一个模块，模块和模块的依赖可以被异步加载。主要运行于浏览器端，这和浏览器的异步加载模块的环境刚好适应，它不会影响后面语句的运行。该规范是在`RequireJs`的推广过程中逐渐完善的。
+
+模块功能主要的几个命令：`define`、`require`、`return`和`define.amd`。`define`是全局函数，用来定义模块,`define(id?, dependencies?, factory)`。`require`命令用于输入其他模块提供的功能，`return`命令用于规范模块的对外接口，`define.amd`属性是一个对象，此属性的存在来表明函数遵循`AMD`规范
+
+```
+// moduleA.js
+define(['jQuery','lodash'], function($, _) {
+var name = 'weiqinl',
+function foo() {}
+return {
+name,
+foo
+}
+})
+
+// index.js
+require(['moduleA'], function(a) {
+a.name === 'weiqinl' // true
+a.foo() // 执行A模块中的foo函数
+// do sth...
+})
+
+// index.html
+<script src="js/require.js" data-main="js/index"></script>
+```
+
+在这里，我们使用`define`来定义模块，`return`来输出接口， `require`来加载模块，这是`AMD`官方推荐用法。当然也可以使用其他兼容性的写法，比如对 `Simplified CommonJS Wrapper `格式的支持，但背后还是原始`AMD`的运行逻辑。
+`AMD`的运行逻辑是：**提前加载，提前执行**。在`Requirejs`中，申明依赖模块时，会第一时间加载并执行模块内的代码，使后面的回调函数能在所需的环境中运行。
+为了更好地优化请求，同时推出了打包工具`r.js`，使所需加载的文件数减少。[require.js模块化开发，并用r.js打包例子](https://github.com/weiqinl/demo/tree/master/02-require-r-example)
+
+## CMD 
+
+`CMD`(Common Module Definition - 通用模块定义)规范主要是`Sea.js`推广中形成的，一个文件就是一个模块，可以像`Node.js`一般书写模块代码。主要在浏览器中运行，当然也可以在`Node.js`中运行。
+
+```
+// moduleA.js
+// 定义模块
+define(function(require, exports, module) {
+var func = function() {
+var a = require('./a') // 到此才会加载a模块
+a.func()
+if(false) {
+var b = require('./b') // 到此才会加载b模块
+b.func()
+}
+}
+// do sth...
+exports.func = func;
+})
+
+// index.js
+// 加载使用模块
+seajs.use('moduleA.js', function(ma) {
+var ma = math.func()
+})
+
+// HTML，需要在页面中引入sea.js文件。
+<script src="./js/sea.js"></script>
+<script src="./js/index.js"></script>
+```
+这里`define`是一个全局函数，用来定义模块，并通过`exports`向外提供接口。之后，如果要使用某模块，可以通过`require`来获取该模块提供的接口。最后使用某个组件的时候，通过`seajs.use()`来调用。
+
+- 通过exports暴露接口。这意味着不需要命名空间了，更不需要全局变量。
+- 通过require引入依赖。这可以让依赖内置，我们只需要关心当前模块的依赖。关注度分离
+
+CMD推崇**依赖就近，延迟执行**。在上面例子中，通过require引入的模块，只有当程序运行到此处的时候，模块才会自动加载执行。
+
+
+## umd 模块（通用模块）
+
+```
+// 使用Node, AMD 或 browser globals 模式创建模块
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD模式. 注册为一个匿名函数
+        define(['b'], factory);
+    } else if (typeof module === 'object' && module.exports)   {
+          // Node等类CommonJS的环境
+          module.exports = factory(require('b'));
+      } else {
+          // 浏览器全局变量 (root is window)
+          root.returnExports = factory(root.b);
+      }
+}(typeof self !== 'undefined' ? self : this, function (b) {
+    // 以某种方式使用 b
+
+    //返回一个值来定义模块导出。(即可以返回对象，也可以返回函数)
+    return {};
+}));
+```
+
+如果你在js文件头部看到这样的代码，那么这个文件使用的就是 UMD 规范
+实际上就是 `amd` + `commonjs` + `全局变量` 这三种风格的结合
+这段代码就是对当前运行环境的判断，如果是 `Node` 环境 就是使用 `CommonJs` 规范， 如果**不是**就判断是否为 `AMD` 环境， 最后导出全局变量
+
+- 判断define为函数，并且是否存在define.amd，来判断是否为AMD规范,
+- 判断module是否为一个对象，并且是否存在module.exports来判断是否为CommonJS规范
+- 如果以上两种都没有，设定为原始的代码规范。
+- 这种模式，通常会在webpack打包的时候用到。output.libraryTarget将模块以哪种规范的文件输出。
+
+有了 UMD 后我们的代码就可以同时运行在 Node 和 浏览器上
+
+所以现在前端大多数的库最后打包都使用的是 UMD 规范
 
 ## es6 module
 `ES6` 之前 `javascript` 一直没有属于自己的模块规范，所以社区制定了 `CommonJs规范`， `Node` 从 `Commonjs` 规范中借鉴了思想于是有了 `Node` 的 `module`，而 `AMD` 异步模块 也同样脱胎于 `Commonjs` 规范，之后有了运行在浏览器上的 `require.js`
@@ -510,6 +615,7 @@ blob:https://whatwg.org/d0360e2f-caee-469f-9a2f-87d5b0456f6f
 因为 ES6 Module 在浏览器中兼容并不是很好，这里就不介绍浏览器支持情况了，我们一般不会直接在浏览器中使用
 
 ```
+
 ### Nodejs中使用
 *[nodejs es-modules.md](https://github.com/nodejs/node-eps/blob/master/002-es-modules.md)*
 
@@ -565,6 +671,7 @@ import('./es').then((res)=&gt;{
   console.log(res) // { get default: {name: 'foo'}, a: 1 }
 });
 ```
+
 ### webpack中使用
 
 从 webpack2 就默认支持 es module 了，并默认支持 CommonJs，支持导入 npm包， 这里 import 语法上面写太多 就不再写了
@@ -660,6 +767,7 @@ import { foo } from './module'
 console.log(foo())
 打包后搜索 bar 发现bar存在，webpack 并不支持对CommonJs 进行 Tree-shaking
 ```
+
 ## pkg.module
 webpack 不支持 Commonjs Tree-shaking，但现在npm的包都是CommonJs规范的，这该怎么办呢 ？如果我发了一个新包是 es module 规范， 但是如果代码运行在 node 环境，没有经过打包 就会报错
 

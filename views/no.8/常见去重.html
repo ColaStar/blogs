@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>常见js去重 | 个人博客</title>
+    <meta name="description" content="可怜楼上月徘徊，应照离人妆镜台。">
+    <link rel="icon" href="./public/favicon.ico">
+  <link rel="manifest" href="./public/manifest.json">
+  <link rel="apple-touch-icon" href="./public/images/logo.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script src="./js/tj.js"></script>
+  <script src="./js/code.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    
+    <link rel="preload" href="/blogs/views/assets/css/0.styles.16aae78f.css" as="style"><link rel="preload" href="/blogs/views/assets/js/app.a993323a.js" as="script"><link rel="preload" href="/blogs/views/assets/js/2.d340cefd.js" as="script"><link rel="preload" href="/blogs/views/assets/js/101.ee8733af.js" as="script"><link rel="prefetch" href="/blogs/views/assets/js/10.9797206a.js"><link rel="prefetch" href="/blogs/views/assets/js/100.b98635c8.js"><link rel="prefetch" href="/blogs/views/assets/js/102.c3812217.js"><link rel="prefetch" href="/blogs/views/assets/js/103.3ac8cbf3.js"><link rel="prefetch" href="/blogs/views/assets/js/104.12ab3d18.js"><link rel="prefetch" href="/blogs/views/assets/js/105.a78c611e.js"><link rel="prefetch" href="/blogs/views/assets/js/106.0565a965.js"><link rel="prefetch" href="/blogs/views/assets/js/107.d95f3c6f.js"><link rel="prefetch" href="/blogs/views/assets/js/108.9a7a4f40.js"><link rel="prefetch" href="/blogs/views/assets/js/109.e55e55ed.js"><link rel="prefetch" href="/blogs/views/assets/js/11.ab21c606.js"><link rel="prefetch" href="/blogs/views/assets/js/110.1975de68.js"><link rel="prefetch" href="/blogs/views/assets/js/111.135d1265.js"><link rel="prefetch" href="/blogs/views/assets/js/112.32a3beab.js"><link rel="prefetch" href="/blogs/views/assets/js/113.b909b845.js"><link rel="prefetch" href="/blogs/views/assets/js/114.ede366b3.js"><link rel="prefetch" href="/blogs/views/assets/js/115.7692dd5a.js"><link rel="prefetch" href="/blogs/views/assets/js/116.596cf3f7.js"><link rel="prefetch" href="/blogs/views/assets/js/117.7fa89895.js"><link rel="prefetch" href="/blogs/views/assets/js/118.10e02549.js"><link rel="prefetch" href="/blogs/views/assets/js/119.5a94b97a.js"><link rel="prefetch" href="/blogs/views/assets/js/12.053a299a.js"><link rel="prefetch" href="/blogs/views/assets/js/120.af5536e6.js"><link rel="prefetch" href="/blogs/views/assets/js/121.d82d3df0.js"><link rel="prefetch" href="/blogs/views/assets/js/122.5fffd3f7.js"><link rel="prefetch" href="/blogs/views/assets/js/123.a1ee847f.js"><link rel="prefetch" href="/blogs/views/assets/js/124.9c75e743.js"><link rel="prefetch" href="/blogs/views/assets/js/125.4d23e2f9.js"><link rel="prefetch" href="/blogs/views/assets/js/126.ed2af616.js"><link rel="prefetch" href="/blogs/views/assets/js/127.403fb6c5.js"><link rel="prefetch" href="/blogs/views/assets/js/128.c2096624.js"><link rel="prefetch" href="/blogs/views/assets/js/129.f66df763.js"><link rel="prefetch" href="/blogs/views/assets/js/13.d950da5e.js"><link rel="prefetch" href="/blogs/views/assets/js/130.7ea29fea.js"><link rel="prefetch" href="/blogs/views/assets/js/131.de189a5e.js"><link rel="prefetch" href="/blogs/views/assets/js/132.d600d5c4.js"><link rel="prefetch" href="/blogs/views/assets/js/133.1d6b8ba5.js"><link rel="prefetch" href="/blogs/views/assets/js/134.73c5f9c0.js"><link rel="prefetch" href="/blogs/views/assets/js/135.912824f5.js"><link rel="prefetch" href="/blogs/views/assets/js/136.da698660.js"><link rel="prefetch" href="/blogs/views/assets/js/137.c42f1029.js"><link rel="prefetch" href="/blogs/views/assets/js/14.43d007d9.js"><link rel="prefetch" href="/blogs/views/assets/js/15.70edff59.js"><link rel="prefetch" href="/blogs/views/assets/js/16.a0ce3559.js"><link rel="prefetch" href="/blogs/views/assets/js/17.5242c43f.js"><link rel="prefetch" href="/blogs/views/assets/js/18.095a1fcc.js"><link rel="prefetch" href="/blogs/views/assets/js/19.6dc9344d.js"><link rel="prefetch" href="/blogs/views/assets/js/20.fc4cf913.js"><link rel="prefetch" href="/blogs/views/assets/js/21.c9ef4211.js"><link rel="prefetch" href="/blogs/views/assets/js/22.1ceea7e3.js"><link rel="prefetch" href="/blogs/views/assets/js/23.ec5688ce.js"><link rel="prefetch" href="/blogs/views/assets/js/24.bca53dd6.js"><link rel="prefetch" href="/blogs/views/assets/js/25.cbd65808.js"><link rel="prefetch" href="/blogs/views/assets/js/26.cba6f496.js"><link rel="prefetch" href="/blogs/views/assets/js/27.d1655c1b.js"><link rel="prefetch" href="/blogs/views/assets/js/28.f69b095f.js"><link rel="prefetch" href="/blogs/views/assets/js/29.6bfd1681.js"><link rel="prefetch" href="/blogs/views/assets/js/3.d1743aad.js"><link rel="prefetch" href="/blogs/views/assets/js/30.2eec01bf.js"><link rel="prefetch" href="/blogs/views/assets/js/31.b49798ef.js"><link rel="prefetch" href="/blogs/views/assets/js/32.b8ee9964.js"><link rel="prefetch" href="/blogs/views/assets/js/33.64a02a03.js"><link rel="prefetch" href="/blogs/views/assets/js/34.570b6d90.js"><link rel="prefetch" href="/blogs/views/assets/js/35.cc5ceb8b.js"><link rel="prefetch" href="/blogs/views/assets/js/36.c20fc7da.js"><link rel="prefetch" href="/blogs/views/assets/js/37.1291e5ce.js"><link rel="prefetch" href="/blogs/views/assets/js/38.bce29587.js"><link rel="prefetch" href="/blogs/views/assets/js/39.207e689f.js"><link rel="prefetch" href="/blogs/views/assets/js/4.4e0deb20.js"><link rel="prefetch" href="/blogs/views/assets/js/40.b2b73327.js"><link rel="prefetch" href="/blogs/views/assets/js/41.fc7ad7d8.js"><link rel="prefetch" href="/blogs/views/assets/js/42.77ba1f35.js"><link rel="prefetch" href="/blogs/views/assets/js/43.e5aad06b.js"><link rel="prefetch" href="/blogs/views/assets/js/44.6d83de35.js"><link rel="prefetch" href="/blogs/views/assets/js/45.1f146a52.js"><link rel="prefetch" href="/blogs/views/assets/js/46.e4425787.js"><link rel="prefetch" href="/blogs/views/assets/js/47.02dc3afc.js"><link rel="prefetch" href="/blogs/views/assets/js/48.1c731c4e.js"><link rel="prefetch" href="/blogs/views/assets/js/49.0199c1e1.js"><link rel="prefetch" href="/blogs/views/assets/js/5.cb6f6f39.js"><link rel="prefetch" href="/blogs/views/assets/js/50.7394aa83.js"><link rel="prefetch" href="/blogs/views/assets/js/51.3cf92ffe.js"><link rel="prefetch" href="/blogs/views/assets/js/52.45b34572.js"><link rel="prefetch" href="/blogs/views/assets/js/53.f3c1d76b.js"><link rel="prefetch" href="/blogs/views/assets/js/54.dbb3207e.js"><link rel="prefetch" href="/blogs/views/assets/js/55.b3948a3f.js"><link rel="prefetch" href="/blogs/views/assets/js/56.82a22a24.js"><link rel="prefetch" href="/blogs/views/assets/js/57.07ae9207.js"><link rel="prefetch" href="/blogs/views/assets/js/58.069fe1d4.js"><link rel="prefetch" href="/blogs/views/assets/js/59.69930490.js"><link rel="prefetch" href="/blogs/views/assets/js/6.9b4144c4.js"><link rel="prefetch" href="/blogs/views/assets/js/60.81dee253.js"><link rel="prefetch" href="/blogs/views/assets/js/61.51e4ef0c.js"><link rel="prefetch" href="/blogs/views/assets/js/62.f269f01b.js"><link rel="prefetch" href="/blogs/views/assets/js/63.c654bc9d.js"><link rel="prefetch" href="/blogs/views/assets/js/64.b24feb62.js"><link rel="prefetch" href="/blogs/views/assets/js/65.ffbbf71e.js"><link rel="prefetch" href="/blogs/views/assets/js/66.f06917dc.js"><link rel="prefetch" href="/blogs/views/assets/js/67.609fe34e.js"><link rel="prefetch" href="/blogs/views/assets/js/68.564b416b.js"><link rel="prefetch" href="/blogs/views/assets/js/69.d7cba606.js"><link rel="prefetch" href="/blogs/views/assets/js/7.c25920c0.js"><link rel="prefetch" href="/blogs/views/assets/js/70.89d8e6e5.js"><link rel="prefetch" href="/blogs/views/assets/js/71.9ff16009.js"><link rel="prefetch" href="/blogs/views/assets/js/72.8cb8da3a.js"><link rel="prefetch" href="/blogs/views/assets/js/73.615d7e33.js"><link rel="prefetch" href="/blogs/views/assets/js/74.7c8f83cb.js"><link rel="prefetch" href="/blogs/views/assets/js/75.a15902d7.js"><link rel="prefetch" href="/blogs/views/assets/js/76.9cfe390f.js"><link rel="prefetch" href="/blogs/views/assets/js/77.ad484c5c.js"><link rel="prefetch" href="/blogs/views/assets/js/78.7972b398.js"><link rel="prefetch" href="/blogs/views/assets/js/79.07675494.js"><link rel="prefetch" href="/blogs/views/assets/js/8.433f8ec9.js"><link rel="prefetch" href="/blogs/views/assets/js/80.03f88fe6.js"><link rel="prefetch" href="/blogs/views/assets/js/81.9a163307.js"><link rel="prefetch" href="/blogs/views/assets/js/82.0a64ca47.js"><link rel="prefetch" href="/blogs/views/assets/js/83.856bb787.js"><link rel="prefetch" href="/blogs/views/assets/js/84.cd675f61.js"><link rel="prefetch" href="/blogs/views/assets/js/85.df2fde16.js"><link rel="prefetch" href="/blogs/views/assets/js/86.bc0e0e5f.js"><link rel="prefetch" href="/blogs/views/assets/js/87.7432377d.js"><link rel="prefetch" href="/blogs/views/assets/js/88.f4cb57e9.js"><link rel="prefetch" href="/blogs/views/assets/js/89.06189e2d.js"><link rel="prefetch" href="/blogs/views/assets/js/9.26cb5779.js"><link rel="prefetch" href="/blogs/views/assets/js/90.781c53da.js"><link rel="prefetch" href="/blogs/views/assets/js/91.06d9f469.js"><link rel="prefetch" href="/blogs/views/assets/js/92.7cac2809.js"><link rel="prefetch" href="/blogs/views/assets/js/93.b0243152.js"><link rel="prefetch" href="/blogs/views/assets/js/94.83c3bb3c.js"><link rel="prefetch" href="/blogs/views/assets/js/95.68c3d62e.js"><link rel="prefetch" href="/blogs/views/assets/js/96.bf2d68aa.js"><link rel="prefetch" href="/blogs/views/assets/js/97.66171a91.js"><link rel="prefetch" href="/blogs/views/assets/js/98.281dcad6.js"><link rel="prefetch" href="/blogs/views/assets/js/99.851759fd.js">
+    <link rel="stylesheet" href="/blogs/views/assets/css/0.styles.16aae78f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blogs/views/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blogs/views/" class="nav-link">主页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/views/no.0/js/es6.html" class="nav-link">前端基础</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/javascript-QA/javascriptqa.html" class="nav-link">javaScript与测试工程师</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.1/函数式编程/函数式编程.html" class="nav-link">编程相关</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.2/http.html" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.3/webpack.html" class="nav-link">前端自动化</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.4/前端性能优化.html" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.5/css工作流.html" class="nav-link">css相关</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.6/react/react.html" class="nav-link">框架相关</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.7/计算机组成原理.html" class="nav-link">计算机组成原理</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.8/数据结构与算法.html" class="nav-link">数据结构与算法</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/node/node/node.html" class="nav-link">node相关</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.10/网络安全.html" class="nav-link">网络安全</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/other/git/git命令全集.html" class="nav-link">其他相关</a></li></ul></div></div><div class="nav-item"><a href="/blogs/views/no.1/" class="nav-link">面试</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blogs/views/" class="nav-link">主页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/views/no.0/js/es6.html" class="nav-link">前端基础</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/javascript-QA/javascriptqa.html" class="nav-link">javaScript与测试工程师</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.1/函数式编程/函数式编程.html" class="nav-link">编程相关</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.2/http.html" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.3/webpack.html" class="nav-link">前端自动化</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.4/前端性能优化.html" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.5/css工作流.html" class="nav-link">css相关</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.6/react/react.html" class="nav-link">框架相关</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.7/计算机组成原理.html" class="nav-link">计算机组成原理</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.8/数据结构与算法.html" class="nav-link">数据结构与算法</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/node/node/node.html" class="nav-link">node相关</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/no.10/网络安全.html" class="nav-link">网络安全</a></li><li class="dropdown-item"><!----> <a href="/blogs/views/other/git/git命令全集.html" class="nav-link">其他相关</a></li></ul></div></div><div class="nav-item"><a href="/blogs/views/no.1/" class="nav-link">面试</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blogs/views/no.8/常见去重.html" class="active sidebar-link">常见js去重</a></li><li><a href="/blogs/views/no.8/常见排序.html" class="sidebar-link">10大经典排序算法</a></li><li><a href="/blogs/views/no.8/数据结构与算法.html" class="sidebar-link">数据结构与算法</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="常见js去重"><a href="#常见js去重" aria-hidden="true" class="header-anchor">#</a> 常见js去重</h1> <blockquote><p>1.遍历数组法
+它是最简单的数组去重方法（indexOf方法）</p></blockquote> <p>实现思路：新建一个数组，遍历去要重的数组，当值不在新数组的时候（indexOf为-1）就加入该新数组中；</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function indexOfUniq(arr){
+   var newarr = [];
+   for(var i=0;i&lt;arr.length;i++){
+        if(newarr.indexOf(arr[i])==-1){
+           newarr.push(arr[i])
+        }
+   }
+   return newarr
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><blockquote><p>2.数组下标判断法</p></blockquote> <p>调用indexOf方法，性能和方法1差不多</p> <p>实现思路：如果当前数组的第 i 项在当前数组中第一次出现的位置不是 i，那么表示第 i 项是重复的，忽略掉。否则存入结果数组。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function indexOfUniq2(arr){
+  var hash=[];
+  for (var i = 0; i &lt; arr.length; i++) {
+     if(arr.indexOf(arr[i])==i){
+      hash.push(arr[i]);
+     }
+  }
+  return hash;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><blockquote><p>3.排序后相邻去除法
+实现思路：给传入的数组排序，排序后相同的值会相邻，然后遍历排序后数组时，新数组只加入不与前一值重复的值。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>function unique3(arr){
+  arr.sort();
+  var hash=[arr[0]];
+  for (var i = 1; i &lt; arr.length; i++) {
+     if(arr[i]!=hash[hash.length-1]){
+      hash.push(arr[i]);
+     }
+  }
+  return hash;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><blockquote><p>4.优化遍历数组法（推荐）</p></blockquote> <p>实现思路：双层循环，外循环表示从0到arr.length，内循环表示从i+1到arr.length</p> <p>将没重复的右边值放入新数组。（检测到有重复值时终止当前循环同时进入外层循环的下一轮判断）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function unique(quan_lst){    
+    // d对象去重   
+//去掉重复选取的数据
+    for (var i = 0; i &lt; quan_lst.length; i++) {
+        for (var j =i+1; j &lt;quan_lst.length; ) {
+            if (quan_lst[i].photoid == quan_lst[j].photoid ) {//通过photoid属性进行匹配；
+                quan_lst.splice(j, 1);//去除重复的对象；
+            }else {
+                j++;
+            }
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><blockquote><p>5.通过hash去重</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>function hashUniq(arr){
+    var hashTable = arr.reduce((result,cur,index,arr)=&gt;{
+        result[cur] = true
+        return result;
+    },{})
+    return Object.keys(hashTable).map(item =&gt; parseInt(item, 10));
+}
+
+笨方法：
+function hashUniq1(arr){
+   var obj = {},newarr = []
+   for(var i = 0;i&lt;arr.length;i++){
+       obj[arr[i]] = arr[i]
+   }
+   var keys = Object.keys(obj);
+   keys.map(ele=&gt;{
+       newarr.push(obj[ele])
+   })
+   return newarr
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><blockquote><p>6.splice 去重（直接操作数组本身，带副作用）</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>function inPlaceUniq(arr) {
+  let idx = 0;
+  while (idx &lt; arr.length) {
+    let compare = idx + 1;
+    while (compare &lt; arr.length) {
+      if (arr[idx] == arr[compare]) {
+        arr.splice(compare, 1);
+        continue;
+      }
+      ++compare
+    }
+    ++idx;
+  }
+  return arr;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><blockquote><p>7.ES6去重</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>function toSetUniq(arr) {
+  return Array.from(new Set(arr));
+}
+function toSetUniq1(arr) {
+  return Array.from(new Set(arr));
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>最后在nodejs下面简单跑个测试，看看哪个效率高~</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let data = [];
+for (var i = 0; i &lt; 100000; i++) {
+  data.push(Math.random())
+}
+
+// 实现一个性能测试的装饰器
+function performanceTest(fn, descript) {
+  var a = new Date().getTime();
+  return function () {
+    fn.apply(this, [].slice.call(arguments, 0));
+    console.log(descript, new Date().getTime() - a)
+  }
+}
+
+performanceTest(indexOfUniq, &quot;indexOfUniq&quot;)(data)
+performanceTest(indexOfUniq2, &quot;indexOfUniq2&quot;)(data)
+performanceTest(unique3, &quot;unique3&quot;)(data)
+performanceTest(unique, &quot;unique&quot;)(data)
+performanceTest(hashUniq, &quot;hashUniq&quot;)(data)
+performanceTest(hashUniq1, &quot;hashUniq1&quot;)(data)
+performanceTest(inPlaceUniq, &quot;inPlaceUniq&quot;)(data)
+performanceTest(toSetUniq, &quot;toSetUniq&quot;)(data)
+performanceTest(toSetUniq1, &quot;toSetUniq1&quot;)(data)
+
+
+indexOfUniq 3422ms
+indexOfUniq2 3457ms
+unique3 277ms
+unique 4451ms
+hashUniq 168ms
+hashUniq1 200ms
+inPlaceUniq 9977ms
+toSetUniq 32ms
+toSetUniq1 39ms
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><p>事实证明当数据庞大的时候set去重为最优解 数据量小的时候hash去重比较适合</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">10/1/2019, 3:39:48 PM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/blogs/views/no.8/常见排序.html">
+          10大经典排序算法
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blogs/views/assets/js/app.a993323a.js" defer></script><script src="/blogs/views/assets/js/2.d340cefd.js" defer></script><script src="/blogs/views/assets/js/101.ee8733af.js" defer></script>
+  </body>
+</html>

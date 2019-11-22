@@ -25,12 +25,12 @@
 最浅显易懂的话：**数据变化更新视图，视图变化更新数据**
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/vue-数据双向绑定.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/vue-数据双向绑定.png)</a>
 
-也就是说
+也就是说   
 
 - 输入框内容变化时，data 中的数据同步变化。即 view => model 的变化。
 - data 中的数据变化时，文本节点的内容同步变化。即 model => view 的变化。
 
-要想实现这来个过程，关键点在于数据变化如何更新视图，因为视图变化更新数据我们可以通过事件监听的方式来实现。所以我们着重来讨论一下数据变化如何更新的视图。
+要想实现这来个过程，关键点在于数据变化如何更新视图，因为视图变化更新数据我们可以通过事件监听的方式来实现。所以我们着重来讨论一下数据变化如何更新的视图。   
 
 数据更新视图的关键点在于我们如何知道数据发生了变化，只要知道数据在什么时候变了，那么问题就变得迎刃而解了，我们只需要在数据变化的时候去通知视图更新即可。
 
@@ -367,6 +367,28 @@ p.a // -> Get 'a' = 2`
 ```
 
 <a data-fancybox title="Vue源码详细解析" href="https://segmentfault.com/a/1190000008500946">![Vue源码详细解析](https://segmentfault.com/a/1190000008500946)</a>
+=======
+[Vue源码详细解析](https://segmentfault.com/a/1190000008500946)
+
+
+## DOM diff算法
+
+>（1）为什么有diff算法：
+
+diff算法用来修改一小段dom，不会引起dom树的重绘
+>（2）diff算法实现原理：
+
+diff算法将virtual dom的某个节点数据改变后生成的新的vnode与旧的节点比较，并替换为新的node
+diff的过程就是调用名为patch的函数，比较新旧节点，一边比较一边给真实的DOM打补丁。
+>（3）过程：
+
+当数据发生改变时，set方法会让调用Dep.notify通知所有订阅者Watcher，订阅者就会调用patch给真实的DOM打补丁，更新相应的视图。
+参考链接：https://www.cnblogs.com/wind-lanyan/p/9061684.html
+
+2.vue虚拟dom
+
+ vdom完全是用js去实现，和宿主浏览器没有任何联系，此外得益于js的执行速度，将原本需要在真实dom进行的创建节点,删除节点,添加节点等一系列复杂的dom操作全部放到vdom中进行，这样就通过操作vdom来提高直接操作的dom的效率和性能。
+
 <!-- ## Vue对Domdiff的优化方案 -->
 
 <!-- 
