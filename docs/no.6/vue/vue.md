@@ -366,6 +366,8 @@ p.a = 2 // bind `value` to `2`
 p.a // -> Get 'a' = 2`
 ```
 
+<a data-fancybox title="Vue源码详细解析" href="https://segmentfault.com/a/1190000008500946">![Vue源码详细解析](https://segmentfault.com/a/1190000008500946)</a>
+=======
 [Vue源码详细解析](https://segmentfault.com/a/1190000008500946)
 
 
@@ -386,6 +388,7 @@ diff的过程就是调用名为patch的函数，比较新旧节点，一边比�
 2.vue虚拟dom
 
  vdom完全是用js去实现，和宿主浏览器没有任何联系，此外得益于js的执行速度，将原本需要在真实dom进行的创建节点,删除节点,添加节点等一系列复杂的dom操作全部放到vdom中进行，这样就通过操作vdom来提高直接操作的dom的效率和性能。
+
 <!-- ## Vue对Domdiff的优化方案 -->
 
 <!-- 
