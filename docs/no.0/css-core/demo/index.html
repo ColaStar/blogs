@@ -6,82 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="./index.css"> -->
 </head>
-<style>
-    *{
-        margin: 0;
-        padding: 0
-    }
-    /* 圣杯 */
-    /* #bd{
-        padding:0 180px 0 200px;
-    }
-    */
-    #bd div {
-        height: 200px
-    }
-/**
-    .middle {
-        width: 100%;
-        background: red
-    }
-    .left {
-        background: yellowgreen;
-        width: 200px;
-        margin-left: -100%;
-        position:relative;
-        left:-200px;
-    }
-    .right {
-        width: 180px;
-        background: yellow;
-        position:relative;
-        right:-180px;
-        margin-left: -180px
-    }
-
-    .middle,
-    .right,
-    .left {
-        float: left;
-    } */
-    /* 双飞翼 */
-    .middle,
-    .right,
-    .left {
-        float: left;
-    } 
-    .middle {
-        width: 100%;
-        background: red
-    }
-    .left {
-        background: yellowgreen;
-        width: 200px;
-        margin-left:-100%;
-    }
-    .right {
-        width: 180px;
-        margin-left:-180px;
-        background: yellow;
-    }
-    .inst{
-    margin:0 180px 0 200px;
-}
-</style>
 
 <body>
-    <!-- <h1>css2圣杯布局</h1> -->
-    <div id="bd">
-        <div class="middle">
-            <div class="inst">middle</div>
-        </div>
-        <div class="right">right</div>
+    <!-- 圣杯布局
+    <div class="main">
+        <div class="center">center</div>
         <div class="left">left</div>
+        <div class="right">right</div>
+    </div> -->
+    <!-- 双飞翼布局 -->
+    <div class="main1">
+        <div class="center1">
+            <div class="center2">
+                center
+            </div>
+        </div>
+        <div class="left">left</div>
+        <div class="right">right</div>
     </div>
-    <!-- <h1>css2双飞翼布局</h1>
-    <h1>flex布局</h1> -->
 </body>
 
 </html>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .main1 {
+        overflow: hidden;
+    }
+
+    .left,
+    .right,
+    .center1 {
+        position: relative;
+        float: left;
+        height: 100px;
+    }
+
+    .center1{
+        width: 100%;
+    }
+
+    .left {
+        width: 200px;
+        margin-left: -100%;
+    }
+
+    .right {
+        width: 200px;
+        margin-left: -200px;
+    }
+    .center2{
+        margin:0 200px;
+        height: 100%;
+        overflow: hidden;
+    }
+    /* .main{
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    padding: 0 200px;
+}
+.left,.right,.center{
+    position:relative;
+    float: left;
+    height: 100px;
+}
+.left{
+    width: 200px;
+    background: yellow;
+    margin-left: -100%;
+    left:-200px
+}
+.right{
+    width: 200px;
+    background: red;
+    margin-left: -200px;
+    right:-200px
+}
+.center{
+    width: 100%;
+    background: yellowgreen;
+} */
+</style>
