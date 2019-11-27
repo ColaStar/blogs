@@ -320,7 +320,7 @@ HTTP协议在TCP/IP协议栈的应用层，他依赖TCP，属于应用层协议
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/HTTP协议在TCP位置.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/HTTP协议在TCP位置.png)</a>
 
 > 七层协议神图
-
+    
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/网络分层图1.gif">![](https://raw.githubusercontent.com/ColaStar/static/master/images/网络分层图1.gif)</a>
 
 > 四层协议神图
