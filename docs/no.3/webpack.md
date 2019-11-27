@@ -669,9 +669,26 @@ module.exports = {
 
 >  Devtool
 
+
 需要注意在不同的`devtool`的设置，会导致不同的性能差异。
 
-- `eval`具有最好的性能，但不能帮你转义代码
+source-map 对于开发调试，打包速度还是影响很大的
+
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/source-map配置图.jpeg">![](https://raw.githubusercontent.com/ColaStar/static/master/images/source-map配置图.jpeg)</a>
+
+- `eval`具有最好的性能，但不能帮你转义代码,可以提升一个打包速度,会dist 目录下创建 .map 文件
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/source-map-eval.jpeg">![](https://raw.githubusercontent.com/ColaStar/static/master/images/source-map-eval.jpeg)</a>
+
+- `inline` 不产生独立的 .map 文件，而把 source-map 的内容以 dataURI的方式追加到 bundle 件末尾
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/source-map-inile.jpeg">![](https://raw.githubusercontent.com/ColaStar/static/master/images/source-map-inile.jpeg)</a>
+- `cheap`忽略列信息,也就是出了问题只能定位到某一行，不能定位到这行的哪一列， cheap 主要是为了提升打包速度，很好理解嘛，只关注行，不关注列，生成map的速度肯定快啊~~
+- `module` module 的作用是 map 到 loader 处理前的文件，如果不加 module, 实际上是 map 到源文件经过对应 loader 处理后的样子。这个需要 loader 的支持
+- `hidden-source-map`:就是不在 bundle 文件结尾处追加 sourceURL 指定其 sourcemap文件的位置，但是仍然会生成 sourcemap 文件。这样，浏览器开发者工具就无法应用sourcemap, 目的是避免把sourcemap文件发布到生产环境，造成源码泄露。而在生产环境应该用错误报告工具结合 sourcemap 文件来查找问题
+- `nosources-source-map`：sourcemap 中不带有源码，这样，`sourcemap `可以部署到生产环境而不会造成源码泄露，同时一旦出了问题，`error stacks` 中会显示准确的错误信息，比如发生在哪个源文件的哪一行，如图：
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/nosources-source-map.jpeg">![](https://raw.githubusercontent.com/ColaStar/static/master/images/nosources-source-map.jpeg)</a>
+
+
+
 - 如果你能接受稍微差一些的`mapping`质量，你可以使用`cheap-source-map`选择来提高性能
 - 使用`eval-source-map`配置进行增量编译 
 
@@ -1032,6 +1049,537 @@ const { bar } = __webpack__require__('./bar.js')
 `Template` 基础类:[lib/Template.js](https://github.com/webpack/webpack/blob/master/lib/Template.js)
 常用的主要 `Template` 类:[lib/MainTemplate.js](https://github.com/webpack/webpack/blob/master/lib/MainTemplate.js)
 
+
+## 源码分析webpack执行流程
+
+> 执行过程
+<a data-fancybox title="" href="webpack-cli执行流程源码.jpg">![](webpack-cli执行流程源码.jpg)</a>
+
+- 1.webpack.config.js,shell options参数解析
+- 2.new webpack(options)
+- 3.run() 编译的入口方法
+- 4.compile() 触发make事件
+- 5.addEntry() 找到js文件，进行下一步模块绑定
+- 6._addModuleChain() 解析js入口文件，创建模块
+- 7.buildModule() 编译模块，loader处理与acorn处理AST语法树
+- 8.seal() 每一个chunk对应一个入口文件
+- 9.createChunkAssets() 生成资源文件
+- 10.MainTemplate.render() __webpack__require()引入
+- 11.ModuleTemplate.render() 生成模版
+- 12.module.source() 将生成好的js保存在compilation.assets中
+- 13.Compiler.emitAssets()通过emitAssets将最终的js输出到output的path中
+
+> 1.参数解析
+
+```
+(function(){
+    yargs.options({...})
+    
+    yargs.parse(process.argv.slice(2), (err, argv, output) => {...})
+})()
+```
+
+> 加载webpack.config.js
+
+```
+(function(){
+    ...
+    yargs.parse(process.argv.slice(2), (err, argv, output) => {
+        ...
+        //解析argv，拿到配置文件参数
+       let options =  require("./convert-argv")(argv);
+       function processOptions(options){
+           ...
+       } 
+        
+       processOptions(options);
+    })
+})()
+```
+> 执行webpack()
+
+```
+(function(){
+    ...
+    yargs.parse(process.argv.slice(2), (err, argv, output) => {
+        ...
+        //解析argv，拿到配置文件参数
+       let options =  require("./convert-argv")(argv);
+       function processOptions(options){
+           ...
+           const webpack = require("webpack");
+           compiler = webpack(options);   
+       } 
+        
+       processOptions(options);
+    })
+})()
+```
+> webpack.js
+
+```
+const webpack = (options, callback) => {
+    
+    //验证webpack.config.js合法性
+    const webpackOptionsValidationErrors = validateSchema(
+        webpackOptionsSchema,
+        options
+    );
+    
+    /*
+        [
+          { entry: './index1.js', output: { filename: 'bundle1.js' } },
+          { entry: './index2.js', output: { filename: 'bundle2.js' } }
+        ]
+    */
+    if (Array.isArray(options)) {
+        compiler = new MultiCompiler(options.map(options => webpack(options)));
+    } else if(typeof options === "object"){
+        ...
+        //创建一个comiler对象
+        compiler = new Compiler(options.context);
+        
+        //往comiler中注册插件
+        new NodeEnvironmentPlugin().apply(compiler);
+        
+        //执行config中配置的插件
+        if (options.plugins && Array.isArray(options.plugins)) {
+            for (const plugin of options.plugins) {
+                if (typeof plugin === "function") {
+                    plugin.call(compiler, compiler);
+                } else {
+                    plugin.apply(compiler);
+                }
+            }
+        }
+        
+        //执行插件environment生命周期钩子方法
+        compiler.hooks.environment.call();
+        compiler.hooks.afterEnvironment.call();
+        //执行webpack内置插件
+        compiler.options = new
+        WebpackOptionsApply().process(options, compiler);
+    }else {
+        throw new Error("Invalid argument: options");
+    }
+    
+    if (callback) {
+        ...
+        //调用compiler.run开始编译
+        compiler.run(callback);
+    }
+    //将compiler对象返回
+    return compiler
+}
+```
+
+```
+//NodeEnvironmentPlugin.js
+class NodeEnvironmentPlugin {
+    apply(compiler) {
+        ...
+        compiler.hooks.beforeRun.tap("NodeEnvironmentPlugin", compiler => {
+            if (compiler.inputFileSystem === inputFileSystem) inputFileSystem.purge();
+        });
+    }
+}
+module.exports = NodeEnvironmentPlugin;
+```
+
+```
+class WebpackOptionsApply extends OptionsApply {
+    constructor() {
+        super();
+    }
+    process(options, compiler) {
+        //挂载配置，执行插件
+        let ExternalsPlugin;
+        compiler.outputPath = options.output.path;
+        compiler.recordsInputPath = options.recordsInputPath || options.recordsPath;
+        compiler.recordsOutputPath =
+            options.recordsOutputPath || options.recordsPath;
+        compiler.name = options.name;
+        
+        new EntryOptionPlugin().apply(compiler);
+        new HarmonyModulesPlugin(options.module).apply(compiler);
+        new LoaderPlugin().apply(compiler);
+        ...
+    }
+}
+
+module.exports = WebpackOptionsApply;
+```
+
+> compiler.run() 开始编译
+```
+class Compiler extends Tapable{
+    constructor(context){
+        ...
+    }
+    watch(){...}
+    run(callback){
+        ...
+        const onCompiled = (err, compilation){
+            ...
+        } 
+        //执行生命周期钩子
+        this.hooks.beforeRun.callAsync(this, err => {
+              ...
+            this.hooks.run.callAsync(this, err =>{
+                this.readRecords(err =>{
+                    ...
+                    //开始编译
+                    this.compile(onCompiled);
+                })
+            }
+        }
+    }
+    compile(callback) {
+        //拿到参数
+        const params = this.newCompilationParams();
+        //执行编译前钩子
+        this.hooks.beforeCompile.callAsync(params, err => {
+            ...
+            
+            //创建compilation对象
+            const compilation = this.newCompilation(params);
+            
+            //开始构建模块对象
+            this.hooks.make.callAsync(compilation, err =>{
+                
+            })
+        }
+    }
+    createCompilation() {
+        //创建comilation对象
+        return new Compilation(this);
+    }
+    newCompilation(params) {
+        //调用创建compilation对象方法
+        const compilation = this.createCompilation();
+    }
+}
+
+module.exports = Compiler;
+```
+> 创建 Compilation()
+
+```
+class Compilation extends Tapable {
+    constructor(compiler) {
+        super();
+        ...
+        //初始化配置
+        this.compiler = compiler;
+        this.resolverFactory = compiler.resolverFactory;
+        this.inputFileSystem = compiler.inputFileSystem;
+        this.requestShortener = compiler.requestShortener;
+        
+        //初始化模版
+        this.mainTemplate = new MainTemplate(this.outputOptions);
+        this.chunkTemplate = new ChunkTemplate(this.outputOptions);
+        this.hotUpdateChunkTemplate = new HotUpdateChunkTemplate(
+            this.outputOptions
+        );
+    }
+}
+```
+```
+class MainTemplate extends Tapable {
+    this.hooks.requireExtensions.tap("MainTemplate", (source, chunk, hash) => {
+            const buf = [];
+            const chunkMaps = chunk.getChunkMaps();
+            // Check if there are non initial chunks which need to be imported using require-ensure
+            if (Object.keys(chunkMaps.hash).length) {
+                buf.push("// This file contains only the entry chunk.");
+                buf.push("// The chunk loading function for additional chunks");
+                buf.push(`${this.requireFn}.e = function requireEnsure(chunkId) {`);
+                buf.push(Template.indent("var promises = [];"));
+                buf.push(
+                    Template.indent(
+                        this.hooks.requireEnsure.call("", chunk, hash, "chunkId")
+                    )
+                );
+                buf.push(Template.indent("return Promise.all(promises);"));
+                buf.push("};");
+            } else if (
+                chunk.hasModuleInGraph(m =>
+                    m.blocks.some(b => b.chunkGroup && b.chunkGroup.chunks.length > 0)
+                )
+            ) {
+                // There async blocks in the graph, so we need to add an empty requireEnsure
+                // function anyway. This can happen with multiple entrypoints.
+                buf.push("// The chunk loading function for additional chunks");
+                buf.push("// Since all referenced chunks are already included");
+                buf.push("// in this file, this function is empty here.");
+                buf.push(`${this.requireFn}.e = function requireEnsure() {`);
+                buf.push(Template.indent("return Promise.resolve();"));
+                buf.push("};");
+            }
+            buf.push("");
+            buf.push("// expose the modules object (__webpack_modules__)");
+            buf.push(`${this.requireFn}.m = modules;`);
+
+            buf.push("");
+            buf.push("// expose the module cache");
+            buf.push(`${this.requireFn}.c = installedModules;`);
+
+            buf.push("");
+            buf.push("// define getter function for harmony exports");
+            buf.push(`${this.requireFn}.d = function(exports, name, getter) {`);
+            buf.push(
+                Template.indent([
+                    `if(!${this.requireFn}.o(exports, name)) {`,
+                    Template.indent([
+                        "Object.defineProperty(exports, name, { enumerable: true, get: getter });"
+                    ]),
+                    "}"
+                ])
+            );
+            buf.push("};");
+
+            buf.push("");
+            buf.push("// define __esModule on exports");
+            buf.push(`${this.requireFn}.r = function(exports) {`);
+            buf.push(
+                Template.indent([
+                    "if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {",
+                    Template.indent([
+                        "Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });"
+                    ]),
+                    "}",
+                    "Object.defineProperty(exports, '__esModule', { value: true });"
+                ])
+            );
+            buf.push("};");
+
+            buf.push("");
+            buf.push("// create a fake namespace object");
+            buf.push("// mode & 1: value is a module id, require it");
+            buf.push("// mode & 2: merge all properties of value into the ns");
+            buf.push("// mode & 4: return value when already ns object");
+            buf.push("// mode & 8|1: behave like require");
+            buf.push(`${this.requireFn}.t = function(value, mode) {`);
+            buf.push(
+                Template.indent([
+                    `if(mode & 1) value = ${this.requireFn}(value);`,
+                    `if(mode & 8) return value;`,
+                    "if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;",
+                    "var ns = Object.create(null);",
+                    `${this.requireFn}.r(ns);`,
+                    "Object.defineProperty(ns, 'default', { enumerable: true, value: value });",
+                    "if(mode & 2 && typeof value != 'string') for(var key in value) " +
+                        `${this.requireFn}.d(ns, key, function(key) { ` +
+                        "return value[key]; " +
+                        "}.bind(null, key));",
+                    "return ns;"
+                ])
+            );
+            buf.push("};");
+
+            buf.push("");
+            buf.push(
+                "// getDefaultExport function for compatibility with non-harmony modules"
+            );
+            buf.push(this.requireFn + ".n = function(module) {");
+            buf.push(
+                Template.indent([
+                    "var getter = module && module.__esModule ?",
+                    Template.indent([
+                        "function getDefault() { return module['default']; } :",
+                        "function getModuleExports() { return module; };"
+                    ]),
+                    `${this.requireFn}.d(getter, 'a', getter);`,
+                    "return getter;"
+                ])
+            );
+            buf.push("};");
+
+            buf.push("");
+            buf.push("// Object.prototype.hasOwnProperty.call");
+            buf.push(
+                `${
+                    this.requireFn
+                }.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };`
+            );
+
+            const publicPath = this.getPublicPath({
+                hash: hash
+            });
+            buf.push("");
+            buf.push("// __webpack_public_path__");
+            buf.push(`${this.requireFn}.p = ${JSON.stringify(publicPath)};`);
+            return Template.asString(buf);
+        });
+}
+```
+> make开始构建
+
+```
+//开始构建模块对象
+this.hooks.make.callAsync(compilation, err =>{
+                
+})
+```
+```
+//SingleEntryPlugin 监听make
+class SingleEntryPlugin {
+    apply(compiler) {
+        compiler.hooks.make.tapAsync(
+            "SingleEntryPlugin",
+            (compilation, callback) => {
+                const { entry, name, context } = this;
+                
+                //创建依赖
+                const dep = SingleEntryPlugin.createDependency(entry, name);
+                //添加入口文件
+                compilation.addEntry(context, dep, name, callback);
+            }
+        );
+    }
+}
+```
+```
+//Compilation.js
+class Compilation extends Tapable {
+    addEntry(context, entry, name, callback) {
+        ...
+            this._addModuleChain(
+            context,
+            entry,
+            module => {
+                this.entries.push(module);
+            },
+            (err, module) => {
+            ...
+            }
+        );
+    }
+    _addModuleChain(context, dependency, onModule, callback) {
+        ...
+        //获取模块工厂
+        const moduleFactory = this.dependencyFactories.get(Dep);
+        
+        this.semaphore.acquire(() => {
+            ...
+            //创建模块
+            moduleFactory.create(
+                {
+                    contextInfo: {
+                        issuer: "",
+                        compiler: this.compiler.name
+                    },
+                    context: context,
+                    dependencies: [dependency]
+                },...)
+        }
+    }
+}
+```
+
+```
+class NormalModuleFactory extends Tapable {
+    ...
+    create(data, callback) {
+        ...
+        this.buildModule(module, false, null, null, err => {
+        }
+    }
+    buildModule(module, optional, origin, dependencies, thisCallback) {
+        ...
+        //开始编译
+        module.build(
+            this.options,
+            this,
+            this.resolverFactory.get("normal", module.resolveOptions),
+            this.inputFileSystem,...)
+    }
+}
+```
+```
+//NodmalModule
+doBuild(options, compilation, resolver, fs, callback) {
+        const loaderContext = this.createLoaderContext(
+            resolver,
+            options,
+            compilation,
+            fs
+        );
+        ...
+        //开始运行loader
+        runLoaders(
+            {
+                resource: this.resource,
+                loaders: this.loaders,
+                context: loaderContext,
+                readResource: fs.readFile.bind(fs)
+            },
+            (err, result) => {
+            
+            );
+         )  }
+```
+
+总结
+
+> 初始化阶段
+
+|事件名|解释|代码位置|
+|:--:|:--:|:--:|
+|读取命令行参数|从命令行中读取用户输入的参数|require('./convert-argv')(argv)|
+|实例化Compiler|1.用上一步得到的参数初始化Compiler实例 2.Compiler负责文件监听和启动编译3.Compiler实例中包含了完整的Webpack配置（所有的），全局只有一个Compiler实例|compiler = webpack(options)|
+|加载插件|1.依次调用插件的apply方法，让插件可以监听后续的所有事件节点，同时给插件传入Compiler实例的引用，以方便插件通过compiler调用webpack提供的API|plugin.apply(compiler)|
+|处理入口|读取配置的Entry,为每个Entry实例化一个对应的EntryPlugin,为后面该Entry的递归解析工作做准备|new EntryOptionsPlugin() new SingleEntryPlugin(context,item,name) compiler.hooks.make.tapAsync|
+
+> 编译阶段
+
+|事件名|解释|代码位置|
+|:--:|:--:|:--:|
+|run|启动一次新的编译|	this.hooks.run.callAsync|
+|compile|该事件是为了告诉插件一次新的编译将要启动，同时会给插件传入compiler对象|compiler(callback)|
+|compilation|当webpack以开发模式运行时，每当监测到文件变化，一次新的，Compilation将被创建一个Compilation对象包含了当前的模块资源，编译生成资源，变化的文件，Compilation对象也提供了很多事件回调供插件扩展|newCompilation(params)|
+|make|一个新的Compilation创建完毕开始编译|this.hooks.make.callAsync|
+|addEntry|即将从Entry开始读取文件|compilation.addEntry this._addModuleChain|
+|moduleFactory|创建模块工厂|const moduleFactory = this.dependencyFactories.get(Dep)|
+|create|开始创建模块|factory(result,(err,module) this.hooks.resolver.tap("NormalModule")|
+|resolveRequestArray|解析loader路径|	resolveRequestArray|
+|resolve|解析资源路径|resolve|
+|userRequest|得到包括loader在内的资源文件的绝对路径用！拼起来的字符串|userRequest|
+|ruleSet.exec|它可以根据模块路径名，匹配出模块所需的loader|	this.ruleSet.exec|
+|_run|它可以根据模块路径名，匹配出模块所需的loader|_run|
+|loaders|得到所有的loader数组|results[0].concat(loaders,results[1],results[2])|
+|getParser|获取AST解析器|	this.getParser(type,setting.parser)|
+|buildModule|开始编译模块|thislbuildModule(module) buildModule(module,optional,origin,dependencies,thisCallback)|
+|build->doBuild|	开始编译|build->doBuild|
+|loader|	使用loader进行转换|runLoaders|
+|iteratePitchingLoaders|开始递归执行pitchloader|	iteratePitchingLoaders|
+|loadLoader|加载loader|loadLoader|
+|runSyncOrAsync|执行loader|runSyncOrAsync|
+|processResource|开始处理资源|	processResource options.readResource iterateNormalLoaders|
+|createSource|创建源码对象|this.createSource|
+|parse|使用parser转换抽象语法树以及抽象语法树|	this.parser.parse/parse(source,initialState)|
+|acorn.parse|	继续抽象ast语法树|acorn.parse(code,parserOptions)|
+|ImportDependency|遍历添加依赖|parser.state.module.addDependency|
+|succeedModule|生成语法树后就表示一个模块编译完成|this.hooks.successdModule.call(module)|
+|processModuleDependencies|递归编译依赖模块|his.processModuleDependencies|
+|make后|结束make，也就是一个compilation编译结束|this.hooks.make.callAsync|
+|finish|编译完成|	compilation.finishi()|
+> 结束阶段
+|事件名|解释|代码位置|
+|:--:|:--:|:--:|
+|seal|封装|compilation.seal|
+|addChunk|生成资源|	addChunk(name)|
+|createChunkAssets|创建资源|this.createChunkAssets()|
+|getRenderManifest|获取要渲染的描述文件|getRenderManifest(options)|
+|render|渲染源码|source = fileManifest.render()|
+|afterCompile|编译结束|this.hooks.afterCompile|
+|shouldemit|所有属性输出的文件已经生成好，询问插件哪些文件需要输出，哪些不需要|this.hooks.shouldEmit|
+|emit|确定后要输出哪些文件后，执行文件输出，可以在这里获取和修改输出内容|this.emitAssets(compilation,this.hooks.emit.callAsync) const emitFiles = err this.outputFileSystem.writeFile|
+|this.emitRecords|写入记录|this.emitRecords|
+|done|全部完成|this.hooks.done.callAsync|
+
+
 最后就是尝试给babel写个插件(https://github.com/jamiebuilds/babel-handbook/)
+
 webpack的1版本和2版本都以及过时了,为了遇到一些老得项目时可用
 后期补webpack1 2 3 4 的不同

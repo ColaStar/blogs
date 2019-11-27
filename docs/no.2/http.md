@@ -302,9 +302,10 @@ CPU根据渲染树布局计算元素的具体位置和大小，转换成绝对�
 - 3. 网络层
     - 主要解决主机到主机的通信问题。IP协议是网际互联层最重要的协议。
 - 4. 网络接口层
-    - 负责监视数据在主机和网络之间的交换（）
+    - 负责监视数据在主机和网络之间的交换
 
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/TCP-IP协议栈.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/TCP-IP协议栈.png)</a>
+
 
 ### 在TCP/IP协议栈中的位置
 
@@ -318,6 +319,14 @@ HTTP协议在TCP/IP协议栈的应用层，他依赖TCP，属于应用层协议
 
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/HTTP协议在TCP位置.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/HTTP协议在TCP位置.png)</a>
 
+> 七层协议神图
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/网络分层图1.gif">![](https://raw.githubusercontent.com/ColaStar/static/master/images/网络分层图1.gif)</a>
+
+> 四层协议神图
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/网络分层4层详解.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/网络分层4层详解.png)</a>
+
+也有说5层的 也就是说应用层-传输层-网络层-数据链路层-物理层
+
 ### TCP与UDP的区别
 
 #### TCP
@@ -326,7 +335,7 @@ TCP是进程与进程之间的通信，是基于字节流的，全双工的可�
 
 > TCP首部
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/TCP首部.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/TCP首部.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/TCP首部.png)</a>
 
 - 1、源端口/目地端口：各16位，标识应用程序的端口号，取值范围：0~65535。
 
@@ -367,7 +376,7 @@ TCP是进程与进程之间的通信，是基于字节流的，全双工的可�
 用户数据报协议。和tcp不同的地方在于它不怎么去管理传输，只是快速的交付。
 
 UDP没有TCP的握手、确认、窗口、重传、拥塞控制等机制，UDP是一个无状态的传输协议，所以它在传递数据时非常快。没有TCP的这些机制，UDP较TCP被攻击者利用的漏洞就要少一些。但UDP也是无法避免攻击的。
-![](udp.png)
+<a data-fancybox title="" href="udp.png">![](udp.png)</a>
 
 - 源端口：源端口号。在需要对方回信时选用。不需要时可用全0。
 
@@ -726,7 +735,7 @@ Cache-Control 是最重要的规则。常见的取值有private、public、no-ca
 
 **Last-Modified：**服务器在响应请求时，告诉浏览器资源的最后修改时间。
 
-![](https://raw.githubusercontent.com/ColaStar/static/master/images/Last-Modified.png)
+<a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/Last-Modified.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/Last-Modified.png)</a>
 
 
 **If-Modified-Since：**
