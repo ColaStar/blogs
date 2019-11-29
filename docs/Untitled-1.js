@@ -246,70 +246,85 @@
 // console.log(feibonaqie2(6))
 // console.log(feibonaqie3(6))
 
-var arr = [2, 3, 5, 6, 7, 8, 7, 6, 5, 4, 3, 4, 5, 6, 7, 8, 4, 3, 5, 6, 7]
-// 冒泡
-function sort(arr) {
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = 0; j < arr.length; j++) {
-            if (arr[j] > arr[j + 1]) {
-                var temp = arr[j];
-                arr[j] = arr[j + 1]
-                arr[j + 1] = temp
-            }
-        }
-    }
-    return arr
-}
-//选择排序找出最小的值
-function sort2(arr) {
-    for (var i = 0; i < arr.length; i++) {
-    var minIndex=i;
-        for (var j = i+1; j < arr.length; j++) {
-              if(arr[j] < arr[minIndex]){
-                minIndex = j
-              }
-        }
-        var temp = arr[i]
-        arr[i] = arr[minIndex];
-        arr[minIndex] = temp
-    }
-    return arr
-}
-//插入排序
-function sort3(arr){
-    for(var i = 1;i<arr.length;i++){
-        var preIndex = i-1;
-        var curData = arr[i];
-        while(preIndex>=0&&arr[preIndex]>curData){
-            arr[preIndex+1] = arr[preIndex]
-            preIndex--
-        }
-        arr[preIndex+1] = curData
-    }
-    return arr
-}
+// var arr = [2, 3, 5, 6, 7, 8, 7, 6, 5, 4, 3, 4, 5, 6, 7, 8, 4, 3, 5, 6, 7]
+// // 冒泡
+// function sort(arr) {
+//     for (var i = 0; i < arr.length; i++) {
+//         for (var j = 0; j < arr.length; j++) {
+//             if (arr[j] > arr[j + 1]) {
+//                 var temp = arr[j];
+//                 arr[j] = arr[j + 1]
+//                 arr[j + 1] = temp
+//             }
+//         }
+//     }
+//     return arr
+// }
+// //选择排序找出最小的值
+// function sort2(arr) {
+//     for (var i = 0; i < arr.length; i++) {
+//     var minIndex=i;
+//         for (var j = i+1; j < arr.length; j++) {
+//               if(arr[j] < arr[minIndex]){
+//                 minIndex = j
+//               }
+//         }
+//         var temp = arr[i]
+//         arr[i] = arr[minIndex];
+//         arr[minIndex] = temp
+//     }
+//     return arr
+// }
+// //插入排序
+// function sort3(arr){
+//     for(var i = 1;i<arr.length;i++){
+//         var preIndex = i-1;
+//         var curData = arr[i];
+//         while(preIndex>=0&&arr[preIndex]>curData){
+//             arr[preIndex+1] = arr[preIndex]
+//             preIndex--
+//         }
+//         arr[preIndex+1] = curData
+//     }
+//     return arr
+// }
 
-//快排
-function sort4(arr){
-    if(arr.length<=1){
-        return arr
-    }
-    var pivoIndex = Math.floor(arr.length/2);
-    var pivoData = arr.splice(pivoIndex, 1)[0];
-    var left = [];
-    var right = [];
-    for(var i=0;i<arr.length;i++){
-        if(arr[i]<pivoData){
-            left.push(arr[i])
+// //快排
+// function sort4(arr){
+//     if(arr.length<=1){
+//         return arr
+//     }
+//     var pivoIndex = Math.floor(arr.length/2);
+//     var pivoData = arr.splice(pivoIndex, 1)[0];
+//     var left = [];
+//     var right = [];
+//     for(var i=0;i<arr.length;i++){
+//         if(arr[i]<pivoData){
+//             left.push(arr[i])
+//         }else{
+//             right.push(arr[i])
+//         }
+//     }
+//     return sort4(left).concat([pivoData],sort4(right))
+// }
+
+// console.log(sort(arr))
+// console.log(sort2(arr))
+// console.log(sort3(arr))
+// console.log(sort4(arr))
+
+
+function twoSum(nums,nums1 target){
+    var result = {};
+    var len = nums.length;
+    for(var i=0;i<len;i++){
+        var diff = target - nums[i];
+        if(diff in result){
+            return [result[diff],i]
         }else{
-            right.push(arr[i])
+            result[nums[i]]=i;
         }
     }
-    return sort4(left).concat([pivoData],sort4(right))
+    
 }
-
-console.log(sort(arr))
-console.log(sort2(arr))
-console.log(sort3(arr))
-console.log(sort4(arr))
 

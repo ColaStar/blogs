@@ -322,8 +322,8 @@ html{
 
 #### BFC-块级格式化上下文
 - 规范解释：
-   是Web页面的可视化CSS渲染的一部分，是布局过程中生成块级盒子的区域，也是浮动元素与其他元素的交互限定区域。
-- BFC与BFC的形成条件；与BFC的作用？
+   是Web页面的可视化CSS渲染的一部分，是布局过程中生成块级盒子的区域，也是浮动元素与其他元素的交互限定区域 或者 也可以这么说页面上的一个隔离的渲染区域，容器里面的子元素不会在布局上影响到外面的元素。
+- BFC与BFC的形成条件与BFC的作用？
 （block-formatting-context）块级格式化上下文
 俩个BFC之间的东西是相互独立的，不会重叠
 形成BFC条件：
@@ -344,11 +344,18 @@ html{
 
 #### IFC-行内元素格式化上下文
 IFC的line box（线框）高度由其包含行内元素中最高的实际高度计算而来（不受到竖直方向的padding/margin影响)
+
+事例：
+
+- 水平居中：当一个块要在环境中水平居中时，设置其为inline-block则会在外层产生IFC，通过text-align则可以使其水平居中。
+
+- 垂直居中：创建一个IFC，用其中一个元素撑开父元素的高度，然后设置其vertical-align:middle，其他行内元素则可以在此父元素下垂直居中。
+
 #### GFC-网格布局格式化上下文
 当为一个元素设置display值为grid的时候，此元素将会获得一个独立的渲染区域，我们可以通过在网格容器（grid container）上定义网格定义行（grid definition rows）和网格定义列（grid definition columns）属性各在网格项目（grid item）上定义网格行（grid row）和网格列（grid columns）为每一个网格项目（grid item）定义位置和空间。 
 
 #### FFC-自适应格式化上下文
-display值为flex或者inline-flex的元素将会生成自适应容器（flex container），
+display值为flex或者inline-flex的元素将会生成自适应容器（flex container），可惜这个牛逼的属性只有谷歌和火狐支持，不过在移动端也足够了，至少safari和chrome还是OK的
 
 ### IE6里的BFC-hasLayout
 Zoom属性是IE浏览器的专有属性；通过zoom：1；   可以触发hasLayout
