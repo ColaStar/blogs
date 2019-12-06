@@ -290,6 +290,20 @@ CPU根据渲染树布局计算元素的具体位置和大小，转换成绝对�
 
 <a data-fancybox title="" href="https://raw.githubusercontent.com/ColaStar/static/master/images/http的历史进程.png">![](https://raw.githubusercontent.com/ColaStar/static/master/images/http的历史进程.png)</a>
 
+- 0.9 ---- 只有get请求方式，传输格式上只能传输html格式，短连接，
+- 1.0 ---- 在http1.0的时候增加了post，HEAD请求方式，而且不限制传输格式，请求跟响应格式也改变了（增加了状态码，多字符集支持、多部分发送（multi-part type）、权限（authorization）、缓存（cache）、内容编码（content encoding）等），除了这些还增加了各种头信息，每个tcp链接只能发送一次请求（有些浏览器用了非标准的Connecttion：keep-alive，还有些浏览器提供了能够打开5-10哥并行的tcp连接）
+
+- 1.1 ---- 为了解决http1.0的缺点，http1.1引入了持久化连接（Connecttion：keep-alive）规范化的做法就是在最后一个请求发送Connecttion：close，而不是让机器去判断是否关闭，可以同时建立6哥持久连接，而且还引入了管道机制，可以在一个tcp连接发多次请求但是是串行请求。还增加了PUT、PATCH、HEAD、 OPTIONS、DELETE等方法，以及Host字段，缺点：因为管道机制会造成一个队头堵塞（优化方案就是减少请求，同时多开持久连接）
+
+- http2
+    - 1.二进制传输，前边都是文本传输
+    - 2.双工通信，前边是半双工通信
+    - 3.头信息压缩
+    - 4.服务端主动推送
+    - 5.默认加密，默认展现形式htpps头，独有的专属字段。
+    - 6.多路复用（一个网络连接可以实现并行操作）
+
+
 ### 了解TCP/IP协议栈
 
 - 1.应用层
