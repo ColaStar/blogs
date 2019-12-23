@@ -314,17 +314,35 @@
 // console.log(sort4(arr))
 
 
-function twoSum(nums,nums1 target){
-    var result = {};
-    var len = nums.length;
-    for(var i=0;i<len;i++){
-        var diff = target - nums[i];
-        if(diff in result){
-            return [result[diff],i]
-        }else{
-            result[nums[i]]=i;
-        }
-    }
+// function twoSum(nums,nums1 target){
+//     var result = {};
+//     var len = nums.length;
+//     for(var i=0;i<len;i++){
+//         var diff = target - nums[i];
+//         if(diff in result){
+//             return [result[diff],i]
+//         }else{
+//             result[nums[i]]=i;
+//         }
+//     }
     
-}
+// }
+
+// yyyy-mm-dd
+// 2019-01-11
+// 1970-01-01
+var a ='hhh2019-01-11jhj'
+// var a ='2019-01-11'
+
+var reg1 = /(.*?)/
+console.log(reg1.test(a))
+
+var reg = /([12]\d{3})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])/g
+console.log(reg.test(a))
+var e = a.replace(reg,function(a,year,mounth,date,f,h){
+console.log(a,year,mounth,date,f,h)
+return year + '-' + date + '-' + mounth
+})
+console.log(e)
+
 

@@ -59,3 +59,10 @@ function length(){}
 
 
 ## 用JavaScript实现二分法查找
+
+
+## 求一个数组中第 K 大的数字
+
+function getKLarge(array, k) { 2. return array.sort().slice(k, 1) 3. }
+5. function getKLargeest(array, k) { 6. const split = array[0];,
+7. }
