@@ -88,6 +88,13 @@ function getResult(dirName) {
     return result;
 }
 
+// bu
+
+
+
+//bug-001
+
+
 // console.log('result:', JSON.stringify( result, true, 2 ) );
 // console.log('result:', result);
 // console.log("all done");
