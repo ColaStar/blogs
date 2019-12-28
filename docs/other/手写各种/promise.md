@@ -178,7 +178,7 @@ function Promise(executor) {
     that.reason = null;
     that.onFilFulledCallbacks = [];
     that.onRejectedCallbacks = [];
-
+   
     function resolve(value) {
         if (that.status === 'pending') {
             that.status = 'resolved';
@@ -469,3 +469,9 @@ Promise.defer = Promise.deferred = function(){
 - promise-aplus-tests MyPrommise.js
 - 等待
 - ok.
+
+
+
+
+
+      
