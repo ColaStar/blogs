@@ -1,5 +1,0 @@
-通过createStore创建一个容器，容器内部有getstate获取state，subscribe函数订阅一些操作action（listeners），
-dispatch函数循环触发action，
-
-reducer.js具体对state的操作
-
