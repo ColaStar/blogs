@@ -11,7 +11,9 @@ function getJsonFiles(jsonPath){
             if(stat.isDirectory() === true) {
                 findJsonFile(fPath);
             }
+            // 只找md结尾的文件
             var reg = /.\md$/g
+            //忽略一些文件打包
             var reg1 = /^un/g
             var pathList = fPath.split('/');
             var directory = pathList.slice(pathList.length-1)
