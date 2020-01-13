@@ -3,3 +3,9 @@ static
 .DS_Store
 start.sh
 start.cmd
+docs
+test.js
+yarn.lock
+test.html
+package.json
+package-lock.json
