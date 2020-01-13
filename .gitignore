@@ -1,6 +1,7 @@
 node_modules
 static
 .DS_Store
+.vscode
 start.sh
 start.cmd
 docs
