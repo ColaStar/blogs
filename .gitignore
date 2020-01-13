@@ -1,5 +1,12 @@
 node_modules
 static
 .DS_Store
+.vscode
 start.sh
 start.cmd
+docs
+test.js
+yarn.lock
+test.html
+package.json
+package-lock.json
