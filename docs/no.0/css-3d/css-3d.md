@@ -7,11 +7,6 @@
 - JS类库  
 ### HTML5陀螺仪
 
-
-
-
-
-
 要使用HTML5的陀螺仪事件我们只要监听deviceorientation事件就好，用法如下：
 ```
 window.addEventListener('deviceorientation', function(event) { var alpha = event.alpha; var beta = event.beta; var gamma = event.gamma; }, false);
