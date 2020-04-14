@@ -4,7 +4,7 @@ static
 .vscode
 start.sh
 start.cmd
-# docs
+docs
 test.js
 yarn.lock
 test.html

@@ -3,4 +3,7 @@
 2019年学习清单：
 - 你不知道的JavaScript（上中下）
 - JavaScript高级程序设计
-- 
+- PM Books
+- 设计模式
+- 网络安全
+- react源码阅读

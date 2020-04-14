@@ -1583,3 +1583,4 @@ doBuild(options, compilation, resolver, fs, callback) {
 
 webpack的1版本和2版本都以及过时了,为了遇到一些老得项目时可用
 后期补webpack1 2 3 4 的不同
+
