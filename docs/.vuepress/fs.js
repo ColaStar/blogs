@@ -26,6 +26,7 @@ function getJsonFiles(jsonPath){
         });
     }
     findJsonFile(jsonPath);
+    // console.log(jsonFiles);
     return jsonFiles
 }
  

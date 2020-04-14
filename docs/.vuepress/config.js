@@ -4,6 +4,21 @@ const {
 } = require('./fs.js')
 console.log(getStr(Math.ceil(Math.random() * 10)))
 console.log(typeof getStr(Math.ceil(Math.random() * 10)))
+console.log({
+  "/no.0/": getJsonFiles('./docs/no.0/'),
+  "/javascript-QA/": getJsonFiles('./docs/javascript-QA/'),
+  "/no.1/": getJsonFiles('./docs/no.1/'),
+  "/no.2/": getJsonFiles('./docs/no.2/'),
+  "/no.3/": getJsonFiles('./docs/no.3/'),
+  "/no.4/": getJsonFiles('./docs/no.4/'),
+  "/no.5/": getJsonFiles('./docs/no.5/'),
+  "/no.6/": getJsonFiles('./docs/no.6/'),
+  "/no.7/": getJsonFiles('./docs/no.7/'),
+  "/no.8/": getJsonFiles('./docs/no.8/'),
+  "/no.10/": getJsonFiles('./docs/no.10/'),
+  "/node/": getJsonFiles('./docs/node/'),
+  "/other/": getJsonFiles('./docs/other/'),
+})
 module.exports = {
   repo: "ColaStar/blogs/views",
   title: '个人博客', // 设置网站标题
