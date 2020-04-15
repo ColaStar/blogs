@@ -1,10 +1,10 @@
 node_modules
+docs
 static
 .DS_Store
 .vscode
 start.sh
 start.cmd
-docs
 test.js
 yarn.lock
 test.html
