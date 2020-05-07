@@ -5,8 +5,8 @@ static
 start.sh
 start.cmd
 docs
-test.js
+# test.js
 yarn.lock
-test.html
+# test.html
 package.json
 package-lock.json
