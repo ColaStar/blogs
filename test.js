@@ -18,6 +18,8 @@
 
 // 3
 
+//
+
 //   readDir(path) {
 //     let exists = fs.existsSync(path), //以同步的方法检测目录是否存在
 //       stat = fs.statSync(path) //文件信息
