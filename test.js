@@ -12,6 +12,11 @@
 //     this.unLinkOutput(this.outputFile)
 //     this.readDir(this.path)
 //   }
+// 1
+
+// 2
+
+// 3
 
 //   readDir(path) {
 //     let exists = fs.existsSync(path), //以同步的方法检测目录是否存在
