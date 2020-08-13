@@ -1,5 +1,10 @@
 // JavaScript Document
 $(document).ready(function () {
+    
+    // front.js
+    (function (w) {w.frontjsConfig={token:"1ba21691d61e48b99a3e5075d61d1721"};w.frontjsTmpData = {r:[],e:[],l:[]};w.frontjsTmpCollector = function (ev) {(ev.message ? window.frontjsTmpData.e : window.frontjsTmpData.r).push([new Date().getTime(), ev])};w.FrontJS = {addEventListener: function (t, f) {w.frontjsTmpData.l.push([t, f]);return f;},removeEventListener: function (t, f) {for (var i = 0; i < w.frontjsTmpData.l.length; i++) {t === w.frontjsTmpData.l[i][0] && f === w.frontjsTmpData.l[i][1] && w.frontjsTmpData.l.splice(i, 1);}return f;}};w.document.addEventListener("error", w.frontjsTmpCollector, true);w.addEventListener("error", w.frontjsTmpCollector, true);w.addEventListener("load", function () {var n = w.document.createElement("script");n.src = "https://static.frontjs.com/dist/current/tracker.min.js"; w.document.body.appendChild(n);}, true);})(window);
+  
+  
     var bodyobj = document.querySelector("body");
     var divobj = document.createElement("div");
     var flag = false;
