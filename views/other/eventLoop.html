@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Event Loop 总结 | 个人博客</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://colastar.github.io/blogs/views/js/tj.js"></script>
+    <script src="https://colastar.github.io/blogs/views/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="白云一片去悠悠，青枫浦上不胜愁。">
+    
+    <link rel="preload" href="/assets/css/0.styles.5d8619ec.css" as="style"><link rel="preload" href="/assets/js/app.e1adf342.js" as="script"><link rel="preload" href="/assets/js/2.933437e1.js" as="script"><link rel="preload" href="/assets/js/129.5707b32c.js" as="script"><link rel="prefetch" href="/assets/js/10.a3ba1dab.js"><link rel="prefetch" href="/assets/js/100.39382b3b.js"><link rel="prefetch" href="/assets/js/101.7af040e0.js"><link rel="prefetch" href="/assets/js/102.16350072.js"><link rel="prefetch" href="/assets/js/103.ac2ef23e.js"><link rel="prefetch" href="/assets/js/104.453b7877.js"><link rel="prefetch" href="/assets/js/105.02f9a90b.js"><link rel="prefetch" href="/assets/js/106.6ca06cd5.js"><link rel="prefetch" href="/assets/js/107.7a5c6723.js"><link rel="prefetch" href="/assets/js/108.bc5154e2.js"><link rel="prefetch" href="/assets/js/109.6e590aed.js"><link rel="prefetch" href="/assets/js/11.3660b8e2.js"><link rel="prefetch" href="/assets/js/110.695a96ce.js"><link rel="prefetch" href="/assets/js/111.cef49653.js"><link rel="prefetch" href="/assets/js/112.819c0160.js"><link rel="prefetch" href="/assets/js/113.f0b572f5.js"><link rel="prefetch" href="/assets/js/114.70cf118b.js"><link rel="prefetch" href="/assets/js/115.ddc3ebf6.js"><link rel="prefetch" href="/assets/js/116.e1bb6849.js"><link rel="prefetch" href="/assets/js/117.0a62e26e.js"><link rel="prefetch" href="/assets/js/118.d9c6b8ee.js"><link rel="prefetch" href="/assets/js/119.692dee38.js"><link rel="prefetch" href="/assets/js/12.ca0496ad.js"><link rel="prefetch" href="/assets/js/120.0c12e1c0.js"><link rel="prefetch" href="/assets/js/121.366f5268.js"><link rel="prefetch" href="/assets/js/122.e6f7ffb1.js"><link rel="prefetch" href="/assets/js/123.fbd6e90d.js"><link rel="prefetch" href="/assets/js/124.4cf9c949.js"><link rel="prefetch" href="/assets/js/125.5c279470.js"><link rel="prefetch" href="/assets/js/126.ed84c2ac.js"><link rel="prefetch" href="/assets/js/127.17e2c583.js"><link rel="prefetch" href="/assets/js/128.ce0c504c.js"><link rel="prefetch" href="/assets/js/13.6d389969.js"><link rel="prefetch" href="/assets/js/130.4f93bfa9.js"><link rel="prefetch" href="/assets/js/131.e20f9201.js"><link rel="prefetch" href="/assets/js/132.bb8e703b.js"><link rel="prefetch" href="/assets/js/133.cdd5fba8.js"><link rel="prefetch" href="/assets/js/134.2d941a29.js"><link rel="prefetch" href="/assets/js/135.f7b9c40a.js"><link rel="prefetch" href="/assets/js/136.345a77c6.js"><link rel="prefetch" href="/assets/js/137.385c0b05.js"><link rel="prefetch" href="/assets/js/138.2868c852.js"><link rel="prefetch" href="/assets/js/139.67cbc297.js"><link rel="prefetch" href="/assets/js/14.34cc884f.js"><link rel="prefetch" href="/assets/js/140.3e40f635.js"><link rel="prefetch" href="/assets/js/141.0724a0d6.js"><link rel="prefetch" href="/assets/js/142.28081d33.js"><link rel="prefetch" href="/assets/js/143.016256cf.js"><link rel="prefetch" href="/assets/js/144.3c30c9b3.js"><link rel="prefetch" href="/assets/js/145.b286572e.js"><link rel="prefetch" href="/assets/js/146.99455f2e.js"><link rel="prefetch" href="/assets/js/147.4df7547a.js"><link rel="prefetch" href="/assets/js/148.c534ded2.js"><link rel="prefetch" href="/assets/js/15.e91403f0.js"><link rel="prefetch" href="/assets/js/16.0a3ae2bb.js"><link rel="prefetch" href="/assets/js/17.b42cc639.js"><link rel="prefetch" href="/assets/js/18.44f0f563.js"><link rel="prefetch" href="/assets/js/19.1ad94ad7.js"><link rel="prefetch" href="/assets/js/20.ea4203a5.js"><link rel="prefetch" href="/assets/js/21.b0531cda.js"><link rel="prefetch" href="/assets/js/22.f81fcafa.js"><link rel="prefetch" href="/assets/js/23.9184da08.js"><link rel="prefetch" href="/assets/js/24.5028d983.js"><link rel="prefetch" href="/assets/js/25.cb2aa1f8.js"><link rel="prefetch" href="/assets/js/26.21363c9d.js"><link rel="prefetch" href="/assets/js/27.3b857b15.js"><link rel="prefetch" href="/assets/js/28.4f4e2722.js"><link rel="prefetch" href="/assets/js/29.b53846df.js"><link rel="prefetch" href="/assets/js/3.aac71cf4.js"><link rel="prefetch" href="/assets/js/30.96e80307.js"><link rel="prefetch" href="/assets/js/31.ea26d67d.js"><link rel="prefetch" href="/assets/js/32.c09ca20c.js"><link rel="prefetch" href="/assets/js/33.c610ca78.js"><link rel="prefetch" href="/assets/js/34.9f3ba148.js"><link rel="prefetch" href="/assets/js/35.16641e6b.js"><link rel="prefetch" href="/assets/js/36.49267e43.js"><link rel="prefetch" href="/assets/js/37.566431f8.js"><link rel="prefetch" href="/assets/js/38.070fa5cb.js"><link rel="prefetch" href="/assets/js/39.ad0faff1.js"><link rel="prefetch" href="/assets/js/4.b02cea19.js"><link rel="prefetch" href="/assets/js/40.9c97759f.js"><link rel="prefetch" href="/assets/js/41.61477360.js"><link rel="prefetch" href="/assets/js/42.2d91de49.js"><link rel="prefetch" href="/assets/js/43.b8418b46.js"><link rel="prefetch" href="/assets/js/44.c96bc675.js"><link rel="prefetch" href="/assets/js/45.8d644b7c.js"><link rel="prefetch" href="/assets/js/46.e9d5c4bd.js"><link rel="prefetch" href="/assets/js/47.4c4905fe.js"><link rel="prefetch" href="/assets/js/48.44f77349.js"><link rel="prefetch" href="/assets/js/49.e95ca122.js"><link rel="prefetch" href="/assets/js/5.c31b0243.js"><link rel="prefetch" href="/assets/js/50.b9d256a9.js"><link rel="prefetch" href="/assets/js/51.67b228e4.js"><link rel="prefetch" href="/assets/js/52.a3357233.js"><link rel="prefetch" href="/assets/js/53.c89c6529.js"><link rel="prefetch" href="/assets/js/54.dc7e2706.js"><link rel="prefetch" href="/assets/js/55.8ee12b3a.js"><link rel="prefetch" href="/assets/js/56.8a90a229.js"><link rel="prefetch" href="/assets/js/57.c9c14365.js"><link rel="prefetch" href="/assets/js/58.dc516447.js"><link rel="prefetch" href="/assets/js/59.4408a4a4.js"><link rel="prefetch" href="/assets/js/6.af2d9c4a.js"><link rel="prefetch" href="/assets/js/60.04290b72.js"><link rel="prefetch" href="/assets/js/61.979cf0a1.js"><link rel="prefetch" href="/assets/js/62.1d34f2e9.js"><link rel="prefetch" href="/assets/js/63.c1e5085f.js"><link rel="prefetch" href="/assets/js/64.61627c92.js"><link rel="prefetch" href="/assets/js/65.a87671ae.js"><link rel="prefetch" href="/assets/js/66.380be276.js"><link rel="prefetch" href="/assets/js/67.d7cca505.js"><link rel="prefetch" href="/assets/js/68.07c110bb.js"><link rel="prefetch" href="/assets/js/69.0378af75.js"><link rel="prefetch" href="/assets/js/7.0c0f9c31.js"><link rel="prefetch" href="/assets/js/70.da92a1cb.js"><link rel="prefetch" href="/assets/js/71.8408b9aa.js"><link rel="prefetch" href="/assets/js/72.d1ddf575.js"><link rel="prefetch" href="/assets/js/73.ab0366f7.js"><link rel="prefetch" href="/assets/js/74.59c78ca3.js"><link rel="prefetch" href="/assets/js/75.d623530a.js"><link rel="prefetch" href="/assets/js/76.d4d2ecb8.js"><link rel="prefetch" href="/assets/js/77.69c87d1c.js"><link rel="prefetch" href="/assets/js/78.efb59ddf.js"><link rel="prefetch" href="/assets/js/79.ea7faf7f.js"><link rel="prefetch" href="/assets/js/8.9850b51a.js"><link rel="prefetch" href="/assets/js/80.cc4c707d.js"><link rel="prefetch" href="/assets/js/81.b3f3778d.js"><link rel="prefetch" href="/assets/js/82.d26d9f1e.js"><link rel="prefetch" href="/assets/js/83.13d6dc87.js"><link rel="prefetch" href="/assets/js/84.7210223d.js"><link rel="prefetch" href="/assets/js/85.1ead9ae1.js"><link rel="prefetch" href="/assets/js/86.871a1d05.js"><link rel="prefetch" href="/assets/js/87.f0959331.js"><link rel="prefetch" href="/assets/js/88.1892c009.js"><link rel="prefetch" href="/assets/js/89.d14ee5f2.js"><link rel="prefetch" href="/assets/js/9.43209c57.js"><link rel="prefetch" href="/assets/js/90.680f847f.js"><link rel="prefetch" href="/assets/js/91.9ece8a9d.js"><link rel="prefetch" href="/assets/js/92.a358b482.js"><link rel="prefetch" href="/assets/js/93.22fa4a68.js"><link rel="prefetch" href="/assets/js/94.3c51185c.js"><link rel="prefetch" href="/assets/js/95.22389cc3.js"><link rel="prefetch" href="/assets/js/96.ace70745.js"><link rel="prefetch" href="/assets/js/97.4f29dc88.js"><link rel="prefetch" href="/assets/js/98.fd2e947c.js"><link rel="prefetch" href="/assets/js/99.5624f8d4.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5d8619ec.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/other/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/other/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/other/Git代码提交规范.html" class="sidebar-link">Git代码提交规范</a></li><li><a href="/other/eventLoop/eventLoop.html" class="sidebar-link">Event Loop 总结</a></li><li><a href="/other/eventLoop.html" aria-current="page" class="active sidebar-link">Event Loop 总结</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/other/eventLoop.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/other/eventLoop.html#浏览器的-event-loop" class="sidebar-link">浏览器的 Event Loop</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/other/eventLoop.html#流程" class="sidebar-link">流程</a></li><li class="sidebar-sub-header"><a href="/other/eventLoop.html#例子" class="sidebar-link">例子</a></li><li class="sidebar-sub-header"><a href="/other/eventLoop.html#几道坑题" class="sidebar-link">几道坑题</a></li></ul></li><li class="sidebar-sub-header"><a href="/other/eventLoop.html#node的-event-loop" class="sidebar-link">Node的 Event Loop</a></li></ul></li><li><a href="/other/git/git命令全集.html" class="sidebar-link">常用 Git 命令清单</a></li><li><a href="/other/git/git版本管理规范.html" class="sidebar-link">git版本管理规范</a></li><li><a href="/other/typeScript.html" class="sidebar-link">TypeScript入门</a></li><li><a href="/other/优雅降级与渐进增强.html" class="sidebar-link">优雅降级与渐进增强</a></li><li><a href="/other/前端协作规范.html" class="sidebar-link">前端协作规范</a></li><li><a href="/other/前端路由.html" class="sidebar-link">前端路由</a></li><li><a href="/other/手写各种/promise.html" class="sidebar-link">Promise、</a></li><li><a href="/other/手写各种/手写代码实现.html" class="sidebar-link">面试</a></li><li><a href="/other/网站令浏览器崩溃的原因.html" class="sidebar-link">网站导致浏览器崩溃的原因</a></li><li><a href="/other/重构.html" class="sidebar-link">重构 - 改善既有代码的设计</a></li><li><a href="/other/错误日志监控.html" class="sidebar-link">前端错误监控以及日志管理</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="event-loop-总结"><a href="#event-loop-总结" aria-hidden="true" class="header-anchor">#</a> Event Loop 总结</h1> <h2 id="前言"><a href="#前言" aria-hidden="true" class="header-anchor">#</a> 前言</h2> <p><code>Event Loop</code>即事件循环机制，是指浏览器或 <code>Node</code> 的一种解决<code>javaScript</code> 单线程运行不会阻塞的一种机制，也就是我们经常使用异步的原理。</p> <h2 id="浏览器的-event-loop"><a href="#浏览器的-event-loop" aria-hidden="true" class="header-anchor">#</a> 浏览器的 Event Loop</h2> <p><img src="https://colastar.github.io/static/images/eventloop_browser.jpg" alt=""></p> <p>由上图我们可以看出<code>Javascript</code>有一个 <code>main thread</code> <strong>主线程</strong>和 <code>call-stack</code> <strong>调用栈(执行栈)</strong>，所有的任务都会被放到调用栈等待主线程执行。而JS调用栈采用的是后进先出的规则，当函数执行的时候，会被添加到栈的顶部，当执行栈执行完成后，就会从栈顶移出，直到栈内被清空。</p> <p><code>Javascript</code>单线程任务被分为<strong>同步任务</strong>和<strong>异步任务</strong>，同步任务会在调用栈中按照顺序等待主线程依次执行，异步任务会在异步任务有了结果后，将注册的回调函数放入任务队列中等待主线程空闲的时候（调用栈被清空），被读取到栈内等待主线程的执行。</p> <p>在 <code>JavaScript</code> 中，任务被分为两种，一种宏任务（<code>MacroTask</code>）也叫Task，一种叫微任务（<code>MicroTask</code>）。</p> <h3 id="流程"><a href="#流程" aria-hidden="true" class="header-anchor">#</a> 流程</h3> <p>执行栈在执行完同步任务后，查看执行栈是否为空，如果执行栈为空，就会去执行Task（宏任务），每次宏任务执行完毕后，检查微任务(microTask)队列是否为空，如果不为空的话，会按照先入先出的规则全部执行完微任务(microTask)后，设置微任务(microTask)队列为null，然后再执行宏任务，如此循环。</p> <p>其实我们可以 <code>Event Loop</code> 当作是银行取钱，宏任务可以看成是一个客户要办理的主要任务（办卡），微任务就可以看成是存钱</p> <table><thead><tr><th style="text-align:center;">宏任务</th> <th style="text-align:center;">微任务</th></tr></thead> <tbody><tr><td style="text-align:center;">script</td> <td style="text-align:center;">promise</td></tr> <tr><td style="text-align:center;">setTineout</td> <td style="text-align:center;">async/await</td></tr> <tr><td style="text-align:center;">setInterval</td> <td style="text-align:center;">MutationObserver</td></tr> <tr><td style="text-align:center;">requestAnimationFrame</td> <td style="text-align:center;"></td></tr></tbody></table> <h3 id="例子"><a href="#例子" aria-hidden="true" class="header-anchor">#</a> 例子</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>console.log('script start')
+
+async function async1() {
+  await async2()
+  //new Promise(reslove=&gt;{
+  //    console.log('async2 end') 
+  //    resolve()
+  //}).then(res=&gt;{
+  //console.log('async1 end')
+  //})
+  console.log('async1 end')
+}
+async function async2() {
+  console.log('async2 end') 
+}
+async1()
+
+setTimeout(function() {
+  console.log('setTimeout')
+}, 0)
+
+new Promise(resolve =&gt; {
+  console.log('Promise')
+  resolve()
+})
+  .then(function() {
+    console.log('promise1')
+  })
+  .then(function() {
+    console.log('promise2')
+  })
+
+console.log('script end')
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><h3 id="几道坑题"><a href="#几道坑题" aria-hidden="true" class="header-anchor">#</a> 几道坑题</h3> <h4 id="如果-promise-没有-resolve-或-reject"><a href="#如果-promise-没有-resolve-或-reject" aria-hidden="true" class="header-anchor">#</a> 如果 promise 没有 resolve 或 reject</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>// async function async1(){
+//     console.log(1);
+//     await new Promise(res=&gt;{
+//         console.log(2)
+//     })
+//     console.log(3)
+//     return '4'
+// }
+// console.log(5)
+// async1().then(res=&gt;{
+//     console.log(res)
+// })
+// console.log(7)
+// 5 1 2 7 原因 await 要等待promise的状态变更
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h4 id="resolve-处理-thenable-也会包裹一个promise"><a href="#resolve-处理-thenable-也会包裹一个promise" aria-hidden="true" class="header-anchor">#</a> resolve 处理 thenable，也会包裹一个promise</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>async function async1(){
+    console.log(1);
+    return new Promise(res=&gt;{
+        res(async2())
+    }).then(()=&gt;{
+        console.log(5)
+    }).then(()=&gt;{
+        console.log(10)
+    })
+}
+function async2(){
+    console.log(2)
+    //return {then(r){r()}}
+    //return 1
+}
+setTimeout(()=&gt;{
+    console.log(9)
+},0)
+async1()
+
+new Promise(res=&gt;{
+    console.log(3)
+    res()
+}).then(()=&gt;{
+    console.log(6)
+}).then(()=&gt;{
+    console.log(7)
+}).then(()=&gt;{
+    console.log(8)
+})
+
+console.log(4)
+//1 2 3 4 5 6 10 7 8 9
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>
+
+async function async1(){
+    console.log(1);
+    return new Promise(res=&gt;{
+        //resolve 处理 thenable，也会包裹一个promise
+        res(async2())
+    }).then(()=&gt;{
+        console.log(5)
+    }).then(()=&gt;{
+        console.log(10)
+    })
+}
+async function async2(){
+    //自己也是一个promise
+    console.log(2)
+}
+setTimeout(()=&gt;{
+    console.log(9)
+},0)
+async1()
+
+new Promise(res=&gt;{
+    console.log(3)
+    res()
+}).then(()=&gt;{
+    console.log(6)
+}).then(()=&gt;{
+    console.log(7)
+}).then(()=&gt;{
+    console.log(8)
+})
+
+console.log(4)
+
+// 1 2 3 4 6 7 5 8 10 9
+
+//与上边的代码不同 ，更改async2 为async结果不一样，因为resolve本身会包裹一层promise ，async本身也是promise，所以会延后俩步执行.then函数
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br></div></div><h2 id="node的-event-loop"><a href="#node的-event-loop" aria-hidden="true" class="header-anchor">#</a> Node的 Event Loop</h2> <p>Node中的Event Loop是基于libuv实现的，而libuv是 Node 的新跨平台抽象层，libuv使用异步，事件驱动的编程方式，核心是提供i/o的事件循环和异步回调。libuv的API包含有时间，非阻塞的网络，异步文件操作，子进程等等。 Event Loop就是在libuv中实现的。</p> <p><img src="https://colastar.github.io/static/images/node_eventloop.jpg" alt=""></p> <p><img src="https://colastar.github.io/static/images/node_async_eventloop.jpg" alt=""></p> <table><thead><tr><th style="text-align:center;">宏任务</th> <th style="text-align:center;">微任务</th></tr></thead> <tbody><tr><td style="text-align:center;">script</td> <td style="text-align:center;">promise</td></tr> <tr><td style="text-align:center;">setTimeout</td> <td style="text-align:center;">async/await</td></tr> <tr><td style="text-align:center;">setInterval</td> <td style="text-align:center;">process.nextTick</td></tr> <tr><td style="text-align:center;">setImmediate</td> <td style="text-align:center;"></td></tr></tbody></table> <p><code>Node</code>的<code>Event loop</code>一共分为6个阶段，每个细节具体如下：</p> <ul><li><code>timers</code>: 执行<code>setTimeout</code>和<code>setInterval</code>中到期的<code>callback</code>。</li> <li><code>pending callback</code>: 上一轮循环中少数的<code>callback</code>会放在这一阶段执行。</li> <li><code>idle</code>, <code>prepare</code>: 仅在内部使用。</li> <li><code>poll</code>: 最重要的阶段，执行<code>pending callback</code>，在适当的情况下回阻塞在这个阶段。</li> <li><code>check</code>: 执行<code>setImmediate</code>(<code>setImmediate()</code>是将事件插入到事件队列尾部，主线程和事件队列的函数执行完成之后立即执行<code>setImmediate</code>指定的回调函数)的<code>callback</code>。</li> <li><code>close callbacks</code>: 执行<code>close</code>事件的<code>callback</code>，例如<code>socket.on('close'[,fn])</code>或者<code>http.server.on('close, fn)</code>。</li></ul> <p>具体细节如下：</p> <h4 id="timers"><a href="#timers" aria-hidden="true" class="header-anchor">#</a> timers</h4> <p>执行<code>setTimeout</code>和<code>setInterval</code>中到期的callback，执行这两者回调需要设置一个毫秒数，理论上来说，应该是时间一到就立即执行callback回调，但是由于system的调度可能会延时，达不到预期时间。</p> <p>以下是官网文档解释的例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const fs = require('fs');
+
+function someAsyncOperation(callback) {
+  // Assume this takes 95ms to complete
+  fs.readFile('/path/to/file', callback);
+}
+
+const timeoutScheduled = Date.now();
+
+setTimeout(() =&gt; {
+  const delay = Date.now() - timeoutScheduled;
+
+  console.log(`${delay}ms have passed since I was scheduled`);
+}, 100);
+
+
+// do someAsyncOperation which takes 95 ms to complete
+someAsyncOperation(() =&gt; {
+  const startCallback = Date.now();
+
+  // do something that will take 10ms...
+  while (Date.now() - startCallback &lt; 10) {
+    // do nothing
+  }
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>当进入事件循环时，它有一个空队列（fs.readFile()尚未完成），因此定时器将等待剩余毫秒数，当到达95ms时，fs.readFile()完成读取文件并且其完成需要10毫秒的回调被添加到轮询队列并执行。</p> <p>当回调结束时，队列中不再有回调，因此事件循环将看到已达到最快定时器的阈值，然后回到timers阶段以执行定时器的回调。
+在此示例中，您将看到正在调度的计时器与正在执行的回调之间的总延迟将为105毫秒。</p> <p>以下是我测试时间：
+<img src="https://colastar.github.io/static/images/node_test_setTime.jpg" alt=""></p> <h4 id="pending-callbacks"><a href="#pending-callbacks" aria-hidden="true" class="header-anchor">#</a> pending callbacks</h4> <p>此阶段执行某些系统操作（例如TCP错误类型）的回调。 例如，如果TCP socket ECONNREFUSED在尝试connect时receives，则某些* nix系统希望等待报告错误。 这将在pending callbacks阶段执行。</p> <h4 id="poll"><a href="#poll" aria-hidden="true" class="header-anchor">#</a> poll</h4> <p><strong>该poll阶段有两个主要功能：</strong></p> <ul><li>执行I/O回调。</li> <li>处理轮询队列中的事件。</li></ul> <p><strong>当事件循环进入poll阶段并且在timers中没有可以执行定时器时，将发生以下两种情况之一</strong></p> <ul><li>如果poll队列不为空，则事件循环将遍历其同步执行它们的callback队列，直到队列为空，或者达到system-dependent（系统相关限制）。</li></ul> <p><strong>如果poll队列为空，则会发生以下两种情况之一</strong></p> <ul><li>如果有setImmediate()回调需要执行，则会立即停止执行poll阶段并进入执行check阶段以执行回调。</li> <li>如果没有setImmediate()回到需要执行，poll阶段将等待callback被添加到队列中，然后立即执行。</li></ul> <p><strong>当然设定了 timer 的话且 poll 队列为空，则会判断是否有 timer 超时，如果有的话会回到 timer 阶段执行回调。</strong></p> <h4 id="check"><a href="#check" aria-hidden="true" class="header-anchor">#</a> check</h4> <p><strong>此阶段允许人员在poll阶段完成后立即执行回调。</strong></p> <p>如果<code>poll</code>阶段闲置并且<code>script</code>已排队<code>setImmediate()</code>，则事件循环到达<code>check阶</code>段执行而不是继续等待。</p> <p><code>setImmediate()</code>实际上是一个特殊的计时器，它在事件循环的一个单独阶段运行。它使用<code>libuv API</code>来调度在<code>poll</code>阶段完成后执行的回调。
+通常，当代码被执行时，事件循环最终将达到<code>poll</code>阶段，它将等待传入连接，请求等。
+但是，如果已经调度了回调<code>setImmediate()</code>，并且轮询阶段变为空闲，则它将结束并且到达<code>check</code>阶段，而不是等待<code>poll</code>事件。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>console.log('start')
+setTimeout(() =&gt; {
+  console.log('timer1')
+  Promise.resolve().then(function() {
+    console.log('promise1')
+  })
+}, 0)
+setTimeout(() =&gt; {
+  console.log('timer2')
+  Promise.resolve().then(function() {
+    console.log('promise2')
+  })
+}, 0)
+Promise.resolve().then(function() {
+  console.log('promise3')
+})
+console.log('end')
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>如果node版本为v11.x， 其结果与浏览器一致。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>start end promise3 timer1 promise1 timer2 promise2
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>如果node版本11以下，结果大不相同</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>start end promise3 timer1 timer2 promise1 promise2
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><strong>总结可以看出</strong></p> <p><img src="https://colastar.github.io/static/images/node_eventLoop_version_diff.jpg" alt=""></p> <p><a href="https://link.zhihu.com/?target=https%3A//juejin.im/post/5c3e8d90f265da614274218a" target="_blank" rel="noopener noreferrer">具体详情可以查看《又被node的eventloop坑了，这次是node的锅》。<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h4 id="setimmediate-的settimeout-的区别"><a href="#setimmediate-的settimeout-的区别" aria-hidden="true" class="header-anchor">#</a> setImmediate() 的setTimeout()的区别</h4> <ul><li><code>setImmediate和setTimeout()</code>是相似的，但根据它们被调用的时间以不同的方式表现。</li> <li><code>setImmediate()</code>设计用于在当前poll阶段完成后check阶段执行脚本 。</li> <li><code>setTimeout()</code> 安排在经过最小（ms）后运行的脚本，在timers阶段执行。</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>setTimeout(() =&gt; {
+  console.log('timeout');
+}, 0);
+
+setImmediate(() =&gt; {
+  console.log('immediate');
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p><img src="https://colastar.github.io/static/images/node_eventloop_1.jpg" alt="">
+从上图可以看出，其结果不一致，为什么呢？</p> <p>执行定时器的顺序将根据调用它们的上下文而有所不同。 如果从主模块中调用两者，那么时间将受到进程性能的限制。</p> <p><strong>那么如果在I/O周期内调用，则始终首先执行setImmediate</strong></p> <p><strong>因为俩者都是在I/O阶段注册的，所以先执行check，再执行timer。</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const fs = require('fs');
+
+fs.readFile(__filename, () =&gt; {
+  setTimeout(() =&gt; {
+    console.log('timeout');
+  }, 0);
+  setImmediate(() =&gt; {
+    console.log('immediate');
+  });
+});
+
+//immediate timeout
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>其结果可以确定一定是immediate =&gt; timeout。</p> <p><strong>主要原因</strong>是在I/O阶段读取文件后，事件循环会先进入poll阶段，发现有setImmediate需要执行，会立即进入check阶段执行setImmediate的回调。</p> <p>然后再进入timers阶段，执行setTimeout，打印timeout。</p> <h4 id="process-nexttick"><a href="#process-nexttick" aria-hidden="true" class="header-anchor">#</a> Process.nextTick()</h4> <p><code>process.nextTick()</code>虽然它是异步API的一部分，但未在图中显示。这是因为<code>process.nextTick()</code>从技术上讲，它不是事件循环的一部分。</p> <p><code>process.nextTick()</code>方法将 <code>callback</code> 添加到<code>next tick</code>队列。 一旦当前事件轮询队列的任务全部完成，在<code>next tick</code>队列中的所有<code>callbacks</code>会被依次调用。</p> <p>换种理解方式：</p> <p>当每个阶段完成后，如果存在 <code>nextTick</code> 队列，就会清空队列中的所有回调函数，并且优先于其他 <code>microtask</code> 执行。</p> <p><strong>例子</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let bar;
+
+setTimeout(() =&gt; {
+  console.log('setTimeout');
+}, 0)
+
+setImmediate(() =&gt; {
+  console.log('setImmediate');
+})
+function someAsyncApiCall(callback) {
+  process.nextTick(callback);
+}
+
+someAsyncApiCall(() =&gt; {
+  console.log('bar', bar); // 1
+});
+
+bar = 1;
+// bar 1,  setImmediate , setTimeout 或 bar 1, setTimeout, setImmediate 
+
+无论哪种，始终都是先执行process.nextTick(callback)，打印bar 1。
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p><strong>案例：常见的nodejs回调函数第一个参数，都是抛出错误</strong></p> <p>每个阶段执行完后，在当前阶段的尾部触发 nextick</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>fs.readFile(__filename, (err,data) =&gt; {
+
+}
+//怎么传的呢
+function apiCall(arg,callback){
+  if(typeof arg !=== string){
+    return process.nextTick(
+      callback,//正常执行，抛一个error对象出去，不让主线程崩掉
+      new TypeError(&quot;argument should be string&quot;) //传回去做第一个参数，
+    )
+  }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>参考文章
+<a href="https://link.zhihu.com/?target=https%3A//link.juejin.im/%3Ftarget%3Dhttps%253A%252F%252Fgithub.com%252Fxianshenglu%252Fblog%252Fissues%252F60" target="_blank" rel="noopener noreferrer">《promise, async, await, execution order》<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://link.zhihu.com/?target=https%3A//link.juejin.im/%3Ftarget%3Dhttps%253A%252F%252Fgithub.com%252Ftc39%252Fecma262%252Fpull%252F1250" target="_blank" rel="noopener noreferrer">《Normative: Reduce the number of ticks in async/await》<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://link.zhihu.com/?target=https%3A//link.juejin.im/%3Ftarget%3Dhttps%253A%252F%252Fwww.zhihu.com%252Fquestion%252F268007969" target="_blank" rel="noopener noreferrer">《async/await 在chrome 环境和 node 环境的 执行结果不一致，求解？》<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://link.zhihu.com/?target=https%3A//link.juejin.im/%3Ftarget%3Dhttps%253A%252F%252Fv8.js.cn%252Fblog%252Ffast-async%252F" target="_blank" rel="noopener noreferrer">《更快的异步函数和 Promise》<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://zhuanlan.zhihu.com/p/55511602" target="_blank" rel="noopener noreferrer">一次弄懂Event Loop<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/other/eventLoop/eventLoop.html" class="prev">
+        Event Loop 总结
+      </a></span> <span class="next"><a href="/other/git/git命令全集.html">
+        常用 Git 命令清单
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e1adf342.js" defer></script><script src="/assets/js/2.933437e1.js" defer></script><script src="/assets/js/129.5707b32c.js" defer></script>
+  </body>
+</html>
