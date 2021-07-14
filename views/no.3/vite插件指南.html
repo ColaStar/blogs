@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vite2插件开发指南 | 个人博客</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://colastar.github.io/blogs/views/js/tj.js"></script>
+    <script src="https://colastar.github.io/blogs/views/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="白云一片去悠悠，青枫浦上不胜愁。">
+    
+    <link rel="preload" href="/assets/css/0.styles.5d8619ec.css" as="style"><link rel="preload" href="/assets/js/app.684d0c32.js" as="script"><link rel="preload" href="/assets/js/2.933437e1.js" as="script"><link rel="preload" href="/assets/js/73.20a69de6.js" as="script"><link rel="prefetch" href="/assets/js/10.011bbb49.js"><link rel="prefetch" href="/assets/js/100.a49f2b25.js"><link rel="prefetch" href="/assets/js/101.42c4a2bc.js"><link rel="prefetch" href="/assets/js/102.8b91230e.js"><link rel="prefetch" href="/assets/js/103.4150767a.js"><link rel="prefetch" href="/assets/js/104.8a67ef20.js"><link rel="prefetch" href="/assets/js/105.8ba09cd8.js"><link rel="prefetch" href="/assets/js/106.fa5d531a.js"><link rel="prefetch" href="/assets/js/107.c5f2f067.js"><link rel="prefetch" href="/assets/js/108.751005e0.js"><link rel="prefetch" href="/assets/js/109.39e34cd3.js"><link rel="prefetch" href="/assets/js/11.a0604d4c.js"><link rel="prefetch" href="/assets/js/110.12a2f174.js"><link rel="prefetch" href="/assets/js/111.5563e792.js"><link rel="prefetch" href="/assets/js/112.7ece1250.js"><link rel="prefetch" href="/assets/js/113.683bcc3c.js"><link rel="prefetch" href="/assets/js/114.fbdaa7f0.js"><link rel="prefetch" href="/assets/js/115.76d30704.js"><link rel="prefetch" href="/assets/js/116.0307ba38.js"><link rel="prefetch" href="/assets/js/117.b224bcec.js"><link rel="prefetch" href="/assets/js/118.646f19cc.js"><link rel="prefetch" href="/assets/js/119.0d02ee8d.js"><link rel="prefetch" href="/assets/js/12.ca0496ad.js"><link rel="prefetch" href="/assets/js/120.73aa7663.js"><link rel="prefetch" href="/assets/js/121.600321cd.js"><link rel="prefetch" href="/assets/js/122.c85cadb1.js"><link rel="prefetch" href="/assets/js/123.fdc9ffb9.js"><link rel="prefetch" href="/assets/js/124.fd1d2c7c.js"><link rel="prefetch" href="/assets/js/125.63c5bdff.js"><link rel="prefetch" href="/assets/js/126.849aaad9.js"><link rel="prefetch" href="/assets/js/127.9f8b347e.js"><link rel="prefetch" href="/assets/js/128.6910d194.js"><link rel="prefetch" href="/assets/js/129.9c53655a.js"><link rel="prefetch" href="/assets/js/13.b43ba0b4.js"><link rel="prefetch" href="/assets/js/130.e6df3a9b.js"><link rel="prefetch" href="/assets/js/131.a4c107d6.js"><link rel="prefetch" href="/assets/js/132.a80e0a92.js"><link rel="prefetch" href="/assets/js/133.686e98c5.js"><link rel="prefetch" href="/assets/js/134.ff183d32.js"><link rel="prefetch" href="/assets/js/135.595d32ce.js"><link rel="prefetch" href="/assets/js/136.92b2c45a.js"><link rel="prefetch" href="/assets/js/137.25e2857f.js"><link rel="prefetch" href="/assets/js/138.d4ecc18a.js"><link rel="prefetch" href="/assets/js/139.0da35e88.js"><link rel="prefetch" href="/assets/js/14.41ba2c07.js"><link rel="prefetch" href="/assets/js/140.9d38e62b.js"><link rel="prefetch" href="/assets/js/141.b5d73818.js"><link rel="prefetch" href="/assets/js/142.191eb6a0.js"><link rel="prefetch" href="/assets/js/143.de6c4af7.js"><link rel="prefetch" href="/assets/js/144.0168e325.js"><link rel="prefetch" href="/assets/js/145.d67f904e.js"><link rel="prefetch" href="/assets/js/146.6d5b4503.js"><link rel="prefetch" href="/assets/js/147.c5bfa304.js"><link rel="prefetch" href="/assets/js/148.baa10f83.js"><link rel="prefetch" href="/assets/js/149.b1aa9f08.js"><link rel="prefetch" href="/assets/js/15.3e0609da.js"><link rel="prefetch" href="/assets/js/150.a3364681.js"><link rel="prefetch" href="/assets/js/151.26e0d68b.js"><link rel="prefetch" href="/assets/js/152.c099b1ea.js"><link rel="prefetch" href="/assets/js/153.843d3693.js"><link rel="prefetch" href="/assets/js/154.ea95274e.js"><link rel="prefetch" href="/assets/js/155.213894a9.js"><link rel="prefetch" href="/assets/js/16.c82c3167.js"><link rel="prefetch" href="/assets/js/17.5998ca8a.js"><link rel="prefetch" href="/assets/js/18.99d267f4.js"><link rel="prefetch" href="/assets/js/19.a016695e.js"><link rel="prefetch" href="/assets/js/20.f7d00d63.js"><link rel="prefetch" href="/assets/js/21.8ceb9e5b.js"><link rel="prefetch" href="/assets/js/22.391b2947.js"><link rel="prefetch" href="/assets/js/23.4f3c6966.js"><link rel="prefetch" href="/assets/js/24.7c28b02f.js"><link rel="prefetch" href="/assets/js/25.aaa14395.js"><link rel="prefetch" href="/assets/js/26.35792e2f.js"><link rel="prefetch" href="/assets/js/27.e76c38ed.js"><link rel="prefetch" href="/assets/js/28.a99fa8c8.js"><link rel="prefetch" href="/assets/js/29.919ade27.js"><link rel="prefetch" href="/assets/js/3.aac71cf4.js"><link rel="prefetch" href="/assets/js/30.e7a442f8.js"><link rel="prefetch" href="/assets/js/31.d8a99e31.js"><link rel="prefetch" href="/assets/js/32.1ab924ba.js"><link rel="prefetch" href="/assets/js/33.c017c662.js"><link rel="prefetch" href="/assets/js/34.bb981e9d.js"><link rel="prefetch" href="/assets/js/35.eabe7ffc.js"><link rel="prefetch" href="/assets/js/36.e3591a01.js"><link rel="prefetch" href="/assets/js/37.d0490e20.js"><link rel="prefetch" href="/assets/js/38.853fbdb3.js"><link rel="prefetch" href="/assets/js/39.56fa336c.js"><link rel="prefetch" href="/assets/js/4.b02cea19.js"><link rel="prefetch" href="/assets/js/40.f217f07a.js"><link rel="prefetch" href="/assets/js/41.1f1d2f76.js"><link rel="prefetch" href="/assets/js/42.f28c2265.js"><link rel="prefetch" href="/assets/js/43.05e0970b.js"><link rel="prefetch" href="/assets/js/44.23d67e67.js"><link rel="prefetch" href="/assets/js/45.f478b646.js"><link rel="prefetch" href="/assets/js/46.34c79a7f.js"><link rel="prefetch" href="/assets/js/47.f642f97c.js"><link rel="prefetch" href="/assets/js/48.97fb5777.js"><link rel="prefetch" href="/assets/js/49.f8c9fc07.js"><link rel="prefetch" href="/assets/js/5.3fe9d0bc.js"><link rel="prefetch" href="/assets/js/50.ed4f4cde.js"><link rel="prefetch" href="/assets/js/51.41443ffb.js"><link rel="prefetch" href="/assets/js/52.4a228f84.js"><link rel="prefetch" href="/assets/js/53.e0cafade.js"><link rel="prefetch" href="/assets/js/54.f0258301.js"><link rel="prefetch" href="/assets/js/55.f673c02d.js"><link rel="prefetch" href="/assets/js/56.c0c10f9c.js"><link rel="prefetch" href="/assets/js/57.84fbd402.js"><link rel="prefetch" href="/assets/js/58.88ea7e51.js"><link rel="prefetch" href="/assets/js/59.7ae04bde.js"><link rel="prefetch" href="/assets/js/6.af2d9c4a.js"><link rel="prefetch" href="/assets/js/60.7fc50d50.js"><link rel="prefetch" href="/assets/js/61.beb3b4f8.js"><link rel="prefetch" href="/assets/js/62.eb533552.js"><link rel="prefetch" href="/assets/js/63.0070dd32.js"><link rel="prefetch" href="/assets/js/64.c6db5173.js"><link rel="prefetch" href="/assets/js/65.535d5b7f.js"><link rel="prefetch" href="/assets/js/66.9ef08533.js"><link rel="prefetch" href="/assets/js/67.32e1a5d1.js"><link rel="prefetch" href="/assets/js/68.19a9f593.js"><link rel="prefetch" href="/assets/js/69.18996e93.js"><link rel="prefetch" href="/assets/js/7.0c0f9c31.js"><link rel="prefetch" href="/assets/js/70.6f98359a.js"><link rel="prefetch" href="/assets/js/71.251be397.js"><link rel="prefetch" href="/assets/js/72.11f4d8dd.js"><link rel="prefetch" href="/assets/js/74.8215b3da.js"><link rel="prefetch" href="/assets/js/75.16e77981.js"><link rel="prefetch" href="/assets/js/76.f8f8fdf7.js"><link rel="prefetch" href="/assets/js/77.7cb40009.js"><link rel="prefetch" href="/assets/js/78.88c60c5e.js"><link rel="prefetch" href="/assets/js/79.e8cbaed1.js"><link rel="prefetch" href="/assets/js/8.9850b51a.js"><link rel="prefetch" href="/assets/js/80.699b07e4.js"><link rel="prefetch" href="/assets/js/81.88952008.js"><link rel="prefetch" href="/assets/js/82.4dabb4a5.js"><link rel="prefetch" href="/assets/js/83.b1426216.js"><link rel="prefetch" href="/assets/js/84.406987aa.js"><link rel="prefetch" href="/assets/js/85.62b89ee1.js"><link rel="prefetch" href="/assets/js/86.00623ac8.js"><link rel="prefetch" href="/assets/js/87.66de8182.js"><link rel="prefetch" href="/assets/js/88.d2f5d80a.js"><link rel="prefetch" href="/assets/js/89.f6647fec.js"><link rel="prefetch" href="/assets/js/9.0c9df295.js"><link rel="prefetch" href="/assets/js/90.194aa88c.js"><link rel="prefetch" href="/assets/js/91.116e2433.js"><link rel="prefetch" href="/assets/js/92.f04b31cc.js"><link rel="prefetch" href="/assets/js/93.ebf77190.js"><link rel="prefetch" href="/assets/js/94.73b76b23.js"><link rel="prefetch" href="/assets/js/95.201eee4e.js"><link rel="prefetch" href="/assets/js/96.c03905ec.js"><link rel="prefetch" href="/assets/js/97.6de667cf.js"><link rel="prefetch" href="/assets/js/98.599fc6c0.js"><link rel="prefetch" href="/assets/js/99.9a7f5c00.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5d8619ec.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/no.3/bower.html" class="sidebar-link">bower</a></li><li><a href="/no.3/browserify.html" class="sidebar-link">Browserify</a></li><li><a href="/no.3/commojs-vs-es6module.html" class="sidebar-link">模块规范对比</a></li><li><a href="/no.3/grunt.html" class="sidebar-link">grunt</a></li><li><a href="/no.3/gulp.html" class="sidebar-link">gulp</a></li><li><a href="/no.3/jenkins.html" class="sidebar-link">jenkins</a></li><li><a href="/no.3/linux_sed_awk.html" class="sidebar-link">sed与awk</a></li><li><a href="/no.3/linux防火墙.html" class="sidebar-link">linux防火墙</a></li><li><a href="/no.3/nginx-error.html" class="sidebar-link">centos错误集合</a></li><li><a href="/no.3/parcel.html" class="sidebar-link">parcel</a></li><li><a href="/no.3/pm2指南.html" class="sidebar-link">PM2</a></li><li><a href="/no.3/rollup.html" class="sidebar-link">rollup</a></li><li><a href="/no.3/vite.html" class="sidebar-link">/no.3/vite.html</a></li><li><a href="/no.3/vite插件指南.html" class="active sidebar-link">Vite2插件开发指南</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/no.3/vite插件指南.html#vite插件是什么" class="sidebar-link">Vite插件是什么</a></li><li class="sidebar-sub-header"><a href="/no.3/vite插件指南.html#vite插件的形式" class="sidebar-link">Vite插件的形式</a></li><li class="sidebar-sub-header"><a href="/no.3/vite插件指南.html#插件钩子" class="sidebar-link">插件钩子</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/no.3/vite插件指南.html#通用钩子" class="sidebar-link">通用钩子</a></li><li class="sidebar-sub-header"><a href="/no.3/vite插件指南.html#vite特有钩子" class="sidebar-link">Vite特有钩子</a></li><li class="sidebar-sub-header"><a href="/no.3/vite插件指南.html#范例-钩子调用顺序测试" class="sidebar-link">范例：钩子调用顺序测试</a></li></ul></li><li class="sidebar-sub-header"><a href="/no.3/vite插件指南.html#钩子调用顺序" class="sidebar-link">钩子调用顺序</a></li><li class="sidebar-sub-header"><a href="/no.3/vite插件指南.html#插件顺序" class="sidebar-link">插件顺序</a></li><li class="sidebar-sub-header"><a href="/no.3/vite插件指南.html#插件编写实操" class="sidebar-link">插件编写实操</a></li></ul></li><li><a href="/no.3/webpack.html" class="sidebar-link">webpack</a></li><li><a href="/no.3/yeoman.html" class="sidebar-link">yeoman</a></li><li><a href="/no.3/免密登陆.html" class="sidebar-link">免密登陆</a></li><li><a href="/no.3/文件操作权限.html" class="sidebar-link">Linux权限</a></li><li><a href="/no.3/理解Webpack中的Chunk.html" class="sidebar-link">理解 Webpack 中的 Chunk</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vite2插件开发指南"><a href="#vite2插件开发指南" aria-hidden="true" class="header-anchor">#</a> Vite2插件开发指南</h1> <ul><li><a href="#Vite%E6%8F%92%E4%BB%B6%E6%98%AF%E4%BB%80%E4%B9%88">Vite插件是什么</a></li> <li><a href="#Vite%E6%8F%92%E4%BB%B6%E7%9A%84%E5%BD%A2%E5%BC%8F">Vite插件的形式</a></li> <li><a href="#%E6%8F%92%E4%BB%B6%E9%92%A9%E5%AD%90">插件钩子</a></li> <li><a href="#%E6%8F%92%E4%BB%B6%E9%A1%BA%E5%BA%8F">插件顺序</a></li> <li><a href="#%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99%E5%AE%9E%E6%93%8D">插件编写实操</a></li></ul> <h2 id="vite插件是什么"><a href="#vite插件是什么" aria-hidden="true" class="header-anchor">#</a> Vite插件是什么</h2> <p>使用<code>Vite</code>插件可以扩展<code>Vite</code>能力，比如解析用户自定义的文件输入，在打包代码前转译代码，或者查找第三方模块。</p> <p><img src="https://colastar.github.io/static/images/vite-devserver.jpg" alt=""></p> <h2 id="vite插件的形式"><a href="#vite插件的形式" aria-hidden="true" class="header-anchor">#</a> Vite插件的形式</h2> <p>Vite插件扩展自Rollup插件接口，只是额外多了一些Vite特有选项。</p> <p><strong>Vite插件是一个拥有名称、创建钩子(build hook)或生成钩子(output generate hook)的对象。</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>export default {
+    name:'my-vite-plugin',
+    load(id){}
+    resolveId(id){} 
+    transform(html,id){}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p><strong>如果需要配置插件，它的形式应该是一个接收插件选项，返回插件对象的函数。</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>export default function(options) {
+   return {
+        name:'my-vite-plugin',
+        load(id){}
+        resolveId(id){} 
+        transform(html,id){}
+   }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p><strong>范例：加载一个不存在的虚拟模块</strong></p> <p>创建vite-plugin-my-example.js</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>export default function myExample () {
+  return {
+    name: 'my-example', // 名称用于警告和错误展示
+    resolveId ( source ) {
+      if (source === 'virtual-module') {
+        return source; // 返回source表明命中，vite不再询问其他插件处理该id请求
+      }
+      return null; // 返回null表明是其他id要继续处理
+    },
+    load ( id ) {
+      if (id === 'virtual-module') {
+        return 'export default &quot;This is virtual!&quot;'; // 返回&quot;virtual-module&quot;模块源码
+      }
+      return null; // 其他id继续处理
+    }
+  };
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="插件钩子"><a href="#插件钩子" aria-hidden="true" class="header-anchor">#</a> 插件钩子</h2> <h3 id="通用钩子"><a href="#通用钩子" aria-hidden="true" class="header-anchor">#</a> 通用钩子</h3> <p>开发时，<code>Vite dev server</code>创建一个插件容器按照<code>Rollup</code>调用创建钩子的规则请求各个钩子函数。</p> <p><strong>下面钩子会在服务器启动时调用一次:</strong></p> <ul><li><a href="https://rollupjs.org/guide/en/#options" target="_blank" rel="noopener noreferrer">options<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 替换或操纵rollup选项</li> <li><a href="https://rollupjs.org/guide/en/#buildstart" target="_blank" rel="noopener noreferrer">buildStart<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 开始创建</li></ul> <p><strong>下面钩子每次有模块请求时都会被调用:</strong></p> <ul><li><a href="https://rollupjs.org/guide/en/#resolveid" target="_blank" rel="noopener noreferrer">resolveId<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 创建自定义确认函数，常用语定位第三方依赖</li> <li><a href="https://rollupjs.org/guide/en/#load" target="_blank" rel="noopener noreferrer">load<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 创建自定义加载函数，可用于返回自定义的内容</li> <li><a href="https://rollupjs.org/guide/en/#transform" target="_blank" rel="noopener noreferrer">transform<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 可用于转换已加载的模块内容</li></ul> <p><strong>下面钩子会在服务器关闭时调用一次:</strong></p> <ul><li><a href="https://rollupjs.org/guide/en/#buildend" target="_blank" rel="noopener noreferrer">buildEnd<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://rollupjs.org/guide/en/#closebundle" target="_blank" rel="noopener noreferrer">closeBundle<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <h3 id="vite特有钩子"><a href="#vite特有钩子" aria-hidden="true" class="header-anchor">#</a> Vite特有钩子</h3> <p><a href="https://cn.vitejs.dev/guide/api-plugin.html#config" target="_blank" rel="noopener noreferrer">config<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>: 修改Vite配置
+<a href="https://cn.vitejs.dev/guide/api-plugin.html#configresolved" target="_blank" rel="noopener noreferrer">configResolved<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>：Vite配置确认
+<a href="https://cn.vitejs.dev/guide/api-plugin.html#configureServer" target="_blank" rel="noopener noreferrer">configureServer<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>：用于配置dev server
+<a href="https://cn.vitejs.dev/guide/api-plugin.html#configureServer" target="_blank" rel="noopener noreferrer">transformIndexHtml<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>：用于转换宿主页
+<a href="https://cn.vitejs.dev/guide/api-plugin.html#handleHotUpdate" target="_blank" rel="noopener noreferrer">handleHotUpdate<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>：自定义HMR更新时调用</p> <h3 id="范例-钩子调用顺序测试"><a href="#范例-钩子调用顺序测试" aria-hidden="true" class="header-anchor">#</a> 范例：钩子调用顺序测试</h3> <div class="language-export default function myExample () { line-numbers-mode"><pre class="language-text"><code>  // 返回的是插件对象
+  return {
+    name: 'hooks-order', 
+    // 初始化hooks，只走一次
+    options(opts) {
+      console.log('options', opts);
+    },
+    buildStart() {
+      console.log('buildStart');
+    },
+    // vite特有钩子
+    config(config) {
+      console.log('config', config);
+      return {}
+    },
+    configResolved(resolvedCofnig) {
+      console.log('configResolved');
+    },
+    configureServer(server) {
+      console.log('configureServer');
+      // server.app.use((req, res, next) =&gt; {
+      //   // custom handle request...
+      // })
+    },
+    transformIndexHtml(html) {
+      console.log('transformIndexHtml');
+      return html
+      // return html.replace(
+      //   /&lt;title&gt;(.*?)&lt;\/title&gt;/,
+      //   `&lt;title&gt;Title replaced!&lt;/title&gt;`
+      // )
+    },
+    // 通用钩子
+    resolveId ( source ) {
+      if (source === 'virtual-module') {
+        console.log('resolvedId', source);
+        return source; 
+      }
+      return null; 
+    },
+    load ( id ) {
+      if (id === 'virtual-module') {
+        console.log('load');
+        return 'export default &quot;This is virtual!&quot;';
+      }
+      return null;
+    },
+    transform(code, id) {
+      if (id === 'virtual-module') {
+        console.log('transform');
+      }
+      return code
+    },
+  };
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br></div></div><h2 id="钩子调用顺序"><a href="#钩子调用顺序" aria-hidden="true" class="header-anchor">#</a> 钩子调用顺序</h2> <p><img src="https://colastar.github.io/static/images/vite-sort.png" alt=""></p> <h2 id="插件顺序"><a href="#插件顺序" aria-hidden="true" class="header-anchor">#</a> 插件顺序</h2> <ul><li>别名处理<code>Alias</code></li> <li>用户插件设置<code>enforce: 'pre'</code></li> <li><code>Vite</code>核心插件</li> <li>用户插件未设置<code>enforce</code></li> <li><code>Vite</code>构建插件</li> <li>用户插件设置<code>enforce: 'post'</code></li> <li><code>Vite</code>构建后置插件(<code>minify</code>, <code>manifest</code>, <code>reporting</code>)</li></ul> <p><img src="https://colastar.github.io/static/images/vite-devserver-sort.png" alt=""></p> <p>转载<a href="https://zhuanlan.zhihu.com/p/364275970" target="_blank" rel="noopener noreferrer">Vite2插件开发指南<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://cn.vitejs.dev/guide/api-plugin.html" target="_blank" rel="noopener noreferrer">Vite中文官网插件篇<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="插件编写实操"><a href="#插件编写实操" aria-hidden="true" class="header-anchor">#</a> 插件编写实操</h2> <p><strong>实现一个<code>mock</code>服务器<code>vite-plugin-mock</code></strong></p> <p><strong>实现思路</strong>是给开发服务器实例(<code>connect</code>)配一个中间件，该中间件可以存储用户配置接口映射信息，并提前处理输入请求，如果请求的<code>url</code>和路由表匹配则接管，按用户配置的<code>handler</code>返回结果。
+<img src="https://colastar.github.io/static/images/vite-plugin-mock-serve.png" alt=""></p> <p>创建<code>plugins/vite-plugin-mock.js</code></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import path from 'path'
+
+let mockRouteMap = {};
+
+function matchRoute(req) {
+  let url = req.url;
+  let method = req.method.toLowerCase();
+  let routeList = mockRouteMap[method];
+
+  return routeList &amp;&amp; routeList.find((item) =&gt; item.path === url);
+}
+
+function createRoute(mockConfList) {
+  mockConfList.forEach((mockConf) =&gt; {
+    let method = mockConf.type || 'get';
+    let path = mockConf.url;
+    let handler = mockConf.response;
+    let route = { path, method: method.toLowerCase(), handler };
+    if (!mockRouteMap[method]) {
+      mockRouteMap[method] = [];
+    }
+    console.log('create mock api: ', route.method, route.path);
+    mockRouteMap[method].push(route);
+  });
+}
+
+function send(body) {
+  let chunk = JSON.stringify(body);
+  // Content-Length
+  if (chunk) {
+    chunk = Buffer.from(chunk, 'utf-8');
+    this.setHeader('Content-Length', chunk.length);
+  }
+  // content-type
+  this.setHeader('Content-Type', 'application/json');
+  // status
+  this.statusCode = 200;
+  // respond
+  this.end(chunk, 'utf8');
+}
+export default function (options = {}) {
+  options.entry = options.entry || './mock/index.js';
+
+
+  if (!path.isAbsolute(options.entry)) {
+    options.entry = path.resolve(process.cwd(), options.entry);
+  }
+
+  return {
+    configureServer: function ({ app }) {
+      const mockObj = require(options.entry);
+      createRoute(mockObj);
+
+      const middleware = (req, res, next) =&gt; {
+        let route = matchRoute(req);
+
+        if (route) {
+          console.log('mock request', route.method, route.path);
+          res.send = send;
+          route.handler(req, res);
+        } else {
+          next();
+        }
+      };
+      app.use(middleware);
+    },
+  };
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/no.3/vite.html" class="prev">
+        /no.3/vite.html
+      </a></span> <span class="next"><a href="/no.3/webpack.html">
+        webpack
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.684d0c32.js" defer></script><script src="/assets/js/2.933437e1.js" defer></script><script src="/assets/js/73.20a69de6.js" defer></script>
+  </body>
+</html>
