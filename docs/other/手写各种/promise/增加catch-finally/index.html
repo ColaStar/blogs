@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script src="./mypromise.js"></script> -->
+    <script>
+
+        // let p1 = () => {
+        //     return new Promise1((resolve, reject) => {
+        //         setTimeout(() => {
+        //         resolve('success.1');
+        //         // reject('error.2');
+        //         }, 2000);
+        //     });
+        // }
+var a = new Promise((resolve,reject)=>{
+    resolve(1)
+}).then((resolve)=>{
+    console.log(resolve)
+}).then(res=>{
+    console.log(res)
+})
+        // p1().then((data) => {
+        //     console.log(data); // 打印 success.1
+        //     return 222
+        // }, (err) => {
+        //     console.log(err);
+        // }).then(res=>{
+        //     console.log(res)
+        // });
+        // p1().catch(res=>{
+        //     console.log(res,2222)
+        // })
+        // p1().finally(res=>{
+        //     console.log(111)
+        // })
+    </script>
+</body>
+
+</html>

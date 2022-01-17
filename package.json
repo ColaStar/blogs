@@ -1,0 +1,43 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "start": "bash start.sh",
+    "static": "bash static.sh",
+    "start:w": "start start.cmd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/docschina/vuepress.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/docschina/vuepress/issues"
+  },
+  "homepage": "https://github.com/docschina/vuepress#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@vuepress/shared-utils": "^1.4.0",
+    "husky": "^4.2.5",
+    "vuepress": "^1.8.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "jinrishici": "^1.0.6",
+    "node-ts": "^5.0.5",
+    "tang-poems": "^1.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $GIT_PARAMS"
+    }
+  }
+}

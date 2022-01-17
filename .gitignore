@@ -1,14 +1,5 @@
 node_modules
-docs
 static
 .DS_Store
 .vscode
-start.sh
-start.cmd
-test.js
-yarn.lock
-test.html
-package.json
-package-lock.json
-commitlint.config.js
 
