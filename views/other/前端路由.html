@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>前端路由 | 个人博客</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://colastar.github.io/blogs/views/js/tj.js"></script>
+    <script src="https://colastar.github.io/blogs/views/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="人生代代无穷已，江月年年只相似。">
+    
+    <link rel="preload" href="/assets/css/0.styles.f700448a.css" as="style"><link rel="preload" href="/assets/js/app.a49ca15b.js" as="script"><link rel="preload" href="/assets/js/2.2b4afd4e.js" as="script"><link rel="preload" href="/assets/js/154.9068ebea.js" as="script"><link rel="prefetch" href="/assets/js/10.d59dfbc7.js"><link rel="prefetch" href="/assets/js/100.5d7aaa79.js"><link rel="prefetch" href="/assets/js/101.8707a73c.js"><link rel="prefetch" href="/assets/js/102.991a045c.js"><link rel="prefetch" href="/assets/js/103.279c263f.js"><link rel="prefetch" href="/assets/js/104.f95b6770.js"><link rel="prefetch" href="/assets/js/105.fa4003b7.js"><link rel="prefetch" href="/assets/js/106.c73d62fe.js"><link rel="prefetch" href="/assets/js/107.3f30ad29.js"><link rel="prefetch" href="/assets/js/108.0fac0f00.js"><link rel="prefetch" href="/assets/js/109.fa0f6153.js"><link rel="prefetch" href="/assets/js/11.71162af2.js"><link rel="prefetch" href="/assets/js/110.2234e90c.js"><link rel="prefetch" href="/assets/js/111.949f329e.js"><link rel="prefetch" href="/assets/js/112.fd2d7628.js"><link rel="prefetch" href="/assets/js/113.95e6e404.js"><link rel="prefetch" href="/assets/js/114.5c42cf0b.js"><link rel="prefetch" href="/assets/js/115.6e082b7a.js"><link rel="prefetch" href="/assets/js/116.4b5f6888.js"><link rel="prefetch" href="/assets/js/117.37336c48.js"><link rel="prefetch" href="/assets/js/118.3d147f5a.js"><link rel="prefetch" href="/assets/js/119.37f4600e.js"><link rel="prefetch" href="/assets/js/12.cd36b2df.js"><link rel="prefetch" href="/assets/js/120.0d031702.js"><link rel="prefetch" href="/assets/js/121.4f227a45.js"><link rel="prefetch" href="/assets/js/122.61ca8d6c.js"><link rel="prefetch" href="/assets/js/123.60415e5a.js"><link rel="prefetch" href="/assets/js/124.9558b4ad.js"><link rel="prefetch" href="/assets/js/125.aaba3c26.js"><link rel="prefetch" href="/assets/js/126.51713071.js"><link rel="prefetch" href="/assets/js/127.a7c42c0d.js"><link rel="prefetch" href="/assets/js/128.61fda753.js"><link rel="prefetch" href="/assets/js/129.6896a0e8.js"><link rel="prefetch" href="/assets/js/13.ca3fe43c.js"><link rel="prefetch" href="/assets/js/130.90c48393.js"><link rel="prefetch" href="/assets/js/131.4b07d37c.js"><link rel="prefetch" href="/assets/js/132.b904110e.js"><link rel="prefetch" href="/assets/js/133.23fd0ad3.js"><link rel="prefetch" href="/assets/js/134.7dccd575.js"><link rel="prefetch" href="/assets/js/135.95c92179.js"><link rel="prefetch" href="/assets/js/136.2d1dd7ce.js"><link rel="prefetch" href="/assets/js/137.11bd2504.js"><link rel="prefetch" href="/assets/js/138.737c3a11.js"><link rel="prefetch" href="/assets/js/139.6e2a9088.js"><link rel="prefetch" href="/assets/js/14.f23f22c3.js"><link rel="prefetch" href="/assets/js/140.0f019147.js"><link rel="prefetch" href="/assets/js/141.e2b720f6.js"><link rel="prefetch" href="/assets/js/142.83921c3a.js"><link rel="prefetch" href="/assets/js/143.5cdc78c9.js"><link rel="prefetch" href="/assets/js/144.f015aaf8.js"><link rel="prefetch" href="/assets/js/145.6cccc7c0.js"><link rel="prefetch" href="/assets/js/146.1c93c84f.js"><link rel="prefetch" href="/assets/js/147.fe503c78.js"><link rel="prefetch" href="/assets/js/148.2c448862.js"><link rel="prefetch" href="/assets/js/149.23090952.js"><link rel="prefetch" href="/assets/js/15.4ece5f9e.js"><link rel="prefetch" href="/assets/js/150.784e8a88.js"><link rel="prefetch" href="/assets/js/151.236f6101.js"><link rel="prefetch" href="/assets/js/152.7fbadfdb.js"><link rel="prefetch" href="/assets/js/153.4eaf284b.js"><link rel="prefetch" href="/assets/js/155.6fddb281.js"><link rel="prefetch" href="/assets/js/156.1aa56a14.js"><link rel="prefetch" href="/assets/js/157.b2c94e2d.js"><link rel="prefetch" href="/assets/js/158.fa7d72d3.js"><link rel="prefetch" href="/assets/js/159.7c4dfdf5.js"><link rel="prefetch" href="/assets/js/16.abfb89a1.js"><link rel="prefetch" href="/assets/js/160.14652c0c.js"><link rel="prefetch" href="/assets/js/161.b8d2a29a.js"><link rel="prefetch" href="/assets/js/162.4795430e.js"><link rel="prefetch" href="/assets/js/163.81832790.js"><link rel="prefetch" href="/assets/js/164.895910ca.js"><link rel="prefetch" href="/assets/js/165.45baa9b2.js"><link rel="prefetch" href="/assets/js/166.865b3d91.js"><link rel="prefetch" href="/assets/js/167.cf9e71c2.js"><link rel="prefetch" href="/assets/js/17.ade900bf.js"><link rel="prefetch" href="/assets/js/18.0df95d12.js"><link rel="prefetch" href="/assets/js/19.02b95d5a.js"><link rel="prefetch" href="/assets/js/20.bde80fdc.js"><link rel="prefetch" href="/assets/js/21.09fe235c.js"><link rel="prefetch" href="/assets/js/22.bb9675c2.js"><link rel="prefetch" href="/assets/js/23.d9c3d973.js"><link rel="prefetch" href="/assets/js/24.b1008ce9.js"><link rel="prefetch" href="/assets/js/25.4e84d8c4.js"><link rel="prefetch" href="/assets/js/26.cda9bf46.js"><link rel="prefetch" href="/assets/js/27.b9d6f40d.js"><link rel="prefetch" href="/assets/js/28.99647803.js"><link rel="prefetch" href="/assets/js/29.fda65399.js"><link rel="prefetch" href="/assets/js/3.4c3534bf.js"><link rel="prefetch" href="/assets/js/30.9db680a1.js"><link rel="prefetch" href="/assets/js/31.165acb82.js"><link rel="prefetch" href="/assets/js/32.10794818.js"><link rel="prefetch" href="/assets/js/33.c4280440.js"><link rel="prefetch" href="/assets/js/34.d4756c75.js"><link rel="prefetch" href="/assets/js/35.44973cf6.js"><link rel="prefetch" href="/assets/js/36.a2ac49e7.js"><link rel="prefetch" href="/assets/js/37.61680e06.js"><link rel="prefetch" href="/assets/js/38.67a90281.js"><link rel="prefetch" href="/assets/js/39.1f4246ca.js"><link rel="prefetch" href="/assets/js/4.cd3e2e4c.js"><link rel="prefetch" href="/assets/js/40.a3be074b.js"><link rel="prefetch" href="/assets/js/41.0ab22ad7.js"><link rel="prefetch" href="/assets/js/42.c4c76c62.js"><link rel="prefetch" href="/assets/js/43.31ad788a.js"><link rel="prefetch" href="/assets/js/44.48ea0520.js"><link rel="prefetch" href="/assets/js/45.7861a4f0.js"><link rel="prefetch" href="/assets/js/46.a3c15607.js"><link rel="prefetch" href="/assets/js/47.0d8bb16a.js"><link rel="prefetch" href="/assets/js/48.df900037.js"><link rel="prefetch" href="/assets/js/49.7bc3b92d.js"><link rel="prefetch" href="/assets/js/5.0d43fff3.js"><link rel="prefetch" href="/assets/js/50.4e284ccd.js"><link rel="prefetch" href="/assets/js/51.351514d8.js"><link rel="prefetch" href="/assets/js/52.b32fabc2.js"><link rel="prefetch" href="/assets/js/53.032e88b0.js"><link rel="prefetch" href="/assets/js/54.035e8a97.js"><link rel="prefetch" href="/assets/js/55.2d650fac.js"><link rel="prefetch" href="/assets/js/56.1869b640.js"><link rel="prefetch" href="/assets/js/57.5226805e.js"><link rel="prefetch" href="/assets/js/58.1041fa3e.js"><link rel="prefetch" href="/assets/js/59.a6f1cc35.js"><link rel="prefetch" href="/assets/js/6.f3d455ea.js"><link rel="prefetch" href="/assets/js/60.24ea1dc4.js"><link rel="prefetch" href="/assets/js/61.42a23f7e.js"><link rel="prefetch" href="/assets/js/62.829ac203.js"><link rel="prefetch" href="/assets/js/63.a1e8623f.js"><link rel="prefetch" href="/assets/js/64.8f1bfde4.js"><link rel="prefetch" href="/assets/js/65.52e67bda.js"><link rel="prefetch" href="/assets/js/66.072601f9.js"><link rel="prefetch" href="/assets/js/67.39a5e42c.js"><link rel="prefetch" href="/assets/js/68.052f39cf.js"><link rel="prefetch" href="/assets/js/69.4faaee3f.js"><link rel="prefetch" href="/assets/js/7.61ea5dc1.js"><link rel="prefetch" href="/assets/js/70.15edf2e5.js"><link rel="prefetch" href="/assets/js/71.bf0db890.js"><link rel="prefetch" href="/assets/js/72.4f95447f.js"><link rel="prefetch" href="/assets/js/73.42742ab1.js"><link rel="prefetch" href="/assets/js/74.91d1742f.js"><link rel="prefetch" href="/assets/js/75.53d7c547.js"><link rel="prefetch" href="/assets/js/76.c3b2f9ee.js"><link rel="prefetch" href="/assets/js/77.875814b3.js"><link rel="prefetch" href="/assets/js/78.2f28a62a.js"><link rel="prefetch" href="/assets/js/79.0142ceb4.js"><link rel="prefetch" href="/assets/js/8.3df27b51.js"><link rel="prefetch" href="/assets/js/80.b6a0c94c.js"><link rel="prefetch" href="/assets/js/81.3ab20d0d.js"><link rel="prefetch" href="/assets/js/82.462ccc3c.js"><link rel="prefetch" href="/assets/js/83.31d193c6.js"><link rel="prefetch" href="/assets/js/84.6eb6525a.js"><link rel="prefetch" href="/assets/js/85.f3a34abc.js"><link rel="prefetch" href="/assets/js/86.baea4826.js"><link rel="prefetch" href="/assets/js/87.d6d12c4e.js"><link rel="prefetch" href="/assets/js/88.1a56dc74.js"><link rel="prefetch" href="/assets/js/89.9e55bc7a.js"><link rel="prefetch" href="/assets/js/9.a1f681ef.js"><link rel="prefetch" href="/assets/js/90.69f24135.js"><link rel="prefetch" href="/assets/js/91.7332b328.js"><link rel="prefetch" href="/assets/js/92.e360a6dc.js"><link rel="prefetch" href="/assets/js/93.ac907abd.js"><link rel="prefetch" href="/assets/js/94.1d792af1.js"><link rel="prefetch" href="/assets/js/95.a3d4039c.js"><link rel="prefetch" href="/assets/js/96.f525d75d.js"><link rel="prefetch" href="/assets/js/97.bc1a53fa.js"><link rel="prefetch" href="/assets/js/98.f2809d38.js"><link rel="prefetch" href="/assets/js/99.34de5b73.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f700448a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/other/ mac上使用cnpm搭建npm私有仓库.html" class="sidebar-link">mac上使用cnpm搭建npm私有仓库，并上传/下载私有npm包</a></li><li><a href="/other/Charles.html" class="sidebar-link">/other/Charles.html</a></li><li><a href="/other/Git代码提交规范.html" class="sidebar-link">Git代码提交规范</a></li><li><a href="/other/Mac下安装MYSQL.html" class="sidebar-link">Mac 下安装MYSQL</a></li><li><a href="/other/eventLoop/eventLoop.html" class="sidebar-link">Event Loop 总结</a></li><li><a href="/other/eventLoop.html" class="sidebar-link">Event Loop 总结</a></li><li><a href="/other/git/git命令全集.html" class="sidebar-link">/other/git/git命令全集.html</a></li><li><a href="/other/git/git版本管理规范.html" class="sidebar-link">git版本管理规范</a></li><li><a href="/other/item2.html" class="sidebar-link">/other/item2.html</a></li><li><a href="/other/mac/Mac电脑如何修改和自定义文件夹图标.html" class="sidebar-link">Mac电脑如何修改和自定义文件夹图标？</a></li><li><a href="/other/mac安装mongoDB详细步骤.html" class="sidebar-link">mac安装mongoDB详细步骤</a></li><li><a href="/other/typeScript.html" class="sidebar-link">TypeScript入门</a></li><li><a href="/other/一些有意思的库.html" class="sidebar-link">/other/一些有意思的库.html</a></li><li><a href="/other/优雅降级与渐进增强.html" class="sidebar-link">优雅降级与渐进增强</a></li><li><a href="/other/前端协作规范.html" class="sidebar-link">前端协作规范</a></li><li><a href="/other/前端路由.html" class="active sidebar-link">前端路由</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/other/前端路由.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/other/前端路由.html#什么是-spa" class="sidebar-link">什么是 SPA</a></li></ul></li><li><a href="/other/手写各种/promise.html" class="sidebar-link">Promise、</a></li><li><a href="/other/手写各种/手写代码实现.html" class="sidebar-link">面试</a></li><li><a href="/other/正则相关.html" class="sidebar-link">什么是正则表达式呢？</a></li><li><a href="/other/网站令浏览器崩溃的原因.html" class="sidebar-link">网站导致浏览器崩溃的原因</a></li><li><a href="/other/重构.html" class="sidebar-link">重构 - 改善既有代码的设计</a></li><li><a href="/other/错误日志监控.html" class="sidebar-link">前端错误监控以及日志管理</a></li><li><a href="/other/阿里云/免密登陆.html" class="sidebar-link">免密登录远程服务器配置</a></li><li><a href="/other/阿里云/给普通用户添加权限.html" class="sidebar-link">/other/阿里云/给普通用户添加权限.html</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="前端路由"><a href="#前端路由" class="header-anchor">#</a> 前端路由</h1> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>现代前端项目多为单页Web应用(SPA)，在单页Web应用中路由是其中的重要环节。</p> <p>每个现代前端框架都有与之对应的路由实现，例如 <code>vue-router</code>、<code>react-router</code> 等。</p> <p>本文并不涉及 <code>vue-router</code>、<code>react-router</code> 的实现方式，而是介绍前端路由的基本实现原理及实现方式。</p> <p><code>vue-router</code>、<code>react-router</code> 的源码解析，会在以后的文章中逐步推出。</p> <h2 id="什么是-spa"><a href="#什么是-spa" class="header-anchor">#</a> 什么是 SPA</h2> <p>SPA 是 single page web application 的简称，译为单页Web应用。</p> <p>简单的说 SPA 就是一个WEB项目只有一个 HTML 页面，一旦页面加载完成，SPA 不会因为用户的操作而进行页面的重新加载或跳转。 取而代之的是利用 JS 动态的变换 HTML 的内容，从而来模拟多个视图间跳转。</p> <p>从传统页面到视图</p> <p>对于初学者来说，理解传统页面与 SPA 视图间的差异是困难的。</p> <p>在这里，用两张图，来分别表明传统页面与 SPA 视图间的区别：</p> <p>上图表明了，在传统的网站设计中，每个HTML文件都是一个完成的HTML页面，涵盖了完整的HTML结构。</p> <p>上图表明了，在 SPA 的应用设计中，一个应用只有一个HTML文件，在HTML文件中包含一个占位符（即图中的 container），占位符对应的内容由每个视图来决定，对于 SPA 来说，页面的切换就是视图之间的切换。</p> <p>前端路由的由来
+最开始的网页是多页面的，直到 Ajax 的出现，才慢慢有了 SPA。</p> <p>SPA 的出现大大提高了 WEB 应用的交互体验。在与用户的交互过程中，不再需要重新刷新页面，获取数据也是通过 Ajax 异步获取，页面显示变的更加流畅。</p> <p>但由于 SPA 中用户的交互是通过 JS 改变 HTML 内容来实现的，页面本身的 url 并没有变化，这导致了两个问题：</p> <p>SPA 无法记住用户的操作记录，无论是刷新、前进还是后退，都无法展示用户真实的期望内容。
+SPA 中虽然由于业务的不同会有多种页面展示形式，但只有一个 url，对 SEO 不友好，不方便搜索引擎进行收录。
+前端路由就是为了解决上述问题而出现的。</p> <p>什么是前端路由
+简单的说，就是在保证只有一个 HTML 页面，且与用户交互时不刷新和跳转页面的同时，为 SPA 中的每个视图展示形式匹配一个特殊的 url。在刷新、前进、后退和SEO时均通过这个特殊的 url 来实现。</p> <p>为实现这一目标，我们需要做到以下二点：</p> <p>改变 url 且不让浏览器像服务器发送请求。
+可以监听到 url 的变化
+接下来要介绍的 hash 模式和 history 模式，就是实现了上面的功能</p> <p>hash 模式
+这里的 hash 就是指 url 后的 # 号以及后面的字符。比如说 &quot;www.baidu.com/#hashhash&quot; ，其中 &quot;#hashhash&quot; 就是我们期望的 hash 值。</p> <p>由于 hash 值的变化不会导致浏览器像服务器发送请求，而且 hash 的改变会触发 hashchange 事件，浏览器的前进后退也能对其进行控制，所以在 H5 的 history 模式出现之前，基本都是使用 hash 模式来实现前端路由。</p> <p>使用到的API:</p> <p>window.location.hash = 'hash字符串'; // 用于设置 hash 值</p> <p>let hash = window.location.hash; // 获取当前 hash 值</p> <p>// 监听hash变化，点击浏览器的前进后退会触发
+window.addEventListener('hashchange', function(event){
+let newURL = event.newURL; // hash 改变后的新 url
+let oldURL = event.oldURL; // hash 改变前的旧 url
+},false)
+复制代码
+接下来我们来实现一个路由对象</p> <p>创建一个路由对象, 实现 register 方法用于注册每个 hash 值对应的回调函数</p> <p>class HashRouter{
+constructor(){
+//用于存储不同hash值对应的回调函数
+this.routers = {};
+}
+//用于注册每个视图
+register(hash,callback = function(){}){
+this.routers[hash] = callback;
+}
+}
+复制代码
+不存在hash值时，认为是首页，所以实现 registerIndex 方法用于注册首页时的回调函数</p> <p>class HashRouter{
+constructor(){
+//用于存储不同hash值对应的回调函数
+this.routers = {};
+}
+//用于注册每个视图
+register(hash,callback = function(){}){
+this.routers[hash] = callback;
+}
+//用于注册首页
+registerIndex(callback = function(){}){
+this.routers['index'] = callback;
+}
+}
+复制代码
+通过 hashchange 监听 hash 变化，并定义 hash 变化时的回调函数</p> <p>class HashRouter{
+constructor(){
+//用于存储不同hash值对应的回调函数
+this.routers = {};
+window.addEventListener('hashchange',this.load.bind(this),false)
+}
+//用于注册每个视图
+register(hash,callback = function(){}){
+this.routers[hash] = callback;
+}
+//用于注册首页
+registerIndex(callback = function(){}){
+this.routers['index'] = callback;
+}
+//用于调用不同视图的回调函数
+load(){
+let hash = location.hash.slice(1),
+handler;
+//没有hash 默认为首页
+if(!hash){
+handler = this.routers.index;
+}else{
+handler = this.routers[hash];
+}
+//执行注册的回调函数
+handler.call(this);
+}
+}
+复制代码
+我们做一个例子来演示一下我们刚刚完成的 HashRouter</p> <body><div id="nav"><a href="#/page1">page1</a> <a href="#/page2">page2</a> <a href="#/page3">page3</a></div> <div id="container"></div></body>
+复制代码
+let router = new HashRouter();
+let container = document.getElementById('container');
+<p>//注册首页回调函数
+router.registerIndex(()=&gt; container.innerHTML = '我是首页');</p> <p>//注册其他视图回到函数
+router.register('/page1',()=&gt; container.innerHTML = '我是page1');
+router.register('/page2',()=&gt; container.innerHTML = '我是page2');
+router.register('/page3',()=&gt; container.innerHTML = '我是page3');</p> <p>//加载视图
+router.load();
+复制代码
+来看一下效果：</p> <p>基本的路由功能我们已经实现了，但依然有点小问题</p> <p>缺少对未在路由中注册的 hash 值的处理
+hash 值对应的回调函数在执行过程中抛出异常
+对应的解决办法如下：</p> <p>我们追加 registerNotFound 方法，用于注册 hash 值未找到时的默认回调函数；
+修改 load 方法，追加 try/catch 用于捕获异常，追加 registerError 方法，用于处理异常
+代码修改后：</p> <p>class HashRouter{
+constructor(){
+//用于存储不同hash值对应的回调函数
+this.routers = {};
+window.addEventListener('hashchange',this.load.bind(this),false)
+}
+//用于注册每个视图
+register(hash,callback = function(){}){
+this.routers[hash] = callback;
+}
+//用于注册首页
+registerIndex(callback = function(){}){
+this.routers['index'] = callback;
+}
+//用于处理视图未找到的情况
+registerNotFound(callback = function(){}){
+this.routers['404'] = callback;
+}
+//用于处理异常情况
+registerError(callback = function(){}){
+this.routers['error'] = callback;
+}
+//用于调用不同视图的回调函数
+load(){
+let hash = location.hash.slice(1),
+handler;
+//没有hash 默认为首页
+if(!hash){
+handler = this.routers.index;
+}
+//未找到对应hash值
+else if(!this.routers.hasOwnProperty(hash)){
+handler = this.routers['404'] || function(){};
+}
+else{
+handler = this.routers[hash]
+}
+//执行注册的回调函数
+try{
+handler.apply(this);
+}catch(e){
+console.error(e);
+(this.routers['error'] || function(){}).call(this,e);
+}
+}
+}
+复制代码
+再来一个例子，演示一下：</p> <body><div id="nav"><a href="#/page1">page1</a> <a href="#/page2">page2</a> <a href="#/page3">page3</a> <a href="#/page4">page4</a> <a href="#/page5">page5</a></div> <div id="container"></div></body>
+复制代码
+let router = new HashRouter();
+let container = document.getElementById('container');
+<p>//注册首页回调函数
+router.registerIndex(()=&gt; container.innerHTML = '我是首页');</p> <p>//注册其他视图回到函数
+router.register('/page1',()=&gt; container.innerHTML = '我是page1');
+router.register('/page2',()=&gt; container.innerHTML = '我是page2');
+router.register('/page3',()=&gt; container.innerHTML = '我是page3');
+router.register('/page4',()=&gt; {throw new Error('抛出一个异常')});</p> <p>//加载视图
+router.load();
+//注册未找到对应hash值时的回调
+router.registerNotFound(()=&gt;container.innerHTML = '页面未找到');
+//注册出现异常时的回调
+router.registerError((e)=&gt;container.innerHTML = '页面异常，错误消息：<br>' + e.message);
+复制代码
+来看一下效果：</p> <p>至此，基于 hash 方式实现的前端路由，我们已经将基本雏形实现完成了。</p> <p>接下来我们来介绍前端路由的另一种模式：history 模式。</p> <p>history 模式
+在 HTML5 之前，浏览器就已经有了 history 对象。但在早期的 history 中只能用于多页面的跳转：</p> <p>history.go(-1);       // 后退一页
+history.go(2);        // 前进两页
+history.forward();     // 前进一页
+history.back();      // 后退一页
+复制代码
+在 HTML5 的规范中，history 新增了以下几个 API：</p> <p>history.pushState();         // 添加新的状态到历史状态栈
+history.replaceState();      // 用新的状态代替当前状态
+history.state                // 返回当前状态对象
+复制代码
+来自MDN的解释：</p> <p>HTML5引入了 history.pushState() 和 history.replaceState() 方法，它们分别可以添加和修改历史记录条目。这些方法通常与window.onpopstate 配合使用。</p> <p>history.pushState() 和 history.replaceState() 均接收三个参数（state, title, url）</p> <p>参数说明如下：</p> <p>state：合法的 Javascript 对象，可以用在 popstate 事件中
+title：现在大多浏览器忽略这个参数，可以直接用 null 代替
+url：任意有效的 URL，用于更新浏览器的地址栏
+history.pushState() 和 history.replaceState() 的区别在于：</p> <p>history.pushState() 在保留现有历史记录的同时，将 url 加入到历史记录中。
+history.replaceState() 会将历史记录中的当前页面历史替换为 url。
+由于 history.pushState() 和 history.replaceState() 可以改变 url 同时，不会刷新页面，所以在 HTML5 中的 histroy 具备了实现前端路由的能力。</p> <p>回想我们之前完成的 hash 模式，当 hash 变化时，可以通过 hashchange 进行监听。 而 history 的改变并不会触发任何事件，所以我们无法直接监听 history 的改变而做出相应的改变。</p> <p>所以，我们需要换个思路，我们可以罗列出所有可能触发 history 改变的情况，并且将这些方式一一进行拦截，变相地监听 history 的改变。</p> <p>对于单页应用的 history 模式而言，url 的改变只能由下面四种方式引起：</p> <p>点击浏览器的前进或后退按钮
+点击 a 标签
+在 JS 代码中触发 history.pushState 函数
+在 JS 代码中触发 history.replaceState 函数
+思路已经有了，接下来我们来实现一个路由对象</p> <p>创建一个路由对象, 实现 register 方法用于注册每个 location.pathname 值对应的回调函数
+当 location.pathname === '/' 时，认为是首页，所以实现 registerIndex 方法用于注册首页时的回调函数
+解决 location.path 没有对应的匹配，增加方法 registerNotFound 用于注册默认回调函数
+解决注册的回到函数执行时出现异常，增加方法 registerError 用于处理异常情况
+class HistoryRouter{
+constructor(){
+//用于存储不同path值对应的回调函数
+this.routers = {};
+}
+//用于注册每个视图
+register(path,callback = function(){}){
+this.routers[path] = callback;
+}
+//用于注册首页
+registerIndex(callback = function(){}){
+this.routers['/'] = callback;
+}
+//用于处视图未找到的情况
+registerNotFound(callback = function(){}){
+this.routers['404'] = callback;
+}
+//用于处理异常情况
+registerError(callback = function(){}){
+this.routers['error'] = callback;
+}
+}
+复制代码
+定义 assign 方法，用于通过 JS 触发 history.pushState 函数
+定义 replace 方法，用于通过 JS 触发 history.replaceState 函数
+class HistoryRouter{
+constructor(){
+//用于存储不同path值对应的回调函数
+this.routers = {};
+}
+//用于注册每个视图
+register(path,callback = function(){}){
+this.routers[path] = callback;
+}
+//用于注册首页
+registerIndex(callback = function(){}){
+this.routers['/'] = callback;
+}
+//用于处理视图未找到的情况
+registerNotFound(callback = function(){}){
+this.routers['404'] = callback;
+}
+//用于处理异常情况
+registerError(callback = function(){}){
+this.routers['error'] = callback;
+}
+//跳转到path
+assign(path){
+history.pushState({path},null,path);
+this.dealPathHandler(path)
+}
+//替换为path
+replace(path){
+history.replaceState({path},null,path);
+this.dealPathHandler(path)
+}
+//通用处理 path 调用回调函数
+dealPathHandler(path){
+let handler;
+//没有对应path
+if(!this.routers.hasOwnProperty(path)){
+handler = this.routers['404'] || function(){};
+}
+//有对应path
+else{
+handler = this.routers[path];
+}
+try{
+handler.call(this)
+}catch(e){
+console.error(e);
+(this.routers['error'] || function(){}).call(this,e);
+}
+}
+}
+复制代码
+监听 popstate 用于处理前进后退时调用对应的回调函数
+全局阻止A链接的默认事件，获取A链接的href属性，并调用 history.pushState 方法
+定义 load 方法，用于首次进入页面时 根据 location.pathname 调用对应的回调函数
+最终代码如下：</p> <p>class HistoryRouter{
+constructor(){
+//用于存储不同path值对应的回调函数
+this.routers = {};
+this.listenPopState();
+this.listenLink();
+}
+//监听popstate
+listenPopState(){
+window.addEventListener('popstate',(e)=&gt;{
+let state = e.state || {},
+path = state.path || '';
+this.dealPathHandler(path)
+},false)
+}
+//全局监听A链接
+listenLink(){
+window.addEventListener('click',(e)=&gt;{
+let dom = e.target;
+if(dom.tagName.toUpperCase() === 'A' &amp;&amp; dom.getAttribute('href')){
+e.preventDefault()
+this.assign(dom.getAttribute('href'));
+}
+},false)
+}
+//用于首次进入页面时调用
+load(){
+let path = location.pathname;
+this.dealPathHandler(path)
+}
+//用于注册每个视图
+register(path,callback = function(){}){
+this.routers[path] = callback;
+}
+//用于注册首页
+registerIndex(callback = function(){}){
+this.routers['/'] = callback;
+}
+//用于处理视图未找到的情况
+registerNotFound(callback = function(){}){
+this.routers['404'] = callback;
+}
+//用于处理异常情况
+registerError(callback = function(){}){
+this.routers['error'] = callback;
+}
+//跳转到path
+assign(path){
+history.pushState({path},null,path);
+this.dealPathHandler(path)
+}
+//替换为path
+replace(path){
+history.replaceState({path},null,path);
+this.dealPathHandler(path)
+}
+//通用处理 path 调用回调函数
+dealPathHandler(path){
+let handler;
+//没有对应path
+if(!this.routers.hasOwnProperty(path)){
+handler = this.routers['404'] || function(){};
+}
+//有对应path
+else{
+handler = this.routers[path];
+}
+try{
+handler.call(this)
+}catch(e){
+console.error(e);
+(this.routers['error'] || function(){}).call(this,e);
+}
+}
+}
+复制代码
+再做一个例子来演示一下我们刚刚完成的 HistoryRouter</p> <body><div id="nav"><a href="/page1">page1</a> <a href="/page2">page2</a> <a href="/page3">page3</a> <a href="/page4">page4</a> <a href="/page5">page5</a> <button id="btn">page2</button></div> <div id="container"><div class="language- extra-class"><pre><code>&lt;/div&gt;
+</code></pre></div></div></body>
+复制代码
+let router = new HistoryRouter();
+let container = document.getElementById('container');
+<p>//注册首页回调函数
+router.registerIndex(() =&gt; container.innerHTML = '我是首页');</p> <p>//注册其他视图回到函数
+router.register('/page1', () =&gt; container.innerHTML = '我是page1');
+router.register('/page2', () =&gt; container.innerHTML = '我是page2');
+router.register('/page3', () =&gt; container.innerHTML = '我是page3');
+router.register('/page4', () =&gt; {
+throw new Error('抛出一个异常')
+});</p> <p>document.getElementById('btn').onclick = () =&gt; router.assign('/page2')</p> <p>//注册未找到对应path值时的回调
+router.registerNotFound(() =&gt; container.innerHTML = '页面未找到');
+//注册出现异常时的回调
+router.registerError((e) =&gt; container.innerHTML = '页面异常，错误消息：<br>' + e.message);
+//加载页面
+router.load();
+复制代码
+来看一下效果：</p> <p>至此，基于 history 方式实现的前端路由，我们已经将基本雏形实现完成了。</p> <p>但需要注意的是，history 在修改 url 后，虽然页面并不会刷新，但我们在手动刷新，或通过 url 直接进入应用的时候， 服务端是无法识别这个 url 的。因为我们是单页应用，只有一个 html 文件，服务端在处理其他路径的 url 的时候，就会出现404的情况。 所以，如果要应用 history 模式，需要在服务端增加一个覆盖所有情况的候选资源：如果 URL 匹配不到任何静态资源，则应该返回单页应用的 html 文件。</p> <p>接下来，我们来探究一下，何时使用 hash 模式，何时使用 history 模式。</p> <p>hash、history 如何抉择
+hash 模式相比于 history 模式的优点：</p> <p>兼容性更好，可以兼容到IE8
+无需服务端配合处理非单页的url地址
+hash 模式相比于 history 模式的缺点：</p> <p>看起来更丑。
+会导致锚点功能失效。
+相同 hash 值不会触发动作将记录加入到历史栈中，而 pushState 则可以。
+综上所述，当我们不需要兼容老版本IE浏览器，并且可以控制服务端覆盖所有情况的候选资源时，我们可以愉快的使用 history 模式了。</p> <p>反之，很遗憾，只能使用丑陋的 hash 模式~</p> <p>尾声
+本文简单分析并实现了单页路由中的 hash 模式和 history 模式，当然，它与 vue-router、react-router 相比还太过简陋，关于 vue-router、react-router 的源码解析，会在以后的文章中逐步推出</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/17/2022, 3:20:27 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/other/前端协作规范.html" class="prev">
+        前端协作规范
+      </a></span> <span class="next"><a href="/other/手写各种/promise.html">
+        Promise、
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a49ca15b.js" defer></script><script src="/assets/js/2.2b4afd4e.js" defer></script><script src="/assets/js/154.9068ebea.js" defer></script>
+  </body>
+</html>

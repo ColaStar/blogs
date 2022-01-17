@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Flux 架构 | 个人博客</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://colastar.github.io/blogs/views/js/tj.js"></script>
+    <script src="https://colastar.github.io/blogs/views/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="人生代代无穷已，江月年年只相似。">
+    
+    <link rel="preload" href="/assets/css/0.styles.f700448a.css" as="style"><link rel="preload" href="/assets/js/app.a49ca15b.js" as="script"><link rel="preload" href="/assets/js/2.2b4afd4e.js" as="script"><link rel="preload" href="/assets/js/105.fa4003b7.js" as="script"><link rel="prefetch" href="/assets/js/10.d59dfbc7.js"><link rel="prefetch" href="/assets/js/100.5d7aaa79.js"><link rel="prefetch" href="/assets/js/101.8707a73c.js"><link rel="prefetch" href="/assets/js/102.991a045c.js"><link rel="prefetch" href="/assets/js/103.279c263f.js"><link rel="prefetch" href="/assets/js/104.f95b6770.js"><link rel="prefetch" href="/assets/js/106.c73d62fe.js"><link rel="prefetch" href="/assets/js/107.3f30ad29.js"><link rel="prefetch" href="/assets/js/108.0fac0f00.js"><link rel="prefetch" href="/assets/js/109.fa0f6153.js"><link rel="prefetch" href="/assets/js/11.71162af2.js"><link rel="prefetch" href="/assets/js/110.2234e90c.js"><link rel="prefetch" href="/assets/js/111.949f329e.js"><link rel="prefetch" href="/assets/js/112.fd2d7628.js"><link rel="prefetch" href="/assets/js/113.95e6e404.js"><link rel="prefetch" href="/assets/js/114.5c42cf0b.js"><link rel="prefetch" href="/assets/js/115.6e082b7a.js"><link rel="prefetch" href="/assets/js/116.4b5f6888.js"><link rel="prefetch" href="/assets/js/117.37336c48.js"><link rel="prefetch" href="/assets/js/118.3d147f5a.js"><link rel="prefetch" href="/assets/js/119.37f4600e.js"><link rel="prefetch" href="/assets/js/12.cd36b2df.js"><link rel="prefetch" href="/assets/js/120.0d031702.js"><link rel="prefetch" href="/assets/js/121.4f227a45.js"><link rel="prefetch" href="/assets/js/122.61ca8d6c.js"><link rel="prefetch" href="/assets/js/123.60415e5a.js"><link rel="prefetch" href="/assets/js/124.9558b4ad.js"><link rel="prefetch" href="/assets/js/125.aaba3c26.js"><link rel="prefetch" href="/assets/js/126.51713071.js"><link rel="prefetch" href="/assets/js/127.a7c42c0d.js"><link rel="prefetch" href="/assets/js/128.61fda753.js"><link rel="prefetch" href="/assets/js/129.6896a0e8.js"><link rel="prefetch" href="/assets/js/13.ca3fe43c.js"><link rel="prefetch" href="/assets/js/130.90c48393.js"><link rel="prefetch" href="/assets/js/131.4b07d37c.js"><link rel="prefetch" href="/assets/js/132.b904110e.js"><link rel="prefetch" href="/assets/js/133.23fd0ad3.js"><link rel="prefetch" href="/assets/js/134.7dccd575.js"><link rel="prefetch" href="/assets/js/135.95c92179.js"><link rel="prefetch" href="/assets/js/136.2d1dd7ce.js"><link rel="prefetch" href="/assets/js/137.11bd2504.js"><link rel="prefetch" href="/assets/js/138.737c3a11.js"><link rel="prefetch" href="/assets/js/139.6e2a9088.js"><link rel="prefetch" href="/assets/js/14.f23f22c3.js"><link rel="prefetch" href="/assets/js/140.0f019147.js"><link rel="prefetch" href="/assets/js/141.e2b720f6.js"><link rel="prefetch" href="/assets/js/142.83921c3a.js"><link rel="prefetch" href="/assets/js/143.5cdc78c9.js"><link rel="prefetch" href="/assets/js/144.f015aaf8.js"><link rel="prefetch" href="/assets/js/145.6cccc7c0.js"><link rel="prefetch" href="/assets/js/146.1c93c84f.js"><link rel="prefetch" href="/assets/js/147.fe503c78.js"><link rel="prefetch" href="/assets/js/148.2c448862.js"><link rel="prefetch" href="/assets/js/149.23090952.js"><link rel="prefetch" href="/assets/js/15.4ece5f9e.js"><link rel="prefetch" href="/assets/js/150.784e8a88.js"><link rel="prefetch" href="/assets/js/151.236f6101.js"><link rel="prefetch" href="/assets/js/152.7fbadfdb.js"><link rel="prefetch" href="/assets/js/153.4eaf284b.js"><link rel="prefetch" href="/assets/js/154.9068ebea.js"><link rel="prefetch" href="/assets/js/155.6fddb281.js"><link rel="prefetch" href="/assets/js/156.1aa56a14.js"><link rel="prefetch" href="/assets/js/157.b2c94e2d.js"><link rel="prefetch" href="/assets/js/158.fa7d72d3.js"><link rel="prefetch" href="/assets/js/159.7c4dfdf5.js"><link rel="prefetch" href="/assets/js/16.abfb89a1.js"><link rel="prefetch" href="/assets/js/160.14652c0c.js"><link rel="prefetch" href="/assets/js/161.b8d2a29a.js"><link rel="prefetch" href="/assets/js/162.4795430e.js"><link rel="prefetch" href="/assets/js/163.81832790.js"><link rel="prefetch" href="/assets/js/164.895910ca.js"><link rel="prefetch" href="/assets/js/165.45baa9b2.js"><link rel="prefetch" href="/assets/js/166.865b3d91.js"><link rel="prefetch" href="/assets/js/167.cf9e71c2.js"><link rel="prefetch" href="/assets/js/17.ade900bf.js"><link rel="prefetch" href="/assets/js/18.0df95d12.js"><link rel="prefetch" href="/assets/js/19.02b95d5a.js"><link rel="prefetch" href="/assets/js/20.bde80fdc.js"><link rel="prefetch" href="/assets/js/21.09fe235c.js"><link rel="prefetch" href="/assets/js/22.bb9675c2.js"><link rel="prefetch" href="/assets/js/23.d9c3d973.js"><link rel="prefetch" href="/assets/js/24.b1008ce9.js"><link rel="prefetch" href="/assets/js/25.4e84d8c4.js"><link rel="prefetch" href="/assets/js/26.cda9bf46.js"><link rel="prefetch" href="/assets/js/27.b9d6f40d.js"><link rel="prefetch" href="/assets/js/28.99647803.js"><link rel="prefetch" href="/assets/js/29.fda65399.js"><link rel="prefetch" href="/assets/js/3.4c3534bf.js"><link rel="prefetch" href="/assets/js/30.9db680a1.js"><link rel="prefetch" href="/assets/js/31.165acb82.js"><link rel="prefetch" href="/assets/js/32.10794818.js"><link rel="prefetch" href="/assets/js/33.c4280440.js"><link rel="prefetch" href="/assets/js/34.d4756c75.js"><link rel="prefetch" href="/assets/js/35.44973cf6.js"><link rel="prefetch" href="/assets/js/36.a2ac49e7.js"><link rel="prefetch" href="/assets/js/37.61680e06.js"><link rel="prefetch" href="/assets/js/38.67a90281.js"><link rel="prefetch" href="/assets/js/39.1f4246ca.js"><link rel="prefetch" href="/assets/js/4.cd3e2e4c.js"><link rel="prefetch" href="/assets/js/40.a3be074b.js"><link rel="prefetch" href="/assets/js/41.0ab22ad7.js"><link rel="prefetch" href="/assets/js/42.c4c76c62.js"><link rel="prefetch" href="/assets/js/43.31ad788a.js"><link rel="prefetch" href="/assets/js/44.48ea0520.js"><link rel="prefetch" href="/assets/js/45.7861a4f0.js"><link rel="prefetch" href="/assets/js/46.a3c15607.js"><link rel="prefetch" href="/assets/js/47.0d8bb16a.js"><link rel="prefetch" href="/assets/js/48.df900037.js"><link rel="prefetch" href="/assets/js/49.7bc3b92d.js"><link rel="prefetch" href="/assets/js/5.0d43fff3.js"><link rel="prefetch" href="/assets/js/50.4e284ccd.js"><link rel="prefetch" href="/assets/js/51.351514d8.js"><link rel="prefetch" href="/assets/js/52.b32fabc2.js"><link rel="prefetch" href="/assets/js/53.032e88b0.js"><link rel="prefetch" href="/assets/js/54.035e8a97.js"><link rel="prefetch" href="/assets/js/55.2d650fac.js"><link rel="prefetch" href="/assets/js/56.1869b640.js"><link rel="prefetch" href="/assets/js/57.5226805e.js"><link rel="prefetch" href="/assets/js/58.1041fa3e.js"><link rel="prefetch" href="/assets/js/59.a6f1cc35.js"><link rel="prefetch" href="/assets/js/6.f3d455ea.js"><link rel="prefetch" href="/assets/js/60.24ea1dc4.js"><link rel="prefetch" href="/assets/js/61.42a23f7e.js"><link rel="prefetch" href="/assets/js/62.829ac203.js"><link rel="prefetch" href="/assets/js/63.a1e8623f.js"><link rel="prefetch" href="/assets/js/64.8f1bfde4.js"><link rel="prefetch" href="/assets/js/65.52e67bda.js"><link rel="prefetch" href="/assets/js/66.072601f9.js"><link rel="prefetch" href="/assets/js/67.39a5e42c.js"><link rel="prefetch" href="/assets/js/68.052f39cf.js"><link rel="prefetch" href="/assets/js/69.4faaee3f.js"><link rel="prefetch" href="/assets/js/7.61ea5dc1.js"><link rel="prefetch" href="/assets/js/70.15edf2e5.js"><link rel="prefetch" href="/assets/js/71.bf0db890.js"><link rel="prefetch" href="/assets/js/72.4f95447f.js"><link rel="prefetch" href="/assets/js/73.42742ab1.js"><link rel="prefetch" href="/assets/js/74.91d1742f.js"><link rel="prefetch" href="/assets/js/75.53d7c547.js"><link rel="prefetch" href="/assets/js/76.c3b2f9ee.js"><link rel="prefetch" href="/assets/js/77.875814b3.js"><link rel="prefetch" href="/assets/js/78.2f28a62a.js"><link rel="prefetch" href="/assets/js/79.0142ceb4.js"><link rel="prefetch" href="/assets/js/8.3df27b51.js"><link rel="prefetch" href="/assets/js/80.b6a0c94c.js"><link rel="prefetch" href="/assets/js/81.3ab20d0d.js"><link rel="prefetch" href="/assets/js/82.462ccc3c.js"><link rel="prefetch" href="/assets/js/83.31d193c6.js"><link rel="prefetch" href="/assets/js/84.6eb6525a.js"><link rel="prefetch" href="/assets/js/85.f3a34abc.js"><link rel="prefetch" href="/assets/js/86.baea4826.js"><link rel="prefetch" href="/assets/js/87.d6d12c4e.js"><link rel="prefetch" href="/assets/js/88.1a56dc74.js"><link rel="prefetch" href="/assets/js/89.9e55bc7a.js"><link rel="prefetch" href="/assets/js/9.a1f681ef.js"><link rel="prefetch" href="/assets/js/90.69f24135.js"><link rel="prefetch" href="/assets/js/91.7332b328.js"><link rel="prefetch" href="/assets/js/92.e360a6dc.js"><link rel="prefetch" href="/assets/js/93.ac907abd.js"><link rel="prefetch" href="/assets/js/94.1d792af1.js"><link rel="prefetch" href="/assets/js/95.a3d4039c.js"><link rel="prefetch" href="/assets/js/96.f525d75d.js"><link rel="prefetch" href="/assets/js/97.bc1a53fa.js"><link rel="prefetch" href="/assets/js/98.f2809d38.js"><link rel="prefetch" href="/assets/js/99.34de5b73.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f700448a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/no.6/react/react.html" class="sidebar-link">react</a></li><li><a href="/no.6/vue/Vue3.0变化.html" class="sidebar-link">/no.6/vue/Vue3.0变化.html</a></li><li><a href="/no.6/vue/flux.html" aria-current="page" class="active sidebar-link">Flux 架构</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/no.6/vue/flux.html#flux-是什么" class="sidebar-link">Flux 是什么？</a></li><li class="sidebar-sub-header"><a href="/no.6/vue/flux.html#单向流动" class="sidebar-link">单向流动</a></li><li class="sidebar-sub-header"><a href="/no.6/vue/flux.html#补充" class="sidebar-link">补充</a></li><li class="sidebar-sub-header"><a href="/no.6/vue/flux.html#例子" class="sidebar-link">例子</a></li></ul></li><li><a href="/no.6/vue/vue-router.html" class="sidebar-link">VueRouter</a></li><li><a href="/no.6/vue/vue.html" class="sidebar-link">Vue</a></li><li><a href="/no.6/vue/vuex.html" class="sidebar-link">/no.6/vue/vuex.html</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="flux-架构"><a href="#flux-架构" class="header-anchor">#</a> Flux 架构</h1> <p><code>Flux</code>是由一群Facebook工程师提出的，它的名字是拉丁语的Flow。Flux的提出主<strong>要是针对现有前端MVC框架的局限</strong>总结出来的一套基于<code>dispatcher</code>的前端应用架构模式。按照MVC的命名习惯，他应该叫ADSV（Action Dispatcher Store View）。</p> <p>Flux的核心思想就是数据和逻辑永远单向流动。</p> <h2 id="flux-是什么"><a href="#flux-是什么" class="header-anchor">#</a> Flux 是什么？</h2> <ul><li><p><code>Flux</code>是一种架构思想，专门是用来解决软件的结构问题。它跟MVC架构是同一类东西，但是更加简单和清晰。</p></li> <li><p><code>Flux</code>存在多种实现（至少24种）react是其中的一种，</p></li> <li><p><code>react</code>本身只设计<code>UI</code>层，如果搭建大型应用，必须搭配一个前端框架。</p></li></ul> <blockquote><p>Flux将一个应用分成四个部分</p></blockquote> <ul><li><p><code>View</code>：视图层。</p></li> <li><p><code>Action</code>（动作）：视图层发出消息（比如<code>click</code>），它主要包含一个actionType属性（说明动作的类型）和一些其他属性（用来传递数据）</p></li> <li><p><code>Dispatcher</code>(派发器)：用来接收Action,将 Action 派发到 Store,并执行回调函数,Dispatcher 只能有一个，而且是全局的。</p></li> <li><p><code>store</code>（数据层）：负责保存数据，并定义修改数据的逻辑，同时调用<code>dispatcher</code>的<code>register</code>方法将自己注册称为一个监听器。这样每当我们使用<code>dispatcher</code>的<code>dispatch</code>方法分发一个<code>action</code>时，<code>store</code>注册的监听器就会被调用，同时得到这个<code>action</code>作为参数。<strong>简单点说</strong>：就是用来存放应用的状态，根据 action 的 type 字段来确定是否响应这个 action。若需要响应，则会根据 action中的信息修改 store 中的数据,并触发一个更新事件,去更新页面。</p></li></ul> <p><a data-fancybox="" title="" href="https://colastar.github.io/static/images/flux.png"><img src="https://colastar.github.io/static/images/flux.png" alt=""></a>
+从上图可以看出</p> <p>在<code>Flux</code>应用中，数据从<code>action</code>到<code>dispatcher</code>，再到<code>store</code>，最终到<code>view</code>的路线是单向不可逆的，各个角色之间不会像前端MVC模式那样存在交错的连线。</p> <h2 id="单向流动"><a href="#单向流动" class="header-anchor">#</a> 单向流动</h2> <p><code>Flux</code> 的最大特点，就是数据的&quot;<strong>单向流动</strong>&quot;。</p> <ul><li>用户访问 View</li> <li><code>View</code> 发出用户的 <code>Action</code></li> <li><code>Dispatcher</code> 收到 <code>Action</code>，要求 <code>Store</code> 进行相应的更新,即<code>dispatcher</code>负责分发事件</li> <li><code>Store</code> 更新后，发出一个&quot;<code>change</code>&quot;事件,即Store是负责保存数据，同时响应事件并更新数据</li> <li><code>View</code> 收到&quot;<code>change</code>&quot;事件后，更新页面，简单点说就是<code>View</code>负责订阅<code>store</code>中的数据，并使用这些数据渲染相应的页面。</li></ul> <p><a data-fancybox="" title="" href="https://colastar.github.io/static/images/flux1.png"><img src="https://colastar.github.io/static/images/flux1.png" alt=""></a></p> <p>数据总是&quot;<strong>单向流动</strong>&quot;，任何相邻的部分都不会发生数据的&quot;双向流动&quot;。这保证了流程的清晰</p> <h2 id="补充"><a href="#补充" class="header-anchor">#</a> 补充</h2> <ul><li><code>Dispatcher</code>的主要API：</li> <li><code>register(function callback)</code>：注册callback回调。</li> <li><code>unregister(string id)</code>：卸载回调方法。</li> <li><code>waitFor(array&lt;string&gt; ids)</code>：在继续执行当前回调之前，等待指定要调用的回调，这个方法只能被回调用于响应分派的有效载荷。</li> <li><code>dispatch(object payload)</code>： 将有效载荷调度到所有注册的回调。</li> <li><code>isDispatching()：Dispatcher</code> 是否正在派发任务。</li></ul> <h2 id="例子"><a href="#例子" class="header-anchor">#</a> 例子</h2> <blockquote><p>View（第一部分）
+请打开 Demo 的首页index.jsx ，你会看到只加载了一个组件。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>// index.jsx
+var React = require('react');
+var ReactDOM = require('react-dom');
+var MyButtonController = require('./components/MyButtonController');
+
+ReactDOM.render(
+  &lt;MyButtonController/&gt;,
+  document.querySelector('#example')
+);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>上面代码中，你可能注意到了，组件的名字不是 MyButton，而是 MyButtonController。这是为什么？</p> <p>这里，我采用的是 React 的 controller view 模式。&quot;controller view&quot;组件只用来保存状态，然后将其转发给子组件。MyButtonController的源码很简单。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// components/MyButtonController.jsx
+var React = require('react');
+var ButtonActions = require('../actions/ButtonActions');
+var MyButton = require('./MyButton');
+
+var MyButtonController = React.createClass({
+  createNewItem: function (event) {
+    ButtonActions.addNewItem('new item');
+  },
+
+  render: function() {
+    return &lt;MyButton
+      onClick={this.createNewItem}
+    /&gt;;
+  }
+});
+
+module.exports = MyButtonController;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>上面代码中，MyButtonController将参数传给子组件MyButton。后者的源码甚至更简单。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// components/MyButton.jsx
+var React = require('react');
+
+var MyButton = function(props) {
+  return &lt;div&gt;
+    &lt;button onClick={props.onClick}&gt;New Item&lt;/button&gt;
+  &lt;/div&gt;;
+};
+
+module.exports = MyButton;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>上面代码中，你可以看到<code>MyButton</code>是一个纯组件（即不含有任何状态），从而方便了测试和复用。这就是&quot;<code>controll view</code>&quot;模式的最大优点。</p> <p><code>MyButton</code>只有一个逻辑，就是一旦用户点击，就调用<code>this.createNewItem</code> 方法，向<code>Dispatcher</code>发出一个<code>Action</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// components/MyButtonController.jsx
+
+  // ...
+  createNewItem: function (event) {
+    ButtonActions.addNewItem('new item');
+  }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>上面代码中，调用<code>createNewItem</code>方法，会触发名为<code>addNewItem</code>的<code>Action</code>。</p> <blockquote><p>Action</p></blockquote> <p>每个<code>Action</code>都是一个对象，包含一个<code>actionType</code>属性（说明动作的类型）和一些其他属性（用来传递数据）。</p> <p>在这个Demo里面，<code>ButtonActions</code> 对象用于存放所有的<code>Action</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// actions/ButtonActions.js
+var AppDispatcher = require('../dispatcher/AppDispatcher');
+
+var ButtonActions = {
+  addNewItem: function (text) {
+    AppDispatcher.dispatch({
+      actionType: 'ADD_NEW_ITEM',
+      text: text
+    });
+  },
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>上面代码中，<code>ButtonActions.addNewItem</code>方法使用<code>AppDispatcher</code>，把动作<code>ADD_NEW_ITEM</code>派发到<code>Store</code>。</p> <blockquote><p>Dispatcher
+<code>Dispatcher</code> 的作用是将 <code>Action</code> 派发到 <code>Store</code>。你可以把它看作一个路由器，负责在 <code>View</code> 和 <code>Store</code> 之间，建立 <code>Action</code> 的正确传递路线。注意，<code>Dispatcher</code> 只能有一个，而且是全局的。</p></blockquote> <p>Facebook官方的 <code>Dispatcher</code> 实现输出一个类，你要写一个AppDispatcher.js，生成 <code>Dispatcher</code> 实例。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// dispatcher/AppDispatcher.js
+var Dispatcher = require('flux').Dispatcher;
+module.exports = new Dispatcher();
+AppDispatcher.register()方法用来登记各种Action的回调函数。
+
+
+// dispatcher/AppDispatcher.js
+var ListStore = require('../stores/ListStore');
+
+AppDispatcher.register(function (action) {
+  switch(action.actionType) {
+    case 'ADD_NEW_ITEM':
+      ListStore.addNewItemHandler(action.text);
+      ListStore.emitChange();
+      break;
+    default:
+      // no op
+  }
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>上面代码中，<code>Dispatcher</code>收到<code>ADD_NEW_ITEM</code>动作，就会执行回调函数，对<code>ListStore</code>进行操作。</p> <p>记住，<code>Dispatcher</code> 只用来派发 <code>Action</code>，不应该有其他逻辑。</p> <blockquote><p>Store
+<code>Store</code> 保存整个应用的状态。它的角色有点像 <code>MVC</code> 架构之中的<code>Model</code> 。</p></blockquote> <p>在我们的 Demo 中，有一个ListStore，所有数据都存放在那里。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// stores/ListStore.js
+var ListStore = {
+  items: [],
+
+  getAll: function() {
+    return this.items;
+  },
+
+  addNewItemHandler: function (text) {
+    this.items.push(text);
+  },
+
+  emitChange: function () {
+    this.emit('change');
+  }
+};
+
+module.exports = ListStore;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>上面代码中，<code>ListStore.items</code>用来保存条目，<code>ListStore.getAll()</code>用来读取所有条目，<code>ListStore.emitChange()</code>用来发出一个&quot;change&quot;事件。</p> <p>由于 <code>Store</code> 需要在变动后向 <code>View</code> 发送&quot;<code>change</code>&quot;事件，因此它必须实现事件接口。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// stores/ListStore.js
+var EventEmitter = require('events').EventEmitter;
+var assign = require('object-assign');
+
+var ListStore = assign({}, EventEmitter.prototype, {
+  items: [],
+
+  getAll: function () {
+    return this.items;
+  },
+
+  addNewItemHandler: function (text) {
+    this.items.push(text);
+  },
+
+  emitChange: function () {
+    this.emit('change');
+  },
+
+  addChangeListener: function(callback) {
+    this.on('change', callback);
+  },
+
+  removeChangeListener: function(callback) {
+    this.removeListener('change', callback);
+  }
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><p>上面代码中，ListStore继承了EventEmitter.prototype，因此就能使用<code>ListStore.on()</code>和<code>ListStore.emit()</code>，来监听和触发事件了。</p> <p><code>Store</code> 更新后 <code>this.addNewItemHandler()</code> 发出事件 <code>this.emitChange()</code>，表明状态已经改变。 <code>View</code> 监听到这个事件，就可以查询新的状态，更新页面了。</p> <blockquote><p>View （第二部分）
+现在，我们再回过头来修改 <code>View</code> ，让它监听 <code>Store</code> 的 <code>change</code> 事件。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>// components/MyButtonController.jsx
+var React = require('react');
+var ListStore = require('../stores/ListStore');
+var ButtonActions = require('../actions/ButtonActions');
+var MyButton = require('./MyButton');
+
+var MyButtonController = React.createClass({
+  getInitialState: function () {
+    return {
+      items: ListStore.getAll()
+    };
+  },
+
+  componentDidMount: function() {
+    ListStore.addChangeListener(this._onChange);
+  },
+
+  componentWillUnmount: function() {
+    ListStore.removeChangeListener(this._onChange);
+  },
+
+  _onChange: function () {
+    this.setState({
+      items: ListStore.getAll()
+    });
+  },
+
+  createNewItem: function (event) {
+    ButtonActions.addNewItem('new item');
+  },
+
+  render: function() {
+    return &lt;MyButton
+      items={this.state.items}
+      onClick={this.createNewItem}
+    /&gt;;
+  }
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br></div></div><p>上面代码中，你可以看到当<code>MyButtonController</code> 发现 <code>Store</code> 发出 <code>change</code> 事件，就会调用 <code>this._onChange</code> 更新组件状态，从而触发重新渲染。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// components/MyButton.jsx
+var React = require('react');
+
+var MyButton = function(props) {
+  var items = props.items;
+  var itemHtml = items.map(function (listItem, i) {
+    return &lt;li key={i}&gt;{listItem}&lt;/li&gt;;
+  });
+
+  return &lt;div&gt;
+    &lt;ul&gt;{itemHtml}&lt;/ul&gt;
+    &lt;button onClick={props.onClick}&gt;New Item&lt;/button&gt;
+  &lt;/div&gt;;
+};
+
+module.exports = MyButton;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>参考：http://www.ruanyifeng.com/blog/2016/01/flux.html</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/17/2022, 3:20:27 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/no.6/vue/Vue3.0变化.html" class="prev">
+        /no.6/vue/Vue3.0变化.html
+      </a></span> <span class="next"><a href="/no.6/vue/vue-router.html">
+        VueRouter
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a49ca15b.js" defer></script><script src="/assets/js/2.2b4afd4e.js" defer></script><script src="/assets/js/105.fa4003b7.js" defer></script>
+  </body>
+</html>

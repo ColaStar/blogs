@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VueRouter | 个人博客</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://colastar.github.io/blogs/views/js/tj.js"></script>
+    <script src="https://colastar.github.io/blogs/views/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="人生代代无穷已，江月年年只相似。">
+    
+    <link rel="preload" href="/assets/css/0.styles.f700448a.css" as="style"><link rel="preload" href="/assets/js/app.a49ca15b.js" as="script"><link rel="preload" href="/assets/js/2.2b4afd4e.js" as="script"><link rel="preload" href="/assets/js/107.3f30ad29.js" as="script"><link rel="prefetch" href="/assets/js/10.d59dfbc7.js"><link rel="prefetch" href="/assets/js/100.5d7aaa79.js"><link rel="prefetch" href="/assets/js/101.8707a73c.js"><link rel="prefetch" href="/assets/js/102.991a045c.js"><link rel="prefetch" href="/assets/js/103.279c263f.js"><link rel="prefetch" href="/assets/js/104.f95b6770.js"><link rel="prefetch" href="/assets/js/105.fa4003b7.js"><link rel="prefetch" href="/assets/js/106.c73d62fe.js"><link rel="prefetch" href="/assets/js/108.0fac0f00.js"><link rel="prefetch" href="/assets/js/109.fa0f6153.js"><link rel="prefetch" href="/assets/js/11.71162af2.js"><link rel="prefetch" href="/assets/js/110.2234e90c.js"><link rel="prefetch" href="/assets/js/111.949f329e.js"><link rel="prefetch" href="/assets/js/112.fd2d7628.js"><link rel="prefetch" href="/assets/js/113.95e6e404.js"><link rel="prefetch" href="/assets/js/114.5c42cf0b.js"><link rel="prefetch" href="/assets/js/115.6e082b7a.js"><link rel="prefetch" href="/assets/js/116.4b5f6888.js"><link rel="prefetch" href="/assets/js/117.37336c48.js"><link rel="prefetch" href="/assets/js/118.3d147f5a.js"><link rel="prefetch" href="/assets/js/119.37f4600e.js"><link rel="prefetch" href="/assets/js/12.cd36b2df.js"><link rel="prefetch" href="/assets/js/120.0d031702.js"><link rel="prefetch" href="/assets/js/121.4f227a45.js"><link rel="prefetch" href="/assets/js/122.61ca8d6c.js"><link rel="prefetch" href="/assets/js/123.60415e5a.js"><link rel="prefetch" href="/assets/js/124.9558b4ad.js"><link rel="prefetch" href="/assets/js/125.aaba3c26.js"><link rel="prefetch" href="/assets/js/126.51713071.js"><link rel="prefetch" href="/assets/js/127.a7c42c0d.js"><link rel="prefetch" href="/assets/js/128.61fda753.js"><link rel="prefetch" href="/assets/js/129.6896a0e8.js"><link rel="prefetch" href="/assets/js/13.ca3fe43c.js"><link rel="prefetch" href="/assets/js/130.90c48393.js"><link rel="prefetch" href="/assets/js/131.4b07d37c.js"><link rel="prefetch" href="/assets/js/132.b904110e.js"><link rel="prefetch" href="/assets/js/133.23fd0ad3.js"><link rel="prefetch" href="/assets/js/134.7dccd575.js"><link rel="prefetch" href="/assets/js/135.95c92179.js"><link rel="prefetch" href="/assets/js/136.2d1dd7ce.js"><link rel="prefetch" href="/assets/js/137.11bd2504.js"><link rel="prefetch" href="/assets/js/138.737c3a11.js"><link rel="prefetch" href="/assets/js/139.6e2a9088.js"><link rel="prefetch" href="/assets/js/14.f23f22c3.js"><link rel="prefetch" href="/assets/js/140.0f019147.js"><link rel="prefetch" href="/assets/js/141.e2b720f6.js"><link rel="prefetch" href="/assets/js/142.83921c3a.js"><link rel="prefetch" href="/assets/js/143.5cdc78c9.js"><link rel="prefetch" href="/assets/js/144.f015aaf8.js"><link rel="prefetch" href="/assets/js/145.6cccc7c0.js"><link rel="prefetch" href="/assets/js/146.1c93c84f.js"><link rel="prefetch" href="/assets/js/147.fe503c78.js"><link rel="prefetch" href="/assets/js/148.2c448862.js"><link rel="prefetch" href="/assets/js/149.23090952.js"><link rel="prefetch" href="/assets/js/15.4ece5f9e.js"><link rel="prefetch" href="/assets/js/150.784e8a88.js"><link rel="prefetch" href="/assets/js/151.236f6101.js"><link rel="prefetch" href="/assets/js/152.7fbadfdb.js"><link rel="prefetch" href="/assets/js/153.4eaf284b.js"><link rel="prefetch" href="/assets/js/154.9068ebea.js"><link rel="prefetch" href="/assets/js/155.6fddb281.js"><link rel="prefetch" href="/assets/js/156.1aa56a14.js"><link rel="prefetch" href="/assets/js/157.b2c94e2d.js"><link rel="prefetch" href="/assets/js/158.fa7d72d3.js"><link rel="prefetch" href="/assets/js/159.7c4dfdf5.js"><link rel="prefetch" href="/assets/js/16.abfb89a1.js"><link rel="prefetch" href="/assets/js/160.14652c0c.js"><link rel="prefetch" href="/assets/js/161.b8d2a29a.js"><link rel="prefetch" href="/assets/js/162.4795430e.js"><link rel="prefetch" href="/assets/js/163.81832790.js"><link rel="prefetch" href="/assets/js/164.895910ca.js"><link rel="prefetch" href="/assets/js/165.45baa9b2.js"><link rel="prefetch" href="/assets/js/166.865b3d91.js"><link rel="prefetch" href="/assets/js/167.cf9e71c2.js"><link rel="prefetch" href="/assets/js/17.ade900bf.js"><link rel="prefetch" href="/assets/js/18.0df95d12.js"><link rel="prefetch" href="/assets/js/19.02b95d5a.js"><link rel="prefetch" href="/assets/js/20.bde80fdc.js"><link rel="prefetch" href="/assets/js/21.09fe235c.js"><link rel="prefetch" href="/assets/js/22.bb9675c2.js"><link rel="prefetch" href="/assets/js/23.d9c3d973.js"><link rel="prefetch" href="/assets/js/24.b1008ce9.js"><link rel="prefetch" href="/assets/js/25.4e84d8c4.js"><link rel="prefetch" href="/assets/js/26.cda9bf46.js"><link rel="prefetch" href="/assets/js/27.b9d6f40d.js"><link rel="prefetch" href="/assets/js/28.99647803.js"><link rel="prefetch" href="/assets/js/29.fda65399.js"><link rel="prefetch" href="/assets/js/3.4c3534bf.js"><link rel="prefetch" href="/assets/js/30.9db680a1.js"><link rel="prefetch" href="/assets/js/31.165acb82.js"><link rel="prefetch" href="/assets/js/32.10794818.js"><link rel="prefetch" href="/assets/js/33.c4280440.js"><link rel="prefetch" href="/assets/js/34.d4756c75.js"><link rel="prefetch" href="/assets/js/35.44973cf6.js"><link rel="prefetch" href="/assets/js/36.a2ac49e7.js"><link rel="prefetch" href="/assets/js/37.61680e06.js"><link rel="prefetch" href="/assets/js/38.67a90281.js"><link rel="prefetch" href="/assets/js/39.1f4246ca.js"><link rel="prefetch" href="/assets/js/4.cd3e2e4c.js"><link rel="prefetch" href="/assets/js/40.a3be074b.js"><link rel="prefetch" href="/assets/js/41.0ab22ad7.js"><link rel="prefetch" href="/assets/js/42.c4c76c62.js"><link rel="prefetch" href="/assets/js/43.31ad788a.js"><link rel="prefetch" href="/assets/js/44.48ea0520.js"><link rel="prefetch" href="/assets/js/45.7861a4f0.js"><link rel="prefetch" href="/assets/js/46.a3c15607.js"><link rel="prefetch" href="/assets/js/47.0d8bb16a.js"><link rel="prefetch" href="/assets/js/48.df900037.js"><link rel="prefetch" href="/assets/js/49.7bc3b92d.js"><link rel="prefetch" href="/assets/js/5.0d43fff3.js"><link rel="prefetch" href="/assets/js/50.4e284ccd.js"><link rel="prefetch" href="/assets/js/51.351514d8.js"><link rel="prefetch" href="/assets/js/52.b32fabc2.js"><link rel="prefetch" href="/assets/js/53.032e88b0.js"><link rel="prefetch" href="/assets/js/54.035e8a97.js"><link rel="prefetch" href="/assets/js/55.2d650fac.js"><link rel="prefetch" href="/assets/js/56.1869b640.js"><link rel="prefetch" href="/assets/js/57.5226805e.js"><link rel="prefetch" href="/assets/js/58.1041fa3e.js"><link rel="prefetch" href="/assets/js/59.a6f1cc35.js"><link rel="prefetch" href="/assets/js/6.f3d455ea.js"><link rel="prefetch" href="/assets/js/60.24ea1dc4.js"><link rel="prefetch" href="/assets/js/61.42a23f7e.js"><link rel="prefetch" href="/assets/js/62.829ac203.js"><link rel="prefetch" href="/assets/js/63.a1e8623f.js"><link rel="prefetch" href="/assets/js/64.8f1bfde4.js"><link rel="prefetch" href="/assets/js/65.52e67bda.js"><link rel="prefetch" href="/assets/js/66.072601f9.js"><link rel="prefetch" href="/assets/js/67.39a5e42c.js"><link rel="prefetch" href="/assets/js/68.052f39cf.js"><link rel="prefetch" href="/assets/js/69.4faaee3f.js"><link rel="prefetch" href="/assets/js/7.61ea5dc1.js"><link rel="prefetch" href="/assets/js/70.15edf2e5.js"><link rel="prefetch" href="/assets/js/71.bf0db890.js"><link rel="prefetch" href="/assets/js/72.4f95447f.js"><link rel="prefetch" href="/assets/js/73.42742ab1.js"><link rel="prefetch" href="/assets/js/74.91d1742f.js"><link rel="prefetch" href="/assets/js/75.53d7c547.js"><link rel="prefetch" href="/assets/js/76.c3b2f9ee.js"><link rel="prefetch" href="/assets/js/77.875814b3.js"><link rel="prefetch" href="/assets/js/78.2f28a62a.js"><link rel="prefetch" href="/assets/js/79.0142ceb4.js"><link rel="prefetch" href="/assets/js/8.3df27b51.js"><link rel="prefetch" href="/assets/js/80.b6a0c94c.js"><link rel="prefetch" href="/assets/js/81.3ab20d0d.js"><link rel="prefetch" href="/assets/js/82.462ccc3c.js"><link rel="prefetch" href="/assets/js/83.31d193c6.js"><link rel="prefetch" href="/assets/js/84.6eb6525a.js"><link rel="prefetch" href="/assets/js/85.f3a34abc.js"><link rel="prefetch" href="/assets/js/86.baea4826.js"><link rel="prefetch" href="/assets/js/87.d6d12c4e.js"><link rel="prefetch" href="/assets/js/88.1a56dc74.js"><link rel="prefetch" href="/assets/js/89.9e55bc7a.js"><link rel="prefetch" href="/assets/js/9.a1f681ef.js"><link rel="prefetch" href="/assets/js/90.69f24135.js"><link rel="prefetch" href="/assets/js/91.7332b328.js"><link rel="prefetch" href="/assets/js/92.e360a6dc.js"><link rel="prefetch" href="/assets/js/93.ac907abd.js"><link rel="prefetch" href="/assets/js/94.1d792af1.js"><link rel="prefetch" href="/assets/js/95.a3d4039c.js"><link rel="prefetch" href="/assets/js/96.f525d75d.js"><link rel="prefetch" href="/assets/js/97.bc1a53fa.js"><link rel="prefetch" href="/assets/js/98.f2809d38.js"><link rel="prefetch" href="/assets/js/99.34de5b73.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f700448a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/no.6/react/react.html" class="sidebar-link">react</a></li><li><a href="/no.6/vue/Vue3.0变化.html" class="sidebar-link">/no.6/vue/Vue3.0变化.html</a></li><li><a href="/no.6/vue/flux.html" class="sidebar-link">Flux 架构</a></li><li><a href="/no.6/vue/vue-router.html" aria-current="page" class="active sidebar-link">VueRouter</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/no.6/vue/vue-router.html#什么是路由" class="sidebar-link">什么是路由</a></li><li class="sidebar-sub-header"><a href="/no.6/vue/vue-router.html#前端路由" class="sidebar-link">前端路由</a></li><li class="sidebar-sub-header"><a href="/no.6/vue/vue-router.html#路由原理" class="sidebar-link">路由原理</a></li><li class="sidebar-sub-header"><a href="/no.6/vue/vue-router.html#vuerouter-源码解析" class="sidebar-link">VueRouter 源码解析</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/no.6/vue/vue-router.html#源码目录" class="sidebar-link">源码目录</a></li><li class="sidebar-sub-header"><a href="/no.6/vue/vue-router.html#路由注册" class="sidebar-link">路由注册</a></li><li class="sidebar-sub-header"><a href="/no.6/vue/vue-router.html#插件安装" class="sidebar-link">插件安装</a></li><li class="sidebar-sub-header"><a href="/no.6/vue/vue-router.html#创建-router-实例" class="sidebar-link">创建 router 实例</a></li><li class="sidebar-sub-header"><a href="/no.6/vue/vue-router.html#router-link" class="sidebar-link">router-link</a></li><li class="sidebar-sub-header"><a href="/no.6/vue/vue-router.html#router-view" class="sidebar-link">router-view</a></li><li class="sidebar-sub-header"><a href="/no.6/vue/vue-router.html#总结一下" class="sidebar-link">总结一下</a></li><li class="sidebar-sub-header"><a href="/no.6/vue/vue-router.html#重要函数思维导图" class="sidebar-link">重要函数思维导图</a></li></ul></li></ul></li><li><a href="/no.6/vue/vue.html" class="sidebar-link">Vue</a></li><li><a href="/no.6/vue/vuex.html" class="sidebar-link">/no.6/vue/vuex.html</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vuerouter"><a href="#vuerouter" class="header-anchor">#</a> VueRouter</h1> <p><strong>Table of Contents</strong> <em>generated with <a href="https://github.com/thlorenz/doctoc" target="_blank" rel="noopener noreferrer">DocToc<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></em></p> <ul><li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%AF%E7%94%B1">什么是路由</a></li> <li><a href="#%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1">前端路由</a></li> <li><a href="#%E8%B7%AF%E7%94%B1%E5%8E%9F%E7%90%86">路由原理</a> <ul><li><a href="#hash-%E6%A8%A1%E5%BC%8F">hash 模式</a></li> <li><a href="#html5-history-api%E8%B7%AF%E7%94%B1%E5%AE%9E%E7%8E%B0">HTML5 history API路由实现</a></li></ul></li> <li><a href="#vuerouter-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90">VueRouter 源码解析</a> <ul><li><a href="#%E6%BA%90%E7%A0%81%E7%9B%AE%E5%BD%95">源码目录</a></li> <li><a href="#%E8%B7%AF%E7%94%B1%E6%B3%A8%E5%86%8C">路由注册</a></li> <li><a href="#%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85">插件安装</a></li> <li><a href="#%E5%88%9B%E5%BB%BA-router-%E5%AE%9E%E4%BE%8B">创建 router 实例</a> <ul><li><a href="#%E5%88%9B%E5%BB%BA%E5%8C%B9%E9%85%8D%E5%99%A8">创建匹配器</a></li> <li><a href="#%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90map%E8%A1%A8">如何生成map表</a></li> <li><a href="#%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%87%BD%E6%95%B0">路由跳转函数</a></li></ul></li> <li><a href="#router-link">router-link</a></li> <li><a href="#router-view">router-view</a></li> <li><a href="#%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B">总结一下</a></li> <li><a href="#%E9%87%8D%E8%A6%81%E5%87%BD%E6%95%B0%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE">重要函数思维导图</a></li></ul></li></ul> <h2 id="什么是路由"><a href="#什么是路由" class="header-anchor">#</a> 什么是路由</h2> <p>对于没有后端项目经验或者SPA项目来说，路由可能会比较陌生。这里的路由不是指硬件路由，也不是我们通常所说的网络协议中的路由，但是它们表达的思想都是一样的，就是路径和资源的识别。</p> <p>我们先来看访问一个网站，假如我们访问这三个页面：</p> <p>http://sports.sina.com.cn/nba/</p> <p>http://sports.sina.com.cn/tennis/</p> <p>http://sports.sina.com.cn/csl/</p> <p>那么其路径就分别是 /nba，/tennis，/csl</p> <p>当用户使用http://sports.sina.com.cn/nba/来访问该页面时，Web 服务会接收到这个请求，然后会解析 URI 中的路径 /nba，在 Web 服务的程序中，该路径对应着相应的处理逻辑，程序会把请求交给路径所对应的处理逻辑，这样就完成了一次「路由分发」，这个分发就是通过「路由」来完成的。</p> <h2 id="前端路由"><a href="#前端路由" class="header-anchor">#</a> 前端路由</h2> <p>随着前端技术的发展，现在很多web应用都采用了SPA的形式，之前是通过服务端根据 url 的不同返回不同的页面实现无法满足需求，所以这里需要把不同路由对应不同的内容或页面的任务交给前端来做。通过这种前端路由实现的单页面应用有好也有坏。</p> <blockquote><p>好处：</p></blockquote> <ul><li><p>1、良好的前后端分离。SPA和RESTful架构一起使用，后端不再负责模板渲染、输出页面工作，web前端和各种移动终端地位对等，后端API通用化。</p></li> <li><p>2、用户体验好、快，内容的改变不需要重新加载整个页面，web应用更具响应性和更令人着迷</p></li> <li><p>3、同一套后端程序代码，不用修改就可以用于Web界面、手机、平板等多种客户端</p></li></ul> <blockquote><p>缺点</p></blockquote> <ul><li><p>1、不利于SEO。</p></li> <li><p>2、初次加载耗时相对增多。</p></li> <li><p>3、导航不可用，如果一定要导航需要自行实现前进、后退。</p></li></ul> <h2 id="路由原理"><a href="#路由原理" class="header-anchor">#</a> 路由原理</h2> <p>在解析源码前，先来了解下前端路由的实现原理。 前端路由实现起来其实很简单，本质就是监听 URL 的变化，然后匹配路由规则，显示相应的页面，并且无须刷新。目前单页面使用的路由就只有两种实现方式</p> <ul><li>hash 模式</li> <li>history 模式</li></ul> <h4 id="hash-模式"><a href="#hash-模式" class="header-anchor">#</a> hash 模式</h4> <p>在HTML5的 history API 出现之前，前端的路由都是通过 hash 来实现的，hash 能兼容低版本的浏览器。当 <code>url</code> 的 <code>hash</code> 发生变化时，触发 <code>hashchange</code> 注册的回调，回调中去进行不同的操作，进行不同的内容的展示。</p> <p>www.test.com/##/ 就是 Hash URL，当 ## 后面的哈希值发生变化时，不会向服务器请求数据，然后通过 <code>hashchange</code> 事件来监听到 URL 的变化，从而进行跳转页面。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>//一个小例子
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;路由&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+     &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;#/&quot;&gt;默认路由&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#/router1&quot;&gt;路由1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#/router2&quot;&gt;路由2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+  &lt;/body&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;
+    class Router{
+       constructor(routes = {}) {
+            this.routes = routes;
+            this.curUrl = &quot;&quot;;
+        } 
+        route(path,callback){
+          this.routes[path] = callback || function(){
+          }
+        }
+        refresh(){
+          this.curUrl = location.hash.slice(1) || '/';
+          if(this.routes[this.curUrl]){
+            this.routes[this.curUrl]();
+          }else{
+            console.log('路由没有注册');
+          }
+        }
+        init(){
+           window.addEventListener('load', this.refresh.bind(this), false);
+           window.addEventListener('hashchange', this.refresh.bind(this), false);
+        }
+    }
+    
+    function changeContent(text){
+      document.getElementById('content').innerHTML = text;
+    }
+    let router = new Router({
+      '/' : function(){
+        changeContent('默认路由');
+      },
+      '/router1':function(){
+        changeContent('路由1');
+      }
+    })
+
+    router.route('/router2',function(){
+      changeContent('路由2');
+    })
+
+    router.init();
+  &lt;/script&gt;
+&lt;/html&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br></div></div><p><a data-fancybox="" title="" href="https://colastar.github.io/static/images/vue-router-hash.png"><img src="https://colastar.github.io/static/images/vue-router-hash.png" alt=""></a></p> <h4 id="html5-history-api路由实现"><a href="#html5-history-api路由实现" class="header-anchor">#</a> HTML5 history API路由实现</h4> <p>History 模式是 HTML5 新推出的功能，html5 增加了两个方法，分别是pushState，replaceState，比之 Hash URL 更加美观</p> <p><code>pushState</code>和<code>replaceState</code>是用来手动插入历史记录，然后执行<code>AJAX</code>请求，而<code>popstate</code>就是当浏览器前进后退的时候获得相应的<code>state</code>再执行相应操作</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;History Roter&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;#/&quot;&gt;默认路由&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#/router1&quot;&gt;路由1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a type=&quot;replace&quot; href=&quot;#/router2&quot;&gt;路由2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+    class Router {
+       constructor(routes = {}) {
+            this.routes = routes;
+            this.curUrl = &quot;&quot;;
+        } 
+        notify(state){
+          this.curUrl = state.path || '/';
+          if(this.routes[this.curUrl]){
+            this.routes[this.curUrl]();
+          }else{
+            console.log('路由没有注册');
+          }
+        }
+        route(path,callback){
+          this.routes[path] = callback || function(){
+
+          }
+        }
+        init(){
+          let that = this;
+          //浏览器点击前进后退时触发的事件
+           window.addEventListener('popstate',function(event){
+              that.notify(event.state || {})
+           }, false);
+
+           //监控页面A标签，跳转做处理
+           document.querySelector('body').addEventListener('click', function(event){
+            if(event.target.tagName === 'A'){
+              let link = event.target.getAttribute('href');
+              if(!/^http/.test(link)){
+                event.preventDefault();
+                let path = link.slice(1) || '/';
+                that.notify({ 'path' : path} || {})
+                if(event.target.getAttribute('type') == 'replace'){
+                  history.replaceState({ 'path' : path},'',event.target.href); 
+                }else{
+                  history.pushState({ 'path' : path},'',event.target.href); 
+                }             
+              }       
+            }   
+           }, false)
+
+           //首次进入页面进行路由
+          let path = location.hash.slice(1) || '/';
+          that.notify({ 'path' : path} || {})
+        }
+    }
+
+    function changeContent(text){
+      document.getElementById('content').innerHTML = text;
+    }
+    let router = new Router({
+      '/' : function(){
+        changeContent('默认路由');
+      },
+      '/router1':function(){
+        changeContent('路由1');
+      }
+    })
+
+    router.route('/router2',function(){
+      changeContent('路由2');
+    })
+
+    router.init();
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br></div></div><p><a data-fancybox="" title="" href="https://colastar.github.io/static/images/https://colastar.github.io/static/images/vue-router-history.png"><img src="https://colastar.github.io/static/images/https://colastar.github.io/static/images/vue-router-history.png" alt=""></a></p> <h2 id="vuerouter-源码解析"><a href="#vuerouter-源码解析" class="header-anchor">#</a> VueRouter 源码解析</h2> <h3 id="源码目录"><a href="#源码目录" class="header-anchor">#</a> 源码目录</h3> <p><a data-fancybox="" title="" href="https://colastar.github.io/static/images/https://colastar.github.io/static/images/vue-router目录.png"><img src="https://colastar.github.io/static/images/https://colastar.github.io/static/images/vue-router%E7%9B%AE%E5%BD%95.png" alt=""></a></p> <p>这里，先大概说明一下各个文件的作用，下面会详细讲解</p> <p>components下是两个组件<code>&lt;router-view&gt;</code> and <code>&lt;router-link&gt;</code>的实现</p> <p>history是路由方式的封装</p> <p>util下主要是各种功能类和功能函数</p> <p>create-matcher和create-router-map的作用是生成匹配表</p> <p>index是整个插件的入口</p> <p>Install 提供安装的方法</p> <h3 id="路由注册"><a href="#路由注册" class="header-anchor">#</a> 路由注册</h3> <p>利用 <code>Vue.js</code> 提供的插件机制 <code>.use(plugin)</code> 来安装 <code>VueRouter</code>，而这个插件机制则会调用该 <code>plugin</code> 对象的 <code>install</code> 方法</p> <p>这里我们先分析注册vueRouter类的两个文件 <code>src/index.js</code> 和<code>src/install.js</code></p> <p>Index文件主要暴露了一个vueRouter类</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>export default class VueRouter {
+
+
+  constructor (options: RouterOptions = {}) {
+    .....
+  }
+   //初始化函数
+  init (app: any /* Vue component instance */) {
+ 
+    this.apps.push(app)
+
+    // main app already initialized.
+
+    if (this.app) {
+      return
+    }
+    //初次初始化,即首次进入页面路由指定展示
+    this.app = app
+
+    const history = this.history
+
+    if (history instanceof HTML5History) {
+      history.transitionTo(history.getCurrentLocation())
+    } else if (history instanceof HashHistory) {
+      //建立hash监控
+      const setupHashListener = () =&gt; {
+        history.setupListeners()
+      }
+      history.transitionTo(
+        history.getCurrentLocation(),
+        setupHashListener,
+        setupHashListener
+      )
+    }
+    
+    history.listen(route =&gt; {
+      this.apps.forEach((app) =&gt; {
+        app._route = route
+      })
+    })
+  }
+}
+
+VueRouter.install = install
+VueRouter.version = '__VERSION__'
+
+//在外部直接引用vue-router，自动使用插件
+if (inBrowser &amp;&amp; window.Vue) {
+  window.Vue.use(VueRouter)
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br></div></div><h3 id="插件安装"><a href="#插件安装" class="header-anchor">#</a> 插件安装</h3> <p>这里是vue插件的经典写法，给插件对象增加 <code>install</code> 方法用来安装插件具体逻辑，同时在最后判断下如果是在浏览器环境且存在 <code>window.Vue</code> 的话就会自动使用插件。</p> <p>接下来，我们从 <code>install</code> 看 <code>vue</code> 如何安装插件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import View from './components/view'
+import Link from './components/link'
+
+export let _Vue
+
+export function install(Vue) {
+    if (install.installed) return
+    install.installed = true
+    //私有化vue，方便引入
+    _Vue = Vue
+
+    const isDef = v =&gt; v !== undefined
+
+    const registerInstance = (vm, callVal) =&gt; {
+        let i = vm.$options._parentVnode
+        if (isDef(i) &amp;&amp; isDef(i = i.data) &amp;&amp; isDef(i = i.registerRouteInstance)) {
+            i(vm, callVal)
+        }
+    }
+
+    Vue.mixin({
+        beforeCreate() {
+            //首次进入初始化路由
+            if (isDef(this.$options.router)) {
+                //根组件指向自己
+                this._routerRoot = this
+                this._router = this.$options.router
+                    //初次进入对页面进行路由
+                this._router.init(this)
+                    //监控 router数据变化，这里为更新router-view
+                Vue.util.defineReactive(this, '_route', this._router.history.current)
+            } else {
+                //为每个组件传递根组件，方便访问router信息
+                this._routerRoot = (this.$parent &amp;&amp; this.$parent._routerRoot) || this
+            }
+            registerInstance(this, this)
+        },
+        destroyed() {
+            registerInstance(this)
+        }
+    })
+
+    /**router访问的是根组件的router对象，就是传入的router**/
+    Object.defineProperty(Vue.prototype, '$router', {
+        get() { return this._routerRoot._router }
+    })
+
+    /**route访问的是根组件的router对象，就是传入的route**/
+    Object.defineProperty(Vue.prototype, '$route', {
+            get() { return this._routerRoot._route }
+        })
+        //注册router-view和router-link组件
+    Vue.component('router-view', View)
+    Vue.component('router-link', Link)
+
+    const strats = Vue.config.optionMergeStrategies
+
+        // 对路由钩子使用相同的钩子合并策略
+    strats.beforeRouteEnter = strats.beforeRouteLeave = strats.beforeRouteUpdate = strats.created
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br></div></div><p>install做了以下操作</p> <ul><li><p>1、对所有vue实例混入<code>beforeCreate</code>操作，设置<code>_routerRoot</code>向上传递指向<strong>根组件</strong>，根组件设置<code>router</code>对象</p></li> <li><p>2、根组件首次进入的时候，初始化路由，将router对象<strong>挂载</strong>到根组件元素<code>_router</code>上，并且设置<strong>劫持数据</strong><code>_route</code></p></li> <li><p>3、通过给 <code>Vue.prototype</code> 定义<code>$router</code>、<code>$route</code> 属性把他们注入到所有组件中（主要是为了方便访问<code>router</code>，<code>route</code>）</p></li> <li><p>4、注册两个组件<code>router-view</code>和<code>router-link</code></p></li></ul> <h3 id="创建-router-实例"><a href="#创建-router-实例" class="header-anchor">#</a> 创建 router 实例</h3> <p>在使用的实例中，我们看到安装完插件后，会实例一个<code>router</code>对象，把路由配置的数组作为参数传入，并且将其传入<code>vue</code>实例的<code>options</code>中。接下来我们看<code>VueRouter</code>类的作用。<code>VueRouter</code>在index.js文件中</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>export default class VueRouter {
+  static install: () =&gt; void;
+  static version: string;
+
+  app: any;
+  apps: Array&lt;any&gt;;
+  ready: boolean;
+  readyCbs: Array&lt;Function&gt;;
+  options: RouterOptions;
+  mode: string;
+  history: HashHistory | HTML5History | AbstractHistory;
+  matcher: Matcher;
+  fallback: boolean;
+  beforeHooks: Array&lt;?NavigationGuard&gt;;
+  resolveHooks: Array&lt;?NavigationGuard&gt;;
+  afterHooks: Array&lt;?AfterNavigationHook&gt;;
+
+  constructor (options: RouterOptions = {}) {
+    this.app = null
+    this.apps = []
+    this.options = options
+    this.beforeHooks = []
+    this.resolveHooks = []
+    this.afterHooks = []
+    this.matcher = createMatcher(options.routes || [], this) //生成匹配表
+    
+    /*路由模式***/
+    let mode = options.mode || 'hash'
+    /**兼容低版本不支持history模式*/
+    this.fallback = mode === 'history' &amp;&amp; !supportsPushState &amp;&amp; options.fallback !== false
+    if (this.fallback) {
+      mode = 'hash'
+    }
+    /**非浏览器***/
+    if (!inBrowser) {
+      mode = 'abstract'
+    }
+    this.mode = mode
+    
+    /**门面模式封装history***/
+
+    switch (mode) {
+      case 'history':
+        this.history = new HTML5History(this, options.base)
+        break
+      case 'hash':
+        this.history = new HashHistory(this, options.base, this.fallback)
+        break
+      case 'abstract':
+        this.history = new AbstractHistory(this, options.base)
+        break
+      default:
+        if (process.env.NODE_ENV !== 'production') {
+          assert(false, `invalid mode: ${mode}`)
+        }
+    }
+  }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br></div></div><p>这里可以看到构造函数中有一步操作</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> this.matcher = createMatcher(options.routes || [], this)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>将传入的 <code>routes</code> 配置数组处理为 <code>mather</code> 属性的值，顺藤摸瓜，我们去 <code>createMatcher</code> 创建的文件 <code>src/create-matcher.js</code> 文件中看他到底做了什么操作。</p> <h4 id="创建匹配器"><a href="#创建匹配器" class="header-anchor">#</a> 创建匹配器</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>export function createMatcher (
+  routes: Array&lt;RouteConfig&gt;,
+  router: VueRouter
+): Matcher {
+  const { pathList, pathMap, nameMap } = createRouteMap(routes) //生成routermap表
+
+  function addRoutes (routes) {
+    createRouteMap(routes, pathList, pathMap, nameMap)
+  }
+
+  function match (
+    raw: RawLocation,
+    currentRoute?: Route,
+    redirectedFrom?: Location
+  ): Route {
+    const location = normalizeLocation(raw, currentRoute, false, router)
+    const { name } = location
+
+    if (name) {
+      const record = nameMap[name]
+      if (process.env.NODE_ENV !== 'production') {
+        warn(record, `Route with name '${name}' does not exist`)
+      }
+      if (!record) return _createRoute(null, location)
+      const paramNames = record.regex.keys
+        .filter(key =&gt; !key.optional)
+        .map(key =&gt; key.name)
+
+      if (typeof location.params !== 'object') {
+        location.params = {}
+      }
+
+      if (currentRoute &amp;&amp; typeof currentRoute.params === 'object') {
+        for (const key in currentRoute.params) {
+          if (!(key in location.params) &amp;&amp; paramNames.indexOf(key) &gt; -1) {
+            location.params[key] = currentRoute.params[key]
+          }
+        }
+      }
+
+      if (record) {
+        location.path = fillParams(record.path, location.params, `named route &quot;${name}&quot;`)
+        return _createRoute(record, location, redirectedFrom)
+      }
+    } else if (location.path) {
+      location.params = {}
+      for (let i = 0; i &lt; pathList.length; i++) {
+        const path = pathList[i]
+        const record = pathMap[path]
+        if (matchRoute(record.regex, location.path, location.params)) {
+          return _createRoute(record, location, redirectedFrom)
+        }
+      }
+    }
+    // no match
+    return _createRoute(null, location)
+  }
+
+  function redirect (
+    record: RouteRecord,
+    location: Location
+  ): Route {
+   //*****
+  }
+
+  function alias (
+    record: RouteRecord,
+    location: Location,
+    matchAs: string
+  ): Route {
+   //*********
+  }
+
+  function _createRoute (
+    record: ?RouteRecord,
+    location: Location,
+    redirectedFrom?: Location
+  ): Route {
+    //************
+  }
+
+  return {
+    match,
+    addRoutes
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br></div></div><p>在代码中，我们看到了<code>createMatcher</code>再一次将<code>routes</code>配置数组传给了<code>createRouteMap</code>进一步处理</p> <p>根据代码分析<code>createMatcher</code>就是根据传入的<code>routes</code>生成路由<code>map</code>对应表，并且返回<code>match</code>函数以及一个可以增加路由配置项<code>addRoutes</code>函数，向上传递给<code>VueRouter</code>类暴露的接口<code>addRoutes</code>。</p> <p>我们继续来看<code>src/create-route-map.js</code>下的<code>createRouteMap</code>如何生成map表的</p> <h4 id="如何生成map表"><a href="#如何生成map表" class="header-anchor">#</a> 如何生成map表</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>export function createRouteMap (
+  routes: Array&lt;RouteConfig&gt;,
+  oldPathList?: Array&lt;string&gt;,
+  oldPathMap?: Dictionary&lt;RouteRecord&gt;,
+  oldNameMap?: Dictionary&lt;RouteRecord&gt;
+): {
+  pathList: Array&lt;string&gt;;
+  pathMap: Dictionary&lt;RouteRecord&gt;;
+  nameMap: Dictionary&lt;RouteRecord&gt;;
+} {
+  // 路径列表用于控制路径匹配优先级
+  const pathList: Array&lt;string&gt; = oldPathList || []  //路径列表
+  const pathMap: Dictionary&lt;RouteRecord&gt; = oldPathMap || Object.create(null) //path路由map
+  const nameMap: Dictionary&lt;RouteRecord&gt; = oldNameMap || Object.create(null) //名字路由map
+
+  routes.forEach(route =&gt; {
+    addRouteRecord(pathList, pathMap, nameMap, route)
+  })
+  
+  //确保通配符总是在最后
+  // ensure wildcard routes are always at the end
+  for (let i = 0, l = pathList.length; i &lt; l; i++) {
+    if (pathList[i] === '*') {
+      pathList.push(pathList.splice(i, 1)[0])
+      l--
+      i--
+    }
+  }
+
+  return {
+    pathList,
+    pathMap,
+    nameMap
+  }
+}
+
+function addRouteRecord (
+  pathList: Array&lt;string&gt;,
+  pathMap: Dictionary&lt;RouteRecord&gt;,
+  nameMap: Dictionary&lt;RouteRecord&gt;,
+  route: RouteConfig,
+  parent?: RouteRecord,
+  matchAs?: string
+) {
+  const { path, name } = route
+  if (process.env.NODE_ENV !== 'production') {
+    assert(path != null, `&quot;path&quot; is required in a route configuration.`)
+    assert(
+      typeof route.component !== 'string',
+      `route config &quot;component&quot; for path: ${String(path || name)} cannot be a ` +
+      `string id. Use an actual component instead.`
+    )
+  }
+
+  const pathToRegexpOptions: PathToRegexpOptions = route.pathToRegexpOptions || {}
+  const normalizedPath = normalizePath(
+    path,
+    parent,
+    pathToRegexpOptions.strict
+  )
+
+  if (typeof route.caseSensitive === 'boolean') {
+    pathToRegexpOptions.sensitive = route.caseSensitive
+  }
+  
+  //封装route记录
+  const record: RouteRecord = {
+    path: normalizedPath, //路径
+    regex: compileRouteRegex(normalizedPath, pathToRegexpOptions), //转化为匹配数组
+    components: route.components || { default: route.component }, //关联组件
+    instances: {}, //实例
+    name, //名字
+    parent, //父级router
+    matchAs,
+    redirect: route.redirect, //跳转
+    beforeEnter: route.beforeEnter, //进入前操作
+    meta: route.meta || {}, //附加参数
+    props: route.props == null  //props属性
+      ? {}
+      : route.components
+        ? route.props
+        : { default: route.props }
+  }
+  
+  //子路由
+  if (route.children) {
+
+    //子路由收集
+    route.children.forEach(child =&gt; {
+      const childMatchAs = matchAs
+        ? cleanPath(`${matchAs}/${child.path}`)
+        : undefined
+      addRouteRecord(pathList, pathMap, nameMap, child, record, childMatchAs)
+    })
+  }
+  
+  //别名
+  if (route.alias !== undefined) {
+    const aliases = Array.isArray(route.alias)
+      ? route.alias
+      : [route.alias]
+
+    aliases.forEach(alias =&gt; {
+      const aliasRoute = {
+        path: alias,
+        children: route.children
+      }
+      addRouteRecord(
+        pathList,
+        pathMap,
+        nameMap,
+        aliasRoute,
+        parent,
+        record.path || '/' // matchAs
+      )
+    })
+  }
+  
+  //存储。按路径存储
+  if (!pathMap[record.path]) {
+    pathList.push(record.path)
+    pathMap[record.path] = record
+  }
+  
+  //按名字存储
+  if (name) {
+    if (!nameMap[name]) {
+      nameMap[name] = record
+    } else if (process.env.NODE_ENV !== 'production' &amp;&amp; !matchAs) {
+      warn(
+        false,
+        `Duplicate named routes definition: ` +
+        `{ name: &quot;${name}&quot;, path: &quot;${record.path}&quot; }`
+      )
+    }
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br></div></div><p>这里可以看到遍历<code>routes</code>根据<code>path</code>和名<code>name</code>将每一个路由项处理为一个<code>routerRecord</code>，并且分类保存到<code>pathMap</code>和 <code>nameMap</code>，方便后续的匹配操作。</p> <p>接下来，我们继续往下看<code>vueRouter</code>的构造函数。根据不同的模式生成<code>history</code>对象，那<code>history</code>对象到底是什么呢？我们接下去看<code>History</code>类。所有的<code>History</code>类都继承自基类base.js</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>export class History {
+  router: Router; //router对象
+  base: string;  //基准路径
+  current: Route;  //当前的路由
+  pending: ?Route;
+  cb: (r: Route) =&gt; void;  //回调
+  ready: boolean; 
+  readyCbs: Array&lt;Function&gt;;
+  readyErrorCbs: Array&lt;Function&gt;;
+  errorCbs: Array&lt;Function&gt;;
+
+  // 子类实现
+  +go: (n: number) =&gt; void;
+  +push: (loc: RawLocation) =&gt; void;
+  +replace: (loc: RawLocation) =&gt; void;
+  +ensureURL: (push?: boolean) =&gt; void;
+  +getCurrentLocation: () =&gt; string;
+
+  constructor (router: Router, base: ?string) {
+    this.router = router
+    this.base = normalizeBase(base) //返回基准路径
+    this.current = START //route 设置当前route
+    this.pending = null
+    this.ready = false
+    this.readyCbs = []
+    this.readyErrorCbs = []
+    this.errorCbs = []
+  }
+
+  listen (cb: Function) {
+    this.cb = cb
+  }
+
+  onReady (cb: Function, errorCb: ?Function) {
+   //*****
+  }
+
+  onError (errorCb: Function) {
+    //*****
+  }
+  
+  //路由转化操作
+  transitionTo (location: RawLocation, onComplete?: Function, onAbort?: Function) {
+    const route = this.router.match(location, this.current) //找到匹配路由
+    this.confirmTransition(route, () =&gt; { //确认是否转化
+      this.updateRoute(route) //更新route
+      onComplete &amp;&amp; onComplete(route)
+      this.ensureURL()
+
+      // fire ready cbs once
+      if (!this.ready) {
+        this.ready = true
+        this.readyCbs.forEach(cb =&gt; { cb(route) })
+      }
+    }, err =&gt; {
+      if (onAbort) {
+        onAbort(err)
+      }
+      if (err &amp;&amp; !this.ready) {
+        this.ready = true
+        this.readyErrorCbs.forEach(cb =&gt; { cb(err) })
+      }
+    })
+  }
+  //确认是否转化路由
+  confirmTransition (route: Route, onComplete: Function, onAbort?: Function) {
+    const current = this.current
+    const abort = err =&gt; {
+      if (isError(err)) {
+        if (this.errorCbs.length) {
+          this.errorCbs.forEach(cb =&gt; { cb(err) })
+        } else {
+          warn(false, 'uncaught error during route navigation:')
+          console.error(err)
+        }
+      }
+      onAbort &amp;&amp; onAbort(err)
+    }
+    //判断如果前后是同一个路由，不进行操作
+    if (
+      isSameRoute(route, current) &amp;&amp;
+      route.matched.length === current.matched.length
+    ) {
+      this.ensureURL()
+      return abort()
+    }
+    //下面是各类钩子函数的处理
+    //*********************
+    })
+  }
+ 
+  //更新路由
+  updateRoute (route: Route) {
+    const prev = this.current //跳转前路由
+    this.current = route //装备跳转路由
+    this.cb &amp;&amp; this.cb(route) //回调函数，这一步很重要，这个回调函数在index文件中注册，会更新被劫持的数据 _router
+    this.router.afterHooks.forEach(hook =&gt; {
+      hook &amp;&amp; hook(route, prev)
+    })
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br></div></div><p>history/base.js实现了基本history的操作，<code>history/hash.js</code>，<code>history/html5.js</code>和<code>history/abstract.js</code>继承了base，只是根据不同的模式封装了一下几个函数的基本操作</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>  +go: (n: number) =&gt; void;
+  +push: (loc: RawLocation) =&gt; void;
+  +replace: (loc: RawLocation) =&gt; void;
+  +ensureURL: (push?: boolean) =&gt; void;
+  +getCurrentLocation: () =&gt; string;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>可以看到有几个重要的操作函数，<code>transitionTo</code>对于路由更新的控制以及更新路由，<code>updateRoute</code>调用了我们在<code>vue-router</code>中注册的函数</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> history.listen(route =&gt; {
+      this.apps.forEach((app) =&gt; {
+        app._route = route
+      })
+    })
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>这一步很重要，更新_route的值，还记得我们在install中做的操作</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Vue.util.defineReactive(this, '_route', this._router.history.current)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>劫持了<code>_route</code>对象，所里这里路由更新<code>_route</code>,导致了视图更新。</p> <p>接下来，我们来看如何调用<code>transitionTo</code>，达到更新目的，<code>transitionTo</code>的调用都是在代码几个子类的实现里面</p> <h4 id="路由跳转函数"><a href="#路由跳转函数" class="header-anchor">#</a> 路由跳转函数</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>//hash.js
+//设置路由，监控路由改变
+export class HashHistory extends History {
+  constructor (router: Router, base: ?string, fallback: boolean) {
+    super(router, base)
+    // check history fallback deeplinking检查历史回退深度链接
+    if (fallback &amp;&amp; checkFallback(this.base)) {
+      return
+    }
+    ensureSlash()
+  }
+  setupListeners () {
+    window.addEventListener('hashchange', () =&gt; {
+      if (!ensureSlash()) {
+        return
+      }
+      this.transitionTo(getHash(), route =&gt; {
+        replaceHash(route.fullPath)
+      })
+    })
+  }
+ //push方法
+  push (location: RawLocation, onComplete?: Function, onAbort?: Function) {
+    this.transitionTo(location, route =&gt; {
+      pushHash(route.fullPath)
+      onComplete &amp;&amp; onComplete(route)
+    }, onAbort)
+  }
+  //replace方法
+  replace (location: RawLocation, onComplete?: Function, onAbort?: Function) {
+    this.transitionTo(location, route =&gt; {
+      replaceHash(route.fullPath)
+      onComplete &amp;&amp; onComplete(route)
+    }, onAbort)
+  }
+ }
+
+  //html5.js实现
+
+export class HTML5History extends History {
+  constructor (router: Router, base: ?string) {
+    super(router, base)
+
+    const expectScroll = router.options.scrollBehavior //指回滚方式
+
+    if (expectScroll) {
+      setupScroll()
+    }
+    //监控popstate事件
+    window.addEventListener('popstate', e =&gt; {
+      const current = this.current
+      this.transitionTo(getLocation(this.base), route =&gt; {
+        if (expectScroll) {
+          handleScroll(router, route, current, true)
+        }
+      })
+    })
+  }
+
+  //push
+   push (location: RawLocation, onComplete?: Function, onAbort?: Function) {
+    const { current: fromRoute } = this
+    this.transitionTo(location, route =&gt; {
+      pushState(cleanPath(this.base + route.fullPath)) //保存当前的位置信息，用于返回时候复位
+      handleScroll(this.router, route, fromRoute, false)
+      onComplete &amp;&amp; onComplete(route)
+    }, onAbort)
+  }
+
+  replace (location: RawLocation, onComplete?: Function, onAbort?: Function) {
+    const { current: fromRoute } = this
+    this.transitionTo(location, route =&gt; {
+      replaceState(cleanPath(this.base + route.fullPath)) //保存当前的位置信息，用于返回时候复位
+      handleScroll(this.router, route, fromRoute, false)
+      onComplete &amp;&amp; onComplete(route)
+    }, onAbort)
+  }
+}
+
+  //abstract.js实现，这里通过栈的数据结构来模拟路由路径
+ export class AbstractHistory extends History {
+  index: number;
+  stack: Array&lt;Route&gt;;
+
+  constructor (router: Router, base: ?string) {
+    super(router, base)
+    this.stack = []
+    this.index = -1
+  }
+
+  push (location: RawLocation, onComplete?: Function, onAbort?: Function) {
+    this.transitionTo(location, route =&gt; {
+      this.stack = this.stack.slice(0, this.index + 1).concat(route)
+      this.index++
+      onComplete &amp;&amp; onComplete(route)
+    }, onAbort)
+  }
+
+  replace (location: RawLocation, onComplete?: Function, onAbort?: Function) {
+    this.transitionTo(location, route =&gt; {
+      this.stack = this.stack.slice(0, this.index).concat(route)
+      onComplete &amp;&amp; onComplete(route)
+    }, onAbort)
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br></div></div><p>这里，3种方式都提供了<code>replace</code>和<code>push</code>接口来更新路由同时hash模式监控 <code>hashchange</code>，H5模式监控 <code>popstate</code></p> <p>这里H5模式多了一步保存当前的位置信息，用于返回时候复位的操作</p> <p>除了在子类调用之外，在 <code>vueRouter</code>类中<code>init</code>也有调用</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>if (history instanceof HTML5History) {
+      history.transitionTo(history.getCurrentLocation())
+    } else if (history instanceof HashHistory) {
+      //建立hash监控
+      const setupHashListener = () =&gt; {
+        history.setupListeners()
+      }
+      history.transitionTo(
+        history.getCurrentLocation(),
+        setupHashListener,
+        setupHashListener
+      )
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>因为在这两种模式下才有可能存在进入时候的不是默认页，需要根据当前浏览器地址栏里的 <code>path</code> 或者 <code>hash</code> 来激活对应的路由，此时就是通过调用 <code>transitionTo</code> 来达到目的</p> <p>接着继续追踪<code>replace</code>和<code>push</code>的调用，这两个方法的触发通过我们定义的<code>router-link</code>组件</p> <h3 id="router-link"><a href="#router-link" class="header-anchor">#</a> router-link</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>render (h: Function) {
+    const router = this.$router //路由对象
+    const current = this.$route  //当前路由
+    //解析 to的路径对应路由项
+    const { location, route, href } = router.resolve(this.to, current, this.append)
+    
+    //设置一些默认元素class
+    const classes = {}
+    const globalActiveClass = router.options.linkActiveClass
+    const globalExactActiveClass = router.options.linkExactActiveClass
+    // Support global empty active class
+    const activeClassFallback = globalActiveClass == null
+            ? 'router-link-active'
+            : globalActiveClass
+    const exactActiveClassFallback = globalExactActiveClass == null
+            ? 'router-link-exact-active'
+            : globalExactActiveClass
+    const activeClass = this.activeClass == null
+            ? activeClassFallback
+            : this.activeClass
+    const exactActiveClass = this.exactActiveClass == null
+            ? exactActiveClassFallback
+            : this.exactActiveClass
+
+    /**根据当前路由设置当前对象**/
+    const compareTarget = location.path
+      ? createRoute(null, location, null, router)
+      : route
+    // 如果严格模式的话 就判断是否是相同路由（path query params hash）
+    // 否则就走包含逻辑（path包含，query包含 hash为空或者相同）
+    classes[exactActiveClass] = isSameRoute(current, compareTarget)
+    classes[activeClass] = this.exact
+      ? classes[exactActiveClass]
+      : isIncludedRoute(current, compareTarget)
+   
+    //事件处理函数
+    const handler = e =&gt; {
+      if (guardEvent(e)) {
+        if (this.replace) {//路由replace触发改变router-view
+          router.replace(location)
+        } else {//路由push触发改变router-view
+          router.push(location)
+        }
+      }
+    }
+    
+    //事件对象
+    const on = { click: guardEvent }
+    if (Array.isArray(this.event)) {
+      this.event.forEach(e =&gt; { on[e] = handler })
+    } else {
+      on[this.event] = handler
+    }
+   //添加元素的类
+    const data: any = {
+      class: classes
+    }
+
+    if (this.tag === 'a') {
+      data.on = on
+      data.attrs = { href }
+    } else {
+      // find the first &lt;a&gt; child and apply listener and href
+      const a = findAnchor(this.$slots.default)
+      if (a) {
+        // in case the &lt;a&gt; is a static node
+        a.isStatic = false
+        const extend = _Vue.util.extend
+        const aData = a.data = extend({}, a.data)
+        aData.on = on
+        const aAttrs = a.data.attrs = extend({}, a.data.attrs)
+        aAttrs.href = href
+      } else {
+        // doesn't have &lt;a&gt; child, apply listener to self
+        data.on = on
+      }
+    }
+
+    return h(this.tag, data, this.$slots.default)
+  }
+}
+
+function guardEvent (e) {
+  // 忽略带有功能键的点击
+  if (e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) return
+  // 已阻止的返回
+  if (e.defaultPrevented) return
+  // 右击
+  if (e.button !== undefined &amp;&amp; e.button !== 0) return
+  // `target=&quot;_blank&quot;` 忽略
+  if (e.currentTarget &amp;&amp; e.currentTarget.getAttribute) {
+    const target = e.currentTarget.getAttribute('target')
+    if (/\b_blank\b/i.test(target)) return
+  }
+   // 阻止默认行为 防止跳转
+  if (e.preventDefault) {
+    e.preventDefault()
+  }
+  return true
+}
+
+//找到第一个A标签
+function findAnchor (children) {
+  if (children) {
+    let child
+    for (let i = 0; i &lt; children.length; i++) {
+      child = children[i]
+      if (child.tag === 'a') {
+        return child
+      }
+      if (child.children &amp;&amp; (child = findAnchor(child.children))) {
+        return child
+      }
+    }
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br></div></div><p>可以看到router-link绑定了click 方法调用replace和push 达到更新路由目的。</p> <p>最后，我们来看router-view如何是如何更新的</p> <h3 id="router-view"><a href="#router-view" class="header-anchor">#</a> router-view</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>export default {
+  name: 'router-view',
+  functional: true, // 功能组件 纯粹渲染
+  props: {
+    name: {
+      type: String,
+      default: 'default'
+    }
+  },
+  render (_, { props, children, parent, data }) {
+    //标记为routerview
+    data.routerView = true
+
+    // directly use parent context's createElement() function
+    //直接使用父组件上下文的createElement()函数
+    // so that components rendered by router-view can resolve named slots
+    const h = parent.$createElement
+    const name = props.name
+    const route = parent.$route
+    const cache = parent._routerViewCache || (parent._routerViewCache = {}) //缓存
+
+    // determine current view depth, also check to see if the tree
+    // has been toggled inactive but kept-alive.
+    let depth = 0
+    let inactive = false 
+    //解决router-view 嵌套问题
+    while (parent &amp;&amp; parent._routerRoot !== parent) {
+      if (parent.$vnode &amp;&amp; parent.$vnode.data.routerView) {
+        depth++
+      }
+      //是否是keep-alive
+      if (parent._inactive) {
+        inactive = true
+      }
+      parent = parent.$parent
+    }
+    //当前view-router的嵌套深度
+    data.routerViewDepth = depth
+
+    // render previous view if the tree is inactive and kept-alive
+    if (inactive) {
+      return h(cache[name], data, children)
+    }
+    // 得到相匹配的当前组件层级的 路由记录
+    const matched = route.matched[depth]
+    // render empty node if no matched route
+    if (!matched) {
+      cache[name] = null
+      return h()
+    }
+    
+    //缓存组件
+    const component = cache[name] = matched.components[name]
+
+    // attach instance registration hook
+    // this will be called in the instance's injected lifecycle hooks
+    data.registerRouteInstance = (vm, val) =&gt; {
+      // val could be undefined for unregistration
+      const current = matched.instances[name]
+      if (
+        (val &amp;&amp; current !== vm) ||
+        (!val &amp;&amp; current === vm)
+      ) {
+        matched.instances[name] = val
+      }
+    }
+
+    // also register instance in prepatch hook
+    // in case the same component instance is reused across different routes
+    ;(data.hook || (data.hook = {})).prepatch = (_, vnode) =&gt; {
+      matched.instances[name] = vnode.componentInstance
+    }
+
+    // resolve props
+    data.props = resolveProps(route, matched.props &amp;&amp; matched.props[name])
+
+    return h(component, data, children)
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br></div></div><p>可以看到逻辑还是比较简单的，根据route拿到匹配的组件进行渲染就可以了。里面比较复杂的是对于组件的缓存处理。</p> <h3 id="总结一下"><a href="#总结一下" class="header-anchor">#</a> 总结一下</h3> <p>这里，整个流程就完全走完了。可能还有些懵，我们下面就在总结一下整个流程。</p> <ul><li>1、安装插件</li></ul> <p>完成了router-link和 router-view 两个组件的注册，router-link用于触发路由的变化，router-view作为功能组件，用于触发对应路由视图的变化</p> <p>混入beforeCreate生命周期处理，初始化_routerRoot，_router，_route等数据</p> <p>全局设置VUE静态访问$router和$route，方便后期访问</p> <ul><li><p>2、根据路由配置生成router实例</p> <ul><li><p>根据配置数组生成路由配置记录表</p></li> <li><p>生成监控路由变化的hsitory对象</p></li></ul></li> <li><p>3、将router实例传入根VUE实例</p> <ul><li><p>根据beforeCreate混入，为根vue对象设置了劫持字段_route，用户触发router-view的变化</p></li> <li><p>调用init()函数，完成首次路由的渲染，首次渲染的调用路径是 调用history.transitionTo方法，根据router的match函数，生成一个新的route对象，接着通过confirmTransition对比一下新生成的route和当前的route对象是否改变，改变 　　的话触发updateRoute，更新hsitory.current属性，触发根组件的_route的变化,从而导致组件的调用render函数，更新router-view。</p></li> <li><p>另外一种更新路由的方式是主动触发，router-link绑定了click方法，触发history.push或者history.replace,从而触发history.transitionTo</p></li> <li><p>同时会监控hashchange和popstate来对路由变化作对用的处理</p></li></ul></li></ul> <h3 id="重要函数思维导图"><a href="#重要函数思维导图" class="header-anchor">#</a> 重要函数思维导图</h3> <p>以下思维导图罗列了源码中重要的一些函数</p> <p><a data-fancybox="" title="" href="https://colastar.github.io/static/images/vue-router-源码.png"><img src="https://colastar.github.io/static/images/vue-router-%E6%BA%90%E7%A0%81.png" alt=""></a></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/17/2022, 3:20:27 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/no.6/vue/flux.html" class="prev">
+        Flux 架构
+      </a></span> <span class="next"><a href="/no.6/vue/vue.html">
+        Vue
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a49ca15b.js" defer></script><script src="/assets/js/2.2b4afd4e.js" defer></script><script src="/assets/js/107.3f30ad29.js" defer></script>
+  </body>
+</html>
