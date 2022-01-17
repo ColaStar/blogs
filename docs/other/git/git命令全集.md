@@ -1,4 +1,3 @@
-# 常用 Git 命令清单
 <font color="blue">常用 Git 命令清单。几个专用名词的译名如下。</font>
 
 * Workspace：工作区
@@ -42,8 +41,18 @@ $ git config [--global] user.email "[email address]"
 # 查询用户信息
 $ git config --list
 
-#登录错误后的重新登录
+# 登录错误后的重新登录
 $ git config --system --unset credential.helper
+
+# 查询代理
+$ git config --global http.proxy
+
+# 取消代理
+git config --global --unset http.proxy
+
+# 设置代理
+$ git config --global http.proxy http:172.16.13.171:8080 
+
 ```
 
 ### 三、增加/删除文件
@@ -92,6 +101,9 @@ $ git commit -v
 # 如果代码没有任何新变化，则用来改写上一次commit的提交信息
 $ git commit --amend -m [message]
 
+使用一次新的commit，提交message是上一次的
+$ git commit --amend –no-edit
+
 # 重做上一次commit，并包括指定文件的新变化
 $ git commit --amend [file1] [file2] ...
 ```
@@ -119,6 +131,8 @@ $ git checkout -b [branch]
 
 # 切换到别的分支
 $ git checkout -b branch-name [branch]
+例：git checkout -b dev origin/dev
+
 # 新建一个分支，指向指定commit
 $ git branch [branch] [commit]
 
@@ -137,6 +151,9 @@ $ git branch --set-upstream [branch] [remote-branch]
 # 合并指定分支到当前分支
 $ git merge [branch]
 
+$ git merge --no-ff -m "merge message" bug001
+# -no-ff参数，表示禁用Fast Forward模式，禁用后Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息）。
+
 # 选择一个commit，合并进当前分支
 $ git cherry-pick [commit]
 
@@ -151,8 +168,14 @@ $ git branch -dr [remote/branch]
 ### 六、标签
 
 ```
-# 列出所有tag
+# 列出所有tag 当前仓库的所有标签
 $ git tag
+
+# 搜索符合模式的标签
+$ git tag -l 'v0.0.*'
+
+# 创建附注标签
+$ git tag -a v0.0.1 -m "v0.0.1发布"
 
 # 新建一个tag在当前commit
 $ git tag [tag]
@@ -166,13 +189,16 @@ $ git tag -d [tag]
 # 删除远程tag
 $ git push origin :refs/tags/[tagName]
 
-# 查看tag信息
+# 查看tag版本信息
 $ git show [tag]
 
-# 提交指定tag
+# 指向打v0.0.2标签时的代码状态 
+$ git checkout v0.0.2
+
+# 提交指定tag到git服务器
 $ git push [remote] [tag]
 
-# 提交所有tag
+# 提交所有tag(将本地所有标签一次性提交到git服务器)
 $ git push [remote] --tags
 
 # 新建一个分支，指向某个tag
@@ -257,7 +283,7 @@ $ git reflog
 
 ### 八、远程同步
 
-```
+```t
 # 下载远程仓库的所有变动
 $ git fetch [remote]
 
@@ -317,6 +343,7 @@ $ git revert [commit]
 # 暂时将未提交的变化移除，稍后再移入
 $ git stash
 $ git stash pop
+
 ```
 
 ### 十、其他
@@ -329,7 +356,7 @@ $ git archive
 ### 十二、高级操作
 #### git命令及别名
 
-
+<!-- |1### 常用git命令及别名 2 3 -->
 |别名 Alias |命令 Command |如何设置 What to Type| 
 |- |- |- | 
 |git cm |git commit |git config --global alias.cm commit 
@@ -344,9 +371,9 @@ $ git archive
 该命令可以让和 `merge` 命令得到的结果基本是一致的。
 
 通常使用 `merge` 操作将分支上的代码合并到 `master` 中，分支样子如下所示
-<a data-fancybox title="git-merge" href="https://colastar.github.io/static/images/git-merge.png">![git-merge](https://colastar.github.io/static/images/git-merge.png)</a>
+<a data-fancybox title="git-merge" href="https://raw.githubusercontent.com/ColaStar/static/master/images/git-merge.png">![git-merge](https://raw.githubusercontent.com/ColaStar/static/master/images/git-merge.png)</a>
 使用 `rebase` 后，会将 `develop` 上的 `commit` 按顺序移到 `master` 的第三个 `commit` 后面，分支样子如下所示
-<a data-fancybox title="git-rebase" href="https://colastar.github.io/static/images/git-rebase.png">![git-rebase](https://colastar.github.io/static/images/git-rebase.png)</a>
+<a data-fancybox title="git-rebase" href="https://raw.githubusercontent.com/ColaStar/static/master/images/git-rebase.png">![git-rebase](https://raw.githubusercontent.com/ColaStar/static/master/images/git-rebase.png)</a>
 
 `Rebase` 对比 `merge`，优势在于合并后的结果很清晰，只有一条线，劣势在于如果一旦出现冲突，解决冲突很麻烦，可能要解决多个冲突，但是 `merge` 出现冲突只需要解决一次。
 
@@ -360,101 +387,76 @@ git checkout master
 git merge develop
 ```
 
-> 合并多个`commit`
-
-```
-查看提交历史，git log
-
-2,git rebase
-
-想要合并1-3条，有两个方法
-
-1.从HEAD版本开始往过去数3个版本
-
-```
-git rebase -i HEAD~3
-```
-2.指名要合并的版本之前的某个版本号
-
-```
-git rebase -i 3a4226b
-// 请注意3a4226b这个版本是不参与合并的，可以把它当做一个坐标
-```
-
-3,选取要合并的提交
-
-- 1.执行了rebase命令之后，会弹出一个窗口，头几行如下：
-
-```
-pick 3ca6ec3   '注释**********'
-
-pick 1b40566   '注释*********'
-
-pick 53f244a   '注释**********'
-```
-
-- 2.将`pick改为squash`或者`s`,之后保存并关闭文本编辑窗口即可。改完之后文本内容如下：
-
-```
-pick 3ca6ec3   '注释**********'
-
-s 1b40566   '注释*********'
-
-s 53f244a   '注释**********'
-```
-
-- 3.然后保存退出，Git会压缩提交历史，如果有冲突，需要修改，修改的时候要注意，保留最新的历史，不然我们的修改就丢弃了。修改以后要记得敲下面的命令：
-```
-
-git add .  
-
-git rebase --continue  
-
-如果你想放弃这次压缩的话，执行以下命令：
-
-```
-git rebase --abort  
-```
-
-4.如果没有冲突，或者冲突已经解决，则会出现如下的编辑窗口：
-
-```
-# This is a combination of 4 commits.  
-#The first commit’s message is:  
-注释......
-# The 2nd commit’s message is:  
-注释......
-# The 3rd commit’s message is:  
-注释......
-# Please enter the commit message for your changes. Lines starting # with ‘#’ will be ignored, and an empty message aborts the commit.
-```
-
-5.输入`wq`保存并推出, 再次输入`git log`查看 `commit` 历史信息，你会发现这两个 `commit` 已经合并了
-
-
-```
-
-
-#### stash
+#### stash 保存工作目录
 
 `stash` 用于临时保存工作目录的改动。开发中可能会遇到代码写一半需要切分支打包的问题，如果这时候你不想 `commit` 的话，就可以使用该命令
 ```
 git stash
+git stash save 'save message'
 ```
+#####  查看之前存储的所有版本列表
+```
+$ git stash list
+```
+##### 恢复具体某一次的版本
 
 使用该命令可以暂存你的工作目录，后面想恢复工作目录，只需要使用
 
 ```
-git stash pop
+# 如果不指定stash_id，则默认恢复最新的存储进度
+# git stash pop
+
+# 恢复具体某一次的版本，
+$ git stash pop [stash_id] 
+
+# 将堆栈中的内容应用到当前目录,不同于git stash pop，该命令不会将内容从堆栈中删除，也就说该命令能够将堆栈的内容多次应用到工作目录中，适应于多个分支的情况。
+$ git stash apply
+$ git stash apply + stash名字
 ```
+恢复之后，有时打开工程文件，会发现里面所有文件都不翼而飞了？！
+
+这是因为出现合并冲突的问题而导致工程文件打不开。
+
+这时候右击工程文件，单击“显示包内容”，打开“project.pbxproj”文件，然后command + f 搜索 “stashed”。把冲突部分删掉就可以重新打开啦
 
 这样你之前临时保存的代码又回来了
+
+##### 删除一个存储的进度。如果不指定stash_id，则默认删除最新的存储进度
+```
+$ git stash drop stash@{5}
+```
+##### 清除所有的存储进度
+```
+$ git stash clear
+```
+##### 查看堆栈中最新保存的stash和当前目录的差异。
+```
+$ git stash show
+
+# 查看指定的stash和当前目录差异。
+$ git stash show stash@{1} 
+
+# 查看详细的不同：
+$ git stash show -p
+
+# 查看指定的stash的差异内容。
+$ git stash show stash@{1} -p 
+
+# 从最新的stash创建分支
+$ git stash branch
+```
+#### 使用场景
+
+以下几种情况会使用到它：
+- 1、 解决冲突文件时，会先执行 `git stash`，然后解决冲突；
+- 2、有紧急开发任务但目前任务不能提交时，会先执行 `git stash`，然后进行紧急任务的开发，然后通过 `gits stash pop` 取出栈区的内容继续开发；
+- 3、 切换分支时，当前工作空间内容不能提交时，会先执行 `git stash` 再进行分支切换
 
 #### reflog
 
 `reflog` 可以看到 `HEAD` 的移动记录，假如之前误删了一个分支，可以通过 `git reflog` 看到移动 `HEAD` 的哈希值
 
-<a data-fancybox title="git-reflog" href="https://colastar.github.io/static/images/git-reflog.png">![git-reflog](https://colastar.github.io/static/images/git-reflog.png)</a>
+<a data-fancybox title="git-reflog" href="https://raw.githubusercontent.com/ColaStar/static/master/images/git-reflog.png">![git-reflog](https://raw.githubusercontent.com/ColaStar/static/master/images/git-reflog.png)</a>
 
 从图中可以看出，`HEAD` 的最后一次移动行为是 `merge` 后，接下来分支 `new` 就被删除了，那么我们可以通过以下命令找回 `new` 分支
 
@@ -484,5 +486,3 @@ git fetch和git pull的区别
 - git pull：相当于是从远程获取最新版本并merge到本地
 - git fetch：相当于是从远程获取最新版本到本地，不会自动merge
 ```
-
-
