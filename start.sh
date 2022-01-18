@@ -9,7 +9,7 @@ echo '生成静态文件'
 sudo npm run build
 
 # 进入生成的文件夹
- # cd docs/.vuepress/dist
+#  cd docs/.vuepress/dist
  
 echo '查看git 变动' 
 
@@ -37,8 +37,8 @@ cd static
 
 npm start
 
-
-curl -O /Users/lvjian/Documents/blogs  /etc/yum.repos.d/CentOS-Base.repo
+cd ..
+sudo scp -r ./views/. lvjian@101.200.143.172:/usr/local/nginx/html
 
  # 如果是发布到自定义域名
  # 如果发布到 https://<USERNAME>.github.io
