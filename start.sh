@@ -37,7 +37,10 @@ cd static
 
 npm start
 
+echo '上传静态文件完毕'
+
 cd ..
+
 sudo scp -r ./views/. lvjian@101.200.143.172:/usr/local/nginx/html
 
  # 如果是发布到自定义域名
