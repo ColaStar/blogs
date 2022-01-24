@@ -40,6 +40,7 @@ do
         echo "上传阿里云"
         scp -r ./views/. lvjian@101.200.143.172:/usr/local/nginx/html
         # a2176278.
+        exit
         ;;
     "static")
         echo "上传静态文件"
