@@ -6,7 +6,7 @@ set -e
 # rm -rf './views/'
 
 echo '生成静态文件'
-sudo npm run build
+npm run build
 
 # 进入生成的文件夹
 #  cd docs/.vuepress/dist
@@ -31,11 +31,28 @@ echo 'push 代码'
 
 git push
 
-echo '上传静态文件'
+echo 'build success'
 
-cd static 
+select ch in "aly" "static"
+do
+    case $ch in
+    "aly")
+        echo "上传阿里云"
+        scp -r ./views/. lvjian@101.200.143.172:/usr/local/nginx/html
+        # a2176278.
+        ;;
+    "static")
+        echo "上传静态文件"
+        cd static 
+        npm start
+        exit
+        ;;
+    *)
+        echo "未选择，操作完毕"
+        ;;
+    esac
+done;
 
-npm start
 
 
 
