@@ -71,6 +71,7 @@ do
         ;;
         *)
             echo "未选择，操作完毕"
+            exit;
         ;;
     esac
 done;
