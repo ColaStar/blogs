@@ -27,7 +27,7 @@ echo '规范commit日志'
 # 日常上传文件更改
 git commit -m 'docs(): update'
 
-echo 'push代码'
+echo 'push 代码'
 
 git push
 
@@ -37,11 +37,7 @@ cd static
 
 npm start
 
-echo '上传静态文件完毕'
 
-cd ..
-
-sudo scp -r ./views/. lvjian@101.200.143.172:/usr/local/nginx/html
 
  # 如果是发布到自定义域名
  # 如果发布到 https://<USERNAME>.github.io
