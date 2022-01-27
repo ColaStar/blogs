@@ -59,7 +59,7 @@ do
         ;;
         "aly")
             echo "上传阿里云"
-            scp -r ./views/. lvjian@101.200.143.172:/usr/local/nginx/html
+            scp -r ./views/. lvjian@101.200.143.172:/usr/local/nginx/html/blogs
             # a2176278.
             exit
         ;;
