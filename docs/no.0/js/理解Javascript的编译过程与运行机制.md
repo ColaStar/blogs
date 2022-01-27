@@ -20,7 +20,7 @@ var a = 2;
 这个过程是把各个词法单元转换为AST语法树，[在线解析工具](https://link.jianshu.com/?t=http%3A%2F%2Fesprima.org%2Fdemo%2Fparse.html)
 "`var a = 2;`" 的词法单元流就会被解析为下边的AST树
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/语法分析AST.png">![](https://colastar.github.io/static/images/语法分析AST.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/语法分析AST.png">![](http://blog.colastar.club/static/images/语法分析AST.png)</a>
 
 来个复杂点的
 ```

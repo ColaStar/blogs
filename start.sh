@@ -65,8 +65,9 @@ do
         ;;
         "static")
             echo "上传静态文件"
-            cd static
-            npm start
+            # cd static
+            scp -r ./static/. lvjian@101.200.143.172:/usr/local/nginx/html/static
+            # npm start
             exit
         ;;
         *)
@@ -85,3 +86,4 @@ done;
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
+

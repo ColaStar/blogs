@@ -9,9 +9,9 @@ jenkins目前最流行的一款持续集成及自动化部署工具。
 
 jenkins产品发布流程(**java**)
 
-![](https://colastar.github.io/static/images/jenkins产品发布流程.png)
+![](http://blog.colastar.club/static/images/jenkins产品发布流程.png)
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_流程图3.jpg">![](https://colastar.github.io/static/images/jenkins_流程图3.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_流程图3.jpg">![](http://blog.colastar.club/static/images/jenkins_流程图3.jpg)</a>
 
 
 通过上图可以看到，jenkins帮我们持续、自动地构建/测试软件项目。
@@ -56,7 +56,7 @@ make prefix=/usr/local/git all
 make prefix=/usr/local/git install
 ```
 因为服务器时间不对编译的过程中报错如下图，使用ntpdate自动校正系统时间。报错“`Writing perl.mak for Git make[2]: *** [perl.mak] Error 1`”，请重启a服务，`service httpd restart`。
-![](https://colastar.github.io/static/images/ntpdate.png)
+![](http://blog.colastar.club/static/images/ntpdate.png)
 
 - 4.编译完成之后使用git --version 
 
@@ -70,7 +70,7 @@ $ whereis git
 
 git: /usr/bin/git /usr/local/git /usr/share/man/man1/git.1.gz
 ```
-![](https://colastar.github.io/static/images/whereis-git.png)
+![](http://blog.colastar.club/static/images/whereis-git.png)
 
 
 - 5.把git路径放到环境变量里
@@ -83,14 +83,14 @@ vim /etc/profile
 
 export PATH=/usr/local/git/bin:$PATH
 ···
-![](https://colastar.github.io/static/images/unset-f.png)
+![](http://blog.colastar.club/static/images/unset-f.png)
 
 然后执行一下profile文件
 ```
 source /etc/profile
 ```
 然后再次使用git --version 查看git版本，发现输出2.3.0，表明安装成功。
-![](https://colastar.github.io/static/images/jenkins_item22.png)
+![](http://blog.colastar.club/static/images/jenkins_item22.png)
 
 
 
@@ -130,7 +130,7 @@ sudo chkconfig jenkins on
 systemctl status jenkins.service
 ```
 
-![](https://colastar.github.io/static/images/jenkins_item23.png)
+![](http://blog.colastar.club/static/images/jenkins_item23.png)
 
 如上错误是java配置错误，需要修改jenkins配置文件
 
@@ -243,26 +243,26 @@ http://192.168.0.104:8080
 
 
 
-![](https://colastar.github.io/static/images/jenkins_item24.png)
+![](http://blog.colastar.club/static/images/jenkins_item24.png)
 2、查看密码，将内容填写到密码处点击继续
 ```
 cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 3、选择默认插件即可　　
-![](https://colastar.github.io/static/images/jenkins_item25.png)
+![](http://blog.colastar.club/static/images/jenkins_item25.png)
 
 
 安装插件随意选择，对后续没有太大影响，因为有需要的插件我们还会在之后安装
 
-![](https://colastar.github.io/static/images/jenkins_item26.png)
+![](http://blog.colastar.club/static/images/jenkins_item26.png)
 此处安装需要联网下载，耐心等待安装完
 
 4、设置管理员
 
-![](https://colastar.github.io/static/images/jenkins_item27.png)
+![](http://blog.colastar.club/static/images/jenkins_item27.png)
 
 创建一个账号，然后下一步
-![](https://colastar.github.io/static/images/jenkins_item28.png)
+![](http://blog.colastar.club/static/images/jenkins_item28.png)
 
 
 到这里jenkins已经初始化好了
@@ -270,11 +270,11 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 
 ## jenkins配置（系统管理）
 
-![](https://colastar.github.io/static/images/jenkins_item29.png)
+![](http://blog.colastar.club/static/images/jenkins_item29.png)
 
 ### 1.**全局安全**配置
 
-![](https://colastar.github.io/static/images/jenkins_item30.png)
+![](http://blog.colastar.club/static/images/jenkins_item30.png)
 
 目前是为了学习Jenkins，所有把安全性问题都放开，不做限制
 
@@ -312,7 +312,7 @@ service jenkins restart
 
 <a data-fancybox title="" href="http://s5.51cto.com/wyfs02/M01/7E/AF/wKioL1cHXXGDffHKAALinIAmzyc658.png">![](http://s5.51cto.com/wyfs02/M01/7E/AF/wKioL1cHXXGDffHKAALinIAmzyc658.png)</a>
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/Publish_Over_SSH.png">![](https://colastar.github.io/static/images/Publish_Over_SSH.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/Publish_Over_SSH.png">![](http://blog.colastar.club/static/images/Publish_Over_SSH.png)</a>
 安装完成后，重启下jenkins
 
 注：也可以手动下载插件安装，到官网下载插件，然后将下载的插件传到服务器jenkins根目录下的plugins目录
@@ -327,7 +327,7 @@ ssh的配置可使用密钥，也可以使用密码，这里我们使用密钥�
 
 jenkins服务器上生成密钥对，使用ssh-keygen -t rsa命令
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/ssh-keygen.png">![](https://colastar.github.io/static/images/ssh-keygen.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/ssh-keygen.png">![](http://blog.colastar.club/static/images/ssh-keygen.png)</a>
 
 在~/.ssh/下会有私钥id_rsa和公钥id_rsa.pub
 
@@ -343,7 +343,7 @@ jenkins服务器上生成密钥对，使用ssh-keygen -t rsa命令
 
 在jenkins页面“系统管理”-->"系统设置"中的Publish Over SSH标签配置如下
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/Publish_Over_SSH1.png">![](https://colastar.github.io/static/images/Publish_Over_SSH1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/Publish_Over_SSH1.png">![](http://blog.colastar.club/static/images/Publish_Over_SSH1.png)</a>
 
 Passphrase：密码（key的密码，如果你设置了）
 
@@ -360,7 +360,7 @@ Remote Directory：远程目录(根据需要填写文件传到此目录下)
 “Use password authentication, or use a different key”：使用密码验证(这里使用了密钥认证所以不开启)
 
 配置完成后可点击“Test Configuration”测试到目标主机的连接，出现”success“则成功连接
-<a data-fancybox title="" href="https://colastar.github.io/static/images/Publish_Over_SSH2.png">![](https://colastar.github.io/static/images/Publish_Over_SSH2.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/Publish_Over_SSH2.png">![](http://blog.colastar.club/static/images/Publish_Over_SSH2.png)</a>
 如果有多台应用服务器，可以点击”增加“，配置多个“SSH Servers”
 
 点击“保存”以保存配置
@@ -372,11 +372,11 @@ Remote Directory：远程目录(根据需要填写文件传到此目录下)
 点击(项目名“fin_test1”–>左侧菜单的“配置”)来更改项目的配置
 
 在配置最后找到“增加构建后操作步骤”，选择"Send build artifacts over SSH"
-<a data-fancybox title="" href="https://colastar.github.io/static/images/send_file.png">![](https://colastar.github.io/static/images/send_file.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/send_file.png">![](http://blog.colastar.club/static/images/send_file.png)</a>
 
 然后在"Send build artifacts over SSH"模块中配置如下
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/send_file_ssh.png">![](https://colastar.github.io/static/images/send_file_ssh.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/send_file_ssh.png">![](http://blog.colastar.club/static/images/send_file_ssh.png)</a>
 
 **SSH  Server Name**：选个一个你在系统设置里配置的名字
 
@@ -414,7 +414,7 @@ Remote Directory：远程目录(根据需要填写文件传到此目录下)
 如需要传输多个war包，可点击“Add Transfer Set”，增加一个传输模块
 
 如需要上传到多个“SSH Server”，可点击“Add Server”，增加一个服务器模块(系统设置中有多个“SSH Servers”)s
-<a data-fancybox title="" href="https://colastar.github.io/static/images/send_file_ssh2.png">![](https://colastar.github.io/static/images/send_file_ssh2.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/send_file_ssh2.png">![](http://blog.colastar.club/static/images/send_file_ssh2.png)</a>
 
 点击”保存“，然后下次构建就会在构建完成后自动部署到应用服务器上
 
@@ -423,11 +423,11 @@ Remote Directory：远程目录(根据需要填写文件传到此目录下)
 
 #### nodejs插件
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/nodejs.jpg">![](https://colastar.github.io/static/images/nodejs.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/nodejs.jpg">![](http://blog.colastar.club/static/images/nodejs.jpg)</a>
 
 安装完毕后，选择系统管理->全局工具配置，配置node下载及安装
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/nodejs2.jpg">![](https://colastar.github.io/static/images/nodejs2.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/nodejs2.jpg">![](http://blog.colastar.club/static/images/nodejs2.jpg)</a>
 
 #### git钩子
 安装的git插件
@@ -447,11 +447,11 @@ SSH plugin
 
 或者直接设置webhooks
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/github1.jpg">![](https://colastar.github.io/static/images/github1.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/github1.jpg">![](http://blog.colastar.club/static/images/github1.jpg)</a>
 
 从下拉菜单中，选中Jenkins (GitHub plugin)。在新打开的界面，填写Jenkins的信息
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/github2.jpg">![](https://colastar.github.io/static/images/github2.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/github2.jpg">![](http://blog.colastar.club/static/images/github2.jpg)</a>
 
 完整的地址为http://xx.xx.xx.xx:8080/GitHub-webhook/。把这里的xx换成实际的IP地址或者域名即可。需要注意的是，网址末尾的斜杠一定不能省略
 
@@ -460,8 +460,8 @@ SSH plugin
 
 ### 进入全局工具配置
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/全局配置.png">![](https://colastar.github.io/static/images/全局配置.png)</a>
-<a data-fancybox title="" href="https://colastar.github.io/static/images/nodejs3.jpg">![](https://colastar.github.io/static/images/nodejs3.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/全局配置.png">![](http://blog.colastar.club/static/images/全局配置.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/nodejs3.jpg">![](http://blog.colastar.club/static/images/nodejs3.jpg)</a>
 
 ### 系统配置
 
@@ -470,7 +470,7 @@ SSH plugin
 用法：如果是主server，可以不选，如果是从级别必须选择“尽可能的使用这个节点”
 
 生成前等待时间：配置该时间10s，避免错误操作，有时间返回
-<a data-fancybox title="" href="https://colastar.github.io/static/images/系统配置.png">![](https://colastar.github.io/static/images/系统配置.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/系统配置.png">![](http://blog.colastar.club/static/images/系统配置.png)</a>
 
 ### Linux系统安装nodejs及其包管理工具
 
@@ -479,7 +479,7 @@ SSH plugin
 ```
 wget https://nodejs.org/dist/latest/node-v11.14.0-linux-x64.tar.gz
 ```
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux_node.png">![](https://colastar.github.io/static/images/linux_node.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux_node.png">![](http://blog.colastar.club/static/images/linux_node.png)</a>
 > 解压安装
 ```
 tar zxvf node-v11.14.0-linux-x64.tar.gz 
@@ -549,12 +549,12 @@ $ sudo ln -s /usr/local/src/node-v4.5.0-linux-x86/bin/cnpm /usr/local/bin/cnpm
 > 1、安装好github钩子以及nodejs插件后，接下来开始配置任务
 
 点击创建一个新任务，填写任务名称，构建的项目类型可根据实际情况进行选择，本次选择第一种即可
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jinnkins_item1.jpg">![](https://colastar.github.io/static/images/jinnkins_item1.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jinnkins_item1.jpg">![](http://blog.colastar.club/static/images/jinnkins_item1.jpg)</a>
 > 2、配置基础信息
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item2.jpg">![](https://colastar.github.io/static/images/jenkins_item2.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item2.jpg">![](http://blog.colastar.club/static/images/jenkins_item2.jpg)</a>
 > 3、往下拉，看到源码管理，点选Git，依然填写git仓库对应的Repo地址
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item3.jpg">![](https://colastar.github.io/static/images/jenkins_item3.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item3.jpg">![](http://blog.colastar.club/static/images/jenkins_item3.jpg)</a>
 
 **注意：**
 
@@ -564,25 +564,25 @@ $ sudo ln -s /usr/local/src/node-v4.5.0-linux-x86/bin/cnpm /usr/local/bin/cnpm
 具体步骤：
 - 1、登录GitHub，进入要本次构建用到的工程；
 - 2、在工程主页面点击右上角的"Settings"，再点击左侧"Webhooks"，然后点击“Add webhook”，如下图：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item4.jpeg">![](https://colastar.github.io/static/images/jenkins_item4.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item4.jpeg">![](http://blog.colastar.club/static/images/jenkins_item4.jpeg)</a>
 - 3.如下图，在"Payload URL"位置填入webhook地址，再点击底部的"Add webhook按钮"，这样就完成webhook配置了，今后当前工程有代码提交，GitHub就会向此webhook地址发请求，通知Jenkins构建：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item5.jpeg">![](https://colastar.github.io/static/images/jenkins_item5.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item5.jpeg">![](http://blog.colastar.club/static/images/jenkins_item5.jpeg)</a>
 
 - 4.在系统设置页面找到"GitHub"，配置一个"GitHub Server"，如下图，“API URL"填写"https://api.github.com”，“Credentials"位置如下图红框所示，选择"Add->Jenkins”
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item6.jpeg">![](https://colastar.github.io/static/images/jenkins_item6.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item6.jpeg">![](http://blog.colastar.club/static/images/jenkins_item6.jpeg)</a>
 
 - 5.弹出的页面中，“Kind"选择"Secret text”，"Secret"填入前面在GitHub上生成的Personal access tokens，Description随便写一些描述信息，如下图：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/ienkins_item7.jpeg">![](https://colastar.github.io/static/images/ienkins_item7.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/ienkins_item7.jpeg">![](http://blog.colastar.club/static/images/ienkins_item7.jpeg)</a>
 - 6.填写完毕后，点击右侧的"Test connection"按钮，如果信息没有填错，显示的内容如下图所示：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item8.jpeg">![](https://colastar.github.io/static/images/jenkins_item8.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item8.jpeg">![](http://blog.colastar.club/static/images/jenkins_item8.jpeg)</a>
 - 7.点击页面最底部的"保存"按钮；
 - 构建item的时候可以直接
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item9.jpg">![](https://colastar.github.io/static/images/jenkins_item9.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item9.jpg">![](http://blog.colastar.club/static/images/jenkins_item9.jpg)</a>
 
 > 4、继续往下拉，在构建触发器单击增加构建步骤，在弹出的下拉菜单中选择Execute shell。勾选GitHub hook trigger for GITScm polling。构建环境选择nodejs
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkinns_item10.jpg">![](https://colastar.github.io/static/images/jenkinns_item10.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkinns_item10.jpg">![](http://blog.colastar.club/static/images/jenkinns_item10.jpg)</a>
 以上俩张图红框设置解释
 
 选择"Git"；
@@ -604,20 +604,20 @@ $ sudo ln -s /usr/local/src/node-v4.5.0-linux-x86/bin/cnpm /usr/local/bin/cnpm
 Jenkins访问GitHub工程的时候，有的操作是需要授权的，所以我们要在GitHub上生成授权的token给Jenkins使用，这就是Personal access tokens，生成步骤如下：
 
 1.登录GitHub，进入"Settings"页面，点击左下角的"Developer settings"，如下图：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item12.png">![](https://colastar.github.io/static/images/jenkins_item12.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item12.png">![](http://blog.colastar.club/static/images/jenkins_item12.png)</a>
 2.跳转到"Developer settings"页面后，点击左下角的“Personal access tokens”，如下图：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item13.png">![](https://colastar.github.io/static/images/jenkins_item13.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item13.png">![](http://blog.colastar.club/static/images/jenkins_item13.png)</a>
 3.跳转到"Personal access tokens"页面后，点击右上角的"Generate new token"按钮，如下图：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item14.png">![](https://colastar.github.io/static/images/jenkins_item14.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item14.png">![](http://blog.colastar.club/static/images/jenkins_item14.png)</a>
 4.可能会提示输入GitHub密码，输入后跳转到创建token的页面，如下图所示，输入title，再勾选"repo"和"admin:repo_hook"，再点击底部的"Generate token"按钮，就能产生一个新的access token，将此字符串复制下来，后面jenkins任务中会用到：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item15.png">![](https://colastar.github.io/static/images/jenkins_item15.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item15.png">![](http://blog.colastar.club/static/images/jenkins_item15.png)</a>
 如下图所示，勾选"Use secret text(s) or file(s)"，下面的"Credentials"选择我们之前配置过的"Personal access tokens"
 
 勾选的这个主要是用来鉴权的
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item11.jpeg">![](https://colastar.github.io/static/images/jenkins_item11.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item11.jpeg">![](http://blog.colastar.club/static/images/jenkins_item11.jpeg)</a>
 - 2.provide Node & npm bin/folder to PATH
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item16.jpg">![](https://colastar.github.io/static/images/jenkins_item16.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item16.jpg">![](http://blog.colastar.club/static/images/jenkins_item16.jpg)</a>
 
 > build
 构建的一些命令比如
@@ -632,7 +632,7 @@ sudo chown -R jenkins:jenkins /home/xiaohuochai/blog/admin
 
 比如：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item21.jpg">![](https://colastar.github.io/static/images/jenkins_item21.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item21.jpg">![](http://blog.colastar.club/static/images/jenkins_item21.jpg)</a>
 脚本如下
 
 stop.sh
@@ -658,16 +658,16 @@ cp /root/.jenkins/workspace/jenkinsdemo/target/jenkinsdemo-0.0.1-SNAPSHOT.jar /h
 
 　在系统设置中找到Jenkins Locaction项填入Jenkins URL和系统管理员邮件地址，系统管理员邮件地址一定要配置，否则发不了邮件通知。因为邮件通知都是由系统管理员的邮箱发出来的
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item17.jpg">![](https://colastar.github.io/static/images/jenkins_item17.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item17.jpg">![](http://blog.colastar.club/static/images/jenkins_item17.jpg)</a>
 
 找到Extended E-mail Notification项，填入类似信息
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item18.jpg">![](https://colastar.github.io/static/images/jenkins_item18.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item18.jpg">![](http://blog.colastar.club/static/images/jenkins_item18.jpg)</a>
 
 进行新建的pull-blog项目中，在构建后操作新增Editable Email Notification
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item19.jpg">![](https://colastar.github.io/static/images/jenkins_item19.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item19.jpg">![](http://blog.colastar.club/static/images/jenkins_item19.jpg)</a>
 
 在advances setting中选择always，意思是无论什么情况任务执行完就发邮件
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/jenkins_item20.jpg">![](https://colastar.github.io/static/images/jenkins_item20.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_item20.jpg">![](http://blog.colastar.club/static/images/jenkins_item20.jpg)</a>

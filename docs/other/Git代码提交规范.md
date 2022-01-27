@@ -163,10 +163,10 @@ fix #JIRA_ID
 ## 示例
 ### 完整的commit message示例
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/commit-lint.jpg">![](https://colastar.github.io/static/images/commit-lint.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/commit-lint.jpg">![](http://blog.colastar.club/static/images/commit-lint.jpg)</a>
 
 ### 相应的git log
-<a data-fancybox title="" href="https://colastar.github.io/static/images/commitlint-log.jpg">![](https://colastar.github.io/static/images/commitlint-log.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/commitlint-log.jpg">![](http://blog.colastar.club/static/images/commitlint-log.jpg)</a>
 
 [介绍约定式提交标准](https://www.conventionalcommits.org/zh-hans/v1.0.0-beta.4/#%e7%ba%a6%e5%ae%9a%e5%bc%8f%e6%8f%90%e4%ba%a4%e8%a7%84%e8%8c%83) `必读` 介绍约定式提交标准。
 

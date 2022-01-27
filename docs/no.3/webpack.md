@@ -203,7 +203,7 @@ module.exports = {
 ```
 如上配置完成后，我们再运行 npm run dev, 再在地址栏中 运行 http://localhost:8080/ 后看到如下信息：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/webpack_devserver.png">![](https://colastar.github.io/static/images/webpack_devserver.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/webpack_devserver.png">![](http://blog.colastar.club/static/images/webpack_devserver.png)</a>
 
 也就是说 配置了 contentBase后，服务器就指向了资源的根目录，而不再指向项目的根目录。因此再访问 http://localhost:8080/index.html 是访问不到的。但是访问 http://localhost:8080/bundle.js 该js文件是可以访问的到的。
 
@@ -226,7 +226,7 @@ module.exports = {
 }
 ```
 如上配置完成后，打包下，刷新下浏览器，可以看到请求头加了上面的信息，如下所示：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/webpack_devserver1.png">![](https://colastar.github.io/static/images/webpack_devserver1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/webpack_devserver1.png">![](http://blog.colastar.club/static/images/webpack_devserver1.png)</a>
 
 > historyApiFallback
 
@@ -278,11 +278,11 @@ module.exports = {
 ```
 如上代码配置 inline: false 就是使用iframe模式来重载页面了。
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/webpack_devserver2.png">![](https://colastar.github.io/static/images/webpack_devserver2.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/webpack_devserver2.png">![](http://blog.colastar.club/static/images/webpack_devserver2.png)</a>
 
 接着我们在浏览器下 输入 http://0.0.0.0:8081/webpack-dev-server/ 地址后 回车，即可看到页面，我们查看源代码的时候，会看到嵌入了一个iframe页面，如下图所示：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/webpack_devserver3.png">![](https://colastar.github.io/static/images/webpack_devserver3.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/webpack_devserver3.png">![](http://blog.colastar.club/static/images/webpack_devserver3.png)</a>
 
 当我们重新修改main.js 或 它的依赖文件 demo1.js 的时候，保存后，它也会自动重新加载页面，这就是使用 iframe 模式来配置加载页面的。
 
@@ -292,7 +292,7 @@ iframe 模式的特点有：
 3. 加载了 live.bundle.js文件，还同时包含了 socket.io的client代码，进行了 websocket通讯，从而完成了自动编译打包，页面自动刷新功能。
 
 我们看下请求的所有文件有如下：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/webpack_devserver4.png">![](https://colastar.github.io/static/images/webpack_devserver4.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/webpack_devserver4.png">![](http://blog.colastar.club/static/images/webpack_devserver4.png)</a>
 
 - 2.inline 模式
 
@@ -300,7 +300,7 @@ iframe 模式的特点有：
 
 如上配置后，我们运行 webpack-dev-server 命令后，如下所示：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/webpack_devserver5.png">![](https://colastar.github.io/static/images/webpack_devserver5.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/webpack_devserver5.png">![](http://blog.colastar.club/static/images/webpack_devserver5.png)</a>
 
 接着我们在地址栏中 http://0.0.0.0:8081/ 运行下 就可以访问到 项目中的根目录 index.html了，当我们修改入口文件的代码保存也一样
 能实时刷新，其实效果是一样的。
@@ -318,13 +318,13 @@ inline模式的特点有：
 > overlay
 
 该属性是用来在编译出错的时候，在浏览器页面上显示错误。该属性值默认为false，需要的话，设置该参数为true。
-<a data-fancybox title="" href="https://colastar.github.io/static/images/webpack_devserver6.png">![](https://colastar.github.io/static/images/webpack_devserver6.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/webpack_devserver6.png">![](http://blog.colastar.club/static/images/webpack_devserver6.png)</a>
 
 > stats(字符串)
 
 该属性配置是用来在编译的时候再命令行中输出的内容，我们没有设置 stats的时候，输出是如下的样子：如下所示：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/webpack_devserver7.png">![](https://colastar.github.io/static/images/webpack_devserver7.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/webpack_devserver7.png">![](http://blog.colastar.club/static/images/webpack_devserver7.png)</a>
 
 该属性值可以有如下值：
 
@@ -377,7 +377,7 @@ axios.get('/api/widget?ajax=json&id=ad').then(res => {
 接口数据了。
 
 如下图所示：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/webpack_devserver8.png">![](https://colastar.github.io/static/images/webpack_devserver8.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/webpack_devserver8.png">![](http://blog.colastar.club/static/images/webpack_devserver8.png)</a>
 
 
 ## 什么 是模块热更新？
@@ -414,7 +414,7 @@ module.exports = config;
 
 Webpack的热更新有称为热替换(Hot Module Replacement)，缩写为HMR。这个机制可以实现不刷新浏览器而将新变更的模块替换旧的模块。原来如下：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/webpack热更新.jpeg">![](https://colastar.github.io/static/images/webpack热更新.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/webpack热更新.jpeg">![](http://blog.colastar.club/static/images/webpack热更新.jpeg)</a>
 
 > server端和client端都做了哪些具体工作：
 
@@ -674,18 +674,18 @@ module.exports = {
 
 source-map 对于开发调试，打包速度还是影响很大的
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/source-map配置图.jpeg">![](https://colastar.github.io/static/images/source-map配置图.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/source-map配置图.jpeg">![](http://blog.colastar.club/static/images/source-map配置图.jpeg)</a>
 
 - `eval`具有最好的性能，但不能帮你转义代码,可以提升一个打包速度,会dist 目录下创建 .map 文件
-<a data-fancybox title="" href="https://colastar.github.io/static/images/source-map-eval.jpeg">![](https://colastar.github.io/static/images/source-map-eval.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/source-map-eval.jpeg">![](http://blog.colastar.club/static/images/source-map-eval.jpeg)</a>
 
 - `inline` 不产生独立的 .map 文件，而把 source-map 的内容以 dataURI的方式追加到 bundle 件末尾
-<a data-fancybox title="" href="https://colastar.github.io/static/images/source-map-inile.jpeg">![](https://colastar.github.io/static/images/source-map-inile.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/source-map-inile.jpeg">![](http://blog.colastar.club/static/images/source-map-inile.jpeg)</a>
 - `cheap`忽略列信息,也就是出了问题只能定位到某一行，不能定位到这行的哪一列， cheap 主要是为了提升打包速度，很好理解嘛，只关注行，不关注列，生成map的速度肯定快啊~~
 - `module` module 的作用是 map 到 loader 处理前的文件，如果不加 module, 实际上是 map 到源文件经过对应 loader 处理后的样子。这个需要 loader 的支持
 - `hidden-source-map`:就是不在 bundle 文件结尾处追加 sourceURL 指定其 sourcemap文件的位置，但是仍然会生成 sourcemap 文件。这样，浏览器开发者工具就无法应用sourcemap, 目的是避免把sourcemap文件发布到生产环境，造成源码泄露。而在生产环境应该用错误报告工具结合 sourcemap 文件来查找问题
 - `nosources-source-map`：sourcemap 中不带有源码，这样，`sourcemap `可以部署到生产环境而不会造成源码泄露，同时一旦出了问题，`error stacks` 中会显示准确的错误信息，比如发生在哪个源文件的哪一行，如图：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/nosources-source-map.jpeg">![](https://colastar.github.io/static/images/nosources-source-map.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/nosources-source-map.jpeg">![](http://blog.colastar.club/static/images/nosources-source-map.jpeg)</a>
 
 
 
@@ -806,9 +806,9 @@ const [dist, template] = entrykey.split(“-");
 
 ### loader源码分析 
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/loader源码分析.png">![](https://colastar.github.io/static/images/loader源码分析.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/loader源码分析.png">![](http://blog.colastar.club/static/images/loader源码分析.png)</a>
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/loader源码分析code.png">![](https://colastar.github.io/static/images/loader源码分析code.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/loader源码分析code.png">![](http://blog.colastar.club/static/images/loader源码分析code.png)</a>
 
 
 
@@ -820,7 +820,7 @@ const [dist, template] = entrykey.split(“-");
 - 5.多个 loader 时遵循这样的执行顺序，但对于大多数单个 loader 来说无须感知这一点，只负 责好处理接受的内容就好。
 - 6.还有一个场景是 loader 中的异步处理。有一些 loader 在执行过程中可能依赖于外部 I/O 的结果，导致它必须使用异步的方式来处理，这个使用需要在 loader 执行时使用 this.async() 来标识该 loader 是异步处理的，然后使用 this.callback 来返回 loader 处理结果。
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/loader源码ast.png">![](https://colastar.github.io/static/images/loader源码ast.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/loader源码ast.png">![](http://blog.colastar.club/static/images/loader源码ast.png)</a>
 
 在计算机科学中，抽象语法树(abstract syntax tree 或者缩写为 AST)，或者语法树(syntax tree)，是源 代码的抽象语法结构的树状表现形式，这里特指编程语言的源代码。树上的每个节点都表示源代码中的一种结 构。之所以说语法是「抽象」的，是因为这里的语法并不会表示出真实语法中出现的每个细节。
 
@@ -834,7 +834,7 @@ Webpack 提供的一个很大的便利就是能将所有资源都整合成模块
 - type: 类型
 - value: 值 "is tree" 不带引号 row: "\"is tree"\" 带引号
 
-<a data-fancybox title="" href="https://raw.githubusercontent.cwom/ColaStar/static/master/images/手写loader.png">![](https://colastar.github.io/static/images/手写loader.png)</a>
+<a data-fancybox title="" href="https://raw.githubusercontent.cwom/ColaStar/static/master/images/手写loader.png">![](http://blog.colastar.club/static/images/手写loader.png)</a>
 
 ```
 //入口文件
@@ -894,7 +894,7 @@ webpack实现插件机制的⼤大体⽅方式是:
 
 打开 Webpack 4.0 的源码中一定会看到下面这些以 Sync、Async 开头，以 Hook 结尾的方法，这些都是 tapable 核心库的类，为我们提供不同的事件流执行机制，我们称为 “钩子”。
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/tapable.png">![](https://colastar.github.io/static/images/tapable.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/tapable.png">![](http://blog.colastar.club/static/images/tapable.png)</a>
 
 ```
 // 引入 tapable 如下
@@ -929,7 +929,7 @@ webpack 利用了 tapable 这个库([](https://github.com/webpack/tapable))来�
  使用 Template 基于 Compilation 的数据生成结果代码
 ```
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/plugin1.png">![](https://colastar.github.io/static/images/plugin1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/plugin1.png">![](http://blog.colastar.club/static/images/plugin1.png)</a>
 
 ⚠️注意：
 - 1.事件钩子会有不同的类型 SyncBailHook，AsyncSeriesHook，SyncHook等。
@@ -944,7 +944,7 @@ compiler.hooks.done.tapPromise('PluginName', (stats) => {
 - 5.除了同步和异步的，名称带有 parallel 的，注册的事件函数会并行调用，名称带有 bail 的，注册的事件函数会被顺序调用，直至一个处理方法有返回值名称带有 waterfall 的，每个 注册的事件函数，会将上一个方法的返回结果作为输入参数。有一些类型是可以结合到一起 的，如 AsyncParallelBailHook，这样它就具备了更加多样化的特性。
 
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/手写webpack插件.png">![](https://colastar.github.io/static/images/手写webpack插件.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/手写webpack插件.png">![](http://blog.colastar.club/static/images/手写webpack插件.png)</a>
 ```
 compiler.hooks.done.tapPromise('PluginName', (stats) => {
     return new Promise((resolve, reject) => {
@@ -1033,8 +1033,8 @@ const { bar } = __webpack__require__('./bar.js')
 // 没有的话从 modules 中获取 function 然后执行，
 //将结果缓存在 installedModules 中然后返回结果 
 ```
-<!-- <a data-fancybox title="" href="https://colastar.github.io/static/images/webpack运行流程.png">![](https://colastar.github.io/static/images/webpack运行流程.png)</a> -->
-<a data-fancybox title="" href="https://colastar.github.io/static/images/webpack_整体行流程.png">![](https://colastar.github.io/static/images/webpack_整体行流程.png)</a>
+<!-- <a data-fancybox title="" href="http://blog.colastar.club/static/images/webpack运行流程.png">![](http://blog.colastar.club/static/images/webpack运行流程.png)</a> -->
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/webpack_整体行流程.png">![](http://blog.colastar.club/static/images/webpack_整体行流程.png)</a>
 
 - 1.`Compiler` webpack 的运行入口，`compiler `对象代表了完整的 `webpack` 环境配置。这个对象 在启动 `webpack` 时被一次性建立，并配置好所有可操作的设置，包括 `options`，`loader` 和 `plugin`。当在 `webpack` 环境中应用一个插件时，插件将收到此 `compiler` 对象的引用，可以使用 它来访问 `webpack` 的主环境。
 - 2.`Compilation` 对象代表了一次资源版本构建。当运行 `webpack` 开发环境中间件时，每当检 测到一个文件变化，就会创建一个新的 `compilation`，从而生成一组新的编译资源。一个 `compilation` 对象表现了当前的模块资源、编译生成资源、变化的文件、以及被跟踪依赖的状 态信息。`compilation `对象也提供了很多关键步骤的回调，以供插件做自定义处理时选择使 用。
@@ -1053,7 +1053,7 @@ const { bar } = __webpack__require__('./bar.js')
 ## 源码分析webpack执行流程
 
 > 执行过程
-<a data-fancybox title="" href="https://colastar.github.io/static/images/webpack-cli执行流程源码.jpg">![](https://colastar.github.io/static/images/webpack-cli执行流程源码.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/webpack-cli执行流程源码.jpg">![](http://blog.colastar.club/static/images/webpack-cli执行流程源码.jpg)</a>
 
 - 1.webpack.config.js,shell options参数解析
 - 2.new webpack(options)

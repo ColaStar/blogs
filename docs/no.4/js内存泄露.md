@@ -11,9 +11,9 @@ JS程序的内存溢出后，会使某一段函数体永远失效（取决于当
 排查这类型的内存泄漏问题，主要重点关注被引用的对象类型是闭包（closure）和数组Array的对象。
 
 下面以德州扑克游戏为例：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/Memory_leak.png">![](https://colastar.github.io/static/images/Memory_leak.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/Memory_leak.png">![](http://blog.colastar.club/static/images/Memory_leak.png)</a>
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/Memory_leak2.png">![](https://colastar.github.io/static/images/Memory_leak2.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/Memory_leak2.png">![](http://blog.colastar.club/static/images/Memory_leak2.png)</a>
 
 
 
@@ -33,15 +33,15 @@ JS程序的内存溢出后，会使某一段函数体永远失效（取决于当
 进行内存对比分析。
 经过上面的步骤后，可以得到下图结果：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/Memory_leak3.png">![](https://colastar.github.io/static/images/Memory_leak3.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/Memory_leak3.png">![](http://blog.colastar.club/static/images/Memory_leak3.png)</a>
 
 先看最后一个快照，可以看到闭包（closure）+1，这是需要重点关注的部分。（string）、（system）和（compiled code）类型可以不管，因为提供的信息不多。
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/Memory_leak4.png">![](https://colastar.github.io/static/images/Memory_leak4.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/Memory_leak4.png">![](http://blog.colastar.club/static/images/Memory_leak4.png)</a>
 
 接着点击倒数第二个快照，看到闭包（closure）类型也是+1。
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/Memory_leak5.png">![](https://colastar.github.io/static/images/Memory_leak5.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/Memory_leak5.png">![](http://blog.colastar.club/static/images/Memory_leak5.png)</a>
 
 接着再看上一个快照，闭包还是+1。
 
@@ -49,21 +49,21 @@ JS程序的内存溢出后，会使某一段函数体永远失效（取决于当
 
 展开（closure），可以看到非常多的function对象：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/Memory_leak6.png">![](https://colastar.github.io/static/images/Memory_leak6.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/Memory_leak6.png">![](http://blog.colastar.club/static/images/Memory_leak6.png)</a>
 
 建新的闭包数量是49个，回收的闭包数量是48个，即是说这次操作有48个闭包正确释放了，有一个忘记释放了。每个新建和回收的function对象的ID都不一样，找不到任何的关联性，无法定位是哪一个闭包函数出了问题。
 
 接下来打开Object’s retaining tree视图，查找引用里是否存在不断增大的数组。
 
 如下图，展开“Snapshot 5”每个function对象的引用：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/Memory_leak7.png">![](https://colastar.github.io/static/images/Memory_leak7.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/Memory_leak7.png">![](http://blog.colastar.club/static/images/Memory_leak7.png)</a>
 
 
 
 其中有个function对象的引用deleFunc存放在一个数组里，下标是4，数组的对象ID是@45599。
 
 继续查找“Snapshot 4”的function对象：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/Memory_leak8.png">![](https://colastar.github.io/static/images/Memory_leak8.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/Memory_leak8.png">![](http://blog.colastar.club/static/images/Memory_leak8.png)</a>
 
 
 
@@ -71,7 +71,7 @@ JS程序的内存溢出后，会使某一段函数体永远失效（取决于当
 
 继续查看“Snapshot 3”里的function对象：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/Memory_leak9.png">![](https://colastar.github.io/static/images/Memory_leak9.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/Memory_leak9.png">![](http://blog.colastar.club/static/images/Memory_leak9.png)</a>
 
 从图中可以看到同一个function对象，下标是2。那么这里一定存在内存泄漏问题。
 
@@ -123,11 +123,11 @@ ob.removeListener("login_success", _onLoginSuc);
 
 首先我们把b = null;注释掉，只释放a。看一下内存快照：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/Memory_leak11.png">![](https://colastar.github.io/static/images/Memory_leak11.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/Memory_leak11.png">![](http://blog.colastar.club/static/images/Memory_leak11.png)</a>
 
 可以看到有两个ClassA对象，这与我们的本意不相符，我们释放了a，应该只存在一个ClassA对象b才对。
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/Memory_leak12.png">![](https://colastar.github.io/static/images/Memory_leak12.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/Memory_leak12.png">![](http://blog.colastar.club/static/images/Memory_leak12.png)</a>
 
 从上面两个图可以看出这两个对象中，一个是b，另一个并不是a，因为a这个引用已经置空了。第二个ClassA对象是bind里的闭包的上下文self，self与a引用同一个对象。虽然a释放了，但由于b没有释放，或者b.func没有释放，使得闭包里的self也一直存在。要释放self，可以执行b=null或者b.func=null。
 
@@ -161,7 +161,7 @@ ob.removeListener("login_success", _onLoginSuc);
 ```
 再看看内存：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/Memory_leak13.png">![](https://colastar.github.io/static/images/Memory_leak13.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/Memory_leak13.png">![](http://blog.colastar.club/static/images/Memory_leak13.png)</a>
 
 可以看到只剩下一个ClassA对象b了，a已被释放掉了。
 

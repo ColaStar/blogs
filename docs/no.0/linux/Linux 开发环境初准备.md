@@ -44,7 +44,7 @@ puting/vmware_workstation_pro/15_0
 载，我们以后的课程中会⽤用到。
      - 点击按钮后会进⼊入⼀一个镜像⽹网站的列列表，选择阿⾥里里云、华为云、163等⽐比较快的服务器器
 
-     <a data-fancybox title="centos源地址" href="https://colastar.github.io/static/images/linux_adderss.png">![centos源地址](https://colastar.github.io/static/images/linux_adderss.png)</a>
+     <a data-fancybox title="centos源地址" href="http://blog.colastar.club/static/images/linux_adderss.png">![centos源地址](http://blog.colastar.club/static/images/linux_adderss.png)</a>
 
   - 开启计算机硬件的虚拟化⽀支持选项
     - 先打开任务管理理器器，切换到“” 标签⻚页，检查“虚拟化”是否为已启⽤用状态 
@@ -169,7 +169,7 @@ node -v
 ```
 > 2.安装Sublime Text3
 - 下载 https://www.sublimetext.com/3
-<a data-fancybox title="sub" href="https://colastar.github.io/static/images/sublinepng.png">![sub](https://colastar.github.io/static/images/sublinepng.png)</a>
+<a data-fancybox title="sub" href="http://blog.colastar.club/static/images/sublinepng.png">![sub](http://blog.colastar.club/static/images/sublinepng.png)</a>
 ```
 # 解压缩
 tar -xvvf sublime_text_3_build_3176_x64.tar.bz
@@ -181,7 +181,7 @@ cp /opt/sublime_text_3/sublime_text.desktop /usr/share/applications
 vim /usr/share/applications/sublime_text.desktop
 # 通过菜单 applications->programming->Sublime Text 打开软件
 ```
-<a data-fancybox title="sub" href="https://colastar.github.io/static/images/zippng.png">![sub](https://colastar.github.io/static/images/zippng.png)</a>
+<a data-fancybox title="sub" href="http://blog.colastar.club/static/images/zippng.png">![sub](http://blog.colastar.club/static/images/zippng.png)</a>
 >3.安装 XAMPP 集成开发环境
 - 下载地址：https://www.apachefriends.org/
 - 中⽂文站：http://www.xampps.com/ （版本有点⽼老老）

@@ -98,7 +98,7 @@ ajax('https://api.example.com/?search=' + query).then(handleResponse);
 
 ## Rollup工程搭建
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/rollup_工程图.png">![](https://colastar.github.io/static/images/rollup_工程图.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/rollup_工程图.png">![](http://blog.colastar.club/static/images/rollup_工程图.png)</a>
 
 
 ### 3.2 安装rollup并且创建配置文件

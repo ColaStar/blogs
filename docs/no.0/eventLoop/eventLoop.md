@@ -8,7 +8,7 @@
 
 ## 浏览器的 Event Loop
 
-![](https://colastar.github.io/static/images/eventloop_browser.jpg)
+![](http://blog.colastar.club/static/images/eventloop_browser.jpg)
 
 由上图我们可以看出`Javascript `有一个 `main thread` **主线程**和 `call-stack` **调用栈(执行栈)**，所有的任务都会被放到调用栈等待主线程执行。而JS调用栈采用的是后进先出的规则，当函数执行的时候，会被添加到栈的顶部，当执行栈执行完成后，就会从栈顶移出，直到栈内被清空。
 
@@ -168,9 +168,9 @@ console.log(4)
 
 Node中的Event Loop是基于libuv实现的，而libuv是 Node 的新跨平台抽象层，libuv使用异步，事件驱动的编程方式，核心是提供i/o的事件循环和异步回调。libuv的API包含有时间，非阻塞的网络，异步文件操作，子进程等等。 Event Loop就是在libuv中实现的。
 
-![](https://colastar.github.io/static/images/node_eventloop.jpg)
+![](http://blog.colastar.club/static/images/node_eventloop.jpg)
 
-![](https://colastar.github.io/static/images/node_async_eventloop.jpg)
+![](http://blog.colastar.club/static/images/node_async_eventloop.jpg)
 |宏任务|微任务|
 |:--:|:--:|
 |script|promise|
@@ -230,7 +230,7 @@ someAsyncOperation(() => {
 在此示例中，您将看到正在调度的计时器与正在执行的回调之间的总延迟将为105毫秒。
 
 以下是我测试时间：
-![](https://colastar.github.io/static/images/node_test_setTime.jpg)
+![](http://blog.colastar.club/static/images/node_test_setTime.jpg)
 
 #### pending callbacks
 
@@ -300,7 +300,7 @@ start end promise3 timer1 timer2 promise1 promise2
 
 **总结可以看出**
 
-![](https://colastar.github.io/static/images/node_eventLoop_version_diff.jpg)
+![](http://blog.colastar.club/static/images/node_eventLoop_version_diff.jpg)
 
 [具体详情可以查看《又被node的eventloop坑了，这次是node的锅》。](https://link.zhihu.com/?target=https%3A//juejin.im/post/5c3e8d90f265da614274218a)
 
@@ -320,7 +320,7 @@ setImmediate(() => {
   console.log('immediate');
 });
 ```
-![](https://colastar.github.io/static/images/node_eventloop_1.jpg)
+![](http://blog.colastar.club/static/images/node_eventloop_1.jpg)
 从上图可以看出，其结果不一致，为什么呢？
 
 执行定时器的顺序将根据调用它们的上下文而有所不同。 如果从主模块中调用两者，那么时间将受到进程性能的限制。

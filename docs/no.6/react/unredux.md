@@ -34,16 +34,16 @@ ReduxThunk.js（）
 
 注意当有5个`state`的话就要考虑抽离了
 
-![](https://colastar.github.io/static/images/redux原理1.png)
-![同步](https://colastar.github.io/static/images/redux原理2.png)
-![异步](https://colastar.github.io/static/images/redux原理2.png)
+![](http://blog.colastar.club/static/images/redux原理1.png)
+![同步](http://blog.colastar.club/static/images/redux原理2.png)
+![异步](http://blog.colastar.club/static/images/redux原理2.png)
 
 
 `redux`是用来管理状态的，有了`redux`以后就不需要`state`了，那么数据怎么来的呢，当然就需要`props`了，`props`怎么来的?，`redux`给的，
 
 `redux`怎么组成的呢？
 
-![](https://colastar.github.io/static/images/redux组件.png)
+![](http://blog.colastar.club/static/images/redux组件.png)
 
 views -> provider -> action（接收事件） -> middiewares（处理异步事件等）->dispatcher（派发）->reducer（具体执行产生一个store）->state(所有组件进行重新渲染，如果不要重新渲染有俩种方式？
 

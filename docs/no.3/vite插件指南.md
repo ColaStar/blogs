@@ -10,7 +10,7 @@
 
 使用`Vite`插件可以扩展`Vite`能力，比如解析用户自定义的文件输入，在打包代码前转译代码，或者查找第三方模块。
 
-![](https://colastar.github.io/static/images/vite-devserver.jpg)
+![](http://blog.colastar.club/static/images/vite-devserver.jpg)
 
 
 ## Vite插件的形式
@@ -155,7 +155,7 @@ export default function myExample () {
 
 ## 钩子调用顺序
 
-![](https://colastar.github.io/static/images/vite-sort.png)
+![](http://blog.colastar.club/static/images/vite-sort.png)
 
 ## 插件顺序
 - 别名处理`Alias`
@@ -166,7 +166,7 @@ export default function myExample () {
 - 用户插件设置`enforce: 'post'`
 - `Vite`构建后置插件(`minify`, `manifest`, `reporting`)
 
-![](https://colastar.github.io/static/images/vite-devserver-sort.png)
+![](http://blog.colastar.club/static/images/vite-devserver-sort.png)
 
 
 转载[Vite2插件开发指南](https://zhuanlan.zhihu.com/p/364275970)
@@ -177,7 +177,7 @@ export default function myExample () {
 **实现一个`mock`服务器`vite-plugin-mock`**
 
 **实现思路**是给开发服务器实例(`connect`)配一个中间件，该中间件可以存储用户配置接口映射信息，并提前处理输入请求，如果请求的`url`和路由表匹配则接管，按用户配置的`handler`返回结果。
-![](https://colastar.github.io/static/images/vite-plugin-mock-serve.png)
+![](http://blog.colastar.club/static/images/vite-plugin-mock-serve.png)
 
 创建`plugins/vite-plugin-mock.js`
 

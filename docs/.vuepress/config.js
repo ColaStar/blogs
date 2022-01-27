@@ -62,7 +62,7 @@ module.exports = {
   // base: '/blogs/views/', //todo
   // assestsPublicPath: '/blogs/views/', //todo
   base: '/blogs/',
-  assestsPublicPath: '/blogs/',
+  // assestsPublicPath: '/blogs/', //废弃了好像
   port: 9527, //dev 服务器的端口
   dest: './views', //指定 vuepress build 的输出目录。
   markdown: {

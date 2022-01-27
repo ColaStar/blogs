@@ -23,25 +23,25 @@ basket.js 的使用非常简单，只要引入相应的js脚本，然后使用 b
 </body>
 </html>
 ```
-<a data-fancybox title="" href="https://colastar.github.io/static/images/basketjs1.png">![](https://colastar.github.io/static/images/basketjs1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/basketjs1.png">![](http://blog.colastar.club/static/images/basketjs1.png)</a>
 
 第一次加载，由于helloworld.js 只有一行代码alert('hello world');， 所以运行该demo时就会弹出 "hello world"。并且对应的 js 会被保存到 LocalStorage：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/basketjs2.png">![](https://colastar.github.io/static/images/basketjs2.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/basketjs2.png">![](http://blog.colastar.club/static/images/basketjs2.png)</a>
 
 
 此时对应的资源加载情况：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/basketjs3.png">![](https://colastar.github.io/static/images/basketjs3.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/basketjs3.png">![](http://blog.colastar.club/static/images/basketjs3.png)</a>
 
 
 刷新一次页面，再查看一次资源的加载情况：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/basketjs4.png">![](https://colastar.github.io/static/images/basketjs4.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/basketjs4.png">![](http://blog.colastar.club/static/images/basketjs4.png)</a>
 
 可以看到已经没有再发送 helloworld.js 相关的请求，因为 LocalStorage 上已经有对应的缓存了，直接从本地获取即可。
 
 ## 三、实现流程
 流程图
-<a data-fancybox title="" href="https://colastar.github.io/static/images/basketjs5.png">![](https://colastar.github.io/static/images/basketjs5.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/basketjs5.png">![](http://blog.colastar.club/static/images/basketjs5.png)</a>
 
 ### 细节说明
 #### 处理参数

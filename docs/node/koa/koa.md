@@ -245,7 +245,7 @@ app.listen(3000);
 6…
 
 7.最外层的中间件收回执行权后，执行next函数后面的代码。
-<a data-fancybox title="" href="https://colastar.github.io/static/images/koa.png">![](https://colastar.github.io/static/images/koa.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/koa.png">![](http://blog.colastar.club/static/images/koa.png)</a>
 我们直接看下面的例子：
 ```
 const Koa = require('koa');

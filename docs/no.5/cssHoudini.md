@@ -6,11 +6,11 @@
 
 这边让我们回想一下，浏览器在网頁的渲染过程中，做了哪些事情？
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/css-浏览器.png">![](https://colastar.github.io/static/images/css-浏览器.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/css-浏览器.png">![](http://blog.colastar.club/static/images/css-浏览器.png)</a>
 
 浏览器的 Render Pipeline 中，JavaScript 与 Style 两个阶段会解析 HTML 并为加载的 JS 与 CSS 建立 Render Tree，也就是所谓的 DOM 与 CSSOM
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/css-浏览器1.png">![](https://colastar.github.io/static/images/css-浏览器1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/css-浏览器1.png">![](http://blog.colastar.club/static/images/css-浏览器1.png)</a>
 
 而就现阶段的 Web 技术來看，开发者们能操作的就是通过 JS 去控制 DOM 与 CSSOM，來来影响页面的变化，但是对于接下來的 Layout、Paint 与 Composite 就几乎沒有控制权了。
 
@@ -33,7 +33,7 @@ Houdini task force 目前起草了一些 API 规范，并逐步努力让其通�
 
 下面这张图我将 Google 提供的 Render pipeline 与 Houdini: Maybe The Most Exciting Development In CSS You’ve Never Heard Of 中提到的 pipeline 做个结合对比，显示出 Houdini 试图在浏览器的 Render pipeline 中提供哪些 API 给开发者使用：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/css-浏览器2.png">![](https://colastar.github.io/static/images/css-浏览器2.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/css-浏览器2.png">![](http://blog.colastar.club/static/images/css-浏览器2.png)</a>
 
 其中灰色部分就是只在规划阶段，而黃色部份就是已经写入规范正在推行中.
 
@@ -61,7 +61,7 @@ $brightBlue: blue;
 但其实使用 `Preprocessors` 还是有其缺点，像是不同的 `Preprocessors` 就有不同的 `Syntax`，需要额外 `setup` 与 `compile`， 而现在 CSS 已经有原生的变量可以使用了！就是 **CSS Properties and Values API！**
 
 SCSS 与 Native CSS Custom Properties 的一个主要差別可以看下图：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/scss-vs-css.png">![](https://colastar.github.io/static/images/scss-vs-css.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/scss-vs-css.png">![](http://blog.colastar.club/static/images/scss-vs-css.png)</a>
 
 原生的 CSS variable syntax：
 ```

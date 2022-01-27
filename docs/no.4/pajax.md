@@ -20,7 +20,7 @@ history API中有几个新特性，分别是`history.pushState`和`history.repla
 
 PJAX的**基本思路**是，用户点击一个链接，通过ajax更新页面变化的部分，然后使用HTML5的pushState修改浏览器的URL地址，这样有效地避免了整个页面的重新加载。如果浏览器不支持history的两个新API或者JS被禁用了，那这个链接就只能跳转并重新刷新整个页面了。和传统的ajax设计稍微不同，ajax通常是从后台获取JSON数据，然后由前端解析渲染，而PJAX请求的是一个在服务器上生成好的HTML碎片，如下图所示：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/pajax.png">![](https://colastar.github.io/static/images/pajax.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/pajax.png">![](http://blog.colastar.club/static/images/pajax.png)</a>
 
 客户端向服务器发送一个普通的请求
 - （1），其实也就是点击了一个链接，服务器会相应这个请求
@@ -54,7 +54,7 @@ PJAX的**基本思路**是，用户点击一个链接，通过ajax更新页面�
  ```
 
  这个时候所有通过a标签发送的请求header里面都会出现x-pjax:true;
- <a data-fancybox title="" href="https://colastar.github.io/static/images/x-pajax.png">![](https://colastar.github.io/static/images/x-pajax.png)</a>
+ <a data-fancybox title="" href="http://blog.colastar.club/static/images/x-pajax.png">![](http://blog.colastar.club/static/images/x-pajax.png)</a>
 
  前端部分完成，开始来部署后台；
 ```
@@ -70,7 +70,7 @@ router.get('/',function (req,res) {
 });
 
 ```
- <a data-fancybox title="" href="https://colastar.github.io/static/images/x-pajax2.png">![](https://colastar.github.io/static/images/x-pajax2.png)</a>
+ <a data-fancybox title="" href="http://blog.colastar.club/static/images/x-pajax2.png">![](http://blog.colastar.club/static/images/x-pajax2.png)</a>
 ### 开源的PJAX库
 
 已经有人对这个东西做了封装，我就不重复造轮子了。

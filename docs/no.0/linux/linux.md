@@ -557,25 +557,25 @@ unrar e test.rar tmp/
 > 检查 systemd 的版本
 $ systemctl --version
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux1.jpg">![](https://colastar.github.io/static/images/linux1.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux1.jpg">![](http://blog.colastar.club/static/images/linux1.jpg)</a>
 > 查看 systemd 和 systemctl 程序相关的目录
 
 $ whereis systemd
 $ whereis systemctl
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux2.jpg">![](https://colastar.github.io/static/images/linux2.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux2.jpg">![](http://blog.colastar.club/static/images/linux2.jpg)</a>
 
 > 确认 1 号进程
 作为 init 系统，systemd 进程作为系统中的 1 号进程应该是毋庸置疑的，让我们搜索与 systemd 相关的进程：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux3.jpg">![](https://colastar.github.io/static/images/linux3.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux3.jpg">![](http://blog.colastar.club/static/images/linux3.jpg)</a>
 
 
 结果让人有点不敢相信自己的眼睛，我们搜到了好几个与 systemd 相关的进程，但是却没有 1 号进程。让我们看看 1 号进程是谁：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux4.jpg">![](https://colastar.github.io/static/images/linux4.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux4.jpg">![](http://blog.colastar.club/static/images/linux4.jpg)</a>
 
 /sbin/init 是什么？
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux5.jpg">![](https://colastar.github.io/static/images/linux5.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux5.jpg">![](http://blog.colastar.club/static/images/linux5.jpg)</a>
 
 好吧，/sbin/init 只是到 /lib/systemd/systemd 的链接文件，系统的 1 号进程的确是 systemd，只不过在 ubuntu 系统中被起了个别名叫 /sbin/init。
 
@@ -599,7 +599,7 @@ unmask：取消对 unit 的注销。
 
 我们先通过 prometheus.service 来观察服务类型 unit 的基本信息：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux6.jpg">![](https://colastar.github.io/static/images/linux6.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux6.jpg">![](http://blog.colastar.club/static/images/linux6.jpg)</a>
 
 输出内容的第一行是对 unit 的基本描述。
 第二行中的 Loaded 描述操作系统启动时会不会启动这个服务，enabled 表示开机时启动，disabled 表示开机时不启动。而启动该服务的配置文件路径为：/lib/systemd/system/prometheus.service。
@@ -623,11 +623,11 @@ e> nable 和 disable 操作
 ```
 $ sudo systemctl enable prometheus.service
 ```
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux7.jpg">![](https://colastar.github.io/static/images/linux7.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux7.jpg">![](http://blog.colastar.club/static/images/linux7.jpg)</a>
 
 所谓的 enable 就是在 multi-user.target.wants 下面创建了一个链接文件：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux8.jpg">![](https://colastar.github.io/static/images/linux8.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux8.jpg">![](http://blog.colastar.club/static/images/linux8.jpg)</a>
 
 
 至于为什么会链接到 multi-user.target.wants 目录下，则是由 prometheus.server 文件中的配置信息决定的。
@@ -639,7 +639,7 @@ $ sudo systemctl enable prometheus.service
 $ sudo systemctl show prometheus.service
 ```
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux9.jpg">![](https://colastar.github.io/static/images/linux9.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux9.jpg">![](http://blog.colastar.club/static/images/linux9.jpg)</a>
 
 
 这里的输出非常多，主要是很多的默认设置也都显示出来了。
@@ -651,7 +651,7 @@ $ sudo systemctl show prometheus.service
 $ sudo systemctl mask prometheus.service
 ```
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux10.jpg">![](https://colastar.github.io/static/images/linux10.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux10.jpg">![](http://blog.colastar.club/static/images/linux10.jpg)</a>
 
 从上图中的输出我们可以看到，所谓的注销就是把 prometheus.service 文件链接到 /dev/null 这个空设备中去了。所以就无法再启动该服务了。下面我们尝试执行一次反注销：
 
@@ -659,7 +659,7 @@ $ sudo systemctl mask prometheus.service
 $ sudo systemctl unmask prometheus.service
 ```
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux11.jpg">![](https://colastar.github.io/static/images/linux11.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux11.jpg">![](http://blog.colastar.club/static/images/linux11.jpg)</a>
 
 unmask 操作就是删除掉 mask 操作中创建的链接。
 
@@ -676,7 +676,7 @@ command 有：
 - --type=TYPE：可以过滤某个类型的 unit。
 不带任何参数执行 systemctl 命令会列出所有已启动的 unit：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux12.jpg">![](https://colastar.github.io/static/images/linux12.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux12.jpg">![](http://blog.colastar.club/static/images/linux12.jpg)</a>
 
 系统默认启动的服务是非常多的，上图只截取了前面几行。下面是对输出的介绍：
 ```
@@ -692,7 +692,7 @@ DESCRIPTION：描述信息。
 $ sudo systemctl list-unit-files
 ```
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux13.jpg">![](https://colastar.github.io/static/images/linux13.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux13.jpg">![](http://blog.colastar.club/static/images/linux13.jpg)</a>
 
 结果也非常的多，我们仍然只截取一部分结果。这里的 STATE 就是我们前面介绍的 服务的启动状态，有 enable 和 disable、static 和 mask。
 
@@ -705,7 +705,7 @@ $ systemctl list-units --type=service --all
 这次只有以 .service 结尾的 unit 才会出现。
 如果要看 mount 类型的 unit 指定 --type=mount 就可以了：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux14.jpg">![](https://colastar.github.io/static/images/linux14.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux14.jpg">![](http://blog.colastar.club/static/images/linux14.jpg)</a>
 
 > 查看加载失败的 unit
 如果发现某个 unit 不工作，可以查看是否有 unit 加载失败：
@@ -714,12 +714,12 @@ $ systemctl list-units --type=service --all
 $ systemctl --failed
 ```
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux15.jpg">![](https://colastar.github.io/static/images/linux15.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux15.jpg">![](http://blog.colastar.club/static/images/linux15.jpg)</a>
 
 管理不同的操作环境(target unit)
 通过指定 --type=target 就可以用 systemctl list-units 命令查看系统中默认有多少种 target：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux16.jpg">![](https://colastar.github.io/static/images/linux16.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux16.jpg">![](http://blog.colastar.club/static/images/linux16.jpg)</a>
 
 
 笔者的 ubuntu 16.04 中居然有 27 个 target！我们在此仅介绍几个常用的 target。
@@ -745,7 +745,7 @@ $ systemctl --failed
 $ sudo systemctl get-default
 ```
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux17.jpg">![](https://colastar.github.io/static/images/linux17.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux17.jpg">![](http://blog.colastar.club/static/images/linux17.jpg)</a>
 
 笔者系统的默认 target 为 graphical.target，所以启动时默认启动图形界面。下面我们把它设置为 multi-user.target：
 
@@ -783,7 +783,7 @@ $ sudo systemctl emergency # 强制进入紧急救援模式
 systemctl list-dependencies [unit] [--reverse] 选项 --reverse 会反向追踪是谁在使用这个 unit。
 下面让我们看看当前运行的 target 的依赖关系：
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux18.jpg">![](https://colastar.github.io/static/images/linux18.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux18.jpg">![](http://blog.colastar.club/static/images/linux18.jpg)</a>
 
 
 我们当前运行在 graphical.target 下，它由一个长长的依赖列表(上图并未展示所有的项目)，其中最重要的依赖项目为 multi-user.target。下面我们使用 --reverse 选项查看 multi-user.target unit 被谁使用：
@@ -791,7 +791,7 @@ systemctl list-dependencies [unit] [--reverse] 选项 --reverse 会反向追踪�
 $ systemctl list-dependencies multi-user.target --reverse
 ```
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux19.jpg">![](https://colastar.github.io/static/images/linux19.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux19.jpg">![](http://blog.colastar.club/static/images/linux19.jpg)</a>
 
 
 从上面两张图上我们可以确定下面的关系：graphical.target 依赖 multi-user.target。
@@ -818,7 +818,7 @@ $ systemctl list-dependencies multi-user.target --reverse
 $ systemctl list-sockets
 ```
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/linux20.jpg">![](https://colastar.github.io/static/images/linux20.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/linux20.jpg">![](http://blog.colastar.club/static/images/linux20.jpg)</a>
 
 其实，绝大多数的 socket 文件都存放在 /run 目录及其子目录中。
 

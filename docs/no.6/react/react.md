@@ -17,7 +17,7 @@ react有一个叫state，只要state变，views就变， -->
 
 - `components`：React是专注于View层开发的，View是基于组件的，每一个JSX是一个组件。组件化开发可以创建可复用的UI组件，提高开发效率。 
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react发展史.png">![](https://colastar.github.io/static/images/react发展史.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react发展史.png">![](http://blog.colastar.club/static/images/react发展史.png)</a>
 
 19年已经更新到了16.8的版本，就在8.10号更新到了16.9，表示学不动了。
 
@@ -47,21 +47,21 @@ const element = <h1>Hello, world!</h1>;
 要将 `React` 元素渲染到根 `DOM` 节点中，我们通过把它们都传递给 `ReactDOM.render()` 的方法来将其渲染到页面上：
 
 > ES5写法
-<a data-fancybox title="" href="https://colastar.github.io/static/images/reactes5.png">![](https://colastar.github.io/static/images/reactes5.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/reactes5.png">![](http://blog.colastar.club/static/images/reactes5.png)</a>
 
 > ES6写法
-<a data-fancybox title="" href="https://colastar.github.io/static/images/reactes6.png">![](https://colastar.github.io/static/images/reactes6.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/reactes6.png">![](http://blog.colastar.club/static/images/reactes6.png)</a>
 
 > react组件怎么用呢
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react组件怎么用.jpg">![](https://colastar.github.io/static/images/react组件怎么用.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react组件怎么用.jpg">![](http://blog.colastar.club/static/images/react组件怎么用.jpg)</a>
 
 > Dom diff
 
 DOM diff是DOM比较算法。用于找到最小变化的DOM元素进行渲染，平行化比较，把重绘和重排做到最小化。因为`react`中`View`层的变化是基于`state`的，如果状态发生变化，组件中`render`函数就会重新执行。
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/reactdomdiff.png">![](https://colastar.github.io/static/images/reactdomdiff.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/reactdomdiff.png">![](http://blog.colastar.club/static/images/reactdomdiff.png)</a>
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/reactdomdiff例子1.png">![](https://colastar.github.io/static/images/reactdomdiff例子1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/reactdomdiff例子1.png">![](http://blog.colastar.club/static/images/reactdomdiff例子1.png)</a>
 
 **Dom diff**是为渲染的性能，最小化的一个渲染机制.
 
@@ -75,11 +75,11 @@ DOM diff是DOM比较算法。用于找到最小变化的DOM元素进行渲染，
 
 > JSX注意事项
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/JSX注意事项.png">![](https://colastar.github.io/static/images/JSX注意事项.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/JSX注意事项.png">![](http://blog.colastar.club/static/images/JSX注意事项.png)</a>
 
 ## 非Dom属性介绍
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/非Dom属性介绍.png">![](https://colastar.github.io/static/images/非Dom属性介绍.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/非Dom属性介绍.png">![](http://blog.colastar.club/static/images/非Dom属性介绍.png)</a>
 
 - 1.**dangerouslySetInnerHTML警告**
 
@@ -117,7 +117,7 @@ ReactDOM.findDOMNode(this.refs.input)   //获取到input元素
 **例子：手动删除表格第一条数据**
 
 如果使用 数组下标 index 作为 key值或者不加的情况下：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-key1.png">![](https://colastar.github.io/static/images/react-key1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-key1.png">![](http://blog.colastar.club/static/images/react-key1.png)</a>
 
 可以见到使用数组下标作为 index 的时候，React 会先更新表格内前9条数据，并且删除表格内最后一条数据，此时一共操作了 18 次 DOM
 
@@ -127,7 +127,7 @@ ReactDOM.findDOMNode(this.refs.input)   //获取到input元素
 <tr key={item.id}>...<tr>
 ```
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-key2.png">![](https://colastar.github.io/static/images/react-key2.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-key2.png">![](http://blog.colastar.club/static/images/react-key2.png)</a>
 
 可以看出，此时 React 仅仅更删除了第一行数据，操作了 1次 DOM 元素
 
@@ -151,9 +151,9 @@ ReactDOM.findDOMNode(this.refs.input)   //获取到input元素
 
 
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/reactprops用法.png">![](https://colastar.github.io/static/images/reactprops用法.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/reactprops用法.png">![](http://blog.colastar.club/static/images/reactprops用法.png)</a>
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/reactprops数组用法.png">![](https://colastar.github.io/static/images/reactprops数组用法.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/reactprops数组用法.png">![](http://blog.colastar.club/static/images/reactprops数组用法.png)</a>
 
 > **默认 Props**
 
@@ -337,7 +337,7 @@ export default class Hello extends React.Component{
 > 使用 `setState` 的时候，需要注意:
 
 使用 `setState` 是一件很复杂的事情。即使是熟练的 `React` 开发，也很有可能因为 `React` 的一些机制而产生一些`bug`，比如下面这个例子：
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-setstate.gif">![](https://colastar.github.io/static/images/react-setstate.gif)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-setstate.gif">![](http://blog.colastar.club/static/images/react-setstate.gif)</a>
 
 **注意：**
 绝对不要 直接改变 `this.state` ，因为之后调用 `setState()` 可能会替换掉你做的改
@@ -481,7 +481,7 @@ setTimeout(this.fireOnSelect, 0);
 - 组件在运行时需要修改的数据就是状态
 - 状态是自己的，属性是组件之间的
 **比较**
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react属性与状态对比.png">![](https://colastar.github.io/static/images/react属性与状态对比.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react属性与状态对比.png">![](http://blog.colastar.club/static/images/react属性与状态对比.png)</a>
 
 ## 生命周期
 
@@ -496,23 +496,23 @@ setTimeout(this.fireOnSelect, 0);
 如下几张图是react生命周期的 变更图，学的好幸苦。。。
 
 **React v16.3之前生命周期**
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react16.3之前生命周期.png">![](https://colastar.github.io/static/images/react16.3之前生命周期.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react16.3之前生命周期.png">![](http://blog.colastar.club/static/images/react16.3之前生命周期.png)</a>
 
 **React v16.3生命周期**
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react16.3生命周期.png">![](https://colastar.github.io/static/images/react16.3生命周期.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react16.3生命周期.png">![](http://blog.colastar.club/static/images/react16.3生命周期.png)</a>
 
 **React v16.4生命周期**
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react16.41生命周期.png">![](https://colastar.github.io/static/images/react16.41生命周期.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react16.41生命周期.png">![](http://blog.colastar.club/static/images/react16.41生命周期.png)</a>
 
 ### React v16.0前的生命周期
 
 其实大部分团队不见得会跟进升到16版本，所以16前的生命周期还是很有必要掌握的，何况16也是基于之前的修改
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react16.3之前生命周期.png">![](https://colastar.github.io/static/images/react16.3之前生命周期.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react16.3之前生命周期.png">![](http://blog.colastar.club/static/images/react16.3之前生命周期.png)</a>
 
 > 初始化阶段
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react初始化生命周期.png">![](https://colastar.github.io/static/images/react初始化生命周期.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react初始化生命周期.png">![](http://blog.colastar.club/static/images/react初始化生命周期.png)</a>
 
 > 运行中阶段
 
@@ -608,7 +608,7 @@ class Child extends Component {
 
 ### React v16.4 的生命周期
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react16.41生命周期.png">![](https://colastar.github.io/static/images/react16.41生命周期.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react16.41生命周期.png">![](http://blog.colastar.club/static/images/react16.41生命周期.png)</a>
 
 > 变更缘由
 
@@ -633,7 +633,7 @@ React v16.0刚推出的时候，是增加了一个`componentDidCatch`生命周�
 
 `getDerivedStateFromProps`本来（React v16.3中）是只在创建和更新（由父组件引发部分），也就是不是不由父组件引发，那么`getDerivedStateFromProps`也不会被调用，如自身`setState`引发或者`forceUpdate`引发。
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react16.3生命周期.png">![](https://colastar.github.io/static/images/react16.3生命周期.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react16.3生命周期.png">![](http://blog.colastar.club/static/images/react16.3生命周期.png)</a>
 
 这样的话理解起来有点乱，在React v16.4中改正了这一点，让`getDerivedStateFromProps`无论是`Mounting`还是`Updating`，也无论是因为什么引起的`Updating`，全部都会被调用，具体可看React v16.4 的生命周期图。
 
@@ -991,7 +991,7 @@ Immutable是一个基于函数式编程的库，Facebook致力于3年时间把�
 Immutable采用一种共享引用的方式，只会改变改变节点数据的那个分支的节点，其他分支节点空想引用。
 
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-immutable.gif">![](https://colastar.github.io/static/images/react-immutable.gif)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-immutable.gif">![](http://blog.colastar.club/static/images/react-immutable.gif)</a>
 
 > 使用方式
 安装Immutable包
@@ -1003,11 +1003,11 @@ npm install immutable –save
 import { List } from “immutable”;
 ```
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/immuable.png">![](https://colastar.github.io/static/images/immuable.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/immuable.png">![](http://blog.colastar.club/static/images/immuable.png)</a>
 
 从上图可以看出immuable库相当于生成俩个不一样的对象，不是在引用传递，相当于生成一个对象，深拷贝过了。
 
-<a data-fancybox title="使用" href="https://colastar.github.io/static/images/immuable使用.png">![使用](https://colastar.github.io/static/images/immuable使用.png)</a>
+<a data-fancybox title="使用" href="http://blog.colastar.club/static/images/immuable使用.png">![使用](http://blog.colastar.club/static/images/immuable使用.png)</a>
 
 通过fromjs方法包一下目标对象，后边用一个get和set方法去更改对象。
 详情可以查看[immuable官网](http://immutables.github.io/)
@@ -1917,13 +1917,13 @@ React16.8中加入了Hooks，让React函数式组件再一次升华，那么到�
 
 React 没有提供可复用性行为“附加”到组件的途径，在写类组件的时候，一个类是一个闭包并且`state`在组件间传递并不怎么友好，虽然可以使用`props`和**高阶组件**来解决，但是这样会组件的结构更麻烦。如果你在 `React DevTools` 中观察过 `React` 应用，你会发现由 **providers，consumers，高阶组件，render props** 等其他抽象层组成的组件会形成“嵌套地狱”。
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks1.png">![](https://colastar.github.io/static/images/react-hooks1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks1.png">![](http://blog.colastar.club/static/images/react-hooks1.png)</a>
 
 使用Hooks，您可以从组件中提取有状态逻辑，以便可以独立测试并重复使用。钩子允许您在不更改组件层次结构的情况下重用有状态逻辑。这样可以轻松地在许多组件之间或与页面之间共享Hook。
 
 - 2.复杂的组件变得难以理解
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks2.png">![](https://colastar.github.io/static/images/react-hooks2.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks2.png">![](http://blog.colastar.club/static/images/react-hooks2.png)</a>
 每个生命周期方法通常包含不相关逻辑的混合。比如说我就想实现一个非常简单的功能，必须要带一堆钩子函数，让一个简单的组件变得很复杂。而且由于不同的生命周期在不同的阶段调用，导致我们会在相应的地方作一些处理，有可能把一些完全不相干的代码因为执行周期相同必须放在同一个生命周期中,这就很容易引发bug;再比如，组件可能会在`componentDidMount`和中执行一些数据提取`componentDidUpdate`。但是，相同的`componentDidMount`方法可能还包含一些不相关的逻辑，用于设置事件侦听器，并执行清理`componentWillUnmount`。一起更改的相互关联的代码被拆分，但完全不相关的代码最终组合在一个方法中。bug又来了。
 
 为了解决这个问题，Hooks允许您根据相关的部分（例如设置订阅或获取数据）将一个组件拆分为较小的函数，而不是基于生命周期方法强制拆分。您还可以选择使用reducer管理组件的本地状态，以使其更具可预测性。
@@ -1934,7 +1934,7 @@ React 没有提供可复用性行为“附加”到组件的途径，在写类�
 
 为了解决这些问题，Hooks允许您在没有类的情况下使用更多React的功能。从概念上讲，React组件始终更接近功能。Hooks拥抱功能，但不会牺牲React的实际精神,简单点说可以这么理解，Hooks 的出现本质是把这种面向生命周期编程变成了面向业务逻辑编程。
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks3.png">![](https://colastar.github.io/static/images/react-hooks3.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks3.png">![](http://blog.colastar.club/static/images/react-hooks3.png)</a>
 
 ### 什么是Hooks？
 
@@ -2026,7 +2026,7 @@ const Greeting = () => {
 export default Greeting;
 ```
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks-usestate.gif">![](https://colastar.github.io/static/images/react-hooks-usestate.gif)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks-usestate.gif">![](http://blog.colastar.club/static/images/react-hooks-usestate.gif)</a>
 
 我们发现，一般函数调用完成之后，其中的变量都会被回收，而上面代码和图上可以看出每次都是在count的基上相加，并没有消失，为什么呢？ 先埋下疑问点，在Hook的执行机制会提到。
 
@@ -2050,7 +2050,7 @@ const Greeting = () => {
 export default Greeting;
 ```
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks-usestate1.gif">![](https://colastar.github.io/static/images/react-hooks-usestate1.gif)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks-usestate1.gif">![](http://blog.colastar.club/static/images/react-hooks-usestate1.gif)</a>
 
 上面代码使用两次useState，完美的完成了功能。
 
@@ -2081,7 +2081,7 @@ const EffectComponent = () => {
 }
 export default EffectComponent
 ```
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks-effect.png">![](https://colastar.github.io/static/images/react-hooks-effect.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks-effect.png">![](http://blog.colastar.club/static/images/react-hooks-effect.png)</a>
 ##### 与类组件生命周期的比较
 
 我们都知道在类组件中可以在`componentDidMount`和`componentDidUpdate`中执行副作用，那么在函数组件中`useEffect`的参数函数就具有类组件的这两个生命周期的用途，如果`useEffect`的第一个参数有返回值为函数的话，函数的返回值相当于`componentWillUnmount`。可以说useEffect把这三个API合成了一个。
@@ -2107,7 +2107,7 @@ const EffectComponent = () => {
 }
 export default EffectComponent
 ```
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks-effect1.png">![](https://colastar.github.io/static/images/react-hooks-effect1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks-effect1.png">![](http://blog.colastar.club/static/images/react-hooks-effect1.png)</a>
 
 ##### useEffect的执行时机
 
@@ -2132,7 +2132,7 @@ const EffectComponent = () => {
 }
 export default EffectComponent
 ```
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks-effect2.png">![](https://colastar.github.io/static/images/react-hooks-effect2.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks-effect2.png">![](http://blog.colastar.club/static/images/react-hooks-effect2.png)</a>
 
 在开始的时候有提到，useEffec执行副作时机在渲染后，确实是这样。细心的你会发现，当我点击+号的时候，怎么会出现注销事件接口？ useEffec函数中的返回函数不是在组件卸载的时候被调用吗？
 
@@ -2198,7 +2198,7 @@ const EffectComponent = () => {
     );
 }
 ```
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks-effect4.png">![](https://colastar.github.io/static/images/react-hooks-effect4.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks-effect4.png">![](http://blog.colastar.club/static/images/react-hooks-effect4.png)</a>
 
 ##### 写多个useEffect
 当我们在写类组件的时候，通常会把定义事件写在`componentDidMount`中，如果只是一个事件处理，项目不大还好，那如果项目很大，所有的事件处理都定义在一个生命周期中，难道就不乱吗？乱是肯定的，而且还容易出bug。
@@ -2230,7 +2230,7 @@ const EffectComponent = () => {
     );
 }
 ```
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks-effect3.png">![](https://colastar.github.io/static/images/react-hooks-effect3.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks-effect3.png">![](http://blog.colastar.club/static/images/react-hooks-effect3.png)</a>
 
 useEffect在函数组件中的作用非常大，好好利用必成神器。
 
@@ -2395,7 +2395,7 @@ let Todo = ({todo,change}) => {
     );
 }
 ```
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks-usereducer.png">![](https://colastar.github.io/static/images/react-hooks-usereducer.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks-usereducer.png">![](http://blog.colastar.club/static/images/react-hooks-usereducer.png)</a>
 从图片上可以看出,无论我怎么点击li都不会发生改变。
 
 那么我们来改变一下reducer，让它返回一个全新的数组。
@@ -2408,7 +2408,7 @@ case "CHANGE_TODO":
         return todo;
     } )
 ```
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks-usereducer1.png">![](https://colastar.github.io/static/images/react-hooks-usereducer1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks-usereducer1.png">![](http://blog.colastar.club/static/images/react-hooks-usereducer1.png)</a>
 当返回一个新的数组的时候，点击li都发生了改变，默认有了`shouldComponentUpdate`的功能。
 
 #### useCallback
@@ -2436,9 +2436,9 @@ const CallbackComponent = () => {
     )
 }
 ```
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks-useCallback.png">![](https://colastar.github.io/static/images/react-hooks-useCallback.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks-useCallback.png">![](http://blog.colastar.club/static/images/react-hooks-useCallback.png)</a>
 如果没有传入依赖项数组，那么记忆函数在每次渲染的时候都会更新。
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks-useCallback1.png">![](https://colastar.github.io/static/images/react-hooks-useCallback1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks-useCallback1.png">![](http://blog.colastar.club/static/images/react-hooks-useCallback1.png)</a>
 
 #### useMemo
 
@@ -2478,7 +2478,7 @@ const RefComponent = () => {
 
 上面例子在input上绑定一个ref，使得input在渲染后自动焦点聚焦。 
 
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks-useRef.png">![](https://colastar.github.io/static/images/react-hooks-useRef.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks-useRef.png">![](http://blog.colastar.club/static/images/react-hooks-useRef.png)</a>
 
 #### useImperativeHandle
 
@@ -2519,7 +2519,7 @@ export default () => {
 }
 ```
 上面是一个父子组件中ref传递的例子，使用到了forwardRef(这是一个高阶函数，主要用于ref在父子组件中的传递)，使用useImperativeHandle把第二个参数的返回值绑定到父组件传来的ref上。
-<a data-fancybox title="" href="https://colastar.github.io/static/images/react-hooks-useImperativeHandle.png">![](https://colastar.github.io/static/images/react-hooks-useImperativeHandle.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club/static/images/react-hooks-useImperativeHandle.png">![](http://blog.colastar.club/static/images/react-hooks-useImperativeHandle.png)</a>
 
 #### useLayoutEffect
 

@@ -31,30 +31,30 @@ mac下mysql的下载安装参考 [这里] (https://www.jianshu.com/p/833f388da8e
 
 首次打开，MySqlWorkBench, 需要连接数据库，如下，点击加号， 下面的local是我之前连接好的，像这样连接好的， 下次直接双击这个数据库就可直接进入。
 
-![进入mysql](https://colastar.github.io/static/images/welcomeToMysql.jpg)
+![进入mysql](http://blog.colastar.club/static/images/welcomeToMysql.jpg)
 
 依次输入信息，1的名字随便写， 2 3 分别是用户名，密码，填写完，点击4 测试是否能连接上，成功了点击ok。
 
 
-![连接库](https://colastar.github.io/static/images/setupnewConnection.jpg)
+![连接库](http://blog.colastar.club/static/images/setupnewConnection.jpg)
 
 点击如下按钮，创建数据库：
 
-![创建库](https://colastar.github.io/static/images/createdDb.jpg)
+![创建库](http://blog.colastar.club/static/images/createdDb.jpg)
 
 依次填入信息，最后Apply(这个test是数据库名字)
 
 
-![创建库2](https://colastar.github.io/static/images/createdDb2.png)
+![创建库2](http://blog.colastar.club/static/images/createdDb2.png)
 
 然后就可以看到新增的数据库了。
 
-![](https://colastar.github.io/static/images/add-db.png)
+![](http://blog.colastar.club/static/images/add-db.png)
 
 
 导入数据表：
 
-![](https://colastar.github.io/static/images/importTable_db.png)
+![](http://blog.colastar.club/static/images/importTable_db.png)
 
 选择cnpm项目里，docs目录下的db.sql
 
@@ -62,11 +62,11 @@ mac下mysql的下载安装参考 [这里] (https://www.jianshu.com/p/833f388da8e
 
 test是刚才的数据库名字。然后点击左边起第一个⚡️
 
-![](https://colastar.github.io/static/images/create_table_db.png)
+![](http://blog.colastar.club/static/images/create_table_db.png)
 
 这样就导入成功了，如下：
 
-![](https://colastar.github.io/static/images/create_table_seccess_db.png)
+![](http://blog.colastar.club/static/images/create_table_seccess_db.png)
 
 ## 3.修改cnpm里面对应的配置
 
@@ -128,7 +128,7 @@ npm install & npm run start
 
 访问 `http://127.0.0.1:7002/`
 
-![](https://colastar.github.io/static/images/cnpm_views.png)
+![](http://blog.colastar.club/static/images/cnpm_views.png)
 
 访问`http://127.0.0.1:7001/`
 
@@ -195,15 +195,15 @@ npm publish //发包
 
 发布成功后 ，在7002页面可以看到 total packages 增加了。
 
-![](https://colastar.github.io/static/images/cnpm_total_packages_add.png)
+![](http://blog.colastar.club/static/images/cnpm_total_packages_add.png)
 
 这里只能搜索，才能找到对应的npm包
 
-![](https://colastar.github.io/static/images/cnpm_search_package.png)
+![](http://blog.colastar.club/static/images/cnpm_search_package.png)
 
 点进去
 
-![](https://colastar.github.io/static/images/cnpm_search_package_item.png)
+![](http://blog.colastar.club/static/images/cnpm_search_package_item.png)
 
 
 ## 6.下载npm包
