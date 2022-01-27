@@ -47,10 +47,10 @@ module.exports = {
       src: 'https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'
     }],
     ['script', {
-      src: 'https://colastar.github.io/blogs/views/js/tj.js'
+      src: '/views/js/tj.js'
     }],
     ['script', {
-      src: 'https://colastar.github.io/blogs/views/js/code.js'
+      src: '/views/js/code.js'
     }],
     ['link', {
       rel: 'stylesheet',
