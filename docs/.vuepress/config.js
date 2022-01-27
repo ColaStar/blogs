@@ -47,10 +47,10 @@ module.exports = {
       src: 'https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'
     }],
     ['script', {
-      src: '/views/js/tj.js'
+      src: '/js/tj.js'
     }],
     ['script', {
-      src: '/views/js/code.js'
+      src: '/js/code.js'
     }],
     ['link', {
       rel: 'stylesheet',
