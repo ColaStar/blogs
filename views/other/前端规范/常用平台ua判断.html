@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>常用平台UA判断 | 个人博客</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/blogs/js/tj.js"></script>
+    <script src="/blogs/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="人生代代无穷已，江月年年只相似。">
+    
+    <link rel="preload" href="/blogs/assets/css/0.styles.f55d51b1.css" as="style"><link rel="preload" href="/blogs/assets/js/app.9f53c73e.js" as="script"><link rel="preload" href="/blogs/assets/js/2.0b2502b4.js" as="script"><link rel="preload" href="/blogs/assets/js/156.c396cb12.js" as="script"><link rel="prefetch" href="/blogs/assets/js/10.adb96d05.js"><link rel="prefetch" href="/blogs/assets/js/100.0ae25a03.js"><link rel="prefetch" href="/blogs/assets/js/101.d9ecaae1.js"><link rel="prefetch" href="/blogs/assets/js/102.20404e4c.js"><link rel="prefetch" href="/blogs/assets/js/103.f02ca42b.js"><link rel="prefetch" href="/blogs/assets/js/104.38877eb7.js"><link rel="prefetch" href="/blogs/assets/js/105.c30e1623.js"><link rel="prefetch" href="/blogs/assets/js/106.4ee7e726.js"><link rel="prefetch" href="/blogs/assets/js/107.b4af558c.js"><link rel="prefetch" href="/blogs/assets/js/108.54fb5b01.js"><link rel="prefetch" href="/blogs/assets/js/109.0bfa2671.js"><link rel="prefetch" href="/blogs/assets/js/11.3b28e58c.js"><link rel="prefetch" href="/blogs/assets/js/110.cf678633.js"><link rel="prefetch" href="/blogs/assets/js/111.523a281e.js"><link rel="prefetch" href="/blogs/assets/js/112.86c768bb.js"><link rel="prefetch" href="/blogs/assets/js/113.8992182d.js"><link rel="prefetch" href="/blogs/assets/js/114.18293422.js"><link rel="prefetch" href="/blogs/assets/js/115.e56298ae.js"><link rel="prefetch" href="/blogs/assets/js/116.6e301297.js"><link rel="prefetch" href="/blogs/assets/js/117.c288d78b.js"><link rel="prefetch" href="/blogs/assets/js/118.85d50a13.js"><link rel="prefetch" href="/blogs/assets/js/119.1ad0c39e.js"><link rel="prefetch" href="/blogs/assets/js/12.2fb6a527.js"><link rel="prefetch" href="/blogs/assets/js/120.71c04de5.js"><link rel="prefetch" href="/blogs/assets/js/121.a18668bd.js"><link rel="prefetch" href="/blogs/assets/js/122.a6a8956a.js"><link rel="prefetch" href="/blogs/assets/js/123.d31981a0.js"><link rel="prefetch" href="/blogs/assets/js/124.64acb095.js"><link rel="prefetch" href="/blogs/assets/js/125.a60f6820.js"><link rel="prefetch" href="/blogs/assets/js/126.70529bef.js"><link rel="prefetch" href="/blogs/assets/js/127.65e5bc41.js"><link rel="prefetch" href="/blogs/assets/js/128.7b4976ce.js"><link rel="prefetch" href="/blogs/assets/js/129.bd1dd531.js"><link rel="prefetch" href="/blogs/assets/js/13.5eb68699.js"><link rel="prefetch" href="/blogs/assets/js/130.71aaf623.js"><link rel="prefetch" href="/blogs/assets/js/131.9c137a57.js"><link rel="prefetch" href="/blogs/assets/js/132.ea379040.js"><link rel="prefetch" href="/blogs/assets/js/133.1ea475ec.js"><link rel="prefetch" href="/blogs/assets/js/134.28429bf9.js"><link rel="prefetch" href="/blogs/assets/js/135.923cadd2.js"><link rel="prefetch" href="/blogs/assets/js/136.53818618.js"><link rel="prefetch" href="/blogs/assets/js/137.d7457171.js"><link rel="prefetch" href="/blogs/assets/js/138.83c7115a.js"><link rel="prefetch" href="/blogs/assets/js/139.8a2cc2a4.js"><link rel="prefetch" href="/blogs/assets/js/14.a9b1ef2c.js"><link rel="prefetch" href="/blogs/assets/js/140.00d800f2.js"><link rel="prefetch" href="/blogs/assets/js/141.c070121c.js"><link rel="prefetch" href="/blogs/assets/js/142.06b3f0b8.js"><link rel="prefetch" href="/blogs/assets/js/143.8c6160fa.js"><link rel="prefetch" href="/blogs/assets/js/144.5d54e11a.js"><link rel="prefetch" href="/blogs/assets/js/145.74dc57df.js"><link rel="prefetch" href="/blogs/assets/js/146.c8744b03.js"><link rel="prefetch" href="/blogs/assets/js/147.275954be.js"><link rel="prefetch" href="/blogs/assets/js/148.f477b3e9.js"><link rel="prefetch" href="/blogs/assets/js/149.7192496e.js"><link rel="prefetch" href="/blogs/assets/js/15.6691ebf3.js"><link rel="prefetch" href="/blogs/assets/js/150.5670a2af.js"><link rel="prefetch" href="/blogs/assets/js/151.a0d829d3.js"><link rel="prefetch" href="/blogs/assets/js/152.a1e1483d.js"><link rel="prefetch" href="/blogs/assets/js/153.e1fe68d4.js"><link rel="prefetch" href="/blogs/assets/js/154.d1dc18e7.js"><link rel="prefetch" href="/blogs/assets/js/155.78498085.js"><link rel="prefetch" href="/blogs/assets/js/157.07afd9be.js"><link rel="prefetch" href="/blogs/assets/js/158.6ce07f50.js"><link rel="prefetch" href="/blogs/assets/js/159.404c2393.js"><link rel="prefetch" href="/blogs/assets/js/16.ec6c73ba.js"><link rel="prefetch" href="/blogs/assets/js/160.cc50cdd4.js"><link rel="prefetch" href="/blogs/assets/js/161.441f0fe3.js"><link rel="prefetch" href="/blogs/assets/js/162.56e32887.js"><link rel="prefetch" href="/blogs/assets/js/163.08cd9926.js"><link rel="prefetch" href="/blogs/assets/js/164.5a8e05bc.js"><link rel="prefetch" href="/blogs/assets/js/165.e1ead6fc.js"><link rel="prefetch" href="/blogs/assets/js/166.01624471.js"><link rel="prefetch" href="/blogs/assets/js/167.14ad3770.js"><link rel="prefetch" href="/blogs/assets/js/168.bc81d403.js"><link rel="prefetch" href="/blogs/assets/js/169.5bf396cf.js"><link rel="prefetch" href="/blogs/assets/js/17.61dddd95.js"><link rel="prefetch" href="/blogs/assets/js/170.dd528df1.js"><link rel="prefetch" href="/blogs/assets/js/18.d9aad5be.js"><link rel="prefetch" href="/blogs/assets/js/19.e5351ae0.js"><link rel="prefetch" href="/blogs/assets/js/20.5219c5ef.js"><link rel="prefetch" href="/blogs/assets/js/21.ebf8f171.js"><link rel="prefetch" href="/blogs/assets/js/22.2008d37e.js"><link rel="prefetch" href="/blogs/assets/js/23.11fcc613.js"><link rel="prefetch" href="/blogs/assets/js/24.f8fa9e30.js"><link rel="prefetch" href="/blogs/assets/js/25.38230990.js"><link rel="prefetch" href="/blogs/assets/js/26.dd4a60bd.js"><link rel="prefetch" href="/blogs/assets/js/27.c0107374.js"><link rel="prefetch" href="/blogs/assets/js/28.e0b2bf12.js"><link rel="prefetch" href="/blogs/assets/js/29.c1376b8c.js"><link rel="prefetch" href="/blogs/assets/js/3.b0794a69.js"><link rel="prefetch" href="/blogs/assets/js/30.2ce7be1c.js"><link rel="prefetch" href="/blogs/assets/js/31.48c607e7.js"><link rel="prefetch" href="/blogs/assets/js/32.80c3a3a0.js"><link rel="prefetch" href="/blogs/assets/js/33.920b8a60.js"><link rel="prefetch" href="/blogs/assets/js/34.7b8dc65a.js"><link rel="prefetch" href="/blogs/assets/js/35.40417348.js"><link rel="prefetch" href="/blogs/assets/js/36.a04cbba8.js"><link rel="prefetch" href="/blogs/assets/js/37.eca2b25a.js"><link rel="prefetch" href="/blogs/assets/js/38.cab1c25f.js"><link rel="prefetch" href="/blogs/assets/js/39.af8850d2.js"><link rel="prefetch" href="/blogs/assets/js/4.b75b21db.js"><link rel="prefetch" href="/blogs/assets/js/40.3c31196a.js"><link rel="prefetch" href="/blogs/assets/js/41.9244ea79.js"><link rel="prefetch" href="/blogs/assets/js/42.68ef5908.js"><link rel="prefetch" href="/blogs/assets/js/43.ccde6274.js"><link rel="prefetch" href="/blogs/assets/js/44.23a0025b.js"><link rel="prefetch" href="/blogs/assets/js/45.c353dada.js"><link rel="prefetch" href="/blogs/assets/js/46.c1a62d98.js"><link rel="prefetch" href="/blogs/assets/js/47.883dfdeb.js"><link rel="prefetch" href="/blogs/assets/js/48.f140e161.js"><link rel="prefetch" href="/blogs/assets/js/49.2c454cdd.js"><link rel="prefetch" href="/blogs/assets/js/5.acd5ac17.js"><link rel="prefetch" href="/blogs/assets/js/50.b0de9390.js"><link rel="prefetch" href="/blogs/assets/js/51.e6ae9863.js"><link rel="prefetch" href="/blogs/assets/js/52.3e554e77.js"><link rel="prefetch" href="/blogs/assets/js/53.e8f51de7.js"><link rel="prefetch" href="/blogs/assets/js/54.e6cbf2e6.js"><link rel="prefetch" href="/blogs/assets/js/55.54b0ede6.js"><link rel="prefetch" href="/blogs/assets/js/56.d74354c3.js"><link rel="prefetch" href="/blogs/assets/js/57.3e5894bc.js"><link rel="prefetch" href="/blogs/assets/js/58.de6cc306.js"><link rel="prefetch" href="/blogs/assets/js/59.9cf2bdbc.js"><link rel="prefetch" href="/blogs/assets/js/6.2e77f7e1.js"><link rel="prefetch" href="/blogs/assets/js/60.9e063785.js"><link rel="prefetch" href="/blogs/assets/js/61.3c686cb1.js"><link rel="prefetch" href="/blogs/assets/js/62.225e06ff.js"><link rel="prefetch" href="/blogs/assets/js/63.d1aa3c05.js"><link rel="prefetch" href="/blogs/assets/js/64.3efe6f1c.js"><link rel="prefetch" href="/blogs/assets/js/65.c818f124.js"><link rel="prefetch" href="/blogs/assets/js/66.a5896e55.js"><link rel="prefetch" href="/blogs/assets/js/67.545bf2a2.js"><link rel="prefetch" href="/blogs/assets/js/68.103b169a.js"><link rel="prefetch" href="/blogs/assets/js/69.64d601c4.js"><link rel="prefetch" href="/blogs/assets/js/7.583d46e6.js"><link rel="prefetch" href="/blogs/assets/js/70.0970cbd5.js"><link rel="prefetch" href="/blogs/assets/js/71.8d63109f.js"><link rel="prefetch" href="/blogs/assets/js/72.ef210bf5.js"><link rel="prefetch" href="/blogs/assets/js/73.70efc29b.js"><link rel="prefetch" href="/blogs/assets/js/74.9813cc9e.js"><link rel="prefetch" href="/blogs/assets/js/75.0de015c4.js"><link rel="prefetch" href="/blogs/assets/js/76.78e254b0.js"><link rel="prefetch" href="/blogs/assets/js/77.bc7486d1.js"><link rel="prefetch" href="/blogs/assets/js/78.3c0f892c.js"><link rel="prefetch" href="/blogs/assets/js/79.bac9dcd1.js"><link rel="prefetch" href="/blogs/assets/js/8.a1553ecd.js"><link rel="prefetch" href="/blogs/assets/js/80.06a73852.js"><link rel="prefetch" href="/blogs/assets/js/81.14973d50.js"><link rel="prefetch" href="/blogs/assets/js/82.6c1f2c20.js"><link rel="prefetch" href="/blogs/assets/js/83.8513be6e.js"><link rel="prefetch" href="/blogs/assets/js/84.37ec3ada.js"><link rel="prefetch" href="/blogs/assets/js/85.2c13e727.js"><link rel="prefetch" href="/blogs/assets/js/86.6f00944d.js"><link rel="prefetch" href="/blogs/assets/js/87.4370580e.js"><link rel="prefetch" href="/blogs/assets/js/88.ce378703.js"><link rel="prefetch" href="/blogs/assets/js/89.275ed7c4.js"><link rel="prefetch" href="/blogs/assets/js/9.e0b36190.js"><link rel="prefetch" href="/blogs/assets/js/90.ab37ccf9.js"><link rel="prefetch" href="/blogs/assets/js/91.74572023.js"><link rel="prefetch" href="/blogs/assets/js/92.d14e1c25.js"><link rel="prefetch" href="/blogs/assets/js/93.ae4cfcd0.js"><link rel="prefetch" href="/blogs/assets/js/94.aa2c3c52.js"><link rel="prefetch" href="/blogs/assets/js/95.a0afb498.js"><link rel="prefetch" href="/blogs/assets/js/96.8d008bf8.js"><link rel="prefetch" href="/blogs/assets/js/97.00915775.js"><link rel="prefetch" href="/blogs/assets/js/98.973c2997.js"><link rel="prefetch" href="/blogs/assets/js/99.32ddb300.js">
+    <link rel="stylesheet" href="/blogs/assets/css/0.styles.f55d51b1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blogs/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blogs/other/ mac上使用cnpm搭建npm私有仓库.html" class="sidebar-link">mac上使用cnpm搭建npm私有仓库，并上传/下载私有npm包</a></li><li><a href="/blogs/other/Charles.html" class="sidebar-link">Charles</a></li><li><a href="/blogs/other/Git代码提交规范.html" class="sidebar-link">Git代码提交规范</a></li><li><a href="/blogs/other/Mac下安装MYSQL.html" class="sidebar-link">Mac 下安装MYSQL</a></li><li><a href="/blogs/other/eventLoop/eventLoop.html" class="sidebar-link">Event Loop 总结</a></li><li><a href="/blogs/other/eventLoop.html" class="sidebar-link">Event Loop 总结</a></li><li><a href="/blogs/other/git/git命令全集.html" class="sidebar-link">git 命令全集</a></li><li><a href="/blogs/other/git/git版本管理规范.html" class="sidebar-link">git版本管理规范</a></li><li><a href="/blogs/other/item2.html" class="sidebar-link">iTerm2 快捷键大全</a></li><li><a href="/blogs/other/mac/Mac电脑如何修改和自定义文件夹图标.html" class="sidebar-link">Mac电脑如何修改和自定义文件夹图标？</a></li><li><a href="/blogs/other/mac安装mongoDB详细步骤.html" class="sidebar-link">mac安装mongoDB详细步骤</a></li><li><a href="/blogs/other/typeScript.html" class="sidebar-link">TypeScript入门</a></li><li><a href="/blogs/other/vscode操作指南.html" class="sidebar-link">vscode操作指南</a></li><li><a href="/blogs/other/一些有意思的库.html" class="sidebar-link">有意思的 npm 库</a></li><li><a href="/blogs/other/优雅降级与渐进增强.html" class="sidebar-link">优雅降级与渐进增强</a></li><li><a href="/blogs/other/前端协作规范.html" class="sidebar-link">前端协作规范</a></li><li><a href="/blogs/other/前端规范/常用平台ua判断.html" class="active sidebar-link">常用平台UA判断</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/other/前端规范/常用平台ua判断.html#ios" class="sidebar-link">iOS：</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/other/前端规范/常用平台ua判断.html#qq" class="sidebar-link">QQ</a></li><li class="sidebar-sub-header"><a href="/blogs/other/前端规范/常用平台ua判断.html#qqbrowser" class="sidebar-link">QQBrowser</a></li><li class="sidebar-sub-header"><a href="/blogs/other/前端规范/常用平台ua判断.html#_360" class="sidebar-link">360</a></li><li class="sidebar-sub-header"><a href="/blogs/other/前端规范/常用平台ua判断.html#手机百度" class="sidebar-link">手机百度</a></li></ul></li><li class="sidebar-sub-header"><a href="/blogs/other/前端规范/常用平台ua判断.html#android" class="sidebar-link">Android：</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/other/前端规范/常用平台ua判断.html#qq-2" class="sidebar-link">QQ</a></li><li class="sidebar-sub-header"><a href="/blogs/other/前端规范/常用平台ua判断.html#qqbrowser-2" class="sidebar-link">QQBrowser</a></li><li class="sidebar-sub-header"><a href="/blogs/other/前端规范/常用平台ua判断.html#_360-2" class="sidebar-link">360</a></li><li class="sidebar-sub-header"><a href="/blogs/other/前端规范/常用平台ua判断.html#手机百度-2" class="sidebar-link">手机百度</a></li></ul></li></ul></li><li><a href="/blogs/other/前端路由.html" class="sidebar-link">前端路由</a></li><li><a href="/blogs/other/手写各种/promise.html" class="sidebar-link">Promise、</a></li><li><a href="/blogs/other/手写各种/手写代码实现.html" class="sidebar-link">面试</a></li><li><a href="/blogs/other/正则相关.html" class="sidebar-link">什么是正则表达式呢？</a></li><li><a href="/blogs/other/网站令浏览器崩溃的原因.html" class="sidebar-link">网站导致浏览器崩溃的原因</a></li><li><a href="/blogs/other/重构.html" class="sidebar-link">重构 - 改善既有代码的设计</a></li><li><a href="/blogs/other/错误日志监控.html" class="sidebar-link">前端错误监控以及日志管理</a></li><li><a href="/blogs/other/阿里云/免密登陆.html" class="sidebar-link">免密登录远程服务器配置</a></li><li><a href="/blogs/other/阿里云/给普通用户添加权限.html" class="sidebar-link">阿里云给普通用户添加权限</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="常用平台ua判断"><a href="#常用平台ua判断" class="header-anchor">#</a> 常用平台UA判断</h1> <h2 id="ios"><a href="#ios" class="header-anchor">#</a> iOS：</h2> <h3 id="qq"><a href="#qq" class="header-anchor">#</a> QQ</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>Mozilla/5.0 (iPhone; CPU iPhone OS 13_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/17E255 QQ/8.3.0.608 V1_IPH_SQ_8.3.0_1_APP_A Pixel/1242 SimpleUISwitch/0 QQTheme/1102 Core/WKWebView Device/Apple(iPhone 11 Pro Max) NetType/WIFI QBWebViewType/1 WKType/1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="qqbrowser"><a href="#qqbrowser" class="header-anchor">#</a> QQBrowser</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>Mozilla/5.0 (iPhone; CPU iPhone OS 13_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 MQQBrowser/10.2.1 Mobile/15E148 Safari/604.1 QBWebViewUA/2 QBWebViewType/1 WKType/1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="_360"><a href="#_360" class="header-anchor">#</a> 360</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>Mozilla/5.0 (iPhone; CPU iPhone OS 13_4 like Mac OS X) AppleWebKit/609.1.20 (KHTML, like Gecko) Mobile/17E255 QHBrowser/317 QihooBrowser/4.0.10
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="手机百度"><a href="#手机百度" class="header-anchor">#</a> 手机百度</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>Mozilla/5.0 (iPhone; CPU iPhone OS 13_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SP-engine/2.16.0 main%2F1.0 baiduboxapp/11.20.0.17 (Baidu; P2 13.4) NABar/1.0
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="android"><a href="#android" class="header-anchor">#</a> Android：</h2> <h3 id="qq-2"><a href="#qq-2" class="header-anchor">#</a> QQ</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>Mozilla/5.0 (Linux; Android 8.1.0; vivo X20A Build/OPM1.171019.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045114 Mobile Safari/537.36 V1_AND_SQ_8.2.7_1334_YYB_D QQ/8.2.7.4410 NetType/WIFI WebP/0.3.0 Pixel/1080 StatusBarHeight/73 SimpleUISwitch/0////
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="qqbrowser-2"><a href="#qqbrowser-2" class="header-anchor">#</a> QQBrowser</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>Mozilla/5.0 (Linux; U; Android 8.1.0; zh-cn; vivo X20A Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/10.2 Mobile Safari/537.36
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="_360-2"><a href="#_360-2" class="header-anchor">#</a> 360</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>Mozilla/5.0 (Linux; Android 8.1.0; vivo X20A Build/OPM1.171019.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36
+x-request-with: com.qihoo.browser
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="手机百度-2"><a href="#手机百度-2" class="header-anchor">#</a> 手机百度</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>Mozilla/5.0 (Linux; Android 8.1.0; vivo X20A Build/OPM1.171019.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/76.0.3809.89 Mobile Safari/537.36 T7/11.21 SP-engine/2.17.0 baiduboxapp/11.21.3.10 (Baidu; P1 8.1.0)
+ ```
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>export const ua = window.navigator.userAgent
+export const isAndroid = (/android/i).test(ua)
+export const isIOS = (/iphone|ipad|ipod/i).test(ua)
+export const isQQ = (/QQ//i).test(ua)
+export const isWechat = (/MicroMessenger/i).test(ua)
+export const isYixin = (/yixin/i).test(ua)
+export const isQzone = (/Qzone/i).test(ua)
+export const isWeibo = (/weibo/i).test(ua)
+export const isBaidu = (/baidu/i).test(ua)
+export const isToutiao = (/NewsArticle/i).test(ua) || (/TTWebView/i).test(ua)
+export const isOpr = (/OPR/i).test(ua)
+export const isSogou = (/Sogou/i).test(ua)
+export const isUc = (/UCBrowser/i).test(ua)
+export const isFirefox = (/Firefox/i).test(ua)
+export const isSamsung = (/SamsungBrowser/i).test(ua)
+export const is360Browser = (/QihooBrowser/i).test(ua)</p> <p>function detectQQBrowser () {
+if (isIOS) {
+return (/MQQBrowser/i).test(ua)
+} else if ((/MQQBrowser/i).test(ua) &amp;&amp; !isQQ) {
+return true
+}
+return false
+}</p> <p>export const isQQBrowser = detectQQBrowser()</p> <p>function detectIOS9 () {
+const getIOSVersions = function () {
+if (isIOS) {
+const reg = /OS ((\d+<em>?){2,3})\s/
+const versionMatchs = reg.exec(ua)
+if (versionMatchs &amp;&amp; versionMatchs.length &gt; 0) {
+return versionMatchs[0].replace('OS', '').replace('os', '').replace(/\s+/g, '').replace(/</em>/g, '.')
+}
+}
+return ''
+}</p> <p>const iOSVersionArr = getIOSVersions().split('.')
+if (iOSVersionArr &amp;&amp; iOSVersionArr.length &gt; 0) {
+if (parseInt(iOSVersionArr[0]) &gt;= 9) {
+return true
+}
+}
+return false
+}</p> <p>export const isIOS9 = detectIOS9()</p> <div class="language- line-numbers-mode"><pre class="language-text"><code></code></pre> <div class="line-numbers-wrapper"></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blogs/other/前端协作规范.html" class="prev">
+        前端协作规范
+      </a></span> <span class="next"><a href="/blogs/other/前端路由.html">
+        前端路由
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blogs/assets/js/app.9f53c73e.js" defer></script><script src="/blogs/assets/js/2.0b2502b4.js" defer></script><script src="/blogs/assets/js/156.c396cb12.js" defer></script>
+  </body>
+</html>
