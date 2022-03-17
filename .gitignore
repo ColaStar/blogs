@@ -2,4 +2,7 @@ node_modules
 static
 .DS_Store
 .vscode
-
+*.sh
+*.bat
+*.log
+docs/.vuepress
