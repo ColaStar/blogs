@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JavaScript面向切面编程 | 个人博客</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/blogs/js/tj.js"></script>
+    <script src="/blogs/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="江畔何人初见月，江月何年初照人？">
+    
+    <link rel="preload" href="/blogs/assets/css/0.styles.f7c6bd56.css" as="style"><link rel="preload" href="/blogs/assets/js/app.e644ec03.js" as="script"><link rel="preload" href="/blogs/assets/js/2.5689dfa7.js" as="script"><link rel="preload" href="/blogs/assets/js/82.8d2990f5.js" as="script"><link rel="prefetch" href="/blogs/assets/js/10.e901e6bf.js"><link rel="prefetch" href="/blogs/assets/js/100.0c1fcbf8.js"><link rel="prefetch" href="/blogs/assets/js/101.6bf4fc77.js"><link rel="prefetch" href="/blogs/assets/js/102.1d2eaccd.js"><link rel="prefetch" href="/blogs/assets/js/103.85059ae9.js"><link rel="prefetch" href="/blogs/assets/js/104.570914ff.js"><link rel="prefetch" href="/blogs/assets/js/105.8110e0c6.js"><link rel="prefetch" href="/blogs/assets/js/106.6218fe43.js"><link rel="prefetch" href="/blogs/assets/js/107.035a7779.js"><link rel="prefetch" href="/blogs/assets/js/108.ac2fa821.js"><link rel="prefetch" href="/blogs/assets/js/109.6bf2b4ea.js"><link rel="prefetch" href="/blogs/assets/js/11.a6ce9264.js"><link rel="prefetch" href="/blogs/assets/js/110.8c6f3f50.js"><link rel="prefetch" href="/blogs/assets/js/111.383ab6e2.js"><link rel="prefetch" href="/blogs/assets/js/112.2c270063.js"><link rel="prefetch" href="/blogs/assets/js/113.0574c147.js"><link rel="prefetch" href="/blogs/assets/js/114.624fd444.js"><link rel="prefetch" href="/blogs/assets/js/115.7b2823f9.js"><link rel="prefetch" href="/blogs/assets/js/116.80ee70fc.js"><link rel="prefetch" href="/blogs/assets/js/117.e7969afb.js"><link rel="prefetch" href="/blogs/assets/js/118.56cd574d.js"><link rel="prefetch" href="/blogs/assets/js/119.954d2e5d.js"><link rel="prefetch" href="/blogs/assets/js/12.8e01f2af.js"><link rel="prefetch" href="/blogs/assets/js/120.97690805.js"><link rel="prefetch" href="/blogs/assets/js/121.5d1b8bb6.js"><link rel="prefetch" href="/blogs/assets/js/122.5196c388.js"><link rel="prefetch" href="/blogs/assets/js/123.8889fd8a.js"><link rel="prefetch" href="/blogs/assets/js/124.81fbdf1d.js"><link rel="prefetch" href="/blogs/assets/js/125.a8c40caa.js"><link rel="prefetch" href="/blogs/assets/js/126.48041068.js"><link rel="prefetch" href="/blogs/assets/js/127.84edfb11.js"><link rel="prefetch" href="/blogs/assets/js/128.f9559f9c.js"><link rel="prefetch" href="/blogs/assets/js/129.4c7a12ec.js"><link rel="prefetch" href="/blogs/assets/js/13.47cfa5d5.js"><link rel="prefetch" href="/blogs/assets/js/130.0b9be472.js"><link rel="prefetch" href="/blogs/assets/js/131.bd43991a.js"><link rel="prefetch" href="/blogs/assets/js/132.75d202e3.js"><link rel="prefetch" href="/blogs/assets/js/133.d67e48d2.js"><link rel="prefetch" href="/blogs/assets/js/134.e87db8f1.js"><link rel="prefetch" href="/blogs/assets/js/135.52d461c7.js"><link rel="prefetch" href="/blogs/assets/js/136.59b643ed.js"><link rel="prefetch" href="/blogs/assets/js/137.ec96225a.js"><link rel="prefetch" href="/blogs/assets/js/138.72377d95.js"><link rel="prefetch" href="/blogs/assets/js/139.80673307.js"><link rel="prefetch" href="/blogs/assets/js/14.a65561e2.js"><link rel="prefetch" href="/blogs/assets/js/140.b85b8f0f.js"><link rel="prefetch" href="/blogs/assets/js/141.b7745460.js"><link rel="prefetch" href="/blogs/assets/js/142.9a5dd0fe.js"><link rel="prefetch" href="/blogs/assets/js/143.b66b69c6.js"><link rel="prefetch" href="/blogs/assets/js/144.6d6877c9.js"><link rel="prefetch" href="/blogs/assets/js/145.85a77d4e.js"><link rel="prefetch" href="/blogs/assets/js/146.6da81be1.js"><link rel="prefetch" href="/blogs/assets/js/147.8f2a420e.js"><link rel="prefetch" href="/blogs/assets/js/148.862a3477.js"><link rel="prefetch" href="/blogs/assets/js/149.121d303b.js"><link rel="prefetch" href="/blogs/assets/js/15.7c5758e7.js"><link rel="prefetch" href="/blogs/assets/js/150.eabc187b.js"><link rel="prefetch" href="/blogs/assets/js/151.7581b0df.js"><link rel="prefetch" href="/blogs/assets/js/152.adeb84dd.js"><link rel="prefetch" href="/blogs/assets/js/153.c3b64b4d.js"><link rel="prefetch" href="/blogs/assets/js/154.a3060078.js"><link rel="prefetch" href="/blogs/assets/js/155.1f1951fb.js"><link rel="prefetch" href="/blogs/assets/js/156.34fe39e1.js"><link rel="prefetch" href="/blogs/assets/js/157.81ac9ed7.js"><link rel="prefetch" href="/blogs/assets/js/158.72f7b22b.js"><link rel="prefetch" href="/blogs/assets/js/159.572b258e.js"><link rel="prefetch" href="/blogs/assets/js/16.35389dfa.js"><link rel="prefetch" href="/blogs/assets/js/160.6fc0e08d.js"><link rel="prefetch" href="/blogs/assets/js/161.b174afda.js"><link rel="prefetch" href="/blogs/assets/js/162.e393d4d8.js"><link rel="prefetch" href="/blogs/assets/js/163.a76edf51.js"><link rel="prefetch" href="/blogs/assets/js/164.732f62da.js"><link rel="prefetch" href="/blogs/assets/js/165.c5b37837.js"><link rel="prefetch" href="/blogs/assets/js/166.618f9776.js"><link rel="prefetch" href="/blogs/assets/js/167.239207ae.js"><link rel="prefetch" href="/blogs/assets/js/168.1ce94458.js"><link rel="prefetch" href="/blogs/assets/js/169.983f0b7f.js"><link rel="prefetch" href="/blogs/assets/js/17.0f2102e9.js"><link rel="prefetch" href="/blogs/assets/js/170.adf32601.js"><link rel="prefetch" href="/blogs/assets/js/171.a9e43063.js"><link rel="prefetch" href="/blogs/assets/js/172.00278bf8.js"><link rel="prefetch" href="/blogs/assets/js/173.22190dc7.js"><link rel="prefetch" href="/blogs/assets/js/174.21575200.js"><link rel="prefetch" href="/blogs/assets/js/18.85dc6e83.js"><link rel="prefetch" href="/blogs/assets/js/19.3dc73713.js"><link rel="prefetch" href="/blogs/assets/js/20.99db8519.js"><link rel="prefetch" href="/blogs/assets/js/21.698a52c5.js"><link rel="prefetch" href="/blogs/assets/js/22.d7210ff8.js"><link rel="prefetch" href="/blogs/assets/js/23.d56d0f74.js"><link rel="prefetch" href="/blogs/assets/js/24.438b7e8f.js"><link rel="prefetch" href="/blogs/assets/js/25.9692637a.js"><link rel="prefetch" href="/blogs/assets/js/26.ee8d2e2c.js"><link rel="prefetch" href="/blogs/assets/js/27.648386b6.js"><link rel="prefetch" href="/blogs/assets/js/28.4b667b73.js"><link rel="prefetch" href="/blogs/assets/js/29.f651827f.js"><link rel="prefetch" href="/blogs/assets/js/3.3923979e.js"><link rel="prefetch" href="/blogs/assets/js/30.9c41188e.js"><link rel="prefetch" href="/blogs/assets/js/31.1cad6d07.js"><link rel="prefetch" href="/blogs/assets/js/32.48116ba0.js"><link rel="prefetch" href="/blogs/assets/js/33.dc400d0c.js"><link rel="prefetch" href="/blogs/assets/js/34.9760f2ed.js"><link rel="prefetch" href="/blogs/assets/js/35.0c8c5faf.js"><link rel="prefetch" href="/blogs/assets/js/36.1b62f664.js"><link rel="prefetch" href="/blogs/assets/js/37.d0e0e22e.js"><link rel="prefetch" href="/blogs/assets/js/38.bf3df725.js"><link rel="prefetch" href="/blogs/assets/js/39.1de86319.js"><link rel="prefetch" href="/blogs/assets/js/4.f2bc8a01.js"><link rel="prefetch" href="/blogs/assets/js/40.603e7954.js"><link rel="prefetch" href="/blogs/assets/js/41.f60a79f1.js"><link rel="prefetch" href="/blogs/assets/js/42.e2b13978.js"><link rel="prefetch" href="/blogs/assets/js/43.02199eff.js"><link rel="prefetch" href="/blogs/assets/js/44.65bbdfe1.js"><link rel="prefetch" href="/blogs/assets/js/45.3dd35806.js"><link rel="prefetch" href="/blogs/assets/js/46.affe5377.js"><link rel="prefetch" href="/blogs/assets/js/47.8aeb7e59.js"><link rel="prefetch" href="/blogs/assets/js/48.849da6a6.js"><link rel="prefetch" href="/blogs/assets/js/49.fd95fbe3.js"><link rel="prefetch" href="/blogs/assets/js/5.c1772c6c.js"><link rel="prefetch" href="/blogs/assets/js/50.f3ad48a4.js"><link rel="prefetch" href="/blogs/assets/js/51.099d8e64.js"><link rel="prefetch" href="/blogs/assets/js/52.9abb7ef5.js"><link rel="prefetch" href="/blogs/assets/js/53.d28ed619.js"><link rel="prefetch" href="/blogs/assets/js/54.1f762ff1.js"><link rel="prefetch" href="/blogs/assets/js/55.28ad078a.js"><link rel="prefetch" href="/blogs/assets/js/56.28bac15b.js"><link rel="prefetch" href="/blogs/assets/js/57.f3a6121a.js"><link rel="prefetch" href="/blogs/assets/js/58.ed5824a8.js"><link rel="prefetch" href="/blogs/assets/js/59.9860100e.js"><link rel="prefetch" href="/blogs/assets/js/6.1c408966.js"><link rel="prefetch" href="/blogs/assets/js/60.304da844.js"><link rel="prefetch" href="/blogs/assets/js/61.c63b87a8.js"><link rel="prefetch" href="/blogs/assets/js/62.bae587da.js"><link rel="prefetch" href="/blogs/assets/js/63.a3c839b3.js"><link rel="prefetch" href="/blogs/assets/js/64.752ae530.js"><link rel="prefetch" href="/blogs/assets/js/65.cff65bd7.js"><link rel="prefetch" href="/blogs/assets/js/66.53ca93e2.js"><link rel="prefetch" href="/blogs/assets/js/67.5600bd27.js"><link rel="prefetch" href="/blogs/assets/js/68.1ae2fdb9.js"><link rel="prefetch" href="/blogs/assets/js/69.5570d877.js"><link rel="prefetch" href="/blogs/assets/js/7.7f10b082.js"><link rel="prefetch" href="/blogs/assets/js/70.a3d98361.js"><link rel="prefetch" href="/blogs/assets/js/71.a9c04aa3.js"><link rel="prefetch" href="/blogs/assets/js/72.9ac2172c.js"><link rel="prefetch" href="/blogs/assets/js/73.4fb68f14.js"><link rel="prefetch" href="/blogs/assets/js/74.78cefa04.js"><link rel="prefetch" href="/blogs/assets/js/75.be75d256.js"><link rel="prefetch" href="/blogs/assets/js/76.fcc15f8e.js"><link rel="prefetch" href="/blogs/assets/js/77.24aa7035.js"><link rel="prefetch" href="/blogs/assets/js/78.77744ae0.js"><link rel="prefetch" href="/blogs/assets/js/79.1a6ad38e.js"><link rel="prefetch" href="/blogs/assets/js/8.e9f537d2.js"><link rel="prefetch" href="/blogs/assets/js/80.ca41e5ad.js"><link rel="prefetch" href="/blogs/assets/js/81.7a9b711c.js"><link rel="prefetch" href="/blogs/assets/js/83.87af70e3.js"><link rel="prefetch" href="/blogs/assets/js/84.803c7e03.js"><link rel="prefetch" href="/blogs/assets/js/85.5c4787f1.js"><link rel="prefetch" href="/blogs/assets/js/86.adc84b64.js"><link rel="prefetch" href="/blogs/assets/js/87.094b1e30.js"><link rel="prefetch" href="/blogs/assets/js/88.0e1a00cf.js"><link rel="prefetch" href="/blogs/assets/js/89.e7a78fbd.js"><link rel="prefetch" href="/blogs/assets/js/9.e5fb1fbb.js"><link rel="prefetch" href="/blogs/assets/js/90.46afd670.js"><link rel="prefetch" href="/blogs/assets/js/91.a9e2bf9f.js"><link rel="prefetch" href="/blogs/assets/js/92.27b42bbe.js"><link rel="prefetch" href="/blogs/assets/js/93.05acf238.js"><link rel="prefetch" href="/blogs/assets/js/94.8309e47a.js"><link rel="prefetch" href="/blogs/assets/js/95.f1ad6962.js"><link rel="prefetch" href="/blogs/assets/js/96.3d6a67d3.js"><link rel="prefetch" href="/blogs/assets/js/97.33379eba.js"><link rel="prefetch" href="/blogs/assets/js/98.eb111825.js"><link rel="prefetch" href="/blogs/assets/js/99.f0e0aab7.js">
+    <link rel="stylesheet" href="/blogs/assets/css/0.styles.f7c6bd56.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blogs/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blogs/no.4/aop面向切面编程.html" class="active sidebar-link">JavaScript面向切面编程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.4/aop面向切面编程.html#aop的应用实例" class="sidebar-link">AOP的应用实例</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.4/aop面向切面编程.html#数据统计上报" class="sidebar-link">数据统计上报</a></li></ul></li><li class="sidebar-sub-header"><a href="/blogs/no.4/aop面向切面编程.html#用aop动态改变函数的参数" class="sidebar-link">用AOP动态改变函数的参数</a></li><li class="sidebar-sub-header"><a href="/blogs/no.4/aop面向切面编程.html#aop-实现ajax回调函数" class="sidebar-link">AOP 实现ajax回调函数</a></li><li class="sidebar-sub-header"><a href="/blogs/no.4/aop面向切面编程.html#分离表单请求和校验" class="sidebar-link">分离表单请求和校验</a></li></ul></li><li><a href="/blogs/no.4/basketJS.html" class="sidebar-link">basket.js详解</a></li><li><a href="/blogs/no.4/ioc_DI.html" class="sidebar-link">前端中的 IoC 理念</a></li><li><a href="/blogs/no.4/js内存泄露.html" class="sidebar-link">内存泄漏的排查</a></li><li><a href="/blogs/no.4/localForage.html" class="sidebar-link">localForage</a></li><li><a href="/blogs/no.4/pajax.html" class="sidebar-link">PJAX的实现与应用</a></li><li><a href="/blogs/no.4/quicklink.html" class="sidebar-link">quicklink详解</a></li><li><a href="/blogs/no.4/前端性能优化.html" class="sidebar-link">前端性能优化</a></li><li><a href="/blogs/no.4/前端性能优化之缓存利用.html" class="sidebar-link">前端性能优化之缓存利用</a></li><li><a href="/blogs/no.4/前端高级调试.html" class="sidebar-link">前端高级调试</a></li><li><a href="/blogs/no.4/雅虎军规.html" class="sidebar-link">雅虎军规35条</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="javascript面向切面编程"><a href="#javascript面向切面编程" class="header-anchor">#</a> JavaScript面向切面编程</h1> <p>Aspect Oriented Programming(AOP)，面向切面编程，是一个比较热门的话题。AOP主要实现的<strong>目的</strong>是针对业务处理过程中的切面进行提取，它所面对的是处理过程中的某个步骤或阶段，以获得逻辑过程中各部分之间低耦合性的隔离效果,其中“通知”是切面的具体实现，分为before（前置通知）、after（后置通知）、around（环绕通知）。</p> <p>在前端的常见需求中，有以下一些业务可以使用 AOP 将其从核心关注点中分离出来</p> <ul><li>Node.js 日志log</li> <li>埋点、数据上报</li> <li>性能分析、无侵入的统计函数执行时间</li> <li>给ajax请求动态添加参数、动态改变函数参数</li> <li>分离表单请求和验证</li> <li>防抖与节流</li> <li>防止window.onload被二次覆盖.</li></ul> <p>举个例子，我们现在提供一个查询学生信息的服务，但是我们希望记录有谁进行了这个查询。如果按照传统的OOP的实现的话，那我们实现了一个查询学生信息的服务接口(StudentInfoService)和其实现 类 （StudentInfoServiceImpl.java），同时为了要进行记录的话，那我们在实现类(StudentInfoServiceImpl.java)中要添加其实现记录的过程。这样的话，假如我们要实现的服务有多个呢？那就要在每个实现的类都添加这些记录过程。这样做的话就会有点繁琐，而且每个实现类都与记录服务日志的行为紧耦合，违反了面向对象的规则。那么怎样才能把记录服务的行为与业务处理过程中分离出来呢？看起来好像就是查询学生的服务自己在进行，但却是背后日志记录对这些行为进行记录，并且查询学生的服务不知道存在这些记录过程，这就是我们要讨论AOP的目的所在。AOP的编程，好像就是把我们在某个方面的功能提出来与一批对象进行隔离，这样与一批对象之间降低了耦合性，可以就某个功能进行编程。</p> <p>例子:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Function.prototype.before=function(fn){
+    //保存原函数的引用
+    var __self=this;
+    //返回包含了原函数和新函数的&quot;代理&quot;函数
+    return function(){
+    //执行新函数,且保证this不被劫持,新函数接受的参数
+    //也会被原封不动地传入原函数,新函数在原函数之前执行
+        if(fn.apply(this,arguments) == false){
+            return false
+        };
+    //执行原函数并返回原函数的执行结果
+    //并且保证this不被劫持
+        return __self.apply(this,arguments);
+    }
+}
+Function.prototype.after=function(fn){
+    var __self=this;
+    return function(){
+        var result=__self.apply(this,arguments);
+        if(result == false){
+            return false
+        }
+        fn.apply(this,arguments);
+        return result;
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><p><code>Function.prototype.before</code>接受一个函数当作参数,这个函数即为新添加的函数,它装载了新添加的功能代码</p> <p>接下来把当前的this保存起来,这个this指向原函数,然后返回一个&quot;代理&quot;函数,这个&quot;&quot;代理&quot;函数只是结构上像代理而已,并不承当代理的职责(比如控制对象的访问等).它的工作是把请求分别转发给新添加的函数和原函数,且负责保证它们的执行顺序,让新添加的函数在原函数之前执行(前置装饰),这样就实现了动态装饰的效果</p> <p>我们注意到,通过<code>Function.prototype.apply</code>来动态传入正确的this,保证了函数在被装饰之后,this不会被劫持
+<code>Function.prototype.after</code>的原理跟<code>Function.prototype.before</code>一样,唯一不同的地方在于让新添加的函数在原函数执行之后再执行</p> <h2 id="aop的应用实例"><a href="#aop的应用实例" class="header-anchor">#</a> AOP的应用实例</h2> <p>用AOP装饰函数的技巧在实际开发中非常有用.不论是业务代码的编写,还是在框架层面,我们都可以把行为依照职责分成粒度更细的函数,随后通过装饰把它们合并在一起,这有助于我们编写一个松耦合和高复用性的系统.</p> <h3 id="数据统计上报"><a href="#数据统计上报" class="header-anchor">#</a> 数据统计上报</h3> <p>分离业务代码和数据统计代码,无论在什么语言中,都是AOP的经典应用之一.在项目开发的结尾阶段难免要加上很多统计数据的代码,这些过程很可能让我们被迫改动早已封装好的函数.</p> <p>比如页面中有一个登录button,点击这个button会弹出登录浮层,与此同时要进行数据上报,来统计有多少用户点击了这个登录button</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;html&gt;
+&lt;button id=&quot;button&quot; tag=&quot;login&quot;&gt;点击打开登录浮层&lt;/button&gt;
+&lt;script&gt;
+var showLogin = function() {
+    console.log(&quot;打开登录浮层&quot;);
+    log(this.getAttribute('tag'));
+}
+var log = function(tag) {
+    console.log(&quot;上传标签为:&quot; + tag);
+    //(new Image).src=&quot;http://xxx.com/report?tag=&quot;+tag; //真正的上传代码略
+}
+document.getElementById('button').onclick = showLogin;
+&lt;/script&gt;
+&lt;/html&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>我们看到在showLogin函数里,既要负责打开登录浮层,又要负责数据上传,这是两个层面的功能,在此处却被耦合进一个函数里.使用AOP分离之后,代码如下:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;html&gt;
+&lt;button id=&quot;button&quot; tag=&quot;login&quot;&gt;点击打开登录浮层&lt;/button&gt;
+&lt;script&gt;
+Function.prototype.after = function(afterfn) {
+    var __self = this;
+    return function() {
+        var ret = __self.apply(this, arguments);
+        afterfn.apply(this, arguments);
+        return ret;
+    }
+}
+var showLogin=function(){
+  console.log(&quot;打开登录浮层&quot;);
+}
+var log=function(){
+  console.log(&quot;上传标签为:&quot;+this.getAttribute('tag'));
+}
+showLogin=showLogin.after(log);
+document.getElementById('button').onclick=showLogin;
+&lt;/script&gt;
+&lt;/html&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h2 id="用aop动态改变函数的参数"><a href="#用aop动态改变函数的参数" class="header-anchor">#</a> 用AOP动态改变函数的参数</h2> <p>观察<code>Function.prototype.before</code>方法:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Function.prototype.before=function(beforefn){
+    var __self=this;
+    //保存原函数的引用
+    return function(){
+    //返回包含了原函数和新函数的&quot;代理&quot;函数
+        beforefn.apply(this,arguments);//(1)
+    //执行新函数,且保证this不被劫持,新函数接受的参数
+    //也会被原封不动地传入原函数,新函数在原函数之前执行
+        return __self.apply(this,arguments);//(2)
+    //执行原函数并返回原函数的执行结果
+    //并且保证this不被劫持
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>从这段代码的(1)处和(2)处可以看到,<code>beforefn</code>和原函数<code>__self</code>共用一组参数列表<code>arguments</code>,当我们在<code>beforefn</code>的函数体内改变<code>arguments</code>的时候,原函数__self接收的参数列表自然也会变化.</p> <p>下面的例子展示了如何通过Function.prototype.before方法给函数func的参数param动态地添加属性b:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Function.prototype.before = function(beforefn) {
+    var __self = this;
+    //保存原函数的引用
+    return function() {
+        //返回包含了原函数和新函数的&quot;代理&quot;函数
+        beforefn.apply(this, arguments); //(1)
+        //执行新函数,且保证this不被劫持,新函数接受的参数
+        //也会被原封不动地传入原函数,新函数在原函数之前执行
+        return __self.apply(this, arguments); //(2)
+        //执行原函数并返回原函数的执行结果
+        //并且保证this不被劫持
+    }
+}
+var func = function(param) {
+    console.log(param);
+}
+func = func.before(function(param) {
+    param.b = 'b';
+})
+func({a: &quot;a&quot;}); //{a:&quot;a&quot;,b:&quot;b&quot;}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h2 id="aop-实现ajax回调函数"><a href="#aop-实现ajax回调函数" class="header-anchor">#</a> AOP 实现ajax回调函数</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+function actsAsDecorator(object) { 
+object.setupDecoratorFor = function(method) { 
+if (! ('original_' + method in object) ) { 
+object['original_' + method] = object[method]; 
+object['before_' + method] = [ ]; 
+object['after_' + method] = [ ]; 
+object[method] = function() { 
+var i; 
+var b = this['before_' + method]; 
+var a = this['after_' + method]; 
+var rv; 
+for (i = 0; i &lt; b.length; i++) { 
+b[i].call(this, arguments); 
+} 
+rv = this['original_' + method].apply(this, arguments); 
+for (i = 0; i &lt; a.length; i++) { 
+a[i].call(this, arguments); 
+} 
+return rv; 
+} 
+} 
+}; 
+object.before = function(method, f) { 
+object.setupDecoratorFor(method); 
+object['before_' + method].unshift(f); 
+}; 
+object.after = function(method, f) { 
+object.setupDecoratorFor(method); 
+object['after_' + method].push(f); 
+}; 
+} 
+/** 
+Invoking 
+*/ 
+function Test(){ 
+this.say1 = function(s){ 
+alert(s); 
+} 
+this.say2 = function(s){ 
+alert(s); 
+} 
+} 
+var t = new Test(); 
+actsAsDecorator(t); 
+t.before(&quot;say1&quot;,beforeHander); 
+t.after(&quot;say2&quot;,afterHander); 
+test(); 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br></div></div><h2 id="分离表单请求和校验"><a href="#分离表单请求和校验" class="header-anchor">#</a> 分离表单请求和校验</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>var validata_rules = {
+    no_empty: function(value){
+            return value.length !== '';
+    },
+    max_length:function(value){
+         return value.length &gt; length;
+    }
+}
+
+var validata = function(){
+    for(var i in validata_rules){
+        if(validata_rules[i].apply(this,arguments === false)){
+            return false
+        }
+    }
+}
+
+var send = function(value){
+    if(validata(value) == false){
+        return ;
+    }
+    from.send()
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/17/2022, 3:20:27 PM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/blogs/no.4/basketJS.html">
+        basket.js详解
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blogs/assets/js/app.e644ec03.js" defer></script><script src="/blogs/assets/js/2.5689dfa7.js" defer></script><script src="/blogs/assets/js/82.8d2990f5.js" defer></script>
+  </body>
+</html>

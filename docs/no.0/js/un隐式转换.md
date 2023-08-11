@@ -114,7 +114,7 @@ valueOf()他默认将对象转换为表示它的原始值，因为对象是复�
 
 · 常见面试题
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/隐式转换4.jpeg">![](http://blog.colastar.club/static/images/隐式转换4.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/隐式转换4.jpeg">![](http://blog.colastar.club:9527/static/images/隐式转换4.jpeg)</a>
 
 · 原理分析
 <a data-fancybox title="" href="隐式转换41.jpeg">![](隐式转换41.jpeg)</a>

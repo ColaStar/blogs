@@ -7,22 +7,22 @@
 
 - 1.首先[下载mysql](https://downloads.mysql.com/archives/community/)，下载版本如下所示：
 
-![](http://blog.colastar.club/static/images/mysql_install.png)
+![](http://blog.colastar.club:9527/static/images/mysql_install.png)
 
 - 2.打开下载好的dmg，之后会弹出如下所示，然后双击pkg文件
 install1.png
-![](http://blog.colastar.club/static/images/mysql_install1.png)
+![](http://blog.colastar.club:9527/static/images/mysql_install1.png)
 
 - 3.之后一路`continue`、`install`，最后显示如下图1所示,保存好弹出框中提示的密码，然后点击ok，最终出现如下图2，即成功，然后关闭即可。
-![](http://blog.colastar.club/static/images/mysql_continue1.png)
-![](http://blog.colastar.club/static/images/mysql_continue2.png)
+![](http://blog.colastar.club:9527/static/images/mysql_continue1.png)
+![](http://blog.colastar.club:9527/static/images/mysql_continue2.png)
 
 - 4.之后打开mysql，有两种方式，一种是从系统设置，一种是命令行。
 > 系统设置(显示runing即为启动成功)：
 
-![](http://blog.colastar.club/static/images/mysql_start.png)
-![](http://blog.colastar.club/static/images/mysql_start1.png)
-![](http://blog.colastar.club/static/images/mysql_start2.png)
+![](http://blog.colastar.club:9527/static/images/mysql_start.png)
+![](http://blog.colastar.club:9527/static/images/mysql_start1.png)
+![](http://blog.colastar.club:9527/static/images/mysql_start2.png)
 
 > 命令行启动
 ```
@@ -66,13 +66,13 @@ mysql -u root -p
 
 登陆之后如下图所示：
 
-![](http://blog.colastar.club/static/images/mysql_pwd_edit.png)
+![](http://blog.colastar.club:9527/static/images/mysql_pwd_edit.png)
 
 // 之后执行如下语句，xxx替换为你新的密码，然后回车，就会设置成功,如下图，成功之后，执行 quit，然后重新用新密码登陆，再次登陆界面与第一次登陆成功一样即修改密码成功。
 ```
 SET PASSWORD FOR 'root'@'localhost' = PASSWORD('xxx')
 ```
-![](http://blog.colastar.club/static/images/mysql_setting.png)
+![](http://blog.colastar.club:9527/static/images/mysql_setting.png)
 
 **注意的点：**
 

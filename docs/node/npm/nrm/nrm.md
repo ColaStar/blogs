@@ -10,14 +10,14 @@ npm install -g nrm
 ```
 nrm ls
 ```
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/nrmls.png">![](http://blog.colastar.club/static/images/nrmls.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/nrmls.png">![](http://blog.colastar.club:9527/static/images/nrmls.png)</a>
 
 ## 查看当前使用源
 
 ```
 nrm current
 ```
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/nrmcurrent.png">![](http://blog.colastar.club/static/images/nrmcurrent.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/nrmcurrent.png">![](http://blog.colastar.club:9527/static/images/nrmcurrent.png)</a>
 
 ## 切换源
 
@@ -28,7 +28,7 @@ nrm use <registry>
 
 比如：切换为taobao源
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/nrmuse.png">![](http://blog.colastar.club/static/images/nrmuse.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/nrmuse.png">![](http://blog.colastar.club:9527/static/images/nrmuse.png)</a>
 
 ## 添加源
 
@@ -42,7 +42,7 @@ nrm add <registry> <url>
 ```
 nrm add cpm http://192.168.22.11:8888/repository/npm-public/
 ```
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/nrmadd.png">![](http://blog.colastar.club/static/images/nrmadd.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/nrmadd.png">![](http://blog.colastar.club:9527/static/images/nrmadd.png)</a>
 ## 删除源
 
 ```
@@ -54,7 +54,7 @@ nrm del <registry>
 ```
 nrm del cpm
 ```
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/nrmdel.png">![](http://blog.colastar.club/static/images/nrmdel.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/nrmdel.png">![](http://blog.colastar.club:9527/static/images/nrmdel.png)</a>
 
 ## 测试源速度（即响应时间）
 
@@ -69,7 +69,7 @@ nrm test <registry>
 ```
 nrm test npm
 ```
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/nrmtest.png">![](http://blog.colastar.club/static/images/nrmtest.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/nrmtest.png">![](http://blog.colastar.club:9527/static/images/nrmtest.png)</a>
 
 
 

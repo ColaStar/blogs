@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Promise、 | 个人博客</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/blogs/js/tj.js"></script>
+    <script src="/blogs/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="江畔何人初见月，江月何年初照人？">
+    
+    <link rel="preload" href="/blogs/assets/css/0.styles.f7c6bd56.css" as="style"><link rel="preload" href="/blogs/assets/js/app.e644ec03.js" as="script"><link rel="preload" href="/blogs/assets/js/2.5689dfa7.js" as="script"><link rel="preload" href="/blogs/assets/js/162.e393d4d8.js" as="script"><link rel="prefetch" href="/blogs/assets/js/10.e901e6bf.js"><link rel="prefetch" href="/blogs/assets/js/100.0c1fcbf8.js"><link rel="prefetch" href="/blogs/assets/js/101.6bf4fc77.js"><link rel="prefetch" href="/blogs/assets/js/102.1d2eaccd.js"><link rel="prefetch" href="/blogs/assets/js/103.85059ae9.js"><link rel="prefetch" href="/blogs/assets/js/104.570914ff.js"><link rel="prefetch" href="/blogs/assets/js/105.8110e0c6.js"><link rel="prefetch" href="/blogs/assets/js/106.6218fe43.js"><link rel="prefetch" href="/blogs/assets/js/107.035a7779.js"><link rel="prefetch" href="/blogs/assets/js/108.ac2fa821.js"><link rel="prefetch" href="/blogs/assets/js/109.6bf2b4ea.js"><link rel="prefetch" href="/blogs/assets/js/11.a6ce9264.js"><link rel="prefetch" href="/blogs/assets/js/110.8c6f3f50.js"><link rel="prefetch" href="/blogs/assets/js/111.383ab6e2.js"><link rel="prefetch" href="/blogs/assets/js/112.2c270063.js"><link rel="prefetch" href="/blogs/assets/js/113.0574c147.js"><link rel="prefetch" href="/blogs/assets/js/114.624fd444.js"><link rel="prefetch" href="/blogs/assets/js/115.7b2823f9.js"><link rel="prefetch" href="/blogs/assets/js/116.80ee70fc.js"><link rel="prefetch" href="/blogs/assets/js/117.e7969afb.js"><link rel="prefetch" href="/blogs/assets/js/118.56cd574d.js"><link rel="prefetch" href="/blogs/assets/js/119.954d2e5d.js"><link rel="prefetch" href="/blogs/assets/js/12.8e01f2af.js"><link rel="prefetch" href="/blogs/assets/js/120.97690805.js"><link rel="prefetch" href="/blogs/assets/js/121.5d1b8bb6.js"><link rel="prefetch" href="/blogs/assets/js/122.5196c388.js"><link rel="prefetch" href="/blogs/assets/js/123.8889fd8a.js"><link rel="prefetch" href="/blogs/assets/js/124.81fbdf1d.js"><link rel="prefetch" href="/blogs/assets/js/125.a8c40caa.js"><link rel="prefetch" href="/blogs/assets/js/126.48041068.js"><link rel="prefetch" href="/blogs/assets/js/127.84edfb11.js"><link rel="prefetch" href="/blogs/assets/js/128.f9559f9c.js"><link rel="prefetch" href="/blogs/assets/js/129.4c7a12ec.js"><link rel="prefetch" href="/blogs/assets/js/13.47cfa5d5.js"><link rel="prefetch" href="/blogs/assets/js/130.0b9be472.js"><link rel="prefetch" href="/blogs/assets/js/131.bd43991a.js"><link rel="prefetch" href="/blogs/assets/js/132.75d202e3.js"><link rel="prefetch" href="/blogs/assets/js/133.d67e48d2.js"><link rel="prefetch" href="/blogs/assets/js/134.e87db8f1.js"><link rel="prefetch" href="/blogs/assets/js/135.52d461c7.js"><link rel="prefetch" href="/blogs/assets/js/136.59b643ed.js"><link rel="prefetch" href="/blogs/assets/js/137.ec96225a.js"><link rel="prefetch" href="/blogs/assets/js/138.72377d95.js"><link rel="prefetch" href="/blogs/assets/js/139.80673307.js"><link rel="prefetch" href="/blogs/assets/js/14.a65561e2.js"><link rel="prefetch" href="/blogs/assets/js/140.b85b8f0f.js"><link rel="prefetch" href="/blogs/assets/js/141.b7745460.js"><link rel="prefetch" href="/blogs/assets/js/142.9a5dd0fe.js"><link rel="prefetch" href="/blogs/assets/js/143.b66b69c6.js"><link rel="prefetch" href="/blogs/assets/js/144.6d6877c9.js"><link rel="prefetch" href="/blogs/assets/js/145.85a77d4e.js"><link rel="prefetch" href="/blogs/assets/js/146.6da81be1.js"><link rel="prefetch" href="/blogs/assets/js/147.8f2a420e.js"><link rel="prefetch" href="/blogs/assets/js/148.862a3477.js"><link rel="prefetch" href="/blogs/assets/js/149.121d303b.js"><link rel="prefetch" href="/blogs/assets/js/15.7c5758e7.js"><link rel="prefetch" href="/blogs/assets/js/150.eabc187b.js"><link rel="prefetch" href="/blogs/assets/js/151.7581b0df.js"><link rel="prefetch" href="/blogs/assets/js/152.adeb84dd.js"><link rel="prefetch" href="/blogs/assets/js/153.c3b64b4d.js"><link rel="prefetch" href="/blogs/assets/js/154.a3060078.js"><link rel="prefetch" href="/blogs/assets/js/155.1f1951fb.js"><link rel="prefetch" href="/blogs/assets/js/156.34fe39e1.js"><link rel="prefetch" href="/blogs/assets/js/157.81ac9ed7.js"><link rel="prefetch" href="/blogs/assets/js/158.72f7b22b.js"><link rel="prefetch" href="/blogs/assets/js/159.572b258e.js"><link rel="prefetch" href="/blogs/assets/js/16.35389dfa.js"><link rel="prefetch" href="/blogs/assets/js/160.6fc0e08d.js"><link rel="prefetch" href="/blogs/assets/js/161.b174afda.js"><link rel="prefetch" href="/blogs/assets/js/163.a76edf51.js"><link rel="prefetch" href="/blogs/assets/js/164.732f62da.js"><link rel="prefetch" href="/blogs/assets/js/165.c5b37837.js"><link rel="prefetch" href="/blogs/assets/js/166.618f9776.js"><link rel="prefetch" href="/blogs/assets/js/167.239207ae.js"><link rel="prefetch" href="/blogs/assets/js/168.1ce94458.js"><link rel="prefetch" href="/blogs/assets/js/169.983f0b7f.js"><link rel="prefetch" href="/blogs/assets/js/17.0f2102e9.js"><link rel="prefetch" href="/blogs/assets/js/170.adf32601.js"><link rel="prefetch" href="/blogs/assets/js/171.a9e43063.js"><link rel="prefetch" href="/blogs/assets/js/172.00278bf8.js"><link rel="prefetch" href="/blogs/assets/js/173.22190dc7.js"><link rel="prefetch" href="/blogs/assets/js/174.21575200.js"><link rel="prefetch" href="/blogs/assets/js/18.85dc6e83.js"><link rel="prefetch" href="/blogs/assets/js/19.3dc73713.js"><link rel="prefetch" href="/blogs/assets/js/20.99db8519.js"><link rel="prefetch" href="/blogs/assets/js/21.698a52c5.js"><link rel="prefetch" href="/blogs/assets/js/22.d7210ff8.js"><link rel="prefetch" href="/blogs/assets/js/23.d56d0f74.js"><link rel="prefetch" href="/blogs/assets/js/24.438b7e8f.js"><link rel="prefetch" href="/blogs/assets/js/25.9692637a.js"><link rel="prefetch" href="/blogs/assets/js/26.ee8d2e2c.js"><link rel="prefetch" href="/blogs/assets/js/27.648386b6.js"><link rel="prefetch" href="/blogs/assets/js/28.4b667b73.js"><link rel="prefetch" href="/blogs/assets/js/29.f651827f.js"><link rel="prefetch" href="/blogs/assets/js/3.3923979e.js"><link rel="prefetch" href="/blogs/assets/js/30.9c41188e.js"><link rel="prefetch" href="/blogs/assets/js/31.1cad6d07.js"><link rel="prefetch" href="/blogs/assets/js/32.48116ba0.js"><link rel="prefetch" href="/blogs/assets/js/33.dc400d0c.js"><link rel="prefetch" href="/blogs/assets/js/34.9760f2ed.js"><link rel="prefetch" href="/blogs/assets/js/35.0c8c5faf.js"><link rel="prefetch" href="/blogs/assets/js/36.1b62f664.js"><link rel="prefetch" href="/blogs/assets/js/37.d0e0e22e.js"><link rel="prefetch" href="/blogs/assets/js/38.bf3df725.js"><link rel="prefetch" href="/blogs/assets/js/39.1de86319.js"><link rel="prefetch" href="/blogs/assets/js/4.f2bc8a01.js"><link rel="prefetch" href="/blogs/assets/js/40.603e7954.js"><link rel="prefetch" href="/blogs/assets/js/41.f60a79f1.js"><link rel="prefetch" href="/blogs/assets/js/42.e2b13978.js"><link rel="prefetch" href="/blogs/assets/js/43.02199eff.js"><link rel="prefetch" href="/blogs/assets/js/44.65bbdfe1.js"><link rel="prefetch" href="/blogs/assets/js/45.3dd35806.js"><link rel="prefetch" href="/blogs/assets/js/46.affe5377.js"><link rel="prefetch" href="/blogs/assets/js/47.8aeb7e59.js"><link rel="prefetch" href="/blogs/assets/js/48.849da6a6.js"><link rel="prefetch" href="/blogs/assets/js/49.fd95fbe3.js"><link rel="prefetch" href="/blogs/assets/js/5.c1772c6c.js"><link rel="prefetch" href="/blogs/assets/js/50.f3ad48a4.js"><link rel="prefetch" href="/blogs/assets/js/51.099d8e64.js"><link rel="prefetch" href="/blogs/assets/js/52.9abb7ef5.js"><link rel="prefetch" href="/blogs/assets/js/53.d28ed619.js"><link rel="prefetch" href="/blogs/assets/js/54.1f762ff1.js"><link rel="prefetch" href="/blogs/assets/js/55.28ad078a.js"><link rel="prefetch" href="/blogs/assets/js/56.28bac15b.js"><link rel="prefetch" href="/blogs/assets/js/57.f3a6121a.js"><link rel="prefetch" href="/blogs/assets/js/58.ed5824a8.js"><link rel="prefetch" href="/blogs/assets/js/59.9860100e.js"><link rel="prefetch" href="/blogs/assets/js/6.1c408966.js"><link rel="prefetch" href="/blogs/assets/js/60.304da844.js"><link rel="prefetch" href="/blogs/assets/js/61.c63b87a8.js"><link rel="prefetch" href="/blogs/assets/js/62.bae587da.js"><link rel="prefetch" href="/blogs/assets/js/63.a3c839b3.js"><link rel="prefetch" href="/blogs/assets/js/64.752ae530.js"><link rel="prefetch" href="/blogs/assets/js/65.cff65bd7.js"><link rel="prefetch" href="/blogs/assets/js/66.53ca93e2.js"><link rel="prefetch" href="/blogs/assets/js/67.5600bd27.js"><link rel="prefetch" href="/blogs/assets/js/68.1ae2fdb9.js"><link rel="prefetch" href="/blogs/assets/js/69.5570d877.js"><link rel="prefetch" href="/blogs/assets/js/7.7f10b082.js"><link rel="prefetch" href="/blogs/assets/js/70.a3d98361.js"><link rel="prefetch" href="/blogs/assets/js/71.a9c04aa3.js"><link rel="prefetch" href="/blogs/assets/js/72.9ac2172c.js"><link rel="prefetch" href="/blogs/assets/js/73.4fb68f14.js"><link rel="prefetch" href="/blogs/assets/js/74.78cefa04.js"><link rel="prefetch" href="/blogs/assets/js/75.be75d256.js"><link rel="prefetch" href="/blogs/assets/js/76.fcc15f8e.js"><link rel="prefetch" href="/blogs/assets/js/77.24aa7035.js"><link rel="prefetch" href="/blogs/assets/js/78.77744ae0.js"><link rel="prefetch" href="/blogs/assets/js/79.1a6ad38e.js"><link rel="prefetch" href="/blogs/assets/js/8.e9f537d2.js"><link rel="prefetch" href="/blogs/assets/js/80.ca41e5ad.js"><link rel="prefetch" href="/blogs/assets/js/81.7a9b711c.js"><link rel="prefetch" href="/blogs/assets/js/82.8d2990f5.js"><link rel="prefetch" href="/blogs/assets/js/83.87af70e3.js"><link rel="prefetch" href="/blogs/assets/js/84.803c7e03.js"><link rel="prefetch" href="/blogs/assets/js/85.5c4787f1.js"><link rel="prefetch" href="/blogs/assets/js/86.adc84b64.js"><link rel="prefetch" href="/blogs/assets/js/87.094b1e30.js"><link rel="prefetch" href="/blogs/assets/js/88.0e1a00cf.js"><link rel="prefetch" href="/blogs/assets/js/89.e7a78fbd.js"><link rel="prefetch" href="/blogs/assets/js/9.e5fb1fbb.js"><link rel="prefetch" href="/blogs/assets/js/90.46afd670.js"><link rel="prefetch" href="/blogs/assets/js/91.a9e2bf9f.js"><link rel="prefetch" href="/blogs/assets/js/92.27b42bbe.js"><link rel="prefetch" href="/blogs/assets/js/93.05acf238.js"><link rel="prefetch" href="/blogs/assets/js/94.8309e47a.js"><link rel="prefetch" href="/blogs/assets/js/95.f1ad6962.js"><link rel="prefetch" href="/blogs/assets/js/96.3d6a67d3.js"><link rel="prefetch" href="/blogs/assets/js/97.33379eba.js"><link rel="prefetch" href="/blogs/assets/js/98.eb111825.js"><link rel="prefetch" href="/blogs/assets/js/99.f0e0aab7.js">
+    <link rel="stylesheet" href="/blogs/assets/css/0.styles.f7c6bd56.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blogs/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blogs/other/Charles.html" class="sidebar-link">Charles</a></li><li><a href="/blogs/other/Git代码提交规范.html" class="sidebar-link">Git代码提交规范</a></li><li><a href="/blogs/other/Mac下安装MYSQL.html" class="sidebar-link">Mac 下安装MYSQL</a></li><li><a href="/blogs/other/eventLoop/eventLoop.html" class="sidebar-link">Event Loop 总结</a></li><li><a href="/blogs/other/eventLoop.html" class="sidebar-link">Event Loop 总结</a></li><li><a href="/blogs/other/git/git命令全集.html" class="sidebar-link">git 命令全集</a></li><li><a href="/blogs/other/git/git版本管理规范.html" class="sidebar-link">git版本管理规范</a></li><li><a href="/blogs/other/item2.html" class="sidebar-link">iTerm2 快捷键大全</a></li><li><a href="/blogs/other/mac/ mac上使用cnpm搭建npm私有仓库.html" class="sidebar-link">mac上使用cnpm搭建npm私有仓库，并上传/下载私有npm包</a></li><li><a href="/blogs/other/mac/Mac电脑使用Charles抓取Android手机app的包.html" class="sidebar-link">/other/mac/Mac电脑使用Charles抓取Android手机app的包.html</a></li><li><a href="/blogs/other/mac/Mac电脑如何修改和自定义文件夹图标.html" class="sidebar-link">Mac电脑如何修改和自定义文件夹图标？</a></li><li><a href="/blogs/other/mac安装mongoDB详细步骤.html" class="sidebar-link">mac安装mongoDB详细步骤</a></li><li><a href="/blogs/other/typeScript.html" class="sidebar-link">TypeScript入门</a></li><li><a href="/blogs/other/vscode操作指南.html" class="sidebar-link">vscode操作指南</a></li><li><a href="/blogs/other/一些有意思的库.html" class="sidebar-link">有意思的 npm 库</a></li><li><a href="/blogs/other/优雅降级与渐进增强.html" class="sidebar-link">优雅降级与渐进增强</a></li><li><a href="/blogs/other/前端协作规范.html" class="sidebar-link">前端协作规范</a></li><li><a href="/blogs/other/前端规范/常用平台ua判断.html" class="sidebar-link">常用平台UA判断</a></li><li><a href="/blogs/other/前端路由.html" class="sidebar-link">前端路由</a></li><li><a href="/blogs/other/手写各种/promise.html" class="active sidebar-link">Promise、</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/other/手写各种/promise.html#实现简单的同步promise" class="sidebar-link">实现简单的同步Promise</a></li><li class="sidebar-sub-header"><a href="/blogs/other/手写各种/promise.html#增加异步功能" class="sidebar-link">增加异步功能</a></li><li class="sidebar-sub-header"><a href="/blogs/other/手写各种/promise.html#增加链式调用then" class="sidebar-link">增加链式调用then</a></li><li class="sidebar-sub-header"><a href="/blogs/other/手写各种/promise.html#catch-finally方法增加" class="sidebar-link">catch|finally方法增加</a></li><li class="sidebar-sub-header"><a href="/blogs/other/手写各种/promise.html#all-race-resolve-reject等方法" class="sidebar-link">all race resolve reject等方法</a></li><li class="sidebar-sub-header"><a href="/blogs/other/手写各种/promise.html#实现一个promise的延迟对象defer" class="sidebar-link">实现一个promise的延迟对象defer</a></li><li class="sidebar-sub-header"><a href="/blogs/other/手写各种/promise.html#最终测试" class="sidebar-link">最终测试</a></li><li class="sidebar-sub-header"><a href="/blogs/other/手写各种/promise.html#一些-promise-的面试题" class="sidebar-link">一些 Promise 的面试题</a></li></ul></li><li><a href="/blogs/other/手写各种/手写代码实现.html" class="sidebar-link">面试</a></li><li><a href="/blogs/other/正则相关.html" class="sidebar-link">什么是正则表达式呢？</a></li><li><a href="/blogs/other/网站令浏览器崩溃的原因.html" class="sidebar-link">网站导致浏览器崩溃的原因</a></li><li><a href="/blogs/other/重构.html" class="sidebar-link">重构 - 改善既有代码的设计</a></li><li><a href="/blogs/other/错误日志监控.html" class="sidebar-link">前端错误监控以及日志管理</a></li><li><a href="/blogs/other/阿里云/免密登陆.html" class="sidebar-link">免密登录远程服务器配置</a></li><li><a href="/blogs/other/阿里云/给普通用户添加权限.html" class="sidebar-link">阿里云给普通用户添加权限</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="promise、"><a href="#promise、" class="header-anchor">#</a> Promise、</h1> <blockquote><p>实现步骤</p></blockquote> <ul><li>实现简单的同步Promise</li> <li>增加异步功能</li> <li>增加链式调用then</li> <li>增加catch finally方法</li> <li>增加all race 等方法</li> <li>实现一个promise的延迟对象defer</li> <li>最终测试</li></ul> <h2 id="实现简单的同步promise"><a href="#实现简单的同步promise" class="header-anchor">#</a> 实现简单的同步Promise</h2> <p>首先要知道：</p> <ul><li><p>Promise内部维护着三种状态：pending（进行中）、resolved（任务执行成功）、reject（任务失败结果），⚠️切记：三种状态，只要改变就不能再被改成其他状态；即pending-&gt;resolve后是不能再转变成别的状态。</p></li> <li><p>Promise 内部有一个value 属性，value值即任务执行成功返回的结果；⚠️如果在value可以是任何值但是如果想要执行异步任务是必须返回一个promise对象，当然这个说的是在then函数中了，</p></li> <li><p>Promise 内部有一个 reason 属性，用来存放 Promise 状态变为 rejected 的原因</p></li> <li><p>简述：内部有个 state，doneList，failList，方法 resolve，reject，返回 fn(resolve, reject)。原型链有个 then，里面做的事情就是把函数参数推入 doneList 和 failList。然后 resolve 里执行的逻辑就是拿出 doneList 顺序执行下去，reject 执行 failList。</p></li></ul> <p>接下来让我实现一下同步的Promise函数
+注意1.2.3.4.5</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function Promise(executor) {
+    let _this = this;
+    /** 2 定义初始的一些变量 */
+    this.value = null;
+    this.status = 'pending';
+    this.reason = null
+
+    /** 3 定义初始的成功和失败函数 */
+    function resolve(value) {
+        /** 4 判断状态是不是初始状态pending 
+         *    是就转换状态 否则不转换 
+         *    确保状态的变化后的不可变性 */
+        if (_this.status == 'pending') {
+            this.status = 'resloved';
+            this.value = value
+        }
+    }
+
+    function reject(reason) {
+        /** 5 同上 */
+        if (_this.status === 'pending') {
+            that.status = 'rejected';
+            that.reason = reason;
+        }
+    }
+    /**
+     * 1 Promise中首先传了一个executor，它是一个函数
+     *   executor函数中又传了两个函数，分别是resolve和reject
+     *   很显然 resolve是成功回调，reject是失败的回调
+     */
+    executor(resolve, reject);
+}
+/**定义promise的then方法
+    then方法上面有两个回调 一个是成功后的方法 另一个是失败后的方法
+ *    根据成功或失败的状态去执行相关成功onFilfulled()或者失败onRejected()的回调方法*/
+Promise.prototype.then = function (onFilfulled, onRejected) {
+    let _this = this;
+    /** 7 如果状态已经变更为resolved 
+     *    说明resolve方法已经被调用
+     *    那么此时就执行成功的回调函数onFilfulled
+     *    并传入参数 that.value
+     * */
+    console.log(_this.status)
+    if (_this.status === 'resloved') {
+        onFilfulled(_this.value)
+    }
+    /** 8 如果状态已经变更为reject
+     *    说明resolve方法已经被调用
+     *    那么此时就执行成功的回调函数onRejected
+     *    并传入参数 that.reason
+     * */
+    if (_this.status === 'rejected') {
+        onRejected(_this.reason)
+    }
+}
+
+// module.exports = Promise;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br></div></div><h2 id="增加异步功能"><a href="#增加异步功能" class="header-anchor">#</a> 增加异步功能</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>function Promise(executor) {
+    let _this = this;
+    this.value = null;
+    this.status = 'pending';
+    this.reason = null;
+     /** 1 因为异步不是立即执行 状态不会变更 成功或失败的回调函数也不会执行
+     *    所以先定义好存放成功或失败回调函数的数组 
+     *    以便将成功或失败的回调函数先保存起来
+     * */
+    this.onFilFulledCallbacks = [];
+    this.onRejectedCallbacks = [];
+
+    function resolve(value) {
+        if (_this.status == 'pending') {
+            this.status = 'resloved';
+            this.value = value;
+            /** 3 成功发布
+             *    等待状态发生变更
+             *    状态变更后 立即执行之前存放在相应数组中所有的成功的回调函数
+             *    即 发布
+             */
+             this.onFilFulledCallbacks.foEach(fn=&gt;{
+                 fn();
+             })
+        }
+    }
+
+    function reject(reason) {
+        if (_this.status === 'pending') {
+            that.status = 'rejected';
+            that.reason = reason;
+            /** 4失败 发布
+             *    等待状态发生变更
+             *    状态变更后 立即执行之前存放在相应数组中所有的失败的回调函数
+             *    即 发布
+             */
+             this.onFilFulledCallbacks.foEach(fn=&gt;{
+                 fn();
+             })
+        }
+    }
+    executor(resolve, reject);
+}
+Promise.prototype.then = function (onFilfulled, onRejected) {
+    let _this = this;
+    if (_this.status === 'resloved') {
+        onFilfulled(_this.value)
+    }
+    if (_this.status === 'rejected') {
+        onRejected(_this.reason)
+    }
+    /** 2 订阅
+     *    因为是异步 状态当时并没有立即变更 所以状态还是pending
+     *    此时需要把成功或者失败的回调函数存放到对应的数组中
+     *    等待状态变更时 再从数组中拿出来去执行
+     *    即 订阅
+     *    *存放数组时 为了执行时方便 需要把回调函数的外层包裹一层空函数
+     */
+    if(_this.status === 'pending'){
+        _this.onFilFulledCallbacks.push(function(){
+            onFilfulled(_this.value);
+        });
+    }
+    if(_this.status === 'pending'){
+        _this.onRejectedCallbacks.push(function(){
+            onRejected(_this.reason);
+        });
+    }
+}
+
+module.exports = Promise;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br></div></div><p>至此，我们实现了异步的Promise.其实这里的实现异步的思想就是发布订阅.</p> <p>en～ok.高能预警🐯.接下来就稍稍复杂了 因为我们要实现链式调用then。 要实现这个功能那我们就要重写then方法，并在then方法中重新返回一个Promise,只有这样，才可以实现多次调用then.而且要新增一个解析返回值是否为promise的函数.</p> <p>稍微捋一下逻辑</p> <ul><li>如果一个then方法返回的是一个普通值的话，这个值会传递给下一个then中做resolve的返回值；</li> <li>如果then方法返回的是一个promise的话，我们要根据上一个then的状态（成功与失败）来决定下一个then的成功与失败</li></ul> <h2 id="增加链式调用then"><a href="#增加链式调用then" class="header-anchor">#</a> 增加链式调用then</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>function Promise(executor) {
+    let that = this;
+    that.status = 'pending';
+    that.value = null;
+    that.reason = null;
+    that.onFilFulledCallbacks = [];
+    that.onRejectedCallbacks = [];
+   
+    function resolve(value) {
+        if (that.status === 'pending') {
+            that.status = 'resolved';
+            that.value = value;
+            that.onFilFulledCallbacks.forEach((fn) = &amp; gt; {
+                fn();
+            });
+        }
+    }
+
+    function reject(reason) {
+        if (that.status === 'pending') {
+            that.status = 'rejected';
+            that.reason = reason;
+            that.onRejectedCallbacks.forEach((fn) = &amp; gt; {
+                fn();
+            });
+        }
+    }
+    executor(resolve, reject);
+}
+
+Promise.prototype.then = function (onFilfulled, onRejected) {
+    let that = this;
+    /** 1 让promise2等于一个新的Promise 并将promise2返回 */
+    let promise2 = new Promise((resolve, reject) = &amp; gt; {
+        if (that.status === 'resolved') {
+            /** 2 因为返回了promise2 
+             *  并且第3步resolvePromiseRelation函数中传递了promise2
+             *  而目前promise2并没有拿到
+             *  所以加一个定时器 异步执行 等到promise2拿到后 
+             *  再去执行 resolvePromiseRelation()方法 并将promise2传递进去*/
+            setTimeout(() = &amp; gt; {
+                try {
+                    let promise3 = onFilfulled(that.value);
+                    /** 3 判断新返回值是什么类型的函数
+                     *  并将当前的promise：promise2  新的返回值：promise3 
+                     *  和 成功时回调：esolve  失败时回调：reject 作为参数传进去 */
+                    resolvePromiseRelation(promise2, promise3, resolve, reject);
+                } catch (e) {
+                    reject(e);
+                }
+            }, 0);
+        }
+        if (that.status === 'rejected') {
+            /** 同2 */
+            setTimeout(() = &amp; gt; {
+                try {
+                    let promise3 = onRejected(that.reason);
+                    /** 同3*/
+                    resolvePromiseRelation(promise2, promise3, resolve, reject);
+                } catch (e) {
+                    reject(e);
+                }
+            }, 0);
+        }
+        if (that.status === 'pending') {
+            that.onFilFulledCallbacks.push(function () {
+                /** 同2 */
+                setTimeout(() = &amp; gt; {
+                    try {
+                        let promise3 = onFilfulled(that.value);
+                        /** 同3*/
+                        resolvePromiseRelation(promise2, promise3, resolve, reject);
+                    } catch (e) {
+                        reject(e);
+                    }
+                }, 0);
+            });
+        }
+        if (that.status === 'pending') {
+            that.onRejectedCallbacks.push(function () {
+                /** 同2 */
+                setTimeout(() = &amp; gt; {
+                    try {
+                        let promise3 = onRejected(that.reason);
+                        /** 同3*/
+                        resolvePromiseRelation(promise2, promise3, resolve, reject);
+                    } catch (e) {
+                        reject(e);
+                    }
+                }, 0);
+            });
+        }
+    });
+    /** 同1 */
+    return promise2;
+}
+
+function resolvePromiseRelation(promise2, promise3, resolve, reject) {
+    /** 4 防止自己等待自己 一直循环等待 */
+    if (promise2 === promise3) {
+        return reject(new TypeError('循环引用了!'));
+    }
+    /**  8 一个标示 表示当前没有被调用过 
+     *   确保resolve或者reject后的状态不会再次发生变更
+     */
+    let called;
+    /** 5 保证promise3是一个引用类型
+     *  判断新返回值promise3的类型 
+     *  如果是普通值常量 就直接resolve导出 */
+    if (promise3 !== null &amp; amp; &amp; amp;
+        (typeof promise3 === 'object' || typeof promise3 === 'function')) {
+        try {
+            let then = promise3.then;
+            /** 6 确保promise3是一个Promise
+             *  判断promise3的then方法
+             *  如果存在 并且是一个function类型 
+             *  就表示promise3是一个Promise */
+            if (typeof then === 'function') {
+                /** 9 执行promise3的then方法
+                 *  因为promise3也是一个Promise
+                 *  需要再次解析promise3的then方法
+                 *  直到解析到最后的返回值不是一个Promise类型为止
+                 */
+                then(promise3, (promise4) = &amp; gt; {
+                    /** 同8 */
+                    if (called) return;
+                    called = true;
+                    /** 10 递归解析新的返回值的类型
+                     *  解析到返回值不是一个Promise类型为止
+                     */
+                    resolvePromiseRelation(promise3, promise4, resolve, reject);
+                }, (r) = &amp; gt; {
+                    /** 同8 */
+                    if (called) return;
+                    called = true;
+                    reject(r);
+                });
+            } else {
+                /** 7 此时promise3是一个普通对象 直接resolve() */
+                resolve(promise3);
+            }
+        } catch (e) {
+            /** 同8 */
+            if (called) return;
+            called = true;
+            reject(e);
+        };
+    } else {
+        //常量
+        /** 同5 普通值直接resolve()*/
+        resolve(promise3);
+    }
+}
+
+module.exports = Promise;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br></div></div><p>ok. 至此 我们已经实现了Promsie的异步和链式调用. Promise中比较复杂的部分我们已经搞定了 接下来就是添加一些方法，其实这部分反而没那么复杂了.</p> <h2 id="catch-finally方法增加"><a href="#catch-finally方法增加" class="header-anchor">#</a> catch|finally方法增加</h2> <ul><li>catch : catch方法本质上就是一个then方法的变形，只有失败时的回调 没有成功时的回调</li> <li>catch : finally方法的作用是不管 Promise 对象最后状态如何，都会执行操作.其实说白了就是在then方法的成功和失败的回调函数中都执行该方法就行了.</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+/** 1 直接返回this的then方法
+ *  因为catch只捕获错误 所以resolve直接为null
+ *  返回reject就好*/
+Promise.prototype.catch = function(errFn){
+    return this.then(null,errFn);
+}
+
+/** 3 finally实现起来也很简单 
+ *  分别在resolve和reject中执行fn就好 
+ *  最后再把this返回出去就好
+*/
+Promise.prototype.finally = function(fn){
+    this.then(()=&amp;gt;{
+        fn();
+    },()=&amp;gt;{
+        fn();
+    });
+    return this;
+}
+
+module.exports = Promise;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h2 id="all-race-resolve-reject等方法"><a href="#all-race-resolve-reject等方法" class="header-anchor">#</a> all race resolve reject等方法</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>//类方法，多个 Promise 任务同时执行。
+//如果全部成功执行，则以数组的方式返回所有 Promise 任务的执行结果。 如果有一个 Promise 任务 rejected，则只返回 rejected 任务的结果。
+
+/** 1 直接在构造函数上增加all方法
+ *  它返回的也是一个Promise
+ *  等待参数数组中所有的promise都执行完毕后
+ *  再返回结果
+ */
+Promise.all = function(values){
+    return new Promise((resolve,reject)=&amp;gt;{
+        /** 2 定义一个存放最终结果的数组result和一个index */ 
+        let results = [];
+        let index = 0;
+        /** 3 定义一个方法addToArr()  
+         *  让index每次执行增加results数组元素的函数的时候都+1
+         *  当index === values的长度的时候 说明此时所有promsie都执行完毕并放到的数组中
+         *  然后直接resolve(results)就行了
+        */
+        function addToArr(key,value){
+            index++;
+            results[key] = value;
+            /** 6 当满足条件时 说明所有的promise都执行完毕 直接resolve(results) */
+            if(index === values.length){
+                resolve(results);
+            }
+        }
+        /** 4 循环values中的每一项promsie */
+        for(let i = 0; i &amp;lt; values.length; i++){
+            let current = values[i];
+            /** 5 判断每一项promise的返回值是不是一个Promsie
+             *  是的话就执行该Promise的then方法 拿到返回值 并放到数组results中
+             *  是一个普通值的话就直接将该值放到数组results中
+             */
+            if(current &amp;amp;&amp;amp; current.then &amp;amp;&amp;amp; typeof current.then === 'function'){
+                current.then((value)=&amp;gt;{
+                    /** 同5 把返回值放到数组results中*/
+                    addToArr(i,value);
+                },reject);
+            }else{
+                /** 同5 把返回值放到数组results中*/
+                addToArr(i,current);
+            }
+        }
+    });
+}
+
+//类方法，多个 Promise 任务同时执行，返回最先执行结束的 Promise 任务的结果，不管这个 Promise 结果是成功还是失败。 
+。
+/** race方法相比较于all方法简单很多
+ *  因为race中的promsie成功resolve一个 
+ *  整个race就resolve */
+Promise.race = function(values){
+    return new Promise((resolve,reject)=&amp;gt;{
+        /** 同4 */
+        for(let i = 0; i &amp;lt; values.length; i++){
+            let current = values[i];
+            /** 同5 */
+            if(current&amp;amp;&amp;amp;current.then&amp;amp;&amp;amp;typeof current.then === 'function'){
+                /** 7 直接执行then就好 */
+                current.then(resolve,reject);
+            }else{
+                /** 8 普通值直接resolve */
+                resolve(current);
+            }
+        }
+    });
+}
+
+
+// resolve方法
+Promise.resolve = function(value){
+    return new Promise((resolve,reject)=&amp;gt;{
+        resolve(value);
+    });
+}
+// reject方法
+Promise.reject = function(reason){
+    return new Promise((resolve,reject)=&amp;gt;{
+        reject(reason);
+    });
+}
+
+module.exports = Promise;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br></div></div><h2 id="实现一个promise的延迟对象defer"><a href="#实现一个promise的延迟对象defer" class="header-anchor">#</a> 实现一个promise的延迟对象defer</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 实现一个promise的延迟对象 defer
+Promise.defer = Promise.deferred = function(){
+    let dfd = {};
+    dfd.promise = new Promise((resolve, reject)=&amp;gt;{
+        dfd.resolve = resolve;
+        dfd.reject = reject;
+    });
+    return dfd;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="最终测试"><a href="#最终测试" class="header-anchor">#</a> 最终测试</h2> <ul><li>测试当前代码是否符合Promise/A+规范</li> <li>全局安装 npm i -g promises-aplus-tests</li> <li>文件所在目录运行以下命令 (例如你的文件名为:MyPrommise.js)</li> <li>promise-aplus-tests MyPrommise.js</li> <li>等待</li> <li>ok.</li></ul> <h2 id="一些-promise-的面试题"><a href="#一些-promise-的面试题" class="header-anchor">#</a> 一些 Promise 的面试题</h2> <blockquote><p>第一题</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>const promise = new Promise((resolve, reject) =&gt; {
+    console.log(1)
+    resolve()
+    console.log(2)
+})
+promise.then(() =&gt; {
+    console.log(3)
+})
+console.log(4)
+
+// 1 2 4 3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>记住 new Promise 里的参数函数，是同步被执行的，故而先输出 1，2.</p> <p>resolve 后还需要等待进入下一个事件循环。then 把参数函数推入微任务队列，并不直接执行。</p> <p>输出 4，接着事件循环进入下一轮，输出 3.</p> <blockquote><p>第二题 **</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>var promise = new Promise(function(resolve, reject){
+  setTimeout(function() {
+    resolve(1);
+  }, 3000)
+})
+
+请问这三种有何不同？
+
+promise.then(() =&gt; {
+  return Promise.resolve(2);
+}).then((n) =&gt; {
+  console.log(n)
+});
+
+promise.then(() =&gt; {
+  return 2
+}).then((n) =&gt; {
+  console.log(n)
+});
+
+promise.then(2).then((n) =&gt; {
+  console.log(n)
+});
+
+// 2 2 1
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><p>1.输出2。Promise.resolve 就是一个 Promise 对象就相当于返回了一个新的 Promise 对象。然后在下一个事件循环里才会去执行 then</p> <p>2.输出2。和上一点不一样的是，它不用等下一个事件循环。</p> <p>3.输出1。then 和 catch 期望接收函数做参数，如果非函数就会发生 Promise 穿透现象，打印的是上一个 Promise 的返回。</p> <blockquote><p>第三题</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>let a;
+const b = new Promise((resolve, reject) =&gt; {
+  console.log('promise1');
+  resolve();
+}).then(() =&gt; {
+  console.log('promise2');
+}).then(() =&gt; {
+  console.log('promise3');
+}).then(() =&gt; {
+  console.log('promise4');
+});
+
+a = new Promise(async (resolve, reject) =&gt; {
+  console.log(a);
+  await b;
+  console.log(a); //已经进入事件循环了
+  console.log('after1');
+  await a
+  resolve(true);
+  console.log('after2');
+});
+
+console.log('end');
+
+// promise1 undefined  promise2 promise3 promise4  Promise { pending } after1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>第一个输出 promise1，是因为 Promise 里的方法立即执行。接着调用 resolve，只不过 then 里的方法等下一个周期</p> <p>第二个输出 undefined，是因为立即执行执行 a 内部的方法，先 console.log(a)，但此时的 a 还没赋值给左边的变量，所以只能是 undefined。然后 await b 就得等下一个周期执行了。</p> <p>第三个输出 end，自然不意外。</p> <p>接着输出 promise2，promise3，promise4，是因为 await b 等待他执行完了，才轮到 a 内部继续执行。</p> <p>输出 Promise { pending }，，事件都进入了循环了，a 肯定已经被赋值成了 Promise 对象。所以第二遍 console.log(a)，自然就输出这个了。</p> <p>输出 after1 不奇怪。</p> <p>await a 时，a 是必须等待 Promise 的状态从 pending 到 fullfilled 才会继续往下执行，可 a 的状态是一直得不到更改的，所以无法执行下面的逻辑。只要在 await a 上面加一行 resolve() 就能让后面的 after 2 得到输出。</p> <blockquote><p>第四题</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>const promise = new Promise((resolve, reject) =&gt; {
+  resolve('success1');
+  reject('error');
+  resolve('success2');
+});
+
+promise
+  .then((res) =&gt; {
+    console.log('then: ', res);
+  })
+  .catch((err) =&gt; {
+    console.log('catch: ', err);
+  });
+
+//'then: success1'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>Promise 对象的状态只能被转移一次，resolve('success1') 时状态转移到了 fullfilled 。后面 reject 就调用无效了，因为状态已经不是 pending。</p> <blockquote><p>第五题</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>Promise.resolve()
+  .then(() =&gt; {
+    return new Error('error!!!')
+  })
+  .then((res) =&gt; {
+    console.log('then: ', res)
+  })
+  .catch((err) =&gt; {
+    console.log('catch: ', err)
+  })
+  // then:  Error: error!!!
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>没有抛出错误和异常，只是 return 了一个对象，哪怕他是 Error 对象，那自然也是正常走 then 的链式调用下去了，不会触发 catch。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/17/2022, 3:20:27 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blogs/other/前端路由.html" class="prev">
+        前端路由
+      </a></span> <span class="next"><a href="/blogs/other/手写各种/手写代码实现.html">
+        面试
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blogs/assets/js/app.e644ec03.js" defer></script><script src="/blogs/assets/js/2.5689dfa7.js" defer></script><script src="/blogs/assets/js/162.e393d4d8.js" defer></script>
+  </body>
+</html>

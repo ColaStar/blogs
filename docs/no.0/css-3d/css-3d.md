@@ -13,15 +13,15 @@ window.addEventListener('deviceorientation', function(event) { var alpha = event
 ```
 event对象上边有```alpha```、```beta``` 以及 ```gamma```三个API，它们可以控制三个轴转动的角度和方向。  
 alpha：行动装置水平放置时，绕 Z 轴旋转的角度，数值为 0 度到 360 度。  <div align="center">
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/alpha.jpg">![alpha](http://blog.colastar.club/static/images/alpha.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/alpha.jpg">![alpha](http://blog.colastar.club:9527/static/images/alpha.jpg)</a>
 </div>
 beta:行动装置水平放置时，绕 X 轴旋转的角度，数值为 -180 度到 180 度。
 <div align="center">
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/beta.jpg">![beta](http://blog.colastar.club/static/images/beta.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/beta.jpg">![beta](http://blog.colastar.club:9527/static/images/beta.jpg)</a>
 </div>
 gamma：行动装置水平放置时，绕 Z 轴旋转的角度，数值为 -90 度到 90 度。
 <div align="center">
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/gamma.jpg">![gamma](http://blog.colastar.club/static/images/gamma.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/gamma.jpg">![gamma](http://blog.colastar.club:9527/static/images/gamma.jpg)</a>
 </div>
 
 ### CSS3 3D模型

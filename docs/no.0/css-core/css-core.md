@@ -73,12 +73,11 @@
 }
 .middle{
     width:100%;
-    background:red;
 }
 .left{
     width:180px;
     background:yellow;
-    margin-left:-180px
+    margin-left:-100%
 }
 .right{
     width:200px;
@@ -87,6 +86,8 @@
 }
 .inst{
     padding:0 200px 0 180px
+    background:red;
+
 }
 ```
 
@@ -227,9 +228,9 @@ float：left
 ### 弹性盒模型
 flex是CSS3的新属性，又叫弹性布局盒模型，是可以简洁，快速弹性布局的属性。  
 
-<a data-fancybox title="flex" href="http://blog.colastar.club/static/images/flex-content.png">![flex](http://blog.colastar.club/static/images/flex-content.png)</a>
+<a data-fancybox title="flex" href="http://blog.colastar.club:9527/static/images/flex-content.png">![flex](http://blog.colastar.club:9527/static/images/flex-content.png)</a>
 
-<a data-fancybox title="flex_item" href="http://blog.colastar.club/static/images/flex-item.png">![flex_item](http://blog.colastar.club/static/images/flex-item.png)</a>
+<a data-fancybox title="flex_item" href="http://blog.colastar.club:9527/static/images/flex-item.png">![flex_item](http://blog.colastar.club:9527/static/images/flex-item.png)</a>
 
 
 **flex的兼容写法**

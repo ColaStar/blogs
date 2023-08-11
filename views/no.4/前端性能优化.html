@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>前端性能优化 | 个人博客</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/blogs/js/tj.js"></script>
+    <script src="/blogs/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="江畔何人初见月，江月何年初照人？">
+    
+    <link rel="preload" href="/blogs/assets/css/0.styles.f7c6bd56.css" as="style"><link rel="preload" href="/blogs/assets/js/app.e644ec03.js" as="script"><link rel="preload" href="/blogs/assets/js/2.5689dfa7.js" as="script"><link rel="preload" href="/blogs/assets/js/92.27b42bbe.js" as="script"><link rel="prefetch" href="/blogs/assets/js/10.e901e6bf.js"><link rel="prefetch" href="/blogs/assets/js/100.0c1fcbf8.js"><link rel="prefetch" href="/blogs/assets/js/101.6bf4fc77.js"><link rel="prefetch" href="/blogs/assets/js/102.1d2eaccd.js"><link rel="prefetch" href="/blogs/assets/js/103.85059ae9.js"><link rel="prefetch" href="/blogs/assets/js/104.570914ff.js"><link rel="prefetch" href="/blogs/assets/js/105.8110e0c6.js"><link rel="prefetch" href="/blogs/assets/js/106.6218fe43.js"><link rel="prefetch" href="/blogs/assets/js/107.035a7779.js"><link rel="prefetch" href="/blogs/assets/js/108.ac2fa821.js"><link rel="prefetch" href="/blogs/assets/js/109.6bf2b4ea.js"><link rel="prefetch" href="/blogs/assets/js/11.a6ce9264.js"><link rel="prefetch" href="/blogs/assets/js/110.8c6f3f50.js"><link rel="prefetch" href="/blogs/assets/js/111.383ab6e2.js"><link rel="prefetch" href="/blogs/assets/js/112.2c270063.js"><link rel="prefetch" href="/blogs/assets/js/113.0574c147.js"><link rel="prefetch" href="/blogs/assets/js/114.624fd444.js"><link rel="prefetch" href="/blogs/assets/js/115.7b2823f9.js"><link rel="prefetch" href="/blogs/assets/js/116.80ee70fc.js"><link rel="prefetch" href="/blogs/assets/js/117.e7969afb.js"><link rel="prefetch" href="/blogs/assets/js/118.56cd574d.js"><link rel="prefetch" href="/blogs/assets/js/119.954d2e5d.js"><link rel="prefetch" href="/blogs/assets/js/12.8e01f2af.js"><link rel="prefetch" href="/blogs/assets/js/120.97690805.js"><link rel="prefetch" href="/blogs/assets/js/121.5d1b8bb6.js"><link rel="prefetch" href="/blogs/assets/js/122.5196c388.js"><link rel="prefetch" href="/blogs/assets/js/123.8889fd8a.js"><link rel="prefetch" href="/blogs/assets/js/124.81fbdf1d.js"><link rel="prefetch" href="/blogs/assets/js/125.a8c40caa.js"><link rel="prefetch" href="/blogs/assets/js/126.48041068.js"><link rel="prefetch" href="/blogs/assets/js/127.84edfb11.js"><link rel="prefetch" href="/blogs/assets/js/128.f9559f9c.js"><link rel="prefetch" href="/blogs/assets/js/129.4c7a12ec.js"><link rel="prefetch" href="/blogs/assets/js/13.47cfa5d5.js"><link rel="prefetch" href="/blogs/assets/js/130.0b9be472.js"><link rel="prefetch" href="/blogs/assets/js/131.bd43991a.js"><link rel="prefetch" href="/blogs/assets/js/132.75d202e3.js"><link rel="prefetch" href="/blogs/assets/js/133.d67e48d2.js"><link rel="prefetch" href="/blogs/assets/js/134.e87db8f1.js"><link rel="prefetch" href="/blogs/assets/js/135.52d461c7.js"><link rel="prefetch" href="/blogs/assets/js/136.59b643ed.js"><link rel="prefetch" href="/blogs/assets/js/137.ec96225a.js"><link rel="prefetch" href="/blogs/assets/js/138.72377d95.js"><link rel="prefetch" href="/blogs/assets/js/139.80673307.js"><link rel="prefetch" href="/blogs/assets/js/14.a65561e2.js"><link rel="prefetch" href="/blogs/assets/js/140.b85b8f0f.js"><link rel="prefetch" href="/blogs/assets/js/141.b7745460.js"><link rel="prefetch" href="/blogs/assets/js/142.9a5dd0fe.js"><link rel="prefetch" href="/blogs/assets/js/143.b66b69c6.js"><link rel="prefetch" href="/blogs/assets/js/144.6d6877c9.js"><link rel="prefetch" href="/blogs/assets/js/145.85a77d4e.js"><link rel="prefetch" href="/blogs/assets/js/146.6da81be1.js"><link rel="prefetch" href="/blogs/assets/js/147.8f2a420e.js"><link rel="prefetch" href="/blogs/assets/js/148.862a3477.js"><link rel="prefetch" href="/blogs/assets/js/149.121d303b.js"><link rel="prefetch" href="/blogs/assets/js/15.7c5758e7.js"><link rel="prefetch" href="/blogs/assets/js/150.eabc187b.js"><link rel="prefetch" href="/blogs/assets/js/151.7581b0df.js"><link rel="prefetch" href="/blogs/assets/js/152.adeb84dd.js"><link rel="prefetch" href="/blogs/assets/js/153.c3b64b4d.js"><link rel="prefetch" href="/blogs/assets/js/154.a3060078.js"><link rel="prefetch" href="/blogs/assets/js/155.1f1951fb.js"><link rel="prefetch" href="/blogs/assets/js/156.34fe39e1.js"><link rel="prefetch" href="/blogs/assets/js/157.81ac9ed7.js"><link rel="prefetch" href="/blogs/assets/js/158.72f7b22b.js"><link rel="prefetch" href="/blogs/assets/js/159.572b258e.js"><link rel="prefetch" href="/blogs/assets/js/16.35389dfa.js"><link rel="prefetch" href="/blogs/assets/js/160.6fc0e08d.js"><link rel="prefetch" href="/blogs/assets/js/161.b174afda.js"><link rel="prefetch" href="/blogs/assets/js/162.e393d4d8.js"><link rel="prefetch" href="/blogs/assets/js/163.a76edf51.js"><link rel="prefetch" href="/blogs/assets/js/164.732f62da.js"><link rel="prefetch" href="/blogs/assets/js/165.c5b37837.js"><link rel="prefetch" href="/blogs/assets/js/166.618f9776.js"><link rel="prefetch" href="/blogs/assets/js/167.239207ae.js"><link rel="prefetch" href="/blogs/assets/js/168.1ce94458.js"><link rel="prefetch" href="/blogs/assets/js/169.983f0b7f.js"><link rel="prefetch" href="/blogs/assets/js/17.0f2102e9.js"><link rel="prefetch" href="/blogs/assets/js/170.adf32601.js"><link rel="prefetch" href="/blogs/assets/js/171.a9e43063.js"><link rel="prefetch" href="/blogs/assets/js/172.00278bf8.js"><link rel="prefetch" href="/blogs/assets/js/173.22190dc7.js"><link rel="prefetch" href="/blogs/assets/js/174.21575200.js"><link rel="prefetch" href="/blogs/assets/js/18.85dc6e83.js"><link rel="prefetch" href="/blogs/assets/js/19.3dc73713.js"><link rel="prefetch" href="/blogs/assets/js/20.99db8519.js"><link rel="prefetch" href="/blogs/assets/js/21.698a52c5.js"><link rel="prefetch" href="/blogs/assets/js/22.d7210ff8.js"><link rel="prefetch" href="/blogs/assets/js/23.d56d0f74.js"><link rel="prefetch" href="/blogs/assets/js/24.438b7e8f.js"><link rel="prefetch" href="/blogs/assets/js/25.9692637a.js"><link rel="prefetch" href="/blogs/assets/js/26.ee8d2e2c.js"><link rel="prefetch" href="/blogs/assets/js/27.648386b6.js"><link rel="prefetch" href="/blogs/assets/js/28.4b667b73.js"><link rel="prefetch" href="/blogs/assets/js/29.f651827f.js"><link rel="prefetch" href="/blogs/assets/js/3.3923979e.js"><link rel="prefetch" href="/blogs/assets/js/30.9c41188e.js"><link rel="prefetch" href="/blogs/assets/js/31.1cad6d07.js"><link rel="prefetch" href="/blogs/assets/js/32.48116ba0.js"><link rel="prefetch" href="/blogs/assets/js/33.dc400d0c.js"><link rel="prefetch" href="/blogs/assets/js/34.9760f2ed.js"><link rel="prefetch" href="/blogs/assets/js/35.0c8c5faf.js"><link rel="prefetch" href="/blogs/assets/js/36.1b62f664.js"><link rel="prefetch" href="/blogs/assets/js/37.d0e0e22e.js"><link rel="prefetch" href="/blogs/assets/js/38.bf3df725.js"><link rel="prefetch" href="/blogs/assets/js/39.1de86319.js"><link rel="prefetch" href="/blogs/assets/js/4.f2bc8a01.js"><link rel="prefetch" href="/blogs/assets/js/40.603e7954.js"><link rel="prefetch" href="/blogs/assets/js/41.f60a79f1.js"><link rel="prefetch" href="/blogs/assets/js/42.e2b13978.js"><link rel="prefetch" href="/blogs/assets/js/43.02199eff.js"><link rel="prefetch" href="/blogs/assets/js/44.65bbdfe1.js"><link rel="prefetch" href="/blogs/assets/js/45.3dd35806.js"><link rel="prefetch" href="/blogs/assets/js/46.affe5377.js"><link rel="prefetch" href="/blogs/assets/js/47.8aeb7e59.js"><link rel="prefetch" href="/blogs/assets/js/48.849da6a6.js"><link rel="prefetch" href="/blogs/assets/js/49.fd95fbe3.js"><link rel="prefetch" href="/blogs/assets/js/5.c1772c6c.js"><link rel="prefetch" href="/blogs/assets/js/50.f3ad48a4.js"><link rel="prefetch" href="/blogs/assets/js/51.099d8e64.js"><link rel="prefetch" href="/blogs/assets/js/52.9abb7ef5.js"><link rel="prefetch" href="/blogs/assets/js/53.d28ed619.js"><link rel="prefetch" href="/blogs/assets/js/54.1f762ff1.js"><link rel="prefetch" href="/blogs/assets/js/55.28ad078a.js"><link rel="prefetch" href="/blogs/assets/js/56.28bac15b.js"><link rel="prefetch" href="/blogs/assets/js/57.f3a6121a.js"><link rel="prefetch" href="/blogs/assets/js/58.ed5824a8.js"><link rel="prefetch" href="/blogs/assets/js/59.9860100e.js"><link rel="prefetch" href="/blogs/assets/js/6.1c408966.js"><link rel="prefetch" href="/blogs/assets/js/60.304da844.js"><link rel="prefetch" href="/blogs/assets/js/61.c63b87a8.js"><link rel="prefetch" href="/blogs/assets/js/62.bae587da.js"><link rel="prefetch" href="/blogs/assets/js/63.a3c839b3.js"><link rel="prefetch" href="/blogs/assets/js/64.752ae530.js"><link rel="prefetch" href="/blogs/assets/js/65.cff65bd7.js"><link rel="prefetch" href="/blogs/assets/js/66.53ca93e2.js"><link rel="prefetch" href="/blogs/assets/js/67.5600bd27.js"><link rel="prefetch" href="/blogs/assets/js/68.1ae2fdb9.js"><link rel="prefetch" href="/blogs/assets/js/69.5570d877.js"><link rel="prefetch" href="/blogs/assets/js/7.7f10b082.js"><link rel="prefetch" href="/blogs/assets/js/70.a3d98361.js"><link rel="prefetch" href="/blogs/assets/js/71.a9c04aa3.js"><link rel="prefetch" href="/blogs/assets/js/72.9ac2172c.js"><link rel="prefetch" href="/blogs/assets/js/73.4fb68f14.js"><link rel="prefetch" href="/blogs/assets/js/74.78cefa04.js"><link rel="prefetch" href="/blogs/assets/js/75.be75d256.js"><link rel="prefetch" href="/blogs/assets/js/76.fcc15f8e.js"><link rel="prefetch" href="/blogs/assets/js/77.24aa7035.js"><link rel="prefetch" href="/blogs/assets/js/78.77744ae0.js"><link rel="prefetch" href="/blogs/assets/js/79.1a6ad38e.js"><link rel="prefetch" href="/blogs/assets/js/8.e9f537d2.js"><link rel="prefetch" href="/blogs/assets/js/80.ca41e5ad.js"><link rel="prefetch" href="/blogs/assets/js/81.7a9b711c.js"><link rel="prefetch" href="/blogs/assets/js/82.8d2990f5.js"><link rel="prefetch" href="/blogs/assets/js/83.87af70e3.js"><link rel="prefetch" href="/blogs/assets/js/84.803c7e03.js"><link rel="prefetch" href="/blogs/assets/js/85.5c4787f1.js"><link rel="prefetch" href="/blogs/assets/js/86.adc84b64.js"><link rel="prefetch" href="/blogs/assets/js/87.094b1e30.js"><link rel="prefetch" href="/blogs/assets/js/88.0e1a00cf.js"><link rel="prefetch" href="/blogs/assets/js/89.e7a78fbd.js"><link rel="prefetch" href="/blogs/assets/js/9.e5fb1fbb.js"><link rel="prefetch" href="/blogs/assets/js/90.46afd670.js"><link rel="prefetch" href="/blogs/assets/js/91.a9e2bf9f.js"><link rel="prefetch" href="/blogs/assets/js/93.05acf238.js"><link rel="prefetch" href="/blogs/assets/js/94.8309e47a.js"><link rel="prefetch" href="/blogs/assets/js/95.f1ad6962.js"><link rel="prefetch" href="/blogs/assets/js/96.3d6a67d3.js"><link rel="prefetch" href="/blogs/assets/js/97.33379eba.js"><link rel="prefetch" href="/blogs/assets/js/98.eb111825.js"><link rel="prefetch" href="/blogs/assets/js/99.f0e0aab7.js">
+    <link rel="stylesheet" href="/blogs/assets/css/0.styles.f7c6bd56.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blogs/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blogs/no.4/aop面向切面编程.html" class="sidebar-link">JavaScript面向切面编程</a></li><li><a href="/blogs/no.4/basketJS.html" class="sidebar-link">basket.js详解</a></li><li><a href="/blogs/no.4/ioc_DI.html" class="sidebar-link">前端中的 IoC 理念</a></li><li><a href="/blogs/no.4/js内存泄露.html" class="sidebar-link">内存泄漏的排查</a></li><li><a href="/blogs/no.4/localForage.html" class="sidebar-link">localForage</a></li><li><a href="/blogs/no.4/pajax.html" class="sidebar-link">PJAX的实现与应用</a></li><li><a href="/blogs/no.4/quicklink.html" class="sidebar-link">quicklink详解</a></li><li><a href="/blogs/no.4/前端性能优化.html" class="active sidebar-link">前端性能优化</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.4/前端性能优化.html#性能优化面面谈" class="sidebar-link">性能优化面面谈</a></li><li class="sidebar-sub-header"><a href="/blogs/no.4/前端性能优化.html#浏览器渲染过程" class="sidebar-link">浏览器渲染过程</a></li><li class="sidebar-sub-header"><a href="/blogs/no.4/前端性能优化.html#性能优化启示录" class="sidebar-link">性能优化启示录</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.4/前端性能优化.html#为什么要进行性能优化" class="sidebar-link">为什么要进行性能优化？</a></li><li class="sidebar-sub-header"><a href="/blogs/no.4/前端性能优化.html#性能优化学徒工" class="sidebar-link">性能优化学徒工</a></li><li class="sidebar-sub-header"><a href="/blogs/no.4/前端性能优化.html#渲染中性能优化" class="sidebar-link">渲染中性能优化</a></li><li class="sidebar-sub-header"><a href="/blogs/no.4/前端性能优化.html#⻚面加载性能优化" class="sidebar-link">⻚⾯加载性能优化</a></li><li class="sidebar-sub-header"><a href="/blogs/no.4/前端性能优化.html#nodejs性能优化" class="sidebar-link">NodeJS性能优化</a></li></ul></li></ul></li><li><a href="/blogs/no.4/前端性能优化之缓存利用.html" class="sidebar-link">前端性能优化之缓存利用</a></li><li><a href="/blogs/no.4/前端高级调试.html" class="sidebar-link">前端高级调试</a></li><li><a href="/blogs/no.4/雅虎军规.html" class="sidebar-link">雅虎军规35条</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="前端性能优化"><a href="#前端性能优化" class="header-anchor">#</a> 前端性能优化</h1> <h2 id="性能优化面面谈"><a href="#性能优化面面谈" class="header-anchor">#</a> 性能优化面面谈</h2> <ul><li>1.雅虎军规</li> <li>2.渲染加载</li> <li>3.⻚面加载</li> <li>4.Node加载</li> <li>5.慎用缓存
+<strong>一个小字走天下，一个监控啥也不怕。</strong></li></ul> <hr> <h2 id="浏览器渲染过程"><a href="#浏览器渲染过程" class="header-anchor">#</a> 浏览器渲染过程</h2> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/Navigation_Timing.png"><img src="http://blog.colastar.club:9527/static/images/Navigation_Timing.png" alt=""></a></p> <p>W3C专门定义的api（嵌入关键节点的API）就是浏览器渲染的标准过程。</p> <p>Navigation_Timing可以帮助我们调试。</p> <p>过程大体可以分为三层，如下图：</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/navgation_timing1.png"><img src="http://blog.colastar.club:9527/static/images/navgation_timing1.png" alt=""></a></p> <ul><li><p>敲下回车</p></li> <li><p>1.prompt forunload（提示卸载）</p></li></ul> <p>当新的页面要被请求的时候，把旧的页面干掉，当然还是没有去请求新的页面。</p> <p>开始navigation</p> <ul><li>redirect</li></ul> <p>首先做本地重定向（查本地是否有缓存）,
+并行操作unload（卸载）把上一个页面干掉，重缓存里边取新的页面。</p> <ul><li>3.App cache</li></ul> <p>开始拿资源</p> <p>没过期从本地拿然后直接processing最后交给渲染器，显卡去。</p> <p>如果缓存过期了，进行网络请求资源。走到网络层</p> <ul><li>DNS域名解析</li></ul> <p>domainnLookupStart与domainnLookupEnd</p> <ul><li><p>建立TCP链接
+connectstart tcp链接
+secureConnectStart  ssl加密链接开始</p></li> <li><p>http流程
+requrest与response
+这块受网络状态，数据量大小，CDN技术的就近原则
+响应结束</p></li> <li><p>processing（资源回来了，一个html）只是一个文本文件。</p></li></ul> <p>把文档放到内存里，把文档解析成dom结构对象，把dom结构内的内嵌资源加载，进行请求，dom内容加载完毕后，生成渲染页面的dom的树结构，文档处理完了，开始处理事件，第一个事件是onload事件，</p> <p><strong>具体流程：</strong></p> <p>开始浏览器器渲染</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/浏览器渲染过程.png"><img src="http://blog.colastar.club:9527/static/images/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B.png" alt=""></a>
+1).浏览器会解析三个东西：</p> <ul><li>一.是HTML/SVG/XHTML，HTML字符串描述了一个页面的结构，浏览器会把HTML结构字符串解析转换DOM树形结构。</li></ul> <p><strong>浏览器解析文档生成DOM Tree，要经历以下步骤</strong></p> <p><strong>Bytes =&gt; Characters =&gt; Token =&gt; Node =&gt; DOM 即：</strong></p> <div class="language- extra-class"><pre><code>- 将原始字节（传输的数据都是0和1），根据指定编码形式转化为字符串（程序员所写的代码）
+- 将字符串转为Token，如&lt; body &gt;,&lt; head &gt;之类的
+- 生成token的同时，也消耗token并构建成Node节点
+- 生成DOM
+</code></pre></div><p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/DOM树形结构.png"><img src="http://blog.colastar.club:9527/static/images/DOM%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84.png" alt=""></a></p> <ul><li>二.是CSS，解析CSS会产生CSS规则树，它和DOM结构比较像。
+<strong>浏览器解析CSS生成CSSOM Tree，要经历以下步骤：</strong> <strong>Bytes =&gt; Characters =&gt; Token =&gt; Node =&gt; CSSOM</strong></li></ul> <p><strong>CSS会阻塞文档的解析</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>上面提到，解析的JavaScript，可以操作DOM，也可以操作CSSOM。那么，如果JavaScript需要去更改样式，即操作CSSOM，则它需要得到完整的CSSOM Rule Tree。不完整的CSSOM Rule Tree，JavaScript是无法操纵的。
+
+所以，如果CSSOM还未完成构建，而JavaScript又想操作CSSOM，则会先加载解析CSS，完成CSSOM的构建，再执行JavaScript，最后再恢复DOM的解析构建。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/css规则树.png"><img src="http://blog.colastar.club:9527/static/images/css%E8%A7%84%E5%88%99%E6%A0%91.png" alt=""></a></p> <ul><li>三.是Javascript脚本，等到Javascript 脚本文件加载后， 通过 DOM API 和 CSSOM API 来操作 DOM Tree 和 CSS Rule Tree。</li></ul> <p><strong>在解析文档，构建DOM Tree的时候，如果遇到了JS文件，会发生以下几个事情：</strong></p> <div class="language- extra-class"><pre><code>- 暂停对文档的解析，即停止构建DOM Tree
+- 将控制权交给JavaScript引擎
+- 待JavaScript加载、解析与执行完毕后，再恢复解析文档。
+- 也就是说，JS文件是会阻塞文档的解析的 。
+</code></pre></div><p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/Javascript脚本.png"><img src="http://blog.colastar.club:9527/static/images/Javascript%E8%84%9A%E6%9C%AC.png" alt=""></a></p> <p>2).解析完成后，</p> <p>**构建渲染树:**浏览器引擎会通过DOM Tree 和 CSS Rule Tree 来构造 （Rendering Tree/Frame Tree）</p> <p>Rendering Tree 渲染树并不等同于DOM树，渲染树只会包括需要显示的节点和这些节点的样式信息。</p> <p>CSS 的 Rule Tree主要是为了完成匹配并把CSS Rule附加到Rendering Tree上的每个Element（也就是每个Frame）。</p> <p><strong>布局渲染树</strong>:从根节点递归调用，计算每一个元素的大小、位置等，给出每个节点所应该在屏幕上出现的精确坐标；即计算每个Frame 的位置。</p> <ul><li><p>onload</p></li> <li><p>开始render页面怎么显示交给显卡去操作（绘制渲染树: 遍历渲染树，使用UI后端层来绘制每个节点。）</p></li></ul> <h2 id="性能优化启示录"><a href="#性能优化启示录" class="header-anchor">#</a> 性能优化启示录</h2> <h3 id="为什么要进行性能优化"><a href="#为什么要进行性能优化" class="header-anchor">#</a> 为什么要进行性能优化？</h3> <p><strong>性能优化的白皮书中</strong>：</p> <ul><li>57%的⽤户更在乎⽹⻚在3秒内是否完成加载。</li> <li>52%的在线⽤户认为⽹⻚打开速度影响到他们对⽹站的忠实度。</li> <li>每慢1秒造成⻚⾯ PV 降低11%，⽤户满意度也随之降低降低16%。</li> <li>近半数移动⽤户因为在10秒内仍未打开⻚⾯从⽽放弃。</li></ul> <h3 id="性能优化学徒工"><a href="#性能优化学徒工" class="header-anchor">#</a> 性能优化学徒工</h3> <h4 id="雅虎军规"><a href="#雅虎军规" class="header-anchor">#</a> 雅虎军规</h4> <p>雅虎军规：核心：压缩合并与md5，html/css做hint，开启gzip，</p> <blockquote><p><strong>HtmlHint</strong>插件配置详解</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+    //标签名 小写
+    &quot;tagname-lowercase&quot;: true,
+    //属性名称小写
+    &quot;attr-lowercase&quot;: true,
+    //属性值使用双引号    
+    &quot;attr-value-double-quotes&quot;: true,
+    //属性值不能为空    
+    &quot;attr-value-not-empty&quot;: false,
+    //属性值不能重定义    
+    &quot;attr-no-duplication&quot;: true,
+    //html标签在头部    
+    &quot;doctype-first&quot;: false,
+    //标签配对    
+    &quot;tag-pair&quot;: true,
+    //标签自闭    
+    &quot;tag-self-close&quot;: false,
+    //id唯一
+    &quot;id-unique&quot;: true,
+    //src非空
+    &quot;src-not-empty&quot;: true,
+    //title必须    
+    &quot;title-require&quot;: false,
+    //alt必须    
+    &quot;alt-require&quot;: false,
+    //&lt;!DOCTYPE&gt;检查
+    &quot;doctype-html5&quot;: false,
+    //文件内部样式禁止    
+    &quot;style-disabled&quot;: false,
+    //内联css机制    
+    &quot;inline-style-disabled&quot;: false,
+    //内联js禁止    
+    &quot;inline-script-disabled&quot;: false,
+    //属性特殊字符检查    
+    &quot;attr-unsafe-chars&quot;: false,
+    //头部js文件检查
+    &quot;head-script-disabled&quot;: false
+    } 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div><blockquote><p>csslint插件配置详解</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code> cssCheckOptions: {
+        //是否检测 !important
+        &quot;important&quot;: false,
+
+        //是否允许 .bar.foo 这种两个连在一起的选择器
+
+        //未知属性检测
+        &quot;known-properties&quot;: true,
+
+        //重复属性检测
+        &quot;duplicate-properties&quot;: true,
+
+        //border-box 和 box-sizing检测
+        &quot;box-sizing&quot;: false,  
+
+        //width、height 与 border  padding值一起使用时 发出警告
+        &quot;box-model&quot;: false,  
+
+        //display与一些其他值不能同时使用  
+        //如 inline 不能与height同时使用   block不能使用 vertical-align   table-*不能使用float
+        &quot;display-property-grouping&quot;:true,  
+
+        //不允许使用重复的背景图片   如果是精灵图  背景图在一个公共的类里引用 其他类用于调整位置
+        &quot;duplicate-background-images&quot;:true,  
+
+        //gradient 这种需要跨浏览器兼容的属性应该写在一起  避免漏改
+        &quot;gradients&quot;:true,  
+
+        //rgba  hsl  hsla这种类型的颜色会提出警告
+        &quot;fallback-colors&quot;:true,  
+
+        //font-size的声明不应该超过10条  
+        &quot;font-sizes&quot;:false,  
+
+        //@font-face  这种外部字体规则不要引入太多
+        &quot;font-faces&quot;:false,  
+
+        //float条数超过10条时，警告
+        &quot;floats&quot;:false,  
+
+        //以*开头的属性检测    如  *width  检测到会报错
+        &quot;star-property-hack&quot;:false,  
+
+        //以_开头的属性检测
+        &quot;underscore-property-hack&quot;:false,  
+
+        //若有  outline:0 或 outline:none的情况并且选择器没有:focus伪类  警告   
+        //或者选择器有:focus伪类 但是只有outline一条属性 警告
+        &quot;outline-none&quot;:false,  
+
+        //不允许导入css  @import url(more.css);
+        &quot;import&quot;:true,  
+
+        //id选择器不要放在头部  例如  #head a{}这种  应该单独使用  因为css解析从右向左解析，这样反而降低了效率
+        &quot;ids&quot;:false,  
+
+        //h1-h6应该在头部定义 而不能再子类中再次定义 例如.box h3 {font-weight: normal;}是不行的
+        //.item:hover h3 { font-weight: bold; } 也是不行的    正确的是  h3{font-weight:normal}
+        &quot;qualified-headings&quot;:false,  
+
+        //如果你把 margin的top bottom left right都定义一遍就警告你！╭(╯^╰)╮   如果只定义了其中1~2个不会警告
+        //正确食用  margin:20px 10px 5px 11px;
+        &quot;shorthand&quot;:true,  
+
+        //text-indent不能使用负值  除非同属性direction:ltr一起出现
+        &quot;text-indent&quot;:false,  
+
+        //h1-h6 只应该被定义一次   伪类不算
+        &quot;unique-headings&quot;:false,  
+
+        //若*选择器 是key选择器的话(最右边那个) 警告
+        &quot;universal-selector&quot;:false,  
+
+        //类似于[type=text]的选择器作为key选择器的时候  浏览器会先把所有的节点匹配  然后去检查他们的type属性会降低效率
+        &quot;unqualified-attributes&quot;:false,  
+
+        //不能只有前缀属性，没有通用属性  -moz-border-radius  并且通用属性必须在最后
+        &quot;vendor-prefix&quot;:false,  
+
+        //不允许 0px  0% 0em等
+        &quot;zero-units&quot;:true
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br></div></div><h4 id="使用cdn"><a href="#使用cdn" class="header-anchor">#</a> 使用cdn</h4> <p>多个cdn资源-&gt;百度首页的cookie非常大，静态资源不需要，所以换一个域名而不是没次请求的时候都会带着。网站会有并发限制，用cdn的话就不会有了。</p> <h4 id="网站协议"><a href="#网站协议" class="header-anchor">#</a> 网站协议</h4> <p><strong>http1中的keep-live</strong></p> <p>例子：</p> <p>即客户端向服务器发送一个请求信息，服务器来响应这个信息。在老的HTTP版本中，每个请求都将被创建一个新的客户端-&gt;服务器的连接，在这个连接上发送请求，然后接收请求。这样的模式有一个很大的优点就是，它很简单，很容易理解和编程实现；它也有一个很大的缺点就是，它效率很低，因此Keep-Alive被提出用来解决效率低的问题。Keep-Alive功能使客户端到服务器端的连接持续有效，当出现对服务器的后继请求时，Keep-Alive功能避免了建立或者重新建立连接。市场上 的大部分Web服务器，包括iPlanet、IIS和Apache，都支持HTTPKeep-Alive。对于提供静态内容的网站来说，这个功能通常很有用。但是，对于负担较重的网站来说，这里存在另外一个问题：虽然为客户保留打开的连 接有一定的好处，但它同样影响了性能，因为在处理暂停期间，本来可以释放的资源仍旧被占用。当Web服务器和应用服务器在同一台机器上运行时，Keep-Alive功能对资源利用的影响尤其突出。 此功能为HTTP 1.1预设的功能，HTTP 1.0加上Keep-Aliveheader也可以提供HTTP的持续作用功能。</p> <p>Keep-Alive: timeout=5, max=100</p> <p>timeout：过期时间5秒（对应httpd.conf里的参数是：KeepAliveTimeout），max是最多一百次请求，强制断掉连接</p> <p>http2的多路复用
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/http2多路复用1.png"><img src="http://blog.colastar.club:9527/static/images/http2%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A81.png" alt=""></a></p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/性能优化.png"><img src="http://blog.colastar.club:9527/static/images/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.png" alt=""></a></p> <h4 id="memory-cache-disk-cache"><a href="#memory-cache-disk-cache" class="header-anchor">#</a> memory-cache/disk-cache</h4> <p>webkit的资源分类主要是俩大类：主资源和派生资源</p> <blockquote><p>200 from memory cache</p></blockquote> <p>字面理解是从内存中，其实也是字面的含义，这个资源是直接从内存中拿到的，<strong>不会请求服务器</strong>一般已经加载过该资源且缓存在了内存当中，当关闭该页面时，此资源就被内存释放掉了，再次重新打开相同页面时不会出现from memory cache的情况</p> <blockquote><p>200 from disk cache</p></blockquote> <p>同上类似，此资源是从磁盘当中取出的，也是在已经在之前的某个时间加载过该资源，<strong>不会请求服务器</strong>但是此资源不会随着该页面的关闭而释放掉，因为是存在硬盘当中的，下次打开仍会from disk cache</p> <p>只有当前的派生资源才会进行缓存，主文件是不缓存的，除非设置它要缓存，</p> <p>memory缓存的css/js/image，就是在disk上缓存一瞬间，然后放到memory中，放memory中，放满了到disk里（主要是跟系统配置有关系）。</p> <blockquote><p>304 Not Modified
+访问服务器，发现数据没有
+更新，服务器返回此状态码。然后从缓存中读取数据。</p></blockquote> <h4 id="三级缓存原理"><a href="#三级缓存原理" class="header-anchor">#</a> 三级缓存原理</h4> <ul><li>1.先去内存看，如果有，直接加载</li> <li>2.如果内存没有，择取硬盘获取，如果有直接加载</li> <li>3.如果硬盘也没有，那么就进行网络请求</li> <li>4.加载到的资源缓存到硬盘和内存</li></ul> <p>访问-&gt; 200 -&gt; 退出浏览器</p> <p>再进来-&gt; 200(from disk cache) -&gt; 刷新 -&gt; 200(from memory cache)</p> <p>缓存优先级</p> <p>last-modified/if-modified-since -&gt; Etag/if-none-march -&gt; expires/cache-Conctl</p> <p>一般库文件会做一些http的缓存，因为库文件不是频繁变动，做强缓（过期时间999年），业务文件（etag/last-modified/离线缓存）</p> <h4 id="离线缓存"><a href="#离线缓存" class="header-anchor">#</a> 离线缓存</h4> <p>websql可以存50m，它是关系型数据库。但是读取速度缓慢，它是异步离线缓存，有可能比你的网络请求还长，他主要依赖硬件。</p> <p>IndexDB是非关系型数据库。</p> <p>2种方案： orm（本地持久化缓存方案）</p> <p>方法一：</p> <p><code>webpack</code>用<code>webpack-manifest-pugin</code>打包一份<code>key</code>的<code>js</code>（存<code>localstore</code>的<code>key</code>，<code>value</code>）
+过程：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    1.本地缓存去取a.js
+    2.有激活js addscript
+        a.js与a.xx42.js对比
+        更新a.js - &gt;a.xx44.js
+        a.xx44.js删除
+        跳回3
+    3.没有
+        a.xx44.js 放到缓存到
+        localstore缓存html 、js文件/css文件等，
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>无痕模式/急速模式 时：（什么都不会支持的时候,可以解决<code>backet.js</code>+<code>localforage</code>）</p> <h4 id="dns详解"><a href="#dns详解" class="header-anchor">#</a> DNS详解</h4> <p>DNS是Domain Name System ，域名系统</p> <p>他就是用来做域名转换的</p> <h5 id="_1-顶级域名"><a href="#_1-顶级域名" class="header-anchor">#</a> 1.顶级域名</h5> <p>比如百度  <code>baidu.com</code></p> <p>www.baidu.com www其实是二级域名</p> <p>后缀 .com/.cn/.net等</p> <h5 id="_2-域名服务器"><a href="#_2-域名服务器" class="header-anchor">#</a> 2.域名服务器</h5> <p>若干个级别</p> <h5 id="_3-域名解析"><a href="#_3-域名解析" class="header-anchor">#</a> 3.域名解析</h5> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/dns.png"><img src="http://blog.colastar.club:9527/static/images/dns.png" alt=""></a>
+俩种方式：</p> <p>1.正向解析：域名到IP</p> <p>2.反向解析ip到域名</p> <blockquote><p>解析过程：</p></blockquote> <p>1.客户端到运营商服务器</p> <p>2.首先查缓存</p> <p>3.如果没有，去找根服务器（17台），他的作用返回后缀，告诉你通过.com去某台TLD server进行下次查询</p> <p>4.TLD server（只保存着顶级域名的name server地址）解析顶级域名（.com的TLD/.cn的TLD）</p> <p>5.name server查到最终的url，即解析到他的2.3.4.5....级域名</p> <blockquote><p>dns优化</p></blockquote> <p>优化是在运营商那而做一个大的缓存</p> <blockquote><p>注意：</p></blockquote> <p>阿里云是一整套全部包括了，而不是name server</p> <h5 id="域名资源记录"><a href="#域名资源记录" class="header-anchor">#</a> 域名资源记录</h5> <p>记录类型
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/dns_histrory.png"><img src="http://blog.colastar.club:9527/static/images/dns_histrory.png" alt=""></a>
+注意：</p> <ul><li>A记录主要是解析ipv4的；</li> <li>ipv6主机记录用来解析ipv6</li> <li>切换服务器时更改，cname的妙用
+正常是所有的域名指向vps即多个A记录，如果用cname的话要一个A记录其他都是cname了</li></ul> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/dns_historoy2.png"><img src="http://blog.colastar.club:9527/static/images/dns_historoy2.png" alt=""></a></p> <h4 id="tcp三次握手与四次挥手"><a href="#tcp三次握手与四次挥手" class="header-anchor">#</a> TCP三次握手与四次挥手</h4> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/tcp三次握手与四次挥手.png"><img src="http://blog.colastar.club:9527/static/images/tcp%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E4%B8%8E%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.png" alt=""></a></p> <p>发送数据包的时候，数据包向下传递的时候逐层回家一个头，应用层-&gt;表示层-&gt;会话层 传输层 网络层 数据链路层 物理层（010101）-&gt;数据链路层 网络层 传输层 回话层 表示层 应用层</p> <p>相当于加封再解封的过程。</p> <p>像一个洋葱，一层一层的往外包</p> <p>这个头有什么用？验证，为本层次服务，每一层都有自己的顺序号。</p> <p>相当于是快递公司一样</p> <p>TCP协议模型的详解</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/TCP协议模型的详解.png"><img src="http://blog.colastar.club:9527/static/images/TCP%E5%8D%8F%E8%AE%AE%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%A6%E8%A7%A3.png" alt=""></a></p> <p>ping命令用的ICMP协议（数据报协议）
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/tcp协议头.png"><img src="http://blog.colastar.club:9527/static/images/tcp%E5%8D%8F%E8%AE%AE%E5%A4%B4.png" alt=""></a>
+tcp协议头至少要占24个字节。这些数据都是2进制数据（因为2进制数据紧凑），http是文档。</p> <p>source：源端口，占2个字节，最大值2的16次方减1</p> <p>destinationPort 服务端口（目的端口）默认端口80，必须是80端口，如果不是，tcp不认，占2个字节最大值2的16次方减1</p> <p>sequence Number：顺序号（整型），为啥要编号呢？因为数据是被分割开逐个传输，如果中间丢包的话，服务器可以通过顺序号去判断是否重新补包，后边再组装，这样可以保证及时性和可靠性，占4个字节，最大值2的32次方。就向搬家一样给家具编号。</p> <p>Acknowledgment Number 应答号：
+这个号码可以干嘛呢？  如果丢包了 接收端发给发送端的丢包编码。</p> <p>offset 偏移量（决定头的大小）</p> <h5 id="tcp与udp的区别"><a href="#tcp与udp的区别" class="header-anchor">#</a> tcp与udp的区别</h5> <p>tcp相当于打电话
+拨号 接起电话 你喂 对方回应喂 然后说话 你说挂，看还有什么没做，他说没没了挂吧 然后挂</p> <p>udp只管发，发没发到它不管，相当于广播找人。找不找的到它不管。</p> <h5 id="tcp的三次握手与四次挥手"><a href="#tcp的三次握手与四次挥手" class="header-anchor">#</a> tcp的三次握手与四次挥手</h5> <p>在通信这一块，谁发起通信谁是客户端。</p> <p>发起请求和断开连接请求都是客户端发起的</p> <p>双向通信</p> <p>三次握手就是tcp建立链接时的通信</p> <ul><li><p>1.客户端发送链接请求（syn）同时发送一个seq顺序号</p></li> <li><p>2.服务器发送连接请求响应客户端的连接请求（syn） 和一个顺序号seq以及一个应答号（客户端发过来的顺序号加一）是放在一个包里的</p></li> <li><p>3.客户端表示收到服务器的请求发送一个应答号（服务器的顺序号加一）</p></li> <li><p>4.连接成功</p></li></ul> <p>开始数据传输（来来回回n次）顺序号与应答号一直叠加</p> <p>四次挥手就是断开连接的通信（）</p> <ul><li>客户端发送服务情请求断开连接的包，并且询问通知服务器要断开请求，询问活干完没，一个顺序号。</li> <li>服务器 发送一个收到请求的应答号的包，然后检查一下工作是否完成，向客户端发送一个断开确认的包，顺序号。</li> <li>收到断开确认包后，向服务器发送断开确认的包，应答号。</li></ul> <blockquote><p>双向双工通信，单向单工通信</p></blockquote> <ul><li><p>单向:一个端只能向另一端发送，但不能接受，即一段只有发送工具，一端只有接受的功能。</p></li> <li><p>双向：俩端可以互相传。</p></li> <li><p>单工：数据传输只支持数据在一个方向上的传输，同时只能有一方能发送或接收信息。即：如果是双向通信的话，当一方在向另一方发送，另一方不能向对方发送数据</p></li> <li><p>双工：是同时可以进行双向传输。即如果是双向通信的话，当一方在向另一方发送，另一方可以同时向对方发送数据，  　例子：广播</p></li> <li><p>半双工：数据传输允许数据来两个方向上传输，但是任一时刻，都只允许数据在一个方向上传播，它实际上是一种切换方向的单工通信；同一时间内，只可以有一方接收或者发送信息。　例子：手机通话</p></li></ul> <p>例子：</p> <ul><li><p>对讲机是单工双向通信；</p></li> <li><p>电话是双工通信</p></li></ul> <blockquote><p>HTTP协议 是什么工作模式呢？</p></blockquote> <ul><li>最初的 http版本 就是1.1以下的 是单工。</li> <li>1.1版本通过kepp alive 可以实现半双工  一般需要服务器配置开启长连接 。现在的网站用的1.1 版本 但是长连接是否可用 需要看服务器的配置 。</li> <li>Http2.0是一代http的版本 现在在试行中 很多浏览器和服务器不支持 ，是双工通信的协议 为了弥补之前的不足。
+补充：</li> <li>http协议有多个版本,存在区别,截至2019.1,主流协议是http1.1</li> <li>http1.1以下版本,http连接为短连接,tcp连接发送信息等待接受信息后断开.</li> <li>http1.1 是半双工,建立长连接,出现多路复用,可先后发送多个http请求,不用等待回复,但是回复按顺序一个一个回复.(当前主流)
+-http2.0是全双工,一个消息发送后不用等待接受,第二个消息可以直接发送.</li></ul> <h4 id="cdn概念"><a href="#cdn概念" class="header-anchor">#</a> CDN概念</h4> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/cdn.png"><img src="http://blog.colastar.club:9527/static/images/cdn.png" alt=""></a></p> <p>图一：集中式（传统的网络）必须从一台服务器上请求</p> <p>带宽，距离，一个服务器造成延迟与服务器压力问题</p> <p>图二：cdn模式（讲求近就原则）</p> <p>即产生多个镜像服务器，解决了服务器压力以及延迟</p> <p>CDN缓存</p> <p>CDN缓存属于Cache服务器的一种。
+CDN的全称是Content Delivery Network，即内容分发网络。其目的是通过在现有的Internet中增加一层新的网络架构，将网站的内容发布到最接近用户的网络&quot;边缘&quot;，使用户可 以就近取得所需的内容，解决Internet网络拥塞状况，提高用户访问网站的响应速度。从技术上全面解决由于网络带宽小、用户访问量大、网点分布不均等 原因，解决用户访问网站的响应速度慢的根本原因。</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/cdn缓存.png"><img src="http://blog.colastar.club:9527/static/images/cdn%E7%BC%93%E5%AD%98.png" alt=""></a></p> <p>通过上图，我们可以了解到，使用了CDN缓存后的网站的访问过程为：
+　　1)、用户向浏览器提供要访问的域名；
+　　2)、浏览器调用域名解析库对域名进行解析，由于CDN对域名解析过程进行了调整，所以解析函数库一般得到的是该域名对应的CNAME记录，为了得到实际IP地址，浏览器需要再次对获得的CNAME域名进行解析以得到实际的IP地址；在此过程中，使用的全局负载均衡DNS解析，如根据地理位置信 息解析对应的IP地址，使得用户能就近访问。
+　　3)、此次解析得到CDN缓存服务器的IP地址，浏览器在得到实际的IP地址以后，向缓存服务器发出访问请求；
+　　4)、若请求文件并未修改，返回304（充当服务器的角色）。若当前文件已过期，则缓存服务器根据浏览器提供的要访问的域名，通过Cache内部专用DNS解析得到此域名的实际IP地址，再由缓存服务器向此实际IP地址提交访问请求；
+　　5)、缓存服务器从实际IP地址得得到内容以后，一方面在本地进行保存，以备以后使用，二方面把获取的数据返回给客户端，完成数据服务过程；
+　　6)、客户端得到由缓存服务器返回的数据以后显示出来并完成整个浏览的数据请求过程。</p> <h4 id="http缓存机制"><a href="#http缓存机制" class="header-anchor">#</a> http缓存机制</h4> <p>缓存优先级
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/缓存优先级.png"><img src="http://blog.colastar.club:9527/static/images/%E7%BC%93%E5%AD%98%E4%BC%98%E5%85%88%E7%BA%A7.png" alt=""></a></p> <p>浏览器第一次请求流程图
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/请求缓存的流程2.png"><img src="http://blog.colastar.club:9527/static/images/%E8%AF%B7%E6%B1%82%E7%BC%93%E5%AD%98%E7%9A%84%E6%B5%81%E7%A8%8B2.png" alt=""></a>
+浏览器再次请求时
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/请求缓存的流程2.png"><img src="http://blog.colastar.club:9527/static/images/%E8%AF%B7%E6%B1%82%E7%BC%93%E5%AD%98%E7%9A%84%E6%B5%81%E7%A8%8B2.png" alt=""></a>
+缓存会根据请求保存输出内容的副本，例如html页面，图片，文件，当下一个请求来到的时候:如果是相同的URL，缓存直接使用副本响应访问请求，而不是向源服务器再次发送请求，。
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/用户行为与缓存.png"><img src="http://blog.colastar.club:9527/static/images/%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E4%B8%8E%E7%BC%93%E5%AD%98.png" alt=""></a>
+浏览器缓存行为还有用户的行为有关</p> <p>缓存的优点：</p> <ul><li>减少相应延迟，提高响应速度</li> <li>减少网络带宽消耗</li></ul> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/缓存机制.png"><img src="http://blog.colastar.club:9527/static/images/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.png" alt=""></a></p> <p>浏览器的缓存是强制缓存与对比缓存搭配起来用的</p> <p>缓存分为俩大类：
+强制缓存不管服务器是否要求都要缓存</p> <p>对比缓存，通过与服务器对比去缓存（把缓存标记和时间确定是否要去缓存）；</p> <h5 id="强制缓存"><a href="#强制缓存" class="header-anchor">#</a> 强制缓存</h5> <p>强制缓存，服务器通知浏览器一个缓存时间，在缓存时内，下次请求，直接用缓存，不在时间内，执行比较缓存策略。</p> <p>对于强制缓存来说，响应header中会有两个字段来标明失效规则（Expires/Cache-Control）
+使用chrome的开发者工具，可以很明显的看到对于强制缓存生效时，网络请求的情况</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/强制缓存-浏览器.png"><img src="http://blog.colastar.club:9527/static/images/%E5%BC%BA%E5%88%B6%E7%BC%93%E5%AD%98-%E6%B5%8F%E8%A7%88%E5%99%A8.png" alt=""></a></p> <p><strong>Expires</strong></p> <p>Expires的值为服务端返回的到期时间，即下一次请求时，请求时间小于服务端返回的到期时间，直接使用缓存数据。
+不过Expires 是HTTP 1.0的东西，现在默认浏览器均默认使用HTTP 1.1，所以它的作用基本忽略。
+另一个问题是，到期时间是由服务端生成的，但是客户端时间可能跟服务端时间有误差，这就会导致缓存命中的误差。
+所以HTTP 1.1 的版本，使用Cache-Control替代。</p> <p><strong>Cache-Control</strong></p> <p>Cache-Control 是最重要的规则。常见的取值有private、public、no-cache、max-age，no-store，默认为private。</p> <ul><li>private: 客户端可以缓存</li> <li>public: 客户端和代理服务器都可缓存（前端的同学，可以认为public和private是一样的）</li> <li>max-age=xxx: 缓存的内容将在 xxx 秒后失效</li> <li>no-cache: 需要使用对比缓存来验证缓存数据（后面介绍）</li> <li>no-store: 所有内容都不会缓存，强制缓存，对比缓存都不会触发（对于前端开发来说，缓存越多越好，so…基本上和它说886）</li></ul> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/强缓存-请求头.png"><img src="http://blog.colastar.club:9527/static/images/%E5%BC%BA%E7%BC%93%E5%AD%98-%E8%AF%B7%E6%B1%82%E5%A4%B4.png" alt=""></a></p> <p>图中Cache-Control仅指定了max-age，所以默认为private，缓存时间为31536000秒（365天）
+也就是说，在365天内再次请求这条数据，都会直接获取缓存数据库中的数据，直接使用。</p> <h5 id="比较缓存"><a href="#比较缓存" class="header-anchor">#</a> 比较缓存</h5> <ul><li>比较缓存，顾名思义，需要进行比较判断是否可以使用缓存，也叫协商缓存，</li></ul> <p>浏览器第一次请求数据时，服务器会将缓存标识与数据一起返回给客户端，客户端将二者备份至缓存数据库中。 再次请求数据时，客户端将备份的缓存标识发送给服务器，服务器根据缓存标识进行判断，判断成功后，返回304状态码，通知客户端比较成功，可以使用缓存数据。</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/比较缓存-浏览器.png"><img src="http://blog.colastar.club:9527/static/images/%E6%AF%94%E8%BE%83%E7%BC%93%E5%AD%98-%E6%B5%8F%E8%A7%88%E5%99%A8.png" alt=""></a></p> <p>通过两图的对比，我们可以很清楚的发现，在对比缓存生效时，状态码为304，并且报文大小和请求时间大大减少。
+原因是，服务端在进行标识比较后，只返回header部分，通过状态码通知客户端使用缓存，不再需要将报文主体部分返回给客户端。</p> <p>对于对比缓存来说，缓存标识的传递是我们着重需要理解的，它在请求header和响应header间进行传递，
+一共分为两种标识传递或者叫俩种策略，接下来，我们分开介绍</p> <blockquote><p><strong>Last-Modified/If-Modified-Since策略</strong></p></blockquote> <p>**Last-Modified：**服务器在响应请求时，告诉浏览器资源的最后修改时间。</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/Last-Modified.png"><img src="http://blog.colastar.club:9527/static/images/Last-Modified.png" alt=""></a></p> <ul><li>两类缓存规则可以同时存在，强制缓存优先级高于对比缓存，也就是说，当执行强制缓存的规则时，如果缓存生效，直接使用缓存，不再执行对比缓存规则。</li></ul> <p><strong>If-Modified-Since：</strong>
+再次请求服务器时，通过此字段通知服务器上次请求时，服务器返回的资源最后修改时间。
+服务器收到请求后发现有头If-Modified-Since 则与被请求资源的最后修改时间进行比对。
+若资源的最后修改时间大于If-Modified-Since，说明资源又被改动过，则响应整片资源内容，返回状态码200；
+若资源的最后修改时间小于或等于If-Modified-Since，说明资源无新修改，则响应HTTP 304，告知浏览器继续使用所保存的cache。</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/If-Modified-Since.png"><img src="http://blog.colastar.club:9527/static/images/If-Modified-Since.png" alt=""></a></p> <blockquote><p><strong>Etag/If-None-Match策略</strong></p></blockquote> <p>（优先级高于Last-Modified / If-Modified-Since）</p> <p><strong>Etag：</strong>
+服务器响应请求时，告诉浏览器当前资源在服务器的唯一标识（生成规则由服务器决定）</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/Etag.png"><img src="http://blog.colastar.club:9527/static/images/Etag.png" alt=""></a></p> <p><strong>If-None-Match:</strong></p> <p>再次请求服务器时，通过此字段通知服务器客户段缓存数据的唯一标识。
+服务器收到请求后发现有头If-None-Match 则与被请求资源的唯一标识进行比对，
+不同，说明资源又被改动过，则响应整片资源内容，返回状态码200；
+相同，说明资源无新修改，则响应HTTP 304，告知浏览器继续使用所保存的cache</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/If-None-Match.png"><img src="http://blog.colastar.club:9527/static/images/If-None-Match.png" alt=""></a></p> <h3 id="渲染中性能优化"><a href="#渲染中性能优化" class="header-anchor">#</a> 渲染中性能优化</h3> <p>1.网页渲染过程</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>1-1.获取dom分割成多层Parse Html
+1-2.对每一层计算样式结果 Pecalculate Style
+1-3.为每个节点生成位置和图形的过程 **重排** Layout
+1-4.将每个节点绘制并填充到图层的位图中  **重绘**  Paint
+1-5.绘制出来的纹理上传到GPU Composite Layers  合成层
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>2.大致的一个流程就是重排-&gt;重绘-&gt; Composite Layers</p> <p>3.网络分层</p> <p>根元素，position，transform,半透明，滤镜，canvas，video，overflow</p> <p>4.什么会让GPU参与成层（跳过重绘重排直接合成）？</p> <p>webgl，css3d，video，transform，滤镜</p> <p>5.cpu与gpu的相同点与不同点</p> <p>相同点：俩者都有总线和外联系，有自己的缓存体系，以及数字和逻辑运算单位，诶了完成结算任务而生。</p> <p>不同之处：CPU操作系统和应用程序，GPU显示相关，GPU的活CPU都能干，但是效率低。</p> <p><strong>重绘</strong>：当盒子的位置、大小以及其他属性，例如颜色、字体大小等都确定下来之后，浏览器便把这些原色都按照各自的特性绘制一遍，将内容呈现在页面上。重绘是指一个元素外观的改变所触发的浏览器行为，浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。</p> <p><strong>触发重绘的条件</strong>：改变元素外观属性。如：color，box-shadow,background-color等。</p> <p><strong>重排/回流</strong>：</p> <p>当渲染树中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建, 这就称为回流(reflow)。每个页面至少需要一次回流，就是在页面第一次加载的时候。</p> <p><strong>下述情况会发生重排：</strong></p> <ul><li>添加或删除可见的DOM元素。</li> <li>元素的位置、尺寸（内外边距、边框厚度、宽高等属性）改变</li> <li>内容改变（文本改变或者图片大小改变而引起的计算值宽度和高度改变）</li> <li>页面渲染器初始化</li> <li>浏览器窗口尺寸改变——resize事件发生时。</li></ul> <p><strong>js中一些方法会导致重新获取布局信息,刷新渲染队列。</strong></p> <ul><li>offsetTop，offsetLeft，offsetWidth，offsetHeight</li> <li>scrollTop，scrollLeft，scrollWidth，scrollHeight</li> <li>clientTop，clientLeft，clientWidth，clientHeight</li> <li>getComputedStyle(currentStyle in IE)</li></ul> <p>所以重绘未必会发生重排，但是重排一定会发生重绘。</p> <p><strong>重绘重排的代价</strong>：耗时，导致浏览器卡慢。</p> <p><strong>如何规避?</strong></p> <ul><li>1.分离读写操作；</li> <li>2.样式集中改变，即将多次改变样式属性的操作合并成一次操作</li> <li>3.CSS3硬件加速 ： <code>translate</code>属性值来替换<code>top/left/right/bottom</code>的切换，<code>scale</code>属性值替换<code>width/height</code>，<code>opacity</code>属性替换<code>display/visibility</code>等等</li> <li>4.将需要多次重排的元素，position属性设为absolute或fixed，这样此元素就脱离了文档流，它的变化不会影响到其他元素。例如有动画效果的元素就最好设置为绝对定位。</li> <li>5.在内存中多次操作节点，完成后再添加到文档中去。例如要异步获取表格数据，渲染到页面。可以先取得数据后在内存中构建整个表格的html片段，再一次性添加到文档中去，而不是循环添加每一行。</li> <li>6.由于display属性为none的元素不在渲染树中，对隐藏的元素操作不会引发其他元素的重排。如果要对一个元素进行复杂的操作时，可以先隐藏它，操作完成后再显示。这样只在隐藏和显示时触发2次重排。</li> <li>7.在需要经常取那些引起浏览器重排的属性值时，要缓存到变量。</li> <li><strong>8.使DOM脱离文档流，再作批量处理 （建立子树，显示隐藏，新节点替换）</strong></li></ul> <h3 id="⻚面加载性能优化"><a href="#⻚面加载性能优化" class="header-anchor">#</a> ⻚⾯加载性能优化</h3> <h4 id="fp-fcp-fmp-tti四个性能指标"><a href="#fp-fcp-fmp-tti四个性能指标" class="header-anchor">#</a> FP/FCP/FMP/TTI四个性能指标</h4> <ul><li>FP：First Paint, 首次绘制（白屏时间，根节点首个div）
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/fp.png"><img src="http://blog.colastar.club:9527/static/images/fp.png" alt=""></a></li> <li>FCP：First Contentful Paint, ⾸次有内容的绘制（包含⻚页⾯面的基本框架，但没有数据内容）
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/fcp.png"><img src="http://blog.colastar.club:9527/static/images/fcp.png" alt=""></a></li> <li>FMP：First Meaningful Paint,⾸次有意义的绘制（包含页⾯所有元素及数据）
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/fmp.png"><img src="http://blog.colastar.club:9527/static/images/fmp.png" alt=""></a></li> <li>TTI：Time To Interactive, 可交互时间</li></ul> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/fmp.png"><img src="http://blog.colastar.club:9527/static/images/fmp.png" alt=""></a> <a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/fp_fcp_fmp.png"><img src="http://blog.colastar.club:9527/static/images/fp_fcp_fmp.png" alt=""></a> <a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/fp_fcp_fmp2.png"><img src="http://blog.colastar.club:9527/static/images/fp_fcp_fmp2.png" alt=""></a></p> <p>Long Task的表现
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/long_task.png"><img src="http://blog.colastar.club:9527/static/images/long_task.png" alt=""></a></p> <p>关于VUE的执行
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/vue_fp_fcp_fmp.png"><img src="http://blog.colastar.club:9527/static/images/vue_fp_fcp_fmp.png" alt=""></a> <a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/vue_fp_fcp_fmp2.png"><img src="http://blog.colastar.club:9527/static/images/vue_fp_fcp_fmp2.png" alt=""></a></p> <p>问题：为啥会出现白屏
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/白屏原因.png"><img src="http://blog.colastar.club:9527/static/images/%E7%99%BD%E5%B1%8F%E5%8E%9F%E5%9B%A0.png" alt=""></a></p> <h4 id="csr与ssr"><a href="#csr与ssr" class="header-anchor">#</a> CSR与SSR</h4> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/优化总结.png"><img src="http://blog.colastar.club:9527/static/images/%E4%BC%98%E5%8C%96%E6%80%BB%E7%BB%93.png" alt=""></a></p> <h3 id="nodejs性能优化"><a href="#nodejs性能优化" class="header-anchor">#</a> NodeJS性能优化</h3> <p>内存回收</p> <p>内存快照</p> <p>压力测试</p> <p>监控异常</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/27/2022, 3:23:06 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blogs/no.4/quicklink.html" class="prev">
+        quicklink详解
+      </a></span> <span class="next"><a href="/blogs/no.4/前端性能优化之缓存利用.html">
+        前端性能优化之缓存利用
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blogs/assets/js/app.e644ec03.js" defer></script><script src="/blogs/assets/js/2.5689dfa7.js" defer></script><script src="/blogs/assets/js/92.27b42bbe.js" defer></script>
+  </body>
+</html>

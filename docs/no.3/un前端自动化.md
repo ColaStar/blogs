@@ -50,7 +50,7 @@
 - 3.静态资源发布依赖人工，浪费开发人力。 
 - 4.缺少自动化测试，产品质量得不到保障。 
 - 5.文案简单修改上线，需要技术介入。
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/jenkins_流程图1.jpg">![](http://blog.colastar.club/static/images/jenkins_流程图1.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/jenkins_流程图1.jpg">![](http://blog.colastar.club:9527/static/images/jenkins_流程图1.jpg)</a>
 
 > 自动化实现的一些技术
 

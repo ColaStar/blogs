@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>sed与awk | 个人博客</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/blogs/js/tj.js"></script>
+    <script src="/blogs/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="江畔何人初见月，江月何年初照人？">
+    
+    <link rel="preload" href="/blogs/assets/css/0.styles.f7c6bd56.css" as="style"><link rel="preload" href="/blogs/assets/js/app.e644ec03.js" as="script"><link rel="preload" href="/blogs/assets/js/2.5689dfa7.js" as="script"><link rel="preload" href="/blogs/assets/js/66.53ca93e2.js" as="script"><link rel="prefetch" href="/blogs/assets/js/10.e901e6bf.js"><link rel="prefetch" href="/blogs/assets/js/100.0c1fcbf8.js"><link rel="prefetch" href="/blogs/assets/js/101.6bf4fc77.js"><link rel="prefetch" href="/blogs/assets/js/102.1d2eaccd.js"><link rel="prefetch" href="/blogs/assets/js/103.85059ae9.js"><link rel="prefetch" href="/blogs/assets/js/104.570914ff.js"><link rel="prefetch" href="/blogs/assets/js/105.8110e0c6.js"><link rel="prefetch" href="/blogs/assets/js/106.6218fe43.js"><link rel="prefetch" href="/blogs/assets/js/107.035a7779.js"><link rel="prefetch" href="/blogs/assets/js/108.ac2fa821.js"><link rel="prefetch" href="/blogs/assets/js/109.6bf2b4ea.js"><link rel="prefetch" href="/blogs/assets/js/11.a6ce9264.js"><link rel="prefetch" href="/blogs/assets/js/110.8c6f3f50.js"><link rel="prefetch" href="/blogs/assets/js/111.383ab6e2.js"><link rel="prefetch" href="/blogs/assets/js/112.2c270063.js"><link rel="prefetch" href="/blogs/assets/js/113.0574c147.js"><link rel="prefetch" href="/blogs/assets/js/114.624fd444.js"><link rel="prefetch" href="/blogs/assets/js/115.7b2823f9.js"><link rel="prefetch" href="/blogs/assets/js/116.80ee70fc.js"><link rel="prefetch" href="/blogs/assets/js/117.e7969afb.js"><link rel="prefetch" href="/blogs/assets/js/118.56cd574d.js"><link rel="prefetch" href="/blogs/assets/js/119.954d2e5d.js"><link rel="prefetch" href="/blogs/assets/js/12.8e01f2af.js"><link rel="prefetch" href="/blogs/assets/js/120.97690805.js"><link rel="prefetch" href="/blogs/assets/js/121.5d1b8bb6.js"><link rel="prefetch" href="/blogs/assets/js/122.5196c388.js"><link rel="prefetch" href="/blogs/assets/js/123.8889fd8a.js"><link rel="prefetch" href="/blogs/assets/js/124.81fbdf1d.js"><link rel="prefetch" href="/blogs/assets/js/125.a8c40caa.js"><link rel="prefetch" href="/blogs/assets/js/126.48041068.js"><link rel="prefetch" href="/blogs/assets/js/127.84edfb11.js"><link rel="prefetch" href="/blogs/assets/js/128.f9559f9c.js"><link rel="prefetch" href="/blogs/assets/js/129.4c7a12ec.js"><link rel="prefetch" href="/blogs/assets/js/13.47cfa5d5.js"><link rel="prefetch" href="/blogs/assets/js/130.0b9be472.js"><link rel="prefetch" href="/blogs/assets/js/131.bd43991a.js"><link rel="prefetch" href="/blogs/assets/js/132.75d202e3.js"><link rel="prefetch" href="/blogs/assets/js/133.d67e48d2.js"><link rel="prefetch" href="/blogs/assets/js/134.e87db8f1.js"><link rel="prefetch" href="/blogs/assets/js/135.52d461c7.js"><link rel="prefetch" href="/blogs/assets/js/136.59b643ed.js"><link rel="prefetch" href="/blogs/assets/js/137.ec96225a.js"><link rel="prefetch" href="/blogs/assets/js/138.72377d95.js"><link rel="prefetch" href="/blogs/assets/js/139.80673307.js"><link rel="prefetch" href="/blogs/assets/js/14.a65561e2.js"><link rel="prefetch" href="/blogs/assets/js/140.b85b8f0f.js"><link rel="prefetch" href="/blogs/assets/js/141.b7745460.js"><link rel="prefetch" href="/blogs/assets/js/142.9a5dd0fe.js"><link rel="prefetch" href="/blogs/assets/js/143.b66b69c6.js"><link rel="prefetch" href="/blogs/assets/js/144.6d6877c9.js"><link rel="prefetch" href="/blogs/assets/js/145.85a77d4e.js"><link rel="prefetch" href="/blogs/assets/js/146.6da81be1.js"><link rel="prefetch" href="/blogs/assets/js/147.8f2a420e.js"><link rel="prefetch" href="/blogs/assets/js/148.862a3477.js"><link rel="prefetch" href="/blogs/assets/js/149.121d303b.js"><link rel="prefetch" href="/blogs/assets/js/15.7c5758e7.js"><link rel="prefetch" href="/blogs/assets/js/150.eabc187b.js"><link rel="prefetch" href="/blogs/assets/js/151.7581b0df.js"><link rel="prefetch" href="/blogs/assets/js/152.adeb84dd.js"><link rel="prefetch" href="/blogs/assets/js/153.c3b64b4d.js"><link rel="prefetch" href="/blogs/assets/js/154.a3060078.js"><link rel="prefetch" href="/blogs/assets/js/155.1f1951fb.js"><link rel="prefetch" href="/blogs/assets/js/156.34fe39e1.js"><link rel="prefetch" href="/blogs/assets/js/157.81ac9ed7.js"><link rel="prefetch" href="/blogs/assets/js/158.72f7b22b.js"><link rel="prefetch" href="/blogs/assets/js/159.572b258e.js"><link rel="prefetch" href="/blogs/assets/js/16.35389dfa.js"><link rel="prefetch" href="/blogs/assets/js/160.6fc0e08d.js"><link rel="prefetch" href="/blogs/assets/js/161.b174afda.js"><link rel="prefetch" href="/blogs/assets/js/162.e393d4d8.js"><link rel="prefetch" href="/blogs/assets/js/163.a76edf51.js"><link rel="prefetch" href="/blogs/assets/js/164.732f62da.js"><link rel="prefetch" href="/blogs/assets/js/165.c5b37837.js"><link rel="prefetch" href="/blogs/assets/js/166.618f9776.js"><link rel="prefetch" href="/blogs/assets/js/167.239207ae.js"><link rel="prefetch" href="/blogs/assets/js/168.1ce94458.js"><link rel="prefetch" href="/blogs/assets/js/169.983f0b7f.js"><link rel="prefetch" href="/blogs/assets/js/17.0f2102e9.js"><link rel="prefetch" href="/blogs/assets/js/170.adf32601.js"><link rel="prefetch" href="/blogs/assets/js/171.a9e43063.js"><link rel="prefetch" href="/blogs/assets/js/172.00278bf8.js"><link rel="prefetch" href="/blogs/assets/js/173.22190dc7.js"><link rel="prefetch" href="/blogs/assets/js/174.21575200.js"><link rel="prefetch" href="/blogs/assets/js/18.85dc6e83.js"><link rel="prefetch" href="/blogs/assets/js/19.3dc73713.js"><link rel="prefetch" href="/blogs/assets/js/20.99db8519.js"><link rel="prefetch" href="/blogs/assets/js/21.698a52c5.js"><link rel="prefetch" href="/blogs/assets/js/22.d7210ff8.js"><link rel="prefetch" href="/blogs/assets/js/23.d56d0f74.js"><link rel="prefetch" href="/blogs/assets/js/24.438b7e8f.js"><link rel="prefetch" href="/blogs/assets/js/25.9692637a.js"><link rel="prefetch" href="/blogs/assets/js/26.ee8d2e2c.js"><link rel="prefetch" href="/blogs/assets/js/27.648386b6.js"><link rel="prefetch" href="/blogs/assets/js/28.4b667b73.js"><link rel="prefetch" href="/blogs/assets/js/29.f651827f.js"><link rel="prefetch" href="/blogs/assets/js/3.3923979e.js"><link rel="prefetch" href="/blogs/assets/js/30.9c41188e.js"><link rel="prefetch" href="/blogs/assets/js/31.1cad6d07.js"><link rel="prefetch" href="/blogs/assets/js/32.48116ba0.js"><link rel="prefetch" href="/blogs/assets/js/33.dc400d0c.js"><link rel="prefetch" href="/blogs/assets/js/34.9760f2ed.js"><link rel="prefetch" href="/blogs/assets/js/35.0c8c5faf.js"><link rel="prefetch" href="/blogs/assets/js/36.1b62f664.js"><link rel="prefetch" href="/blogs/assets/js/37.d0e0e22e.js"><link rel="prefetch" href="/blogs/assets/js/38.bf3df725.js"><link rel="prefetch" href="/blogs/assets/js/39.1de86319.js"><link rel="prefetch" href="/blogs/assets/js/4.f2bc8a01.js"><link rel="prefetch" href="/blogs/assets/js/40.603e7954.js"><link rel="prefetch" href="/blogs/assets/js/41.f60a79f1.js"><link rel="prefetch" href="/blogs/assets/js/42.e2b13978.js"><link rel="prefetch" href="/blogs/assets/js/43.02199eff.js"><link rel="prefetch" href="/blogs/assets/js/44.65bbdfe1.js"><link rel="prefetch" href="/blogs/assets/js/45.3dd35806.js"><link rel="prefetch" href="/blogs/assets/js/46.affe5377.js"><link rel="prefetch" href="/blogs/assets/js/47.8aeb7e59.js"><link rel="prefetch" href="/blogs/assets/js/48.849da6a6.js"><link rel="prefetch" href="/blogs/assets/js/49.fd95fbe3.js"><link rel="prefetch" href="/blogs/assets/js/5.c1772c6c.js"><link rel="prefetch" href="/blogs/assets/js/50.f3ad48a4.js"><link rel="prefetch" href="/blogs/assets/js/51.099d8e64.js"><link rel="prefetch" href="/blogs/assets/js/52.9abb7ef5.js"><link rel="prefetch" href="/blogs/assets/js/53.d28ed619.js"><link rel="prefetch" href="/blogs/assets/js/54.1f762ff1.js"><link rel="prefetch" href="/blogs/assets/js/55.28ad078a.js"><link rel="prefetch" href="/blogs/assets/js/56.28bac15b.js"><link rel="prefetch" href="/blogs/assets/js/57.f3a6121a.js"><link rel="prefetch" href="/blogs/assets/js/58.ed5824a8.js"><link rel="prefetch" href="/blogs/assets/js/59.9860100e.js"><link rel="prefetch" href="/blogs/assets/js/6.1c408966.js"><link rel="prefetch" href="/blogs/assets/js/60.304da844.js"><link rel="prefetch" href="/blogs/assets/js/61.c63b87a8.js"><link rel="prefetch" href="/blogs/assets/js/62.bae587da.js"><link rel="prefetch" href="/blogs/assets/js/63.a3c839b3.js"><link rel="prefetch" href="/blogs/assets/js/64.752ae530.js"><link rel="prefetch" href="/blogs/assets/js/65.cff65bd7.js"><link rel="prefetch" href="/blogs/assets/js/67.5600bd27.js"><link rel="prefetch" href="/blogs/assets/js/68.1ae2fdb9.js"><link rel="prefetch" href="/blogs/assets/js/69.5570d877.js"><link rel="prefetch" href="/blogs/assets/js/7.7f10b082.js"><link rel="prefetch" href="/blogs/assets/js/70.a3d98361.js"><link rel="prefetch" href="/blogs/assets/js/71.a9c04aa3.js"><link rel="prefetch" href="/blogs/assets/js/72.9ac2172c.js"><link rel="prefetch" href="/blogs/assets/js/73.4fb68f14.js"><link rel="prefetch" href="/blogs/assets/js/74.78cefa04.js"><link rel="prefetch" href="/blogs/assets/js/75.be75d256.js"><link rel="prefetch" href="/blogs/assets/js/76.fcc15f8e.js"><link rel="prefetch" href="/blogs/assets/js/77.24aa7035.js"><link rel="prefetch" href="/blogs/assets/js/78.77744ae0.js"><link rel="prefetch" href="/blogs/assets/js/79.1a6ad38e.js"><link rel="prefetch" href="/blogs/assets/js/8.e9f537d2.js"><link rel="prefetch" href="/blogs/assets/js/80.ca41e5ad.js"><link rel="prefetch" href="/blogs/assets/js/81.7a9b711c.js"><link rel="prefetch" href="/blogs/assets/js/82.8d2990f5.js"><link rel="prefetch" href="/blogs/assets/js/83.87af70e3.js"><link rel="prefetch" href="/blogs/assets/js/84.803c7e03.js"><link rel="prefetch" href="/blogs/assets/js/85.5c4787f1.js"><link rel="prefetch" href="/blogs/assets/js/86.adc84b64.js"><link rel="prefetch" href="/blogs/assets/js/87.094b1e30.js"><link rel="prefetch" href="/blogs/assets/js/88.0e1a00cf.js"><link rel="prefetch" href="/blogs/assets/js/89.e7a78fbd.js"><link rel="prefetch" href="/blogs/assets/js/9.e5fb1fbb.js"><link rel="prefetch" href="/blogs/assets/js/90.46afd670.js"><link rel="prefetch" href="/blogs/assets/js/91.a9e2bf9f.js"><link rel="prefetch" href="/blogs/assets/js/92.27b42bbe.js"><link rel="prefetch" href="/blogs/assets/js/93.05acf238.js"><link rel="prefetch" href="/blogs/assets/js/94.8309e47a.js"><link rel="prefetch" href="/blogs/assets/js/95.f1ad6962.js"><link rel="prefetch" href="/blogs/assets/js/96.3d6a67d3.js"><link rel="prefetch" href="/blogs/assets/js/97.33379eba.js"><link rel="prefetch" href="/blogs/assets/js/98.eb111825.js"><link rel="prefetch" href="/blogs/assets/js/99.f0e0aab7.js">
+    <link rel="stylesheet" href="/blogs/assets/css/0.styles.f7c6bd56.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blogs/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blogs/no.3/bower.html" class="sidebar-link">bower</a></li><li><a href="/blogs/no.3/browserify.html" class="sidebar-link">Browserify</a></li><li><a href="/blogs/no.3/commojs-vs-es6module.html" class="sidebar-link">模块规范对比</a></li><li><a href="/blogs/no.3/grunt.html" class="sidebar-link">grunt</a></li><li><a href="/blogs/no.3/gulp.html" class="sidebar-link">gulp</a></li><li><a href="/blogs/no.3/jenkins.html" class="sidebar-link">jenkins</a></li><li><a href="/blogs/no.3/linux_sed_awk.html" aria-current="page" class="active sidebar-link">sed与awk</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.3/linux_sed_awk.html#centos7之sed和awk常用" class="sidebar-link">centos7之sed和awk常用</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/linux_sed_awk.html#sed的选项、命令、替换标记" class="sidebar-link">sed的选项、命令、替换标记</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/linux_sed_awk.html#基本用法" class="sidebar-link">基本用法</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/linux_sed_awk.html#awk" class="sidebar-link">awk</a></li></ul></li><li><a href="/blogs/no.3/linux防火墙.html" class="sidebar-link">linux防火墙</a></li><li><a href="/blogs/no.3/nginx-error.html" class="sidebar-link">centos错误集合</a></li><li><a href="/blogs/no.3/parcel.html" class="sidebar-link">parcel</a></li><li><a href="/blogs/no.3/pm2指南.html" class="sidebar-link">PM2</a></li><li><a href="/blogs/no.3/redis.html" class="sidebar-link">Redis使用指南</a></li><li><a href="/blogs/no.3/rollup.html" class="sidebar-link">rollup</a></li><li><a href="/blogs/no.3/vite.html" class="sidebar-link">vite 源码分析</a></li><li><a href="/blogs/no.3/vite插件指南.html" class="sidebar-link">Vite2插件开发指南</a></li><li><a href="/blogs/no.3/webpack.html" class="sidebar-link">webpack</a></li><li><a href="/blogs/no.3/yeoman.html" class="sidebar-link">yeoman</a></li><li><a href="/blogs/no.3/免密登陆.html" class="sidebar-link">免密登陆</a></li><li><a href="/blogs/no.3/文件操作权限.html" class="sidebar-link">Linux权限</a></li><li><a href="/blogs/no.3/理解Webpack中的Chunk.html" class="sidebar-link">理解 Webpack 中的 Chunk</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="sed与awk"><a href="#sed与awk" class="header-anchor">#</a> sed与awk</h1> <h2 id="centos7之sed和awk常用"><a href="#centos7之sed和awk常用" class="header-anchor">#</a> centos7之sed和awk常用</h2> <p>sed是一种流编辑器，它是文本处理中非常中的工具，能够完美的配合正则表达式使用，功能不同凡响。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。</p> <h2 id="sed的选项、命令、替换标记"><a href="#sed的选项、命令、替换标记" class="header-anchor">#</a> sed的选项、命令、替换标记</h2> <p>命令格式</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>sed [options] 'command' file(s)
+sed [options] -f scriptfile file(s)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>常用选项：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>-n∶使用安静(silent)模式。在一般 sed 的用法中，所有来自 STDIN的资料一般都会被列出到萤幕上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。
+-e∶直接在指令列模式上进行 sed 的动作编辑；
+-f∶直接将 sed 的动作写在一个档案内， -f filename 则可以执行 filename 内的sed 动作；
+-r∶sed 的动作支援的是延伸型正规表示法的语法。(预设是基础正规表示法语法)
+-i∶直接修改读取的档案内容，而不是由萤幕输出。   
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>常用命令：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>a ∶新增， a 的后面可以接字符串，而这些字符串会在目前的下一行出现。
+c ∶取代， c 的后面可以接字符串，这些字符串可以取代 n1,n2 之间的行。
+d ∶删除，后面不接任何东西；
+i ∶插入， 与a只有一点不同，增加的字符串会在目前的上一行出现；
+p ∶列印，亦即将某个选择的资料印出。在使用p的时候一般会加上-n参数。
+s ∶取代，可以直接进行取代的工作。
+　　
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="基本用法"><a href="#基本用法" class="header-anchor">#</a> 基本用法</h2> <p>d∶删除，后面不接任何东西；</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>删除某行
+  
+$ sed '1d' filename               删除第一行
+ 
+$ sed '$ d' filename              删除最后一行
+ 
+$ sed '1,2d' filename            删除第一行到第二行
+ 
+$ sed '2,$ d' filename           删除第二行到最后一行
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>p∶列印，亦即将某个选择的资料印出。在使用p的时候一般会加上-n参数。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>显示某行
+ 
+$ sed -n '1p' filename           显示第一行
+ 
+$ sed -n '$ p' filename           显示最后一行
+ 
+$ sed -n '1,2p' filename        显示第一行到第二行
+ 
+$ sed -n '2,$ p' filename        显示第二行到最后一行
+ 
+使用模式进行查询
+ 
+$ sed -n '/world/p' filename    查询包括关键字world所在所有行
+ 
+$ sed -n '/\$ /p' filename        查询包括关键字$ 所在所有行，使用反斜线\屏蔽特殊含义
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>a∶新增， a 的后面可以接字符串，而这些字符串会在目前的下一行出现。
+i ∶插入， 与a只有一点不同，增加的字符串会在目前的上一行出现；</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@localhost ~]# cat filename
+Hello!
+world!
+end
+[root@localhost ~]# sed '1a people' filename   第一行后增加字符串&quot;people&quot;
+Hello!
+people
+world!
+end
+[root@localhost ~]# sed '1,3a people' filename   第一行到第三行后增加字符串&quot;people&quot;
+Hello!
+people
+world!
+people
+end
+people
+[root@localhost ~]# sed '1i people\nperson' filename   第一行前增加多行，使用换行符\n
+people
+person
+Hello!
+world!
+end
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>c∶取代， c 的后面可以接字符串，这些字符串可以取代 n1,n2 之间的行。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@localhost ~]# cat filename
+Hello!
+world!
+end
+[root@localhost ~]# sed '1c Hi' filename
+Hi
+world!
+end
+[root@localhost ~]# sed '1,2c Hi' filename
+Hi
+end
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>s ∶取代，可以直接进行取代的工作。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>格式：sed 's/要替换的字符串/新的字符串/g'   修改的文件
+[root@localhost ~]# cat filename
+Hello!
+world!
+end
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>[root@localhost ~]# sed -i 's/Hello!/start/g' filename  把Hello！替换为start
+[root@localhost ~]# cat filename
+start
+world!
+end
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>[root@localhost ~]# cat filename
+start
+world!
+end
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>[root@localhost ~]# sed -i '$a bye' filename   在最后一行后面新加bye（$代表最后一样，a表示在当前行下一面添加，bye是新加内容，中间有没有空格都行）
+[root@localhost ~]# cat filename
+start
+world!
+end
+bye
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h2 id="awk"><a href="#awk" class="header-anchor">#</a> awk</h2> <p></p> <p>awk其名称得自于它的创始人 Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母。实际上 AWK 的确拥有自己的语言： AWK 程序设计语言 ， 三位创建者已将它正式定义为“样式扫描和处理语言”。它允许您创建简短的程序，这些程序读取输入文件、为数据排序、处理数据、对输入执行计算以及生成报表，还有无数其他的功能。</p> <p>awk 是一种很棒的语言，它适合文本处理和报表生成，其语法较为常见，借鉴了某些语言的一些精华，如 C 语言等。在 linux 系统日常处理工作中，发挥很重要的作用，掌握了 awk将会使你的工作变的高大上。 awk 是三剑客的老大，利剑出鞘，必会不同凡响。</p> <p>1、首先我们看一下常用的cut命令的基本使用方法，cut英文意思是切，它的功能和和awk基本相同，唯一不同的是awk可以说是cut的plus版本（但不是一个厂家）。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cut -d（指定以什么为分割符） -f（指定列）   第一列
+#cut -d  ‘ ’ -f  5
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>cut无法切割以空格为分割符的数据。
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/awk_cut.png"><img src="http://blog.colastar.club:9527/static/images/awk_cut.png" alt=""></a></p> <p>2、awk的基本常用写法</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>awk  ‘条件一{动作一}条件二{动作二} ’  文件
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>当然我们也可用使用管道符|awk。。。。。</p> <p>3、awk的基本写法</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#我们使用printf的话最后必须要加上\n换号符号，$数字是表示第几列
+df -h | awk '{printf $1 &quot;\t&quot; $5 &quot;\n&quot;}'
+#如果使用print的话就不需要再多写一个\n了
+df -h | awk '{print $1 &quot;\t&quot; $5}'
+#注意，为了不想让两行数据黏在一起，所以中间需要用“\t”空格符隔开。最外面的必须是单引号，而里面的\t和\n必须使用双引号。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/awk2.png"><img src="http://blog.colastar.club:9527/static/images/awk2.png" alt=""></a></p> <p>4、实例</p> <p>我们想试试判断linux的根分区的使用情况，或者是某个分区的使用情况，我们怎么判断呢。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#df -h | grep sda3 | awk '{print $5}' | cut -d '%' -f 1
+解释：
+df -h | grep sda3是我的根分区，awk抓取第五列，也就是拿到6%这个数字，但是不想要百分号，那我们在用cut切一下，就OK了
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/awk3.png"><img src="http://blog.colastar.club:9527/static/images/awk3.png" alt=""></a></p> <p>5、BEGIN（实际上就是在打印结果的开始打印里面动作的一句话）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#df -h | grep sda3 | awk 'BEGIN{print &quot;This is the use of the root partition&quot;}{print $5}' | cut -d '%' -f 1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/awk4.png"><img src="http://blog.colastar.club:9527/static/images/awk4.png" alt=""></a>
+BEGIN的关键用法。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#awk '{FS=&quot;:&quot;}{print $1 &quot;\t&quot; $3}' /etc/passwd
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/awk5.png"><img src="http://blog.colastar.club:9527/static/images/awk5.png" alt=""></a></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#awk 'BEGIN{FS=&quot;:&quot;}{print $1 &quot;\t&quot; $3}' /etc/passwd
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/awk6.png"><img src="http://blog.colastar.club:9527/static/images/awk6.png" alt=""></a>
+关键：我们知道awk是每次提取的时候都是先读取第一行后，才开始执行后面的动作语句，所以第一行没有被处理。这个时候就需要使用BEGIN，这个时候它就会处理所有数据。</p> <p>END的用法</p> <p>有BEGIN当然就有END了</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#awk 'END{print&quot;END!!!&quot;}{print $1 &quot;\t&quot; $3}' /etc/passwd
+#和BEGIN的用法基本相同，只不过是在处理数据动作的最后加打印而已。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/awk7.png"><img src="http://blog.colastar.club:9527/static/images/awk7.png" alt=""></a></p> <p>6、关系运算符</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>关系运算符
+##  大于
+&lt;  小于
+=   等于 #这里的等于就把结果都改成这等于后面的数值，如下图
+&gt;=  大于等于
+&lt;=   小于等于　
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/27/2022, 3:23:06 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blogs/no.3/jenkins.html" class="prev">
+        jenkins
+      </a></span> <span class="next"><a href="/blogs/no.3/linux防火墙.html">
+        linux防火墙
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blogs/assets/js/app.e644ec03.js" defer></script><script src="/blogs/assets/js/2.5689dfa7.js" defer></script><script src="/blogs/assets/js/66.53ca93e2.js" defer></script>
+  </body>
+</html>

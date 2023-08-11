@@ -152,7 +152,7 @@ cut -d（指定以什么为分割符） -f（指定列）   第一列
 #cut -d  ‘ ’ -f  5
 ```
 cut无法切割以空格为分割符的数据。
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/awk_cut.png">![](http://blog.colastar.club/static/images/awk_cut.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/awk_cut.png">![](http://blog.colastar.club:9527/static/images/awk_cut.png)</a>
 
  2、awk的基本常用写法
 
@@ -171,7 +171,7 @@ df -h | awk '{printf $1 "\t" $5 "\n"}'
 df -h | awk '{print $1 "\t" $5}'
 #注意，为了不想让两行数据黏在一起，所以中间需要用“\t”空格符隔开。最外面的必须是单引号，而里面的\t和\n必须使用双引号。
 ```
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/awk2.png">![](http://blog.colastar.club/static/images/awk2.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/awk2.png">![](http://blog.colastar.club:9527/static/images/awk2.png)</a>
 
 4、实例
 
@@ -182,24 +182,24 @@ df -h | awk '{print $1 "\t" $5}'
 解释：
 df -h | grep sda3是我的根分区，awk抓取第五列，也就是拿到6%这个数字，但是不想要百分号，那我们在用cut切一下，就OK了
 ```
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/awk3.png">![](http://blog.colastar.club/static/images/awk3.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/awk3.png">![](http://blog.colastar.club:9527/static/images/awk3.png)</a>
 
 5、BEGIN（实际上就是在打印结果的开始打印里面动作的一句话）
 
 ```
 #df -h | grep sda3 | awk 'BEGIN{print "This is the use of the root partition"}{print $5}' | cut -d '%' -f 1
 ```
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/awk4.png">![](http://blog.colastar.club/static/images/awk4.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/awk4.png">![](http://blog.colastar.club:9527/static/images/awk4.png)</a>
 BEGIN的关键用法。
 
 ```
 #awk '{FS=":"}{print $1 "\t" $3}' /etc/passwd
 ```
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/awk5.png">![](http://blog.colastar.club/static/images/awk5.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/awk5.png">![](http://blog.colastar.club:9527/static/images/awk5.png)</a>
 ```
 #awk 'BEGIN{FS=":"}{print $1 "\t" $3}' /etc/passwd
 ```
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/awk6.png">![](http://blog.colastar.club/static/images/awk6.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/awk6.png">![](http://blog.colastar.club:9527/static/images/awk6.png)</a>
 关键：我们知道awk是每次提取的时候都是先读取第一行后，才开始执行后面的动作语句，所以第一行没有被处理。这个时候就需要使用BEGIN，这个时候它就会处理所有数据。
 
 END的用法
@@ -210,7 +210,7 @@ END的用法
 #awk 'END{print"END!!!"}{print $1 "\t" $3}' /etc/passwd
 #和BEGIN的用法基本相同，只不过是在处理数据动作的最后加打印而已。
 ```
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/awk7.png">![](http://blog.colastar.club/static/images/awk7.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/awk7.png">![](http://blog.colastar.club:9527/static/images/awk7.png)</a>
 
  
 

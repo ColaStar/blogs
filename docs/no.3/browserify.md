@@ -122,7 +122,7 @@ module.exports = function(cheerio) {
 },{}]},{},[1]);
 ```
 然后再把 index.html 文件在浏览器中打开，查看控制台输出如下，便证明引用成功了
-![](http://blog.colastar.club/static/images/Browserify.jpg)
+![](http://blog.colastar.club:9527/static/images/Browserify.jpg)
 
 # 总结：
 

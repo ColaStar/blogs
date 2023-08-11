@@ -19,7 +19,7 @@
 
 
 ## gulp简介
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/gulp.jpg">![](http://blog.colastar.club/static/images/gulp.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/gulp.jpg">![](http://blog.colastar.club:9527/static/images/gulp.jpg)</a>
 官网介绍gulp是一个流构建系统（The streaming build system）
 
 gulp是前端开发过程中对代码进行构建的工具，是自动化项目的构建利器；她不仅能对网站资源进行优化，而且在开发过程中很多重复的任务能够使用正确的工具自动完成；使用它，我们不仅可以很愉快的编写代码，而且大大提高我们的工作效率。

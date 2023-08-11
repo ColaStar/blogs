@@ -16,7 +16,7 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 ```
 
-![](http://blog.colastar.club/static/images/docker_run_1.png)
+![](http://blog.colastar.club:9527/static/images/docker_run_1.png)
 
 - -e设置环境变量；-e username=zhj
 
@@ -32,7 +32,7 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 - -v宿主机目录:容器目录。将宿主机目录挂载到容器内。
 
-![](http://blog.colastar.club/static/images/docker_run_2.png)
+![](http://blog.colastar.club:9527/static/images/docker_run_2.png)
 
 
 ### cp
@@ -99,7 +99,7 @@ docker inspect
 
 获取容器/镜像的元数据;
 
-![](http://blog.colastar.club/static/images/docker_inspect.png)
+![](http://blog.colastar.club:9527/static/images/docker_inspect.png)
 docker login
 
 登陆到一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub;
@@ -165,7 +165,7 @@ docker version
 
 显示 Docker 版本信息。
 
-![](http://blog.colastar.club/static/images/docker_version.png)
+![](http://blog.colastar.club:9527/static/images/docker_version.png)
 Docker的存储驱动
 
 Docker支持AUFS、Btrfs、Device mapper、OverlayFS、ZFS五种存储驱动；
@@ -190,7 +190,7 @@ Overlay VS Overlay2
 
 overlay驱动只工作在一个lower OverlayFS层之上，因此需要硬链接来实现多层镜像，但overlay2驱动原生地支持多层lowerOverlayFS镜像（最多128层）。因此overlay2驱动在合层相关的命令（如build和commit）中提供了更好的性能，与overlay驱动对比，消耗了更少的inode。
 
-![](http://blog.colastar.club/static/images/docker_Overlay_vs_Overlay2.png)
+![](http://blog.colastar.club:9527/static/images/docker_Overlay_vs_Overlay2.png)
 Docker的网络模式
 
 可以看：[docker的五种网络模式总结]
@@ -249,7 +249,7 @@ RUN chown user2:user2 /home/webapi (以shell形式执行命令，等同于/bin/s
 RUN ["executable","param1", "param2"]
 (等同于exec命令形式)，注意此处必须是双引号(")，因为这种格式被解析为JSON数组。
 
-![](http://blog.colastar.club/static/images/RUN_docker.png)
+![](http://blog.colastar.club:9527/static/images/RUN_docker.png)
 ARG
 
 ARG <name>[=<default value>]
@@ -326,7 +326,7 @@ https://blog.csdn.net/u010900754/article/details/78526443
 
 dockerfile中的CMD命令被覆盖：
 
-![](http://blog.colastar.club/static/images/dockerfile_CMD.png)
+![](http://blog.colastar.club:9527/static/images/dockerfile_CMD.png)
 *CMD：*提供了容器默认的执行命令。Dockerfile 只允许使用一次 CMD 指令。使用多个 CMD 会抵消之前所有的指令，只有最后一个指令生效。CMD 有三种形式：
 
 CMD ["executable","param1","param2"] (exec form, thisis the preferred form)

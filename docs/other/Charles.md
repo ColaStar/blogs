@@ -12,10 +12,10 @@
 > 其实这种方法很好理解，就是修改映射方式让请求去读取我们本地的文件并返回，具体操作可以参考下面。
 
 选中一条网络请求-->右键-->**Save Response** 将返回报文保存到本地磁盘
-![](http://blog.colastar.club/static/images/Save_Response.jpg)
+![](http://blog.colastar.club:9527/static/images/Save_Response.jpg)
 
 **选中相同的请求-->右键-->Map Local** 将请求映射到刚才保存的返回报文
-![](http://blog.colastar.club/static/images/map_local.jpg)
+![](http://blog.colastar.club:9527/static/images/map_local.jpg)
 
 设置完映射之后每次该请求都会从设置的本地文件中读取并返回数据，我们可以随心所欲的修改保存的报文达到调试接口的目的。
 
@@ -27,22 +27,22 @@
 
 **选中要修改的请求-->右键-->Map Remote 在Map To栏** 中填写要映射到的地址的一些参数。
 
-![](http://blog.colastar.club/static/images/map_remote.jpg)
+![](http://blog.colastar.club:9527/static/images/map_remote.jpg)
 
 ### 2.通过断点修改
 
 > 除了修改映射的方法，通过设置断点也可以实现想要的效果。和我们在IDE上设置断点一样，在断点处会进入调试模式，请求会暂时中断，这是我们可以进行一些自定义的操作。
 
 首先开启断点模式，在Charles的面板上方将断点的图标点亮
-![](http://blog.colastar.club/static/images/ide_断点.jpg)
+![](http://blog.colastar.club:9527/static/images/ide_断点.jpg)
 
 **设置断点，选中要修改的请求-->右键-->BreakPoints （左面出现对勾表示设置成功）**。设置完成后，Charles再次抓取到该请求时会自动进入到调试模式。
 
 进入调试模式后可以修改请求报文，或者直接`Execute`进行下一步
-![](http://blog.colastar.club/static/images/execute.jpg)
+![](http://blog.colastar.club:9527/static/images/execute.jpg)
 
 请求报文发送成功后，Charles会拦截服务器返回的数据，这里可以通过`Edit Response`修改返回数据，或者`Execute`进行下一步
-![](http://blog.colastar.club/static/images/edit_res.jpg)
+![](http://blog.colastar.club:9527/static/images/edit_res.jpg)
 
 
 ### 总结

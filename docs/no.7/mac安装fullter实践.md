@@ -7,7 +7,7 @@
 ### 下载 [Flutter](https://flutter.io/docs/development/tools/sdk/archive)
 
 在这里获取`Flutter`的安装包，推荐使用`stable channel`的安装包。下载完成后解压。
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/fullter.jpeg">![](http://blog.colastar.club/static/images/fullter.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/fullter.jpeg">![](http://blog.colastar.club:9527/static/images/fullter.jpeg)</a>
 
 ### 设置环境变量
 
@@ -42,13 +42,13 @@ source .bash_profile
 flutter -h
 ```
 可以看到如下结果
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/fullter-h.jpg">![](http://blog.colastar.club/static/images/fullter-h.jpg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/fullter-h.jpg">![](http://blog.colastar.club:9527/static/images/fullter-h.jpg)</a>
 
 ### 安装编辑IDE
 
 推荐使用Visual Studio Code，安装完成之后，安装Flutter插件
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/fullter-ide.png">![](http://blog.colastar.club/static/images/fullter-ide.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/fullter-ide.png">![](http://blog.colastar.club:9527/static/images/fullter-ide.png)</a>
 
 ### 检查环境
 
@@ -66,7 +66,7 @@ doctor可以检测当前开发环境
 就需要安装这三个,下边有具体安装过程。
 
 比如：
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/Android-SDK-Manager-error.jpeg">![](http://blog.colastar.club/static/images/Android-SDK-Manager-error.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/Android-SDK-Manager-error.jpeg">![](http://blog.colastar.club:9527/static/images/Android-SDK-Manager-error.jpeg)</a>
 
 这个时候你就要配置Android sdk了
 
@@ -79,10 +79,10 @@ flutter doctor --android-licenses
 
 在使用Git clone了Flutter下来之后，鄙人配好Path，运行flutter doctor命令试试安装是否顺利，等待几分钟后却等到了以下情况。。。。。。
 °
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/flutter-doctor.png">![](http://blog.colastar.club/static/images/flutter-doctor.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/flutter-doctor.png">![](http://blog.colastar.club:9527/static/images/flutter-doctor.png)</a>
 
 Connected devices 是连接设备，估计是要连接手机吧，于是打开AS，再USB连接手机，再run一次flutter doctor，done。。。。。。
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/Connected-devices.png">![](http://blog.colastar.club/static/images/Connected-devices.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/Connected-devices.png">![](http://blog.colastar.club:9527/static/images/Connected-devices.png)</a>
 
 原因是flutter没有找到连接的设备或者模拟器，定位此问题的一些步骤。
 
@@ -144,19 +144,19 @@ Andriod sdk [下载地址](http://down.tech.sina.com.cn/page/45703.html)
 
 打开终端，进入Android-sdk-macosx目录，再进入tools目录下
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/Andriod-tools.png">![](http://blog.colastar.club/static/images/Andriod-tools.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/Andriod-tools.png">![](http://blog.colastar.club:9527/static/images/Andriod-tools.png)</a>
 
 输入./android sdk
 
 如果提示为监测到java sdk 需先安装 java sdk。
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/android-sdk.png">![](http://blog.colastar.club/static/images/android-sdk.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/android-sdk.png">![](http://blog.colastar.club:9527/static/images/android-sdk.png)</a>
 
 > 3、第三步：
 
 调出 Andriod SDK Manager 页面，点击Andriod SDK Manager-->Preferences...
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/Andriod-Preferences.png">![](http://blog.colastar.club/static/images/Andriod-Preferences.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/Andriod-Preferences.png">![](http://blog.colastar.club:9527/static/images/Andriod-Preferences.png)</a>
 
 > 4、第四步：
 
@@ -170,15 +170,15 @@ HTTP Proxy Port：80
 
 3个都搞定才完美～
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/Andriod-SDK-Manage-Settings.png">![](http://blog.colastar.club/static/images/Andriod-SDK-Manage-Settings.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/Andriod-SDK-Manage-Settings.png">![](http://blog.colastar.club:9527/static/images/Andriod-SDK-Manage-Settings.png)</a>
 
 > 5、第五步：
 
 点击Tools->Manage Add-on Site->New... 
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/Tools-Manage-Add-on-Site.png">![](http://blog.colastar.club/static/images/Tools-Manage-Add-on-Site.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/Tools-Manage-Add-on-Site.png">![](http://blog.colastar.club:9527/static/images/Tools-Manage-Add-on-Site.png)</a>
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/Tools-Manage-Add-on-Site1.png">![](http://blog.colastar.club/static/images/Tools-Manage-Add-on-Site1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/Tools-Manage-Add-on-Site1.png">![](http://blog.colastar.club:9527/static/images/Tools-Manage-Add-on-Site1.png)</a>
 
 将以下地址逐条添加：
 
@@ -197,9 +197,9 @@ HTTP Proxy Port：80
 
 前两张图中的选项为默认勾选，重点是第三张图的Extras文件下的所有文件记得勾选！！！
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/Tools-Manage-Extras.png">![](http://blog.colastar.club/static/images/Tools-Manage-Extras.png)</a>
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/Tools-Manage-Extras1.png">![](http://blog.colastar.club/static/images/Tools-Manage-Extras1.png)</a>
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/Tools-Manage-Extras2.png">![](http://blog.colastar.club/static/images/Tools-Manage-Extras2.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/Tools-Manage-Extras.png">![](http://blog.colastar.club:9527/static/images/Tools-Manage-Extras.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/Tools-Manage-Extras1.png">![](http://blog.colastar.club:9527/static/images/Tools-Manage-Extras1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/Tools-Manage-Extras2.png">![](http://blog.colastar.club:9527/static/images/Tools-Manage-Extras2.png)</a>
 
 下载时间有点长，耐心等待一下吧～
 
@@ -229,14 +229,14 @@ xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools
 xcode-select --install
 ```
 按提示安装
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/xocde-error.png">![](http://blog.colastar.club/static/images/xocde-error.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/xocde-error.png">![](http://blog.colastar.club:9527/static/images/xocde-error.png)</a>
 之后git就能正常使用了
 
 ## java sdk安装
 
 [下载地址](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html)
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/java-sdk1.jpeg">![](http://blog.colastar.club/static/images/java-sdk1.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/java-sdk1.jpeg">![](http://blog.colastar.club:9527/static/images/java-sdk1.jpeg)</a>
 
 下载后解压安装即可。
 
@@ -259,14 +259,14 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
 
 > 1.打开 Android Studio 新建一个Flutter项目 如下图所示
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/fullter-demo-created.jpeg">![](http://blog.colastar.club/static/images/fullter-demo-created.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/fullter-demo-created.jpeg">![](http://blog.colastar.club:9527/static/images/fullter-demo-created.jpeg)</a>
 
 > 2.第二步选择 一个项目模板 Flutter Application
 
 > 3.如下图, 
 
 Flutter SDK path 一定要填写正确, 如果你上面操作和我一样, 用git克隆的, 那么位置就在/Users/youUserName/flutter , youUserName就是你的电脑用户名, 正确填写即可.
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/fullter-demo-set.jpeg">![](http://blog.colastar.club/static/images/fullter-demo-set.jpeg)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/fullter-demo-set.jpeg">![](http://blog.colastar.club:9527/static/images/fullter-demo-set.jpeg)</a>
 
 > 4.打开项目如果有手机运行APP到手机上, 瞬间开心死了, 一套代码两个平台简直美死了,
 

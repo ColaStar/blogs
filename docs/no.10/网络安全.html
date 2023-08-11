@@ -16,7 +16,7 @@ tags:</p>
 </blockquote>
 <p>跨站脚本请求攻击，简单说，是攻击者通过一些技术手段欺骗用户的浏览器去访问一个自己曾经认证过的网站并运行一些操作（如发邮件，发消息，甚至财产操作如转账或购买商品）。由于浏览器曾经认证过，所以被访问的网站会认为是真正的用户操作而去运行。这利用了web中用户省份的一个漏洞：简单的身份验证只能保证请求发自某个用户的浏览器
 ，却不能保证请求本身自愿发出。</p>
-<p><a title href="http://blog.colastar.club/static/images/csrf原理分析.png" rel="nofollow"><img src="http://blog.colastar.club/static/images/csrf%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.png" alt /></a></p>
+<p><a title href="http://blog.colastar.club:9527/static/images/csrf原理分析.png" rel="nofollow"><img src="http://blog.colastar.club:9527/static/images/csrf%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.png" alt /></a></p>
 <blockquote>
 <p>例子</p>
 </blockquote>
@@ -30,7 +30,7 @@ tags:</p>
 <blockquote>
 <p>防御措施
 一般就是可以通过加验证码、token、验证Referer等方法防御。
-<a title href="http://blog.colastar.club/static/images/csrf防御手段.png" rel="nofollow"><img src="http://blog.colastar.club/static/images/csrf%E9%98%B2%E5%BE%A1%E6%89%8B%E6%AE%B5.png" alt /></a></p>
+<a title href="http://blog.colastar.club:9527/static/images/csrf防御手段.png" rel="nofollow"><img src="http://blog.colastar.club:9527/static/images/csrf%E9%98%B2%E5%BE%A1%E6%89%8B%E6%AE%B5.png" alt /></a></p>
 </blockquote>
 <h3><a id="user-content-jsonp劫持" class="anchor" href="#jsonp劫持" aria-hidden="true" rel="nofollow"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JSONP劫持</h3>
 <h2><a id="user-content-xss-跨站脚本攻击" class="anchor" href="#xss-跨站脚本攻击" aria-hidden="true" rel="nofollow"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>XSS 跨站脚本攻击</h2>
@@ -134,11 +134,11 @@ tags:</p>
 <p>流量劫持有多种方法，其中一种是DNS劫持。DNS是负责域名解析的服务器，一旦黑客破坏了DNS解析的过程,输入域名后，可能转化为黑客指定的IP地址，用户往往很难看出破绽，但所有的流量都会转向黑客指定的虚假的服务器，黑客不但可以很容易获取各种密码、个人信息等，还可以植入木马病毒，盗窃个人财产。</p>
 <h2><a id="user-content-网页挂" class="anchor" href="#网页挂" aria-hidden="true" rel="nofollow"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>网页挂⻢</h2>
 <p>网页挂马指的是把一个木马程序上传到一个网站里边然后可以用木马生成器生成一个网马，在上传到空间内！再加代码使得木马在打开网页时运行。</p>
-<p><a title href="http://blog.colastar.club/static/images/网页挂马.png" rel="nofollow"><img src="http://blog.colastar.club/static/images/%E7%BD%91%E9%A1%B5%E6%8C%82%E9%A9%AC.png" alt /></a></p>
+<p><a title href="http://blog.colastar.club:9527/static/images/网页挂马.png" rel="nofollow"><img src="http://blog.colastar.club:9527/static/images/%E7%BD%91%E9%A1%B5%E6%8C%82%E9%A9%AC.png" alt /></a></p>
 <p>常见挂马方式
-<a title href="http://blog.colastar.club/static/images/挂马方式.png" rel="nofollow"><img src="http://blog.colastar.club/static/images/%E6%8C%82%E9%A9%AC%E6%96%B9%E5%BC%8F.png" alt /></a></p>
+<a title href="http://blog.colastar.club:9527/static/images/挂马方式.png" rel="nofollow"><img src="http://blog.colastar.club:9527/static/images/%E6%8C%82%E9%A9%AC%E6%96%B9%E5%BC%8F.png" alt /></a></p>
 <p>网马生成器
-<a title href="http://blog.colastar.club/static/images/网马生成器.png" rel="nofollow"><img src="http://blog.colastar.club/static/images/%E7%BD%91%E9%A9%AC%E7%94%9F%E6%88%90%E5%99%A8.png" alt /></a></p>
+<a title href="http://blog.colastar.club:9527/static/images/网马生成器.png" rel="nofollow"><img src="http://blog.colastar.club:9527/static/images/%E7%BD%91%E9%A9%AC%E7%94%9F%E6%88%90%E5%99%A8.png" alt /></a></p>
 <h2><a id="user-content-运营商劫持" class="anchor" href="#运营商劫持" aria-hidden="true" rel="nofollow"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>运营商劫持</h2>
 <p>常见的运营商劫持主要是<strong>http劫持</strong>，<strong>https劫持</strong>和<strong>dns劫持</strong>。我们经常看到的右下角弹小广告的一般是http劫持，如果将http转为https可以减少被运营商劫持的机率，但也可能会被伪造证书，仍然会被劫持。所以我们需要在自己的程序中设置一个监听器来监控dom中劫持插入的脚本。</p>
 <p>解决方式：</p>

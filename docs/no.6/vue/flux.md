@@ -22,7 +22,7 @@ Flux的核心思想就是数据和逻辑永远单向流动。
 
 - `store`（数据层）：负责保存数据，并定义修改数据的逻辑，同时调用`dispatcher`的`register`方法将自己注册称为一个监听器。这样每当我们使用`dispatcher`的`dispatch`方法分发一个`action`时，`store`注册的监听器就会被调用，同时得到这个`action`作为参数。**简单点说**：就是用来存放应用的状态，根据 action 的 type 字段来确定是否响应这个 action。若需要响应，则会根据 action中的信息修改 store 中的数据,并触发一个更新事件,去更新页面。
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/flux.png">![](http://blog.colastar.club/static/images/flux.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/flux.png">![](http://blog.colastar.club:9527/static/images/flux.png)</a>
 从上图可以看出
 
 在`Flux`应用中，数据从`action`到`dispatcher`，再到`store`，最终到`view`的路线是单向不可逆的，各个角色之间不会像前端MVC模式那样存在交错的连线。
@@ -36,7 +36,7 @@ Flux的核心思想就是数据和逻辑永远单向流动。
 - `Store` 更新后，发出一个"`change`"事件,即Store是负责保存数据，同时响应事件并更新数据
 - `View` 收到"`change`"事件后，更新页面，简单点说就是`View`负责订阅`store`中的数据，并使用这些数据渲染相应的页面。
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/flux1.png">![](http://blog.colastar.club/static/images/flux1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/flux1.png">![](http://blog.colastar.club:9527/static/images/flux1.png)</a>
 
 数据总是"**单向流动**"，任何相邻的部分都不会发生数据的"双向流动"。这保证了流程的清晰
 

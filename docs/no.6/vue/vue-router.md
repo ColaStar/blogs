@@ -130,7 +130,7 @@ www.test.com/##/ 就是 Hash URL，当 ## 后面的哈希值发生变化时，�
   </script>
 </html>
 ```
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/vue-router-hash.png">![](http://blog.colastar.club/static/images/vue-router-hash.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/vue-router-hash.png">![](http://blog.colastar.club:9527/static/images/vue-router-hash.png)</a>
 
 #### HTML5 history API路由实现
 
@@ -224,13 +224,13 @@ History 模式是 HTML5 新推出的功能，html5 增加了两个方法，分�
 </html>
 ```
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/http://blog.colastar.club/static/images/vue-router-history.png">![](http://blog.colastar.club/static/images/http://blog.colastar.club/static/images/vue-router-history.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/http://blog.colastar.club:9527/static/images/vue-router-history.png">![](http://blog.colastar.club:9527/static/images/http://blog.colastar.club:9527/static/images/vue-router-history.png)</a>
 
 ## VueRouter 源码解析
 
 ### 源码目录
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/http://blog.colastar.club/static/images/vue-router目录.png">![](http://blog.colastar.club/static/images/http://blog.colastar.club/static/images/vue-router目录.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/http://blog.colastar.club:9527/static/images/vue-router目录.png">![](http://blog.colastar.club:9527/static/images/http://blog.colastar.club:9527/static/images/vue-router目录.png)</a>
 
 
 这里，先大概说明一下各个文件的作用，下面会详细讲解
@@ -1208,4 +1208,4 @@ export default {
 ### 重要函数思维导图
 以下思维导图罗列了源码中重要的一些函数
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/vue-router-源码.png">![](http://blog.colastar.club/static/images/vue-router-源码.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/vue-router-源码.png">![](http://blog.colastar.club:9527/static/images/vue-router-源码.png)</a>

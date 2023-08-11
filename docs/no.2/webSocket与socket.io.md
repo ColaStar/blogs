@@ -31,7 +31,7 @@ WebSocket实现了，在客户端和服务端上建立了一个长久的连接�
 
 当然如果知道的更深一层的话，要知道它属于**应用层**的协议，它基于**TCP传输协议**，**并复用HTTP的握手通道**
 
-!<a data-fancybox title="" href="http://blog.colastar.club/static/images/TCP-IP协议栈.png">![](http://blog.colastar.club/static/images/TCP-IP协议栈.png)</a>
+!<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/TCP-IP协议栈.png">![](http://blog.colastar.club:9527/static/images/TCP-IP协议栈.png)</a>
 
 说的再多，不如懂它，下面来看看websocket的优势何在
 ### WebSocket的优势
@@ -78,7 +78,7 @@ npm i ws -S
 
 这里我们用node的express来简单搭个后台服务，目录结构也很简单，如下图
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/websocket1.png">![](http://blog.colastar.club/static/images/websocket1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/websocket1.png">![](http://blog.colastar.club:9527/static/images/websocket1.png)</a>
 
 下面开始撸这个server.js文件吧
 ```
@@ -107,7 +107,7 @@ ws.on('connection', function(socket) {
 
 这样就搭了一个后台服务了，访问localhost:3000后，在控制台就可以看到消息了
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/websocket2.png">![](http://blog.colastar.club/static/images/websocket2.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/websocket2.png">![](http://blog.colastar.club:9527/static/images/websocket2.png)</a>
 
 看到这里，我们会由衷的发现，无论是前端来写还是后台来写，发现其实都很类似，所以用起来比较流畅，多敲几遍就好了，熟能生巧嘛，哈哈
 接下来还没完，由于websocket是H5标准出的东西，老版本的浏览器当然就不能很好的支持了，这时前端就要处理该死的兼容问题了
@@ -205,7 +205,7 @@ server.listen(3000);
 说到这里，突然想到应该先把html的结构给大家，不然还怎么按部就班的一起敲呢
 先贴一张目录的结构，下面的文件都对应目录即可
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/socket.io.png">![](http://blog.colastar.club/static/images/socket.io.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/socket.io.png">![](http://blog.colastar.club:9527/static/images/socket.io.png)</a>
 
 下面我们来分别试着写下客户端和服务端的两套创建连接的代码，一起敲敲敲吧
 
@@ -341,7 +341,7 @@ io.on('connection', socket => {
 
 写到这里，发送消息的部分就已经完事了，执行代码应该都可以看到如下图的样子了
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/socket.io1.png">![](http://blog.colastar.club/static/images/socket.io1.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/socket.io1.png">![](http://blog.colastar.club:9527/static/images/socket.io1.png)</a>
 
 看到上面的图后，我们应该高兴一下，毕竟有消息了，离成功又近了一步两步三四步
 
@@ -392,7 +392,7 @@ io.on('connection', socket => {
 
 下面再看下执行的效果，请看图
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/socket.io2.png">![](http://blog.colastar.club/static/images/socket.io2.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/socket.io2.png">![](http://blog.colastar.club:9527/static/images/socket.io2.png)</a>
 
 最基本的发消息功能已经实现了，下面我们再接再厉，完成一个私聊功能吧
 ### 添加私聊
@@ -566,7 +566,7 @@ socket.on('message', data => {
 ```
 写完是写完了，我们看看效果吧
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/socket.io3.png">![](http://blog.colastar.club/static/images/socket.io3.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/socket.io3.png">![](http://blog.colastar.club:9527/static/images/socket.io3.png)</a>
 
 写到这里，看到这里，是否疲倦了呢，年轻人不要放弃
 
@@ -606,7 +606,7 @@ Now，让我们来写理论上的最最最后一个功能吧，进入某个群�
 + });
 ```
 上面定义的join和leave方法直接在对应的按钮上调用即可了，如下图所示
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/socket.io4.png">![](http://blog.colastar.club/static/images/socket.io4.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/socket.io4.png">![](http://blog.colastar.club:9527/static/images/socket.io4.png)</a>
 
 下面我们继续写服务端的代码逻辑
 
@@ -660,7 +660,7 @@ io.on('connection', socket => {
 });
 ```
 写到这里，我们也实现了加入和离开房间的功能，如下图所示
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/socket.io5.png">![](http://blog.colastar.club/static/images/socket.io5.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/socket.io5.png">![](http://blog.colastar.club:9527/static/images/socket.io5.png)</a>
 既然进入了房间内，那么很显然，发言的内容只能是在房间内的人才能看到，这点我们都懂
 
 所以下面我们再写一下房间内发言的逻辑，继续在app.js中开撸
@@ -724,7 +724,7 @@ io.on('connection', socket => {
 
 重新运行app.js文件后，再进入房间聊天，会展示如下图的效果，只有在同一个房间内的用户，才能相互之间看到消息
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/socket.io6.png">![](http://blog.colastar.club/static/images/socket.io6.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/socket.io6.png">![](http://blog.colastar.club:9527/static/images/socket.io6.png)</a>
 
 麻雀虽小但五脏俱全，坚持写到这里的每一位都是赢家，不过我还想再完善最后一个小功能，就是展示一下历史消息
 
@@ -812,7 +812,7 @@ io.on('connection', socket => {
 ```
 
 这样就全部大功告成了，完成了最后的历史消息功能，如下图所示效果
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/socket.io7.png">![](http://blog.colastar.club/static/images/socket.io7.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/socket.io7.png">![](http://blog.colastar.club:9527/static/images/socket.io7.png)</a>
 最后进行一个功能上的梳理吧，坚持到这里的人，我已经不知道如何表达对你的敬佩了，好样的
 
 梳理一下

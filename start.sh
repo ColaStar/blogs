@@ -1,4 +1,12 @@
 #!/usr/bin/env sh
+###
+ # @Author: cola lvjianwy@yeah.net
+ # @Date: 2022-01-17 17:34:27
+ # @LastEditors: cola lvjianwy@yeah.net
+ # @LastEditTime: 2023-08-11 16:42:05
+ # @FilePath: /blogs/start.sh
+ # @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+### 
 
 # 确保脚本抛出遇到的错误
 set -e
@@ -15,7 +23,7 @@ do
             echo '生成静态文件'
             npm run build
             echo 'build success'
-             echo '查看git 变动'
+            echo '查看git 变动'
             
             git st
             

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>重构 - 改善既有代码的设计 | 个人博客</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/blogs/js/tj.js"></script>
+    <script src="/blogs/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="江畔何人初见月，江月何年初照人？">
+    
+    <link rel="preload" href="/blogs/assets/css/0.styles.f7c6bd56.css" as="style"><link rel="preload" href="/blogs/assets/js/app.e644ec03.js" as="script"><link rel="preload" href="/blogs/assets/js/2.5689dfa7.js" as="script"><link rel="preload" href="/blogs/assets/js/166.618f9776.js" as="script"><link rel="prefetch" href="/blogs/assets/js/10.e901e6bf.js"><link rel="prefetch" href="/blogs/assets/js/100.0c1fcbf8.js"><link rel="prefetch" href="/blogs/assets/js/101.6bf4fc77.js"><link rel="prefetch" href="/blogs/assets/js/102.1d2eaccd.js"><link rel="prefetch" href="/blogs/assets/js/103.85059ae9.js"><link rel="prefetch" href="/blogs/assets/js/104.570914ff.js"><link rel="prefetch" href="/blogs/assets/js/105.8110e0c6.js"><link rel="prefetch" href="/blogs/assets/js/106.6218fe43.js"><link rel="prefetch" href="/blogs/assets/js/107.035a7779.js"><link rel="prefetch" href="/blogs/assets/js/108.ac2fa821.js"><link rel="prefetch" href="/blogs/assets/js/109.6bf2b4ea.js"><link rel="prefetch" href="/blogs/assets/js/11.a6ce9264.js"><link rel="prefetch" href="/blogs/assets/js/110.8c6f3f50.js"><link rel="prefetch" href="/blogs/assets/js/111.383ab6e2.js"><link rel="prefetch" href="/blogs/assets/js/112.2c270063.js"><link rel="prefetch" href="/blogs/assets/js/113.0574c147.js"><link rel="prefetch" href="/blogs/assets/js/114.624fd444.js"><link rel="prefetch" href="/blogs/assets/js/115.7b2823f9.js"><link rel="prefetch" href="/blogs/assets/js/116.80ee70fc.js"><link rel="prefetch" href="/blogs/assets/js/117.e7969afb.js"><link rel="prefetch" href="/blogs/assets/js/118.56cd574d.js"><link rel="prefetch" href="/blogs/assets/js/119.954d2e5d.js"><link rel="prefetch" href="/blogs/assets/js/12.8e01f2af.js"><link rel="prefetch" href="/blogs/assets/js/120.97690805.js"><link rel="prefetch" href="/blogs/assets/js/121.5d1b8bb6.js"><link rel="prefetch" href="/blogs/assets/js/122.5196c388.js"><link rel="prefetch" href="/blogs/assets/js/123.8889fd8a.js"><link rel="prefetch" href="/blogs/assets/js/124.81fbdf1d.js"><link rel="prefetch" href="/blogs/assets/js/125.a8c40caa.js"><link rel="prefetch" href="/blogs/assets/js/126.48041068.js"><link rel="prefetch" href="/blogs/assets/js/127.84edfb11.js"><link rel="prefetch" href="/blogs/assets/js/128.f9559f9c.js"><link rel="prefetch" href="/blogs/assets/js/129.4c7a12ec.js"><link rel="prefetch" href="/blogs/assets/js/13.47cfa5d5.js"><link rel="prefetch" href="/blogs/assets/js/130.0b9be472.js"><link rel="prefetch" href="/blogs/assets/js/131.bd43991a.js"><link rel="prefetch" href="/blogs/assets/js/132.75d202e3.js"><link rel="prefetch" href="/blogs/assets/js/133.d67e48d2.js"><link rel="prefetch" href="/blogs/assets/js/134.e87db8f1.js"><link rel="prefetch" href="/blogs/assets/js/135.52d461c7.js"><link rel="prefetch" href="/blogs/assets/js/136.59b643ed.js"><link rel="prefetch" href="/blogs/assets/js/137.ec96225a.js"><link rel="prefetch" href="/blogs/assets/js/138.72377d95.js"><link rel="prefetch" href="/blogs/assets/js/139.80673307.js"><link rel="prefetch" href="/blogs/assets/js/14.a65561e2.js"><link rel="prefetch" href="/blogs/assets/js/140.b85b8f0f.js"><link rel="prefetch" href="/blogs/assets/js/141.b7745460.js"><link rel="prefetch" href="/blogs/assets/js/142.9a5dd0fe.js"><link rel="prefetch" href="/blogs/assets/js/143.b66b69c6.js"><link rel="prefetch" href="/blogs/assets/js/144.6d6877c9.js"><link rel="prefetch" href="/blogs/assets/js/145.85a77d4e.js"><link rel="prefetch" href="/blogs/assets/js/146.6da81be1.js"><link rel="prefetch" href="/blogs/assets/js/147.8f2a420e.js"><link rel="prefetch" href="/blogs/assets/js/148.862a3477.js"><link rel="prefetch" href="/blogs/assets/js/149.121d303b.js"><link rel="prefetch" href="/blogs/assets/js/15.7c5758e7.js"><link rel="prefetch" href="/blogs/assets/js/150.eabc187b.js"><link rel="prefetch" href="/blogs/assets/js/151.7581b0df.js"><link rel="prefetch" href="/blogs/assets/js/152.adeb84dd.js"><link rel="prefetch" href="/blogs/assets/js/153.c3b64b4d.js"><link rel="prefetch" href="/blogs/assets/js/154.a3060078.js"><link rel="prefetch" href="/blogs/assets/js/155.1f1951fb.js"><link rel="prefetch" href="/blogs/assets/js/156.34fe39e1.js"><link rel="prefetch" href="/blogs/assets/js/157.81ac9ed7.js"><link rel="prefetch" href="/blogs/assets/js/158.72f7b22b.js"><link rel="prefetch" href="/blogs/assets/js/159.572b258e.js"><link rel="prefetch" href="/blogs/assets/js/16.35389dfa.js"><link rel="prefetch" href="/blogs/assets/js/160.6fc0e08d.js"><link rel="prefetch" href="/blogs/assets/js/161.b174afda.js"><link rel="prefetch" href="/blogs/assets/js/162.e393d4d8.js"><link rel="prefetch" href="/blogs/assets/js/163.a76edf51.js"><link rel="prefetch" href="/blogs/assets/js/164.732f62da.js"><link rel="prefetch" href="/blogs/assets/js/165.c5b37837.js"><link rel="prefetch" href="/blogs/assets/js/167.239207ae.js"><link rel="prefetch" href="/blogs/assets/js/168.1ce94458.js"><link rel="prefetch" href="/blogs/assets/js/169.983f0b7f.js"><link rel="prefetch" href="/blogs/assets/js/17.0f2102e9.js"><link rel="prefetch" href="/blogs/assets/js/170.adf32601.js"><link rel="prefetch" href="/blogs/assets/js/171.a9e43063.js"><link rel="prefetch" href="/blogs/assets/js/172.00278bf8.js"><link rel="prefetch" href="/blogs/assets/js/173.22190dc7.js"><link rel="prefetch" href="/blogs/assets/js/174.21575200.js"><link rel="prefetch" href="/blogs/assets/js/18.85dc6e83.js"><link rel="prefetch" href="/blogs/assets/js/19.3dc73713.js"><link rel="prefetch" href="/blogs/assets/js/20.99db8519.js"><link rel="prefetch" href="/blogs/assets/js/21.698a52c5.js"><link rel="prefetch" href="/blogs/assets/js/22.d7210ff8.js"><link rel="prefetch" href="/blogs/assets/js/23.d56d0f74.js"><link rel="prefetch" href="/blogs/assets/js/24.438b7e8f.js"><link rel="prefetch" href="/blogs/assets/js/25.9692637a.js"><link rel="prefetch" href="/blogs/assets/js/26.ee8d2e2c.js"><link rel="prefetch" href="/blogs/assets/js/27.648386b6.js"><link rel="prefetch" href="/blogs/assets/js/28.4b667b73.js"><link rel="prefetch" href="/blogs/assets/js/29.f651827f.js"><link rel="prefetch" href="/blogs/assets/js/3.3923979e.js"><link rel="prefetch" href="/blogs/assets/js/30.9c41188e.js"><link rel="prefetch" href="/blogs/assets/js/31.1cad6d07.js"><link rel="prefetch" href="/blogs/assets/js/32.48116ba0.js"><link rel="prefetch" href="/blogs/assets/js/33.dc400d0c.js"><link rel="prefetch" href="/blogs/assets/js/34.9760f2ed.js"><link rel="prefetch" href="/blogs/assets/js/35.0c8c5faf.js"><link rel="prefetch" href="/blogs/assets/js/36.1b62f664.js"><link rel="prefetch" href="/blogs/assets/js/37.d0e0e22e.js"><link rel="prefetch" href="/blogs/assets/js/38.bf3df725.js"><link rel="prefetch" href="/blogs/assets/js/39.1de86319.js"><link rel="prefetch" href="/blogs/assets/js/4.f2bc8a01.js"><link rel="prefetch" href="/blogs/assets/js/40.603e7954.js"><link rel="prefetch" href="/blogs/assets/js/41.f60a79f1.js"><link rel="prefetch" href="/blogs/assets/js/42.e2b13978.js"><link rel="prefetch" href="/blogs/assets/js/43.02199eff.js"><link rel="prefetch" href="/blogs/assets/js/44.65bbdfe1.js"><link rel="prefetch" href="/blogs/assets/js/45.3dd35806.js"><link rel="prefetch" href="/blogs/assets/js/46.affe5377.js"><link rel="prefetch" href="/blogs/assets/js/47.8aeb7e59.js"><link rel="prefetch" href="/blogs/assets/js/48.849da6a6.js"><link rel="prefetch" href="/blogs/assets/js/49.fd95fbe3.js"><link rel="prefetch" href="/blogs/assets/js/5.c1772c6c.js"><link rel="prefetch" href="/blogs/assets/js/50.f3ad48a4.js"><link rel="prefetch" href="/blogs/assets/js/51.099d8e64.js"><link rel="prefetch" href="/blogs/assets/js/52.9abb7ef5.js"><link rel="prefetch" href="/blogs/assets/js/53.d28ed619.js"><link rel="prefetch" href="/blogs/assets/js/54.1f762ff1.js"><link rel="prefetch" href="/blogs/assets/js/55.28ad078a.js"><link rel="prefetch" href="/blogs/assets/js/56.28bac15b.js"><link rel="prefetch" href="/blogs/assets/js/57.f3a6121a.js"><link rel="prefetch" href="/blogs/assets/js/58.ed5824a8.js"><link rel="prefetch" href="/blogs/assets/js/59.9860100e.js"><link rel="prefetch" href="/blogs/assets/js/6.1c408966.js"><link rel="prefetch" href="/blogs/assets/js/60.304da844.js"><link rel="prefetch" href="/blogs/assets/js/61.c63b87a8.js"><link rel="prefetch" href="/blogs/assets/js/62.bae587da.js"><link rel="prefetch" href="/blogs/assets/js/63.a3c839b3.js"><link rel="prefetch" href="/blogs/assets/js/64.752ae530.js"><link rel="prefetch" href="/blogs/assets/js/65.cff65bd7.js"><link rel="prefetch" href="/blogs/assets/js/66.53ca93e2.js"><link rel="prefetch" href="/blogs/assets/js/67.5600bd27.js"><link rel="prefetch" href="/blogs/assets/js/68.1ae2fdb9.js"><link rel="prefetch" href="/blogs/assets/js/69.5570d877.js"><link rel="prefetch" href="/blogs/assets/js/7.7f10b082.js"><link rel="prefetch" href="/blogs/assets/js/70.a3d98361.js"><link rel="prefetch" href="/blogs/assets/js/71.a9c04aa3.js"><link rel="prefetch" href="/blogs/assets/js/72.9ac2172c.js"><link rel="prefetch" href="/blogs/assets/js/73.4fb68f14.js"><link rel="prefetch" href="/blogs/assets/js/74.78cefa04.js"><link rel="prefetch" href="/blogs/assets/js/75.be75d256.js"><link rel="prefetch" href="/blogs/assets/js/76.fcc15f8e.js"><link rel="prefetch" href="/blogs/assets/js/77.24aa7035.js"><link rel="prefetch" href="/blogs/assets/js/78.77744ae0.js"><link rel="prefetch" href="/blogs/assets/js/79.1a6ad38e.js"><link rel="prefetch" href="/blogs/assets/js/8.e9f537d2.js"><link rel="prefetch" href="/blogs/assets/js/80.ca41e5ad.js"><link rel="prefetch" href="/blogs/assets/js/81.7a9b711c.js"><link rel="prefetch" href="/blogs/assets/js/82.8d2990f5.js"><link rel="prefetch" href="/blogs/assets/js/83.87af70e3.js"><link rel="prefetch" href="/blogs/assets/js/84.803c7e03.js"><link rel="prefetch" href="/blogs/assets/js/85.5c4787f1.js"><link rel="prefetch" href="/blogs/assets/js/86.adc84b64.js"><link rel="prefetch" href="/blogs/assets/js/87.094b1e30.js"><link rel="prefetch" href="/blogs/assets/js/88.0e1a00cf.js"><link rel="prefetch" href="/blogs/assets/js/89.e7a78fbd.js"><link rel="prefetch" href="/blogs/assets/js/9.e5fb1fbb.js"><link rel="prefetch" href="/blogs/assets/js/90.46afd670.js"><link rel="prefetch" href="/blogs/assets/js/91.a9e2bf9f.js"><link rel="prefetch" href="/blogs/assets/js/92.27b42bbe.js"><link rel="prefetch" href="/blogs/assets/js/93.05acf238.js"><link rel="prefetch" href="/blogs/assets/js/94.8309e47a.js"><link rel="prefetch" href="/blogs/assets/js/95.f1ad6962.js"><link rel="prefetch" href="/blogs/assets/js/96.3d6a67d3.js"><link rel="prefetch" href="/blogs/assets/js/97.33379eba.js"><link rel="prefetch" href="/blogs/assets/js/98.eb111825.js"><link rel="prefetch" href="/blogs/assets/js/99.f0e0aab7.js">
+    <link rel="stylesheet" href="/blogs/assets/css/0.styles.f7c6bd56.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blogs/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blogs/other/Charles.html" class="sidebar-link">Charles</a></li><li><a href="/blogs/other/Git代码提交规范.html" class="sidebar-link">Git代码提交规范</a></li><li><a href="/blogs/other/Mac下安装MYSQL.html" class="sidebar-link">Mac 下安装MYSQL</a></li><li><a href="/blogs/other/eventLoop/eventLoop.html" class="sidebar-link">Event Loop 总结</a></li><li><a href="/blogs/other/eventLoop.html" class="sidebar-link">Event Loop 总结</a></li><li><a href="/blogs/other/git/git命令全集.html" class="sidebar-link">git 命令全集</a></li><li><a href="/blogs/other/git/git版本管理规范.html" class="sidebar-link">git版本管理规范</a></li><li><a href="/blogs/other/item2.html" class="sidebar-link">iTerm2 快捷键大全</a></li><li><a href="/blogs/other/mac/ mac上使用cnpm搭建npm私有仓库.html" class="sidebar-link">mac上使用cnpm搭建npm私有仓库，并上传/下载私有npm包</a></li><li><a href="/blogs/other/mac/Mac电脑使用Charles抓取Android手机app的包.html" class="sidebar-link">/other/mac/Mac电脑使用Charles抓取Android手机app的包.html</a></li><li><a href="/blogs/other/mac/Mac电脑如何修改和自定义文件夹图标.html" class="sidebar-link">Mac电脑如何修改和自定义文件夹图标？</a></li><li><a href="/blogs/other/mac安装mongoDB详细步骤.html" class="sidebar-link">mac安装mongoDB详细步骤</a></li><li><a href="/blogs/other/typeScript.html" class="sidebar-link">TypeScript入门</a></li><li><a href="/blogs/other/vscode操作指南.html" class="sidebar-link">vscode操作指南</a></li><li><a href="/blogs/other/一些有意思的库.html" class="sidebar-link">有意思的 npm 库</a></li><li><a href="/blogs/other/优雅降级与渐进增强.html" class="sidebar-link">优雅降级与渐进增强</a></li><li><a href="/blogs/other/前端协作规范.html" class="sidebar-link">前端协作规范</a></li><li><a href="/blogs/other/前端规范/常用平台ua判断.html" class="sidebar-link">常用平台UA判断</a></li><li><a href="/blogs/other/前端路由.html" class="sidebar-link">前端路由</a></li><li><a href="/blogs/other/手写各种/promise.html" class="sidebar-link">Promise、</a></li><li><a href="/blogs/other/手写各种/手写代码实现.html" class="sidebar-link">面试</a></li><li><a href="/blogs/other/正则相关.html" class="sidebar-link">什么是正则表达式呢？</a></li><li><a href="/blogs/other/网站令浏览器崩溃的原因.html" class="sidebar-link">网站导致浏览器崩溃的原因</a></li><li><a href="/blogs/other/重构.html" class="active sidebar-link">重构 - 改善既有代码的设计</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_1-重构-第一个示例" class="sidebar-link">1 重构，第一个示例</a></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_2-重构的原则" class="sidebar-link">2 重构的原则</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_2-1-何谓重构" class="sidebar-link">2.1 何谓重构</a></li></ul></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_2-2-两顶帽子" class="sidebar-link">2.2 两顶帽子</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_2-3-为何重构" class="sidebar-link">2.3 为何重构</a></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_2-4-何时重构" class="sidebar-link">2.4 何时重构</a></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_2-5-重构的挑战" class="sidebar-link">2.5 重构的挑战</a></li></ul></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_10-简化条件逻辑" class="sidebar-link">10 简化条件逻辑</a></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_11-重构api" class="sidebar-link">11 重构API</a></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_12-处理继承关系" class="sidebar-link">12 处理继承关系</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_12-1-函数上移" class="sidebar-link">12.1 函数上移</a></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_12-2-字段上移" class="sidebar-link">12.2 字段上移</a></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_12-3-构造函数本体上移" class="sidebar-link">12.3 构造函数本体上移</a></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_12-4-函数下移" class="sidebar-link">12.4 函数下移</a></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_12-5-字段下移" class="sidebar-link">12.5 字段下移</a></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_12-6-以子类取代类型码" class="sidebar-link">12.6 以子类取代类型码</a></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_12-7-移除子类" class="sidebar-link">12.7 移除子类</a></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_12-8-提取超类" class="sidebar-link">12.8 提取超类</a></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_12-9-折叠继承体系" class="sidebar-link">12.9 折叠继承体系</a></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_12-10-以委托取代子类" class="sidebar-link">12.10 以委托取代子类</a></li><li class="sidebar-sub-header"><a href="/blogs/other/重构.html#_12-11-以委托取代超类" class="sidebar-link">12.11 以委托取代超类</a></li></ul></li></ul></li><li><a href="/blogs/other/错误日志监控.html" class="sidebar-link">前端错误监控以及日志管理</a></li><li><a href="/blogs/other/阿里云/免密登陆.html" class="sidebar-link">免密登录远程服务器配置</a></li><li><a href="/blogs/other/阿里云/给普通用户添加权限.html" class="sidebar-link">阿里云给普通用户添加权限</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="重构-改善既有代码的设计"><a href="#重构-改善既有代码的设计" class="header-anchor">#</a> 重构 - 改善既有代码的设计</h1> <h2 id="_1-重构-第一个示例"><a href="#_1-重构-第一个示例" class="header-anchor">#</a> 1 重构，第一个示例</h2> <ul><li>重构前，先检查自己是否有一套可靠的测试集。这些测试必须有自我验证能力。TDD</li> <li>重构技术就是以微小的步伐修改程序。如果犯下错误，很容易便可发现它。</li> <li>傻瓜都能写出计算机可以理解的代码。唯有能写出人类容易理解的代码的，才是优秀的程序员。</li> <li>编程时，需要遵循营地法则：保证你离开时，代码库一定比来的时候更健康。</li> <li>好代码验证的标准是人们是否能轻而易举的修改它。</li></ul> <h2 id="_2-重构的原则"><a href="#_2-重构的原则" class="header-anchor">#</a> 2 重构的原则</h2> <h3 id="_2-1-何谓重构"><a href="#_2-1-何谓重构" class="header-anchor">#</a> 2.1 何谓重构</h3> <ul><li>重构：对软件内部结构的一种调整，目的是在<em>不改变可观察行为的前提下</em>，提高其可理解性，降低其修改成本。</li> <li>重构的关键在于运用大量小且保证软件行为的步骤，一步步达到大规模的修改。</li> <li>如果有人说他们的代码在重构过程中有1-2天时间不可用，基本上可以确定，他们在做的事不是重构。</li></ul> <h2 id="_2-2-两顶帽子"><a href="#_2-2-两顶帽子" class="header-anchor">#</a> 2.2 两顶帽子</h2> <ul><li>添加新功能，可能需要优化之前的程序结构；当功能开发好，也需要优化下程序的结构。不同的角色切换，是在添加功能过程中必不可少的步骤。</li></ul> <h3 id="_2-3-为何重构"><a href="#_2-3-为何重构" class="header-anchor">#</a> 2.3 为何重构</h3> <ul><li>改进软件的设计</li> <li>使软件更容易理解</li> <li>帮助开发者找到bug</li> <li>提高编程速度</li></ul> <h3 id="_2-4-何时重构"><a href="#_2-4-何时重构" class="header-anchor">#</a> 2.4 何时重构</h3> <ul><li>预备性：让添加新功能更容易</li> <li>帮助理解：使代码更易懂</li> <li>捡垃圾式重构</li> <li>有计划和见机行事的重构：肮脏的代码必须重构，但漂亮的代码也需要很多重构</li> <li>长期重构</li> <li>复审代码时重构</li> <li>何时不应该重构：
+<ul><li>只有当需要理解其工作原理时</li> <li>如果重写比重构容易。</li></ul></li></ul> <h3 id="_2-5-重构的挑战"><a href="#_2-5-重构的挑战" class="header-anchor">#</a> 2.5 重构的挑战</h3> <ul><li>缓解新功能开发
+<ul><li>重构的唯一目的就是让我们开发更快，用更少的工作量创造更大的价值</li> <li>重构应该总是由经济利益驱动，而不是在于把代码库打磨得闪闪发光</li></ul></li></ul> <h2 id="_10-简化条件逻辑"><a href="#_10-简化条件逻辑" class="header-anchor">#</a> 10 简化条件逻辑</h2> <h1 id="_10-1-分解条件表达式"><a href="#_10-1-分解条件表达式" class="header-anchor">#</a> 10.1 分解条件表达式</h1> <ul><li><p>目的：简化条件，易于理解代码逻辑</p></li> <li><p>场景：当检查处理逻辑复杂时</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>if(!date.isBefore(plan.summerStart) &amp;&amp; !date.isAfter(plan.summerEnd)){
+	charge = quanlity * plan.summerRate;
+}else{
+	charge = quanlity * plan.regularRate + plan.regularServiceCharge;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>const isSummer = !date.isBefore(plan.summerStart) &amp;&amp; !date.isAfter(plan.summerEnd);
+function summerCharge(){
+	return quanlity * plan.summerRate;
+}
+function regularCharge(){
+	return quanlity * plan.regularRate + plan.regularServiceCharge;
+}
+
+charge = isSummer() ? summerCharge() : regularCharge();
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div></li></ul> <h1 id="_10-2-合并条件表达式"><a href="#_10-2-合并条件表达式" class="header-anchor">#</a> 10.2 合并条件表达式</h1> <ul><li><p>目的：统一处理条件语句</p></li> <li><p>场景：当检查条件各不相同，最终行为一致时</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>if(age &lt; 18) return 'younger';
+if(exprience &lt; 5) return 'younger';
+if(!isPassTest) return 'younger';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>if(isYounger()) return 'younger';
+function isYounger(){
+	return age&lt;18 || exprience &lt; 5 || !isPassTest
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div></li></ul> <h1 id="_10-3-卫语句取代嵌套条件表达式"><a href="#_10-3-卫语句取代嵌套条件表达式" class="header-anchor">#</a> 10.3 卫语句取代嵌套条件表达式</h1> <ul><li><p>目的：减少逻辑的复杂度</p></li> <li><p>场景：当出现需要单独检查某个特定条件时</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function getPayment(){
+	let result;
+	if(isRead){
+		result = deadAmount();
+	}else{
+		if(isSeparated){
+			result = seperatedAmount();
+		}else{
+			if(isRetired){
+				result = retiredAmount();
+			}else{
+				result = normalAmount();
+			}
+		}
+	}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>function getPayment(){
+	if(isRead) return deadAmount();
+	if(isSeparated) return seperatedAmount();
+	if(isRetired) return retiredAmount();
+	
+	return normalAmount();
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div></li></ul> <h1 id="_10-4-以多态取代条件表达式"><a href="#_10-4-以多态取代条件表达式" class="header-anchor">#</a> 10.4 以多态取代条件表达式</h1> <ul><li><p>目的：增强扩展性，减少逻辑的复杂度</p></li> <li><p>场景：当多个逻辑处理情况</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>switch(bird.type){
+	case 'EuropeanSwallow':
+		return 'EuropeanSwallow';
+	case 'AfricanSwallow':
+		return 'AfricanSwallow';
+	default:
+		return 'unknown';
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>class EuropeanSwallow{
+	get name(){
+		return 'EuropeanSwallow';
+	}
+}
+class AfricanSwallow{
+	get name(){
+		return 'AfricanSwallow';
+	}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div></li></ul> <h1 id="_10-5-引入特例"><a href="#_10-5-引入特例" class="header-anchor">#</a> 10.5 引入特例</h1> <ul><li><p>目的：提供复用性以及统一性</p></li> <li><p>场景：如果某部分逻辑都在检查某个特殊值，并且处理的逻辑也都相同</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>if(customer === 'unknown'){
+	customerName = 'occupant';
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>class UnknowCustomer{
+	get name(){
+		return 'occupant';
+	}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div></li></ul> <h1 id="_10-6-引入断言"><a href="#_10-6-引入断言" class="header-anchor">#</a> 10.6 引入断言</h1> <ul><li><p>目的：保障传入值是可预测的，预习发现测试的BUG</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>if(this.discountRate){
+	base = base - this.discountRate * base;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>asset(this.discountRate&gt;0);
+if(this.discountRate){
+	base = base - this.discountRate * base;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div></li></ul> <h2 id="_11-重构api"><a href="#_11-重构api" class="header-anchor">#</a> 11 重构API</h2> <h1 id="_11-1-查询函数和修改函数分离"><a href="#_11-1-查询函数和修改函数分离" class="header-anchor">#</a> 11.1 查询函数和修改函数分离</h1> <ul><li><p>目的：减少函数副作用 =》任何有返回值的函数，都要减少它的副作用</p></li> <li><p>场景：当函数中又有查询，又有命令</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function getTotalOutstadingAndSendBill(person){
+	const result = customer.invoice.reduce((total, each)=&gt;each.amount + total, 0);
+	sendBill();
+	return result;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>function getTotalOutstading(person){
+	return customer.invoice.reduce((total, each)=&gt;each.amount + total, 0);
+}
+function sendBill(){}
+function handler(){
+	const totalOutstading = getTotalstading();
+	sendBilld();
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div></li></ul> <h1 id="_11-2-函数参数化"><a href="#_11-2-函数参数化" class="header-anchor">#</a> 11.2 函数参数化</h1> <ul><li><p>目的：增强函数的功能</p></li> <li><p>场景：如果发现多个函数逻辑相似，只有某1-2个字面量不同</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function tenPercentRaise(person){
+	person.salary = person.salary.multiply(1.1);
+}
+function fivePercentRaise(person){
+	person.salary = person.salary.multiply(0.05);
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>function raise(person, factor){
+	person.salary = person.salary.multiply(factor);
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div></li></ul> <h1 id="_11-3-移除标记参数"><a href="#_11-3-移除标记参数" class="header-anchor">#</a> 11.3 移除标记参数</h1> <ul><li><p>目的：代码更清晰，减少函数的复杂度</p></li> <li><p>场景：如果参数值影响函数内部的控制流</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function setDimension(name, value){
+	if(name === 'height'){}
+	if(name === 'width'){}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>function setHeight(value){
+	this._height = value
+}
+function setWidth(value){
+	this._width = value
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div></li></ul> <h1 id="_11-4-保持对象完整性"><a href="#_11-4-保持对象完整性" class="header-anchor">#</a> 11.4 保持对象完整性</h1> <ul><li><p>目的：缩短参数列表，参数配置灵活</p></li> <li><p>场景：如果传入多个参数传值</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const{low, high} = temperature;
+if(isValidTemperature(low,high)){};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>if(isValidTemperature(temperature)){};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></li></ul> <h1 id="_11-5-以查询取代参数"><a href="#_11-5-以查询取代参数" class="header-anchor">#</a> 11.5 以查询取代参数</h1> <ul><li><p>对立：以参数取代查询</p></li> <li><p>目的：减少传参，从而减少调用者的成本，保持</p></li> <li><p>场景：如果传入多个参数，并且从一个参数推导出另一个参数</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>availableVacation(employee, employee.grade);
+function availableVacation(employee,grade){}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>availableVacation(employee);
+function availableVacation(employee){
+	const{grade} = employee;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div></li></ul> <h1 id="_11-6-以参数取代查询"><a href="#_11-6-以参数取代查询" class="header-anchor">#</a> 11.6 以参数取代查询</h1> <ul><li><p>对立：以查询取代参数</p></li> <li><p>目的：减少函数的副作用，以及引用关系，保持函数的纯净度</p></li> <li><p>场景：如果函数引用了一个全局变量，或者引用想移除的元素</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const weather ={};
+targetTemperature(plan)
+
+function targetTemperature(plan){
+	const{curTemperature} = weather;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>const weather ={};
+targetTemperature(plan, weather)
+
+function targetTemperature(plan, weather){
+	const{curTemperature} = weather;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div></li></ul> <h1 id="_11-7-移除设置函数"><a href="#_11-7-移除设置函数" class="header-anchor">#</a> 11.7 移除设置函数</h1> <ul><li><p>目的：防止某字段被修改</p></li> <li><p>场景：当不希望某个字段被修改时</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Person{
+	get id(){}
+	set id(name){}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>class Person{
+	get id(){}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div></li></ul> <h1 id="_11-8-以工厂函数取代构造函数"><a href="#_11-8-以工厂函数取代构造函数" class="header-anchor">#</a> 11.8 以工厂函数取代构造函数</h1> <ul><li><p>目的：增加灵活性</p></li> <li><p>场景：不存在继承关系时</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const leadEngineer = new Employee('name','E');
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>const leadEngineer = createEngineer('name');
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></li></ul> <h1 id="_11-9-以命令取代函数"><a href="#_11-9-以命令取代函数" class="header-anchor">#</a> 11.9 以命令取代函数</h1> <ul><li><p>对立：以函数取代命令</p></li> <li><p>目的：命令对象提供更大的灵活性，并且还可以支持撤销、生命周期的管理等附加操作</p></li> <li><p>场景：当普通函数无法提供强有力灵活性</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function score(candidate, media){
+	let result = 0;
+	let healthLevel = 0;
+}
+function hasPassMedicalExam(){}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>class Scorer{
+	constructor(candidate, medicalExam){
+		this._candidate = candidate;
+		this._medicalExam = medicalExam;
+	}
+	execute(){
+		let result = 0;
+		let healthLevel = 0;
+	}
+	hasPassMedicalExam(){}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div></li></ul> <h1 id="_11-10-以函数取代命令"><a href="#_11-10-以函数取代命令" class="header-anchor">#</a> 11.10 以函数取代命令</h1> <ul><li><p>对立：以命令取代函数</p></li> <li><p>目的：函数简单化</p></li> <li><p>场景：大多数情况下，只想调用一个函数，完成自己的工作，不需要函数那么复杂</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class ChargeCalculator{
+	constructor(customer, usage){
+		this._customer = customer;
+		this._usage = usage;
+	}
+	execute(){ 
+		return this._customer.rate * this._usage;
+	}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>function charge(customer, usage){
+	return customer.rate * usage;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div></li></ul> <h2 id="_12-处理继承关系"><a href="#_12-处理继承关系" class="header-anchor">#</a> 12 处理继承关系</h2> <p>继承体系里上下调整：<a href="#121-%E5%87%BD%E6%95%B0%E4%B8%8A%E7%A7%BB">函数上移</a>、<a href="#122-%E5%AD%97%E6%AE%B5%E4%B8%8A%E7%A7%BB">字段上移</a>、<a href="#123-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%9C%AC%E4%BD%93%E4%B8%8A%E7%A7%BB">构造函数本体上移</a>、<a href="#124-%E5%87%BD%E6%95%B0%E4%B8%8B%E7%A7%BB">函数下移</a>、<a href="#125-%E5%AD%97%E6%AE%B5%E4%B8%8B%E7%A7%BB">字段下移</a></p> <p>继承体系添加新类或者删除旧类：<a href="#127-%E7%A7%BB%E9%99%A4%E5%AD%90%E7%B1%BB">移除子类</a>、<a href="#128-%E6%8F%90%E5%8F%96%E8%B6%85%E7%B1%BB">提取超类</a>、<a href="#129-%E6%8A%98%E5%8F%A0%E7%BB%A7%E6%89%BF%E4%BD%93%E7%B3%BB">折叠继承体系</a></p> <p>一个字段仅用于类型码使用：<a href="#126-%E4%BB%A5%E5%AD%90%E7%B1%BB%E5%8F%96%E4%BB%A3%E7%B1%BB%E5%9E%8B%E7%A0%81">以子类取代类型码</a></p> <p>如果本来使用集成的场景变得不再适合：<a href="#1210-%E4%BB%A5%E5%A7%94%E6%89%98%E5%8F%96%E4%BB%A3%E5%AD%90%E7%B1%BB">以委托取代子类</a>、<a href="#1211-%E4%BB%A5%E5%A7%94%E6%89%98%E5%8F%96%E4%BB%A3%E8%B6%85%E7%B1%BB">以委托取代超类</a></p> <h3 id="_12-1-函数上移"><a href="#_12-1-函数上移" class="header-anchor">#</a> 12.1 函数上移</h3> <ul><li><p>对立：函数下移</p></li> <li><p>目的：提高复用性，减少重复</p></li> <li><p>场景：当函数被大部分部分子类用到时</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Employee{}
+class Salesman extends Employee{
+	get name(){}
+}
+class Engineer extends Employee{
+	get name(){}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>class Employee{
+	get name(){}
+}
+class Salesman extends Employee{}
+class Engineer extends Employee{}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div></li></ul> <h3 id="_12-2-字段上移"><a href="#_12-2-字段上移" class="header-anchor">#</a> 12.2 字段上移</h3> <p><a href="#123-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%9C%AC%E4%BD%93%E4%B8%8A%E7%A7%BB">移构造函数本体上移</a></p> <h3 id="_12-3-构造函数本体上移"><a href="#_12-3-构造函数本体上移" class="header-anchor">#</a> 12.3 构造函数本体上移</h3> <ul><li><p>目的：提高复用性</p></li> <li><p>场景：当多个子类有公共字段</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Party{}
+class Employee extends Party{
+	constructor(id){
+		this._id = id;
+	}
+}
+class Salesman extends Employee{
+	constructor(id){
+		this._id = id;
+		this._name = name;
+	}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>class Party{
+	constructor(id){
+		this._id = id;
+	}
+}
+class Employee extends Party{
+	constructor(id){
+		super(id);
+	}
+}
+class Salesman extends Employee{
+	constructor(id){
+		super(id);
+		this._name = name;
+	}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div></li></ul> <h3 id="_12-4-函数下移"><a href="#_12-4-函数下移" class="header-anchor">#</a> 12.4 函数下移</h3> <ul><li><p>对立：函数上移</p></li> <li><p>目的：内聚子类的方法</p></li> <li><p>场景：当函数被小部分子类用到时</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Employee{
+	get quota(){}
+}
+class Salesman extends Employee{}
+class Engineer extends Employee{}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>class Employee{}
+class Salesman extends Employee{
+	get quota(){}
+}
+class Engineer extends Employee{}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div></li></ul> <h3 id="_12-5-字段下移"><a href="#_12-5-字段下移" class="header-anchor">#</a> 12.5 字段下移</h3> <ul><li><p>对立：字段上移</p></li> <li><p>目的：内聚子类的字段</p></li> <li><p>场景：当字段被小部分子类用到时</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Employee{
+	constuctor(quote){
+		this._quote = quote;
+	}
+}
+class Salesman extends Employee{
+	constuctor(quote){
+		super(quote);
+	}
+}
+class Engineer extends Employee{}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>class Employee{}
+class Salesman extends Employee{
+	constuctor(quote){
+		this._quote = quote;
+	}
+}
+class Engineer extends Employee{}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div></li></ul> <h3 id="_12-6-以子类取代类型码"><a href="#_12-6-以子类取代类型码" class="header-anchor">#</a> 12.6 以子类取代类型码</h3> <ul><li><p>对立：移除子类</p></li> <li><p>目的：更明确地表达数据与类型之间的关系，增强子类的扩展性</p></li> <li><p>场景：当不同的状态码表现不同的行为时</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function createEmployee(name, type){
+	return new Employee(name, type);
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>function createEmployee(name, type){
+	const employeeTypes = (name) =&gt;{
+		return{
+			'engineer': new Engineer(name),
+			'salesman': new Salesman(name)
+		}
+	}
+	return employeeTypes(name)[type];
+}	
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div></li></ul> <h3 id="_12-7-移除子类"><a href="#_12-7-移除子类" class="header-anchor">#</a> 12.7 移除子类</h3> <ul><li><p>对立：以子类取代类型码</p></li> <li><p>目的：减少系统复杂度</p></li> <li><p>场景：当子类的用处太少时，当子类简单</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Person{
+	get genderCode(){
+		return 'X';
+	}
+}
+class Male extends Person{
+	get genderCode(){
+		return 'M';
+	}
+}
+class Female extends Person {
+	get genderCode(){
+		return 'F';
+	}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>class Person{
+	constructor(genderCode){
+		this._genderCode = genderCode;
+	}
+	get genderCode(){
+		return this._genderCode;
+	}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div></li></ul> <h3 id="_12-8-提取超类"><a href="#_12-8-提取超类" class="header-anchor">#</a> 12.8 提取超类</h3> <ul><li><p>目的：把重复的行为收拢起来</p></li> <li><p>场景：当多个子类的方法基本一致时</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Department{
+	get totalAnnualCost(){}
+	get name(){}
+}
+class Employee{
+	get annualCost(){}
+	get name(){}
+	get id(){}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>class Party{
+	get totalAnnualCost(){}
+	get name(){}
+}
+class Department extends Party{
+	get primaryCost(){}
+}
+class Employee extends Party{
+	get id(){}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div></li></ul> <h3 id="_12-9-折叠继承体系"><a href="#_12-9-折叠继承体系" class="header-anchor">#</a> 12.9 折叠继承体系</h3> <ul><li><p>目的：合并子类，减少不必要的子类，降低系统复杂度</p></li> <li><p>场景：当超类与子类没有多大差别</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Employee{}
+class Sales extends Employee{}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><div class="language-transfer line-numbers-mode"><pre class="language-text"><code>class Employee{}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></li></ul> <h3 id="_12-10-以委托取代子类"><a href="#_12-10-以委托取代子类" class="header-anchor">#</a> 12.10 以委托取代子类</h3> <ul><li><p>目的：增强类的扩展性</p></li> <li><p>场景：当子类可能存在多种类型上的变化</p></li> <li><p>例子</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Booking{
+	constuctor(show, date){
+		this._show = show;
+		this._date = date;
+	}
+}
+
+class PremiumBooking extends Booking{
+	constructor(show, date, extras){
+		super(show, date);
+		this._extras = extras;
+	}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><div class="language-transfer line-numbers-mode"><pre class="language-text"><code>class Booking{
+	constuctor(show, date){
+		this._show = show;
+		this._date = date;
+		this._premium = null;
+	}
+	bePremium(extras){
+		this._premium = new PremiumBookingDelegate(this, extras);
+	}
+}
+
+class PremiumBookingDelegate{
+	constructor(root, extras){
+		this._root = root;
+		this._extras = extras;
+	}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div></li></ul> <h3 id="_12-11-以委托取代超类"><a href="#_12-11-以委托取代超类" class="header-anchor">#</a> 12.11 以委托取代超类</h3> <ul><li><p>目的：增强类的扩展性</p></li> <li><p>场景：当超类的部分方法不适用于子类，不清晰的继承关系</p></li> <li><p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class List{}
+class Stack extends List{}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><div class="language-transfer line-numbers-mode"><pre class="language-text"><code>class List{}
+class Stack{
+	constructor(){
+		this._list = new List();
+	}
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div></li></ul> <blockquote><p>超类的所有方法都适用于子类，子类的所有实例都是超类的实例 =&gt; 使用继承尽量使用继承</p></blockquote> <blockquote><p>如果发现继承有问题（扩展困难），再使用<a href="#1211-%E4%BB%A5%E5%A7%94%E6%89%98%E5%8F%96%E4%BB%A3%E8%B6%85%E7%B1%BB">以委托取代超类</a></p></blockquote></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/17/2022, 3:20:27 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blogs/other/网站令浏览器崩溃的原因.html" class="prev">
+        网站导致浏览器崩溃的原因
+      </a></span> <span class="next"><a href="/blogs/other/错误日志监控.html">
+        前端错误监控以及日志管理
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blogs/assets/js/app.e644ec03.js" defer></script><script src="/blogs/assets/js/2.5689dfa7.js" defer></script><script src="/blogs/assets/js/166.618f9776.js" defer></script>
+  </body>
+</html>

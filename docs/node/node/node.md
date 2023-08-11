@@ -295,7 +295,7 @@ Node.js 使用事件驱动模型，当web server接收到请求，就把它关�
 
 在事件驱动模型中，会生成一个主循环来监听事件，当检测到事件时触发回调函数。
 
-<a data-fancybox title="事件驱动模型" href="http://blog.colastar.club/static/images/event_loop.jpg">![事件驱动模型](http://blog.colastar.club/static/images/event_loop.jpg)</a>
+<a data-fancybox title="事件驱动模型" href="http://blog.colastar.club:9527/static/images/event_loop.jpg">![事件驱动模型](http://blog.colastar.club:9527/static/images/event_loop.jpg)</a>
 > 事件处理代码流程
 - 2.引入events对象，创建eventEmitter对象
 - 2.绑定事件处理程序
@@ -338,7 +338,7 @@ console.log("程序执行完毕。");
 - 3.文件和模块是一一对应的。一个Node.js文件就是一个模块。
 - 4.这个文件可能是JavaScript代码，JSON代码或者编译后的C/C++的扩展
 - 5.Node.js存在4类模块（原生模块和3种文件模块）
-<a data-fancybox title="模块" href="http://blog.colastar.club/static/images/nodejs-require.jpg">![模块](http://blog.colastar.club/static/images/nodejs-require.jpg)</a>
+<a data-fancybox title="模块" href="http://blog.colastar.club:9527/static/images/nodejs-require.jpg">![模块](http://blog.colastar.club:9527/static/images/nodejs-require.jpg)</a>
 >从文件模块缓存中加载
 
 尽管原生模块与文件模块的优先级不同，但是都会优先从文件模块的缓存中加载已经存在的模块。即各种的node_modules中查找查找顺序是从当前文件夹到根目录的node_modules
@@ -389,7 +389,7 @@ http.createServer(onRequest).listen(8888);
 因此，我们需要查看 HTTP 请求，从中提取出请求的 URL 以及 GET/POST 参数。这一功能应当属于路由还是服务器（甚至作为一个模块自身的功能）确实值得探讨，但这里暂定其为我们的HTTP服务器的功能。
 
 我们需要的所有数据都会包含在 request 对象中，该对象作为 onRequest() 回调函数的第一个参数传递。但是为了解析这些数据，我们需要额外的 Node.JS 模块，它们分别是 url 和 querystring 模块。
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/router.png">![](http://blog.colastar.club/static/images/router.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/router.png">![](http://blog.colastar.club:9527/static/images/router.png)</a>
 我们也可以用 querystring 模块来解析 POST 请求体中的参数
 
 > 获取GET请求内容
@@ -408,7 +408,7 @@ http.createServer(function(req, res){
     res.end(util.inspect(url.parse(req.url, true)));
 }).listen(3000);
 ```
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/getget.png">![](http://blog.colastar.club/static/images/getget.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/getget.png">![](http://blog.colastar.club:9527/static/images/getget.png)</a>
 > 获取 POST 请求内容
 
 POST 请求的内容全部的都在请求体中，http.ServerRequest 并没有一个属性内容为请求体，原因是等待请求体传输可能是一件耗时的工作。
@@ -947,7 +947,7 @@ zhhansan
 
 管道提供了一个输出流到输入流的机制。通常我们用于从一个流中获取数据并将数据传递到另外一个流中。
 
-<a data-fancybox title="" href="http://blog.colastar.club/static/images/stream.png">![](http://blog.colastar.club/static/images//stream.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/stream.png">![](http://blog.colastar.club:9527/static/images//stream.png)</a>
 
 如上面的图片所示，我们把文件比作装水的桶，而水就是文件里的内容，我们用一根管子(pipe)连接两个桶使得水从一个桶流入另一个桶，这样就慢慢的实现了大文件的复制过程。
 
