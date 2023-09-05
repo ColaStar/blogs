@@ -43,7 +43,8 @@ DNS查询过程如下：
 - 从客户端到本地DNS服务器是属于递归查询，而DNS服务器之间就是的交互查询就是迭代查询。
 - 可以通过`trace - www.baidu.com`去探查到底走了多少步,探查了多少台DNS服务器 ;
 - 提供转换DNS的就是DNS服务器
-- **DNS劫持**：DNS劫持又称域名劫持，是指在劫持的网络范围内拦截域名解析的请求，分析请求的域名，把审查范围以外的请求放行，否则返回假的IP地址或者什么都不做使请求失去响应，其效果就是对特定的网络不能反应或访问的是假网址。
+- **DNS劫持**：DNS劫持又称域名劫持，是指在劫持的网络范围内拦截域名解析的请求，分析请求的域名，把审查范围以外的请求放行，否则返回假的IP地址或者什么都不做使请求失去响应，其效果就是对特定的网络不能反应或访问的是假网址。（更详细：通过黑客手段控制域名管理密码和域名管管理邮箱，然后将该域名的NS记录指向到黑客可以控制的DNS服务器上，然后通过在该dns服务器上添加相应的域名记录，从而使网名访问该域名时，进入黑客指定的内容），是DNS服务商的责任，用户束手无策。*** 解决方案***：检查DNS设置，更改DNS服务器，使用VPN，安装安全软件，报告给有关部门。
+
 
 
 **4.浏览器发送HTTP请求**（tcp三次握手🤝，四次挥手🙋‍）
@@ -101,6 +102,19 @@ Cookie: BAIDUID=3C67AA3EF6B3347D3AA986CE489268C4:FG=1; BIDUPSID=3C67AA3EF6B3347D
 <a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/tcp三次握手1.png">![](http://blog.colastar.club:9527/static/images/tcp三次握手1.png)</a>
 
 TCP三次握手的的好处在于：发送方可以确认接收方仍然在线，不会因为白发送而浪费资源。
+
+'四次握手'
+
+（1） TCP客户端发送一个FIN报文，用来关闭客户到服务器的数据传送。
+
+（2） 服务器收到这个FIN报文，它发回一个ACK报文，确认序号为收到的序号加1。和SYN一样，一个FIN报文将占用一个序号。
+
+（3） 服务器关闭客户端的连接，发送一个FIN给客户端。
+
+（4） 客户端发回ACK报文确认，并将确认序号设置为收到序号加1。
+
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/4_http_after.png">![](http://blog.colastar.club:9527/static/images/4_http_after.png)</a>
+<a data-fancybox title="" href="http://blog.colastar.club:9527/static/images/4_http_after_person.png">![](http://blog.colastar.club:9527/static/images/4_http_after_person.png)</a>
 
 > 网络层 负责传输的IP协议
 
