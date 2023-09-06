@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WebSocket | 个人博客</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/blogs/js/tj.js"></script>
+    <script src="/blogs/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="江天一色无纤尘，皎皎空中孤月轮。">
+    
+    <link rel="preload" href="/blogs/assets/css/0.styles.8ebdf352.css" as="style"><link rel="preload" href="/blogs/assets/js/app.707ae136.js" as="script"><link rel="preload" href="/blogs/assets/js/2.5689dfa7.js" as="script"><link rel="preload" href="/blogs/assets/js/59.9860100e.js" as="script"><link rel="prefetch" href="/blogs/assets/js/10.67ef92fa.js"><link rel="prefetch" href="/blogs/assets/js/100.5d1b5845.js"><link rel="prefetch" href="/blogs/assets/js/101.9434dbd9.js"><link rel="prefetch" href="/blogs/assets/js/102.8b6ef73c.js"><link rel="prefetch" href="/blogs/assets/js/103.09217907.js"><link rel="prefetch" href="/blogs/assets/js/104.5d5ecde6.js"><link rel="prefetch" href="/blogs/assets/js/105.1184fa93.js"><link rel="prefetch" href="/blogs/assets/js/106.95af92f2.js"><link rel="prefetch" href="/blogs/assets/js/107.475d4b97.js"><link rel="prefetch" href="/blogs/assets/js/108.160ab72f.js"><link rel="prefetch" href="/blogs/assets/js/109.bf9e219b.js"><link rel="prefetch" href="/blogs/assets/js/11.a6ce9264.js"><link rel="prefetch" href="/blogs/assets/js/110.548f0249.js"><link rel="prefetch" href="/blogs/assets/js/111.3b8629d8.js"><link rel="prefetch" href="/blogs/assets/js/112.296a4d35.js"><link rel="prefetch" href="/blogs/assets/js/113.c3cc282f.js"><link rel="prefetch" href="/blogs/assets/js/114.b466c191.js"><link rel="prefetch" href="/blogs/assets/js/115.18dd6002.js"><link rel="prefetch" href="/blogs/assets/js/116.092ec055.js"><link rel="prefetch" href="/blogs/assets/js/117.e700c609.js"><link rel="prefetch" href="/blogs/assets/js/118.0cb24c22.js"><link rel="prefetch" href="/blogs/assets/js/119.dff5d31f.js"><link rel="prefetch" href="/blogs/assets/js/12.8e01f2af.js"><link rel="prefetch" href="/blogs/assets/js/120.67e5a079.js"><link rel="prefetch" href="/blogs/assets/js/121.10821017.js"><link rel="prefetch" href="/blogs/assets/js/122.443e0c1a.js"><link rel="prefetch" href="/blogs/assets/js/123.4a2250f3.js"><link rel="prefetch" href="/blogs/assets/js/124.ae09532f.js"><link rel="prefetch" href="/blogs/assets/js/125.538f8f45.js"><link rel="prefetch" href="/blogs/assets/js/126.4e9468a0.js"><link rel="prefetch" href="/blogs/assets/js/127.d22a541d.js"><link rel="prefetch" href="/blogs/assets/js/128.ed6cf9cb.js"><link rel="prefetch" href="/blogs/assets/js/129.acb93003.js"><link rel="prefetch" href="/blogs/assets/js/13.2512791e.js"><link rel="prefetch" href="/blogs/assets/js/130.cd867116.js"><link rel="prefetch" href="/blogs/assets/js/131.5abad248.js"><link rel="prefetch" href="/blogs/assets/js/132.5ccf5027.js"><link rel="prefetch" href="/blogs/assets/js/133.1ca47285.js"><link rel="prefetch" href="/blogs/assets/js/134.1294fd6f.js"><link rel="prefetch" href="/blogs/assets/js/135.911aa967.js"><link rel="prefetch" href="/blogs/assets/js/136.53f8c148.js"><link rel="prefetch" href="/blogs/assets/js/137.3e9b02ef.js"><link rel="prefetch" href="/blogs/assets/js/138.a00afd66.js"><link rel="prefetch" href="/blogs/assets/js/139.3d379c4e.js"><link rel="prefetch" href="/blogs/assets/js/14.6f0b42e2.js"><link rel="prefetch" href="/blogs/assets/js/140.7dbb78b8.js"><link rel="prefetch" href="/blogs/assets/js/141.bcbca9cc.js"><link rel="prefetch" href="/blogs/assets/js/142.35f0d3f0.js"><link rel="prefetch" href="/blogs/assets/js/143.52ff6fa9.js"><link rel="prefetch" href="/blogs/assets/js/144.ff914a4d.js"><link rel="prefetch" href="/blogs/assets/js/145.ab8c735d.js"><link rel="prefetch" href="/blogs/assets/js/146.23b4cd05.js"><link rel="prefetch" href="/blogs/assets/js/147.8d78d71b.js"><link rel="prefetch" href="/blogs/assets/js/148.ba4624de.js"><link rel="prefetch" href="/blogs/assets/js/149.55157ece.js"><link rel="prefetch" href="/blogs/assets/js/15.a3613048.js"><link rel="prefetch" href="/blogs/assets/js/150.72a6b7b6.js"><link rel="prefetch" href="/blogs/assets/js/151.0a3fdb22.js"><link rel="prefetch" href="/blogs/assets/js/152.58bd67c3.js"><link rel="prefetch" href="/blogs/assets/js/153.a5850933.js"><link rel="prefetch" href="/blogs/assets/js/154.652f75cf.js"><link rel="prefetch" href="/blogs/assets/js/155.9c1b2ee1.js"><link rel="prefetch" href="/blogs/assets/js/156.52b6dec0.js"><link rel="prefetch" href="/blogs/assets/js/157.77bab005.js"><link rel="prefetch" href="/blogs/assets/js/158.d459dff0.js"><link rel="prefetch" href="/blogs/assets/js/159.069d0e57.js"><link rel="prefetch" href="/blogs/assets/js/16.711dca8a.js"><link rel="prefetch" href="/blogs/assets/js/160.258b9e9d.js"><link rel="prefetch" href="/blogs/assets/js/161.56b614a9.js"><link rel="prefetch" href="/blogs/assets/js/162.24f57820.js"><link rel="prefetch" href="/blogs/assets/js/163.50c2bf05.js"><link rel="prefetch" href="/blogs/assets/js/164.7f7f3890.js"><link rel="prefetch" href="/blogs/assets/js/165.cbf569f7.js"><link rel="prefetch" href="/blogs/assets/js/166.41658f6f.js"><link rel="prefetch" href="/blogs/assets/js/167.d360d750.js"><link rel="prefetch" href="/blogs/assets/js/168.265d342a.js"><link rel="prefetch" href="/blogs/assets/js/169.e04b321d.js"><link rel="prefetch" href="/blogs/assets/js/17.ffb6b1c0.js"><link rel="prefetch" href="/blogs/assets/js/170.1cc2fa1d.js"><link rel="prefetch" href="/blogs/assets/js/171.f2185bae.js"><link rel="prefetch" href="/blogs/assets/js/172.c8c5c73c.js"><link rel="prefetch" href="/blogs/assets/js/173.0045183e.js"><link rel="prefetch" href="/blogs/assets/js/174.12047e97.js"><link rel="prefetch" href="/blogs/assets/js/175.37fe320d.js"><link rel="prefetch" href="/blogs/assets/js/176.b56a1c5b.js"><link rel="prefetch" href="/blogs/assets/js/18.85dc6e83.js"><link rel="prefetch" href="/blogs/assets/js/19.de5d8753.js"><link rel="prefetch" href="/blogs/assets/js/20.99db8519.js"><link rel="prefetch" href="/blogs/assets/js/21.2f7d392a.js"><link rel="prefetch" href="/blogs/assets/js/22.d7210ff8.js"><link rel="prefetch" href="/blogs/assets/js/23.d56d0f74.js"><link rel="prefetch" href="/blogs/assets/js/24.438b7e8f.js"><link rel="prefetch" href="/blogs/assets/js/25.9692637a.js"><link rel="prefetch" href="/blogs/assets/js/26.74cb62f2.js"><link rel="prefetch" href="/blogs/assets/js/27.648386b6.js"><link rel="prefetch" href="/blogs/assets/js/28.de0199ff.js"><link rel="prefetch" href="/blogs/assets/js/29.32667801.js"><link rel="prefetch" href="/blogs/assets/js/3.3923979e.js"><link rel="prefetch" href="/blogs/assets/js/30.9c41188e.js"><link rel="prefetch" href="/blogs/assets/js/31.1cad6d07.js"><link rel="prefetch" href="/blogs/assets/js/32.dfa7b892.js"><link rel="prefetch" href="/blogs/assets/js/33.84623c9e.js"><link rel="prefetch" href="/blogs/assets/js/34.16fd49ed.js"><link rel="prefetch" href="/blogs/assets/js/35.0c8c5faf.js"><link rel="prefetch" href="/blogs/assets/js/36.8fb90cdc.js"><link rel="prefetch" href="/blogs/assets/js/37.d0e0e22e.js"><link rel="prefetch" href="/blogs/assets/js/38.4d45938c.js"><link rel="prefetch" href="/blogs/assets/js/39.beba6cd0.js"><link rel="prefetch" href="/blogs/assets/js/4.f2bc8a01.js"><link rel="prefetch" href="/blogs/assets/js/40.603e7954.js"><link rel="prefetch" href="/blogs/assets/js/41.f60a79f1.js"><link rel="prefetch" href="/blogs/assets/js/42.93e1d425.js"><link rel="prefetch" href="/blogs/assets/js/43.c685d861.js"><link rel="prefetch" href="/blogs/assets/js/44.a2657a31.js"><link rel="prefetch" href="/blogs/assets/js/45.d49fd145.js"><link rel="prefetch" href="/blogs/assets/js/46.affe5377.js"><link rel="prefetch" href="/blogs/assets/js/47.8aeb7e59.js"><link rel="prefetch" href="/blogs/assets/js/48.a3fbeb06.js"><link rel="prefetch" href="/blogs/assets/js/49.c7f31446.js"><link rel="prefetch" href="/blogs/assets/js/5.aee30350.js"><link rel="prefetch" href="/blogs/assets/js/50.f12a3804.js"><link rel="prefetch" href="/blogs/assets/js/51.b7bfb937.js"><link rel="prefetch" href="/blogs/assets/js/52.af89087f.js"><link rel="prefetch" href="/blogs/assets/js/53.b438236c.js"><link rel="prefetch" href="/blogs/assets/js/54.f10d71ac.js"><link rel="prefetch" href="/blogs/assets/js/55.b067bf4d.js"><link rel="prefetch" href="/blogs/assets/js/56.28bac15b.js"><link rel="prefetch" href="/blogs/assets/js/57.3f203274.js"><link rel="prefetch" href="/blogs/assets/js/58.cc3f1a31.js"><link rel="prefetch" href="/blogs/assets/js/6.3697c41c.js"><link rel="prefetch" href="/blogs/assets/js/60.15bbef0f.js"><link rel="prefetch" href="/blogs/assets/js/61.a67c32eb.js"><link rel="prefetch" href="/blogs/assets/js/62.b18eb373.js"><link rel="prefetch" href="/blogs/assets/js/63.f10c6955.js"><link rel="prefetch" href="/blogs/assets/js/64.752ae530.js"><link rel="prefetch" href="/blogs/assets/js/65.ec2d9176.js"><link rel="prefetch" href="/blogs/assets/js/66.6f95de97.js"><link rel="prefetch" href="/blogs/assets/js/67.8bbbba9e.js"><link rel="prefetch" href="/blogs/assets/js/68.f246175c.js"><link rel="prefetch" href="/blogs/assets/js/69.5425fc5e.js"><link rel="prefetch" href="/blogs/assets/js/7.ea90a76e.js"><link rel="prefetch" href="/blogs/assets/js/70.a3d98361.js"><link rel="prefetch" href="/blogs/assets/js/71.a9c04aa3.js"><link rel="prefetch" href="/blogs/assets/js/72.0f746438.js"><link rel="prefetch" href="/blogs/assets/js/73.665a45f7.js"><link rel="prefetch" href="/blogs/assets/js/74.e9b983b4.js"><link rel="prefetch" href="/blogs/assets/js/75.be75d256.js"><link rel="prefetch" href="/blogs/assets/js/76.5679a7c3.js"><link rel="prefetch" href="/blogs/assets/js/77.cb426184.js"><link rel="prefetch" href="/blogs/assets/js/78.85dfa033.js"><link rel="prefetch" href="/blogs/assets/js/79.1a6ad38e.js"><link rel="prefetch" href="/blogs/assets/js/8.e9f537d2.js"><link rel="prefetch" href="/blogs/assets/js/80.2af72006.js"><link rel="prefetch" href="/blogs/assets/js/81.7a9b711c.js"><link rel="prefetch" href="/blogs/assets/js/82.8d2990f5.js"><link rel="prefetch" href="/blogs/assets/js/83.fc56f654.js"><link rel="prefetch" href="/blogs/assets/js/84.f29292e9.js"><link rel="prefetch" href="/blogs/assets/js/85.30c87639.js"><link rel="prefetch" href="/blogs/assets/js/86.3b583c97.js"><link rel="prefetch" href="/blogs/assets/js/87.453c075b.js"><link rel="prefetch" href="/blogs/assets/js/88.5d30849e.js"><link rel="prefetch" href="/blogs/assets/js/89.11608fe8.js"><link rel="prefetch" href="/blogs/assets/js/9.7dcf71ed.js"><link rel="prefetch" href="/blogs/assets/js/90.36bb7df3.js"><link rel="prefetch" href="/blogs/assets/js/91.1dfc55d8.js"><link rel="prefetch" href="/blogs/assets/js/92.27b42bbe.js"><link rel="prefetch" href="/blogs/assets/js/93.df84349d.js"><link rel="prefetch" href="/blogs/assets/js/94.ac3c3bf0.js"><link rel="prefetch" href="/blogs/assets/js/95.1b1c9638.js"><link rel="prefetch" href="/blogs/assets/js/96.5953c721.js"><link rel="prefetch" href="/blogs/assets/js/97.df942904.js"><link rel="prefetch" href="/blogs/assets/js/98.29fac1b8.js"><link rel="prefetch" href="/blogs/assets/js/99.26406043.js">
+    <link rel="stylesheet" href="/blogs/assets/css/0.styles.8ebdf352.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blogs/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blogs/no.2/GC.html" class="sidebar-link">浏览器下的垃圾回收机制</a></li><li><a href="/blogs/no.2/http.html" class="sidebar-link">HTTP的那些事</a></li><li><a href="/blogs/no.2/mac_vi.html" class="sidebar-link">vi/vim</a></li><li><a href="/blogs/no.2/nginx.html" class="sidebar-link">Nginx</a></li><li><a href="/blogs/no.2/webSocket与socket.io.html" class="active sidebar-link">WebSocket</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#是时候展现你优秀的一面了" class="sidebar-link">是时候展现你优秀的一面了</a></li><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#三言两语说说http" class="sidebar-link">三言两语说说HTTP</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#http是半双工通信" class="sidebar-link">HTTP是半双工通信</a></li></ul></li><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#双工通信" class="sidebar-link">双工通信</a></li><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#websocket-2" class="sidebar-link">WebSocket</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#websocket的优势" class="sidebar-link">WebSocket的优势</a></li><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#一起敲敲websocket" class="sidebar-link">一起敲敲WebSocket</a></li></ul></li><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#socket-io" class="sidebar-link">socket.io</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#socket-io的特点" class="sidebar-link">socket.io的特点</a></li></ul></li><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#实现聊天室" class="sidebar-link">实现聊天室</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#建立连接" class="sidebar-link">建立连接</a></li><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#发送消息" class="sidebar-link">发送消息</a></li><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#创建用户名" class="sidebar-link">创建用户名</a></li><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#添加私聊" class="sidebar-link">添加私聊</a></li><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#加入指定房间-群" class="sidebar-link">加入指定房间(群)</a></li><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#处理房间内发言" class="sidebar-link">处理房间内发言</a></li><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#展示历史消息" class="sidebar-link">展示历史消息</a></li><li class="sidebar-sub-header"><a href="/blogs/no.2/webSocket与socket.io.html#小tips" class="sidebar-link">小Tips</a></li></ul></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="websocket"><a href="#websocket" class="header-anchor">#</a> WebSocket</h1> <h2 id="是时候展现你优秀的一面了"><a href="#是时候展现你优秀的一面了" class="header-anchor">#</a> 是时候展现你优秀的一面了</h2> <p>在工作中我们开发接触最多的协议莫过于HTTP协议了，近些年H5的很多API和技术已经如雨后春笋般开始渐渐发扬光大了，今天我们就来一起讨论下其中的一个比较有意思的API，WebSocket
+首先，在介绍主角之前，总要有一个铺垫，那么我就来三言两语先说一下最常见的HTTP协议吧，以示区分</p> <h2 id="三言两语说说http"><a href="#三言两语说说http" class="header-anchor">#</a> 三言两语说说HTTP</h2> <p>HTTP是客户端/服务器模式中请求-响应所用的协议，在这种模式中，浏览器向服务器提交HTTP请求，服务器响应请求的资源</p> <p>言下之意就是你可以把这种模式，想象成对讲机，一个人说，另一个人听</p> <h3 id="http是半双工通信"><a href="#http是半双工通信" class="header-anchor">#</a> HTTP是半双工通信</h3> <p>这种半双工通信的特点就是：</p> <ul><li>同一时刻数据是单向流动的，客户端向服务端请求数据-&gt;单向，服务端向客户端返回数据-&gt;单向</li> <li>服务器不能主动的推送数据给客户端</li></ul> <p>以上就是对HTTP协议的简单概括，那么下面直接开始进入今天的主题</p> <h2 id="双工通信"><a href="#双工通信" class="header-anchor">#</a> 双工通信</h2> <p>在H5的websocket出现之前，为了实现这种推送技术，大家最常用的实现方式有这三种：<strong>轮询、长轮询和iframe流</strong>，但是他们三兄弟或多或少都有些美中不足</p> <p>于是乎，在大神们的不断努力下，定义了websocket这个好用的API，来完善了双工通信的更好实现方式</p> <h2 id="websocket-2"><a href="#websocket-2" class="header-anchor">#</a> WebSocket</h2> <p>WebSocket实现了，在客户端和服务端上建立了一个长久的连接，两边可以任意发数据嗨皮</p> <p>当然如果知道的更深一层的话，要知道它属于<strong>应用层</strong>的协议，它基于<strong>TCP传输协议</strong>，<strong>并复用HTTP的握手通道</strong></p> <p>!<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/TCP-IP协议栈.png"><img src="http://blog.colastar.club:9527/static/images/TCP-IP%E5%8D%8F%E8%AE%AE%E6%A0%88.png" alt=""></a></p> <p>说的再多，不如懂它，下面来看看websocket的优势何在</p> <h3 id="websocket的优势"><a href="#websocket的优势" class="header-anchor">#</a> WebSocket的优势</h3> <ul><li>支持双向通信，实时性更强(你可以来做个QQ，微信了，老铁)</li> <li>更好的二进制支持</li> <li>较少的控制开销(连接创建后，ws客户端、服务端进行数据交换时，协议控制的数据包头部较少)</li></ul> <p>那么废话说到这里了，接下来开始实战，直接检验一下成果</p> <h3 id="一起敲敲websocket"><a href="#一起敲敲websocket" class="header-anchor">#</a> 一起敲敲WebSocket</h3> <p>我们先来写下前端页面的WebSocket，看看基本用法，上代码，别犹豫</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 创建一个index.html文件
+// 下面直接写WebSocket
+
+// 只需要new一下就可以创建一个websocket的实例
+// 我们要去连接ws协议
+// 这里对应的端口就是服务端设置的端口号9999
+let ws = new WebSocket('ws://localhost:9999');
+
+// onopen是客户端与服务端建立连接后触发
+ws.onopen = function() {
+    ws.send('哎呦，不错哦');
+};
+
+// onmessage是当服务端给客户端发来消息的时候触发
+ws.onmessage = function(res) {
+    console.log(res);   // 打印的是MessageEvent对象
+    // 真正的消息数据是 res.data
+    console.log(res.data);
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>以上代码，除去注释的话，也就不到10行代码，就把websocket的用法写完了，so easy，使用起来很简单啊，有木有</p> <p>那么做事要做全，我们再写一下后台那边的websocket接收和发送消息部分吧，继续撸
+等等，在撸之前，先要安装一下</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 后台需要安装ws包
+npm i ws -S
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>这里我们用node的express来简单搭个后台服务，目录结构也很简单，如下图</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/websocket1.png"><img src="http://blog.colastar.club:9527/static/images/websocket1.png" alt=""></a></p> <p>下面开始撸这个server.js文件吧</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const express = require('express');
+const app = express();
+// 设置静态文件夹
+app.use(express.static(__dirname));
+// 监听3000端口
+app.listen(3000);
+// =============================================
+// 开始创建一个websocket服务
+const Server = require('ws').Server;
+// 这里是设置服务器的端口号，和上面的3000端口不用一致
+const ws = new Server({ port: 9999 });
+
+// 监听服务端和客户端的连接情况
+ws.on('connection', function(socket) {
+    // 监听客户端发来的消息
+    socket.on('message', function(msg) {
+        console.log(msg);   // 这个就是客户端发来的消息
+        // 来而不往非礼也，服务端也可以发消息给客户端
+        socket.send(`这里是服务端对你说的话： ${msg}`);
+    });
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>这样就搭了一个后台服务了，访问localhost:3000后，在控制台就可以看到消息了</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/websocket2.png"><img src="http://blog.colastar.club:9527/static/images/websocket2.png" alt=""></a></p> <p>看到这里，我们会由衷的发现，无论是前端来写还是后台来写，发现其实都很类似，所以用起来比较流畅，多敲几遍就好了，熟能生巧嘛，哈哈
+接下来还没完，由于websocket是H5标准出的东西，老版本的浏览器当然就不能很好的支持了，这时前端就要处理该死的兼容问题了
+正因如此，世上才会有了另外一个更好用的库出现，这就是大名鼎鼎的 socket.io
+下面趁此雅兴，不要停，继续来学习一下这个全双工通信中的王者吧</p> <h2 id="socket-io"><a href="#socket-io" class="header-anchor">#</a> socket.io</h2> <p>先来看下socket.io的特别有哪些</p> <h3 id="socket-io的特点"><a href="#socket-io的特点" class="header-anchor">#</a> socket.io的特点</h3> <ul><li>易用性：封装了服务端和客户端，使用简单方便</li> <li>跨平台：支持跨平台，可以选择在服务端或是客户端开发实时应用</li> <li>自适应：会根据浏览器来自己决定是使用WebSocket、Ajax长轮询还是Iframe流等方式去选择最优方式，甚至支持IE5.5</li></ul> <p>好了，看完了特点，那就......
+少点套路，多点真诚，废话不说了，直接上手从头撸一遍吧</p> <h4 id="socket-io安装"><a href="#socket-io安装" class="header-anchor">#</a> socket.io安装</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 安装在本地项目
+npm i socket.io -S
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>启动服务，手写服务端</p> <p>还是用node中的express框架来搭个服务，代码如下</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// server.js文件
+const express = require('express');
+const app = express();
+// 设置静态文件夹
+app.use(express.static(__dirname));
+// 通过node的http模块来创建一个server服务
+const server = require('http').createServer(app);
+// WebSocket是依赖HTTP协议进行握手的
+const io = require('socket.io')(server);
+// 监听客户端与服务端的连接
+io.on('connection', function(socket) {
+    // send方法来给客户端发消息
+    socket.send('青花瓷');
+    // 监听客户端的消息是否接收成功
+    socket.on('message', function(msg) {
+        console.log(msg);  // 客户端发来的消息
+        socket.send('天青色等烟雨，而我在等你' );
+    });
+});
+// 监听3000端口
+server.listen(3000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>辣么，服务端的代码已经写完了，接下来开始写前端的部分，撸起袖子加油干啊！！！</p> <p>在服务端运行后，客户端就需要引用一个动态生成的文件路径，路径是固定的直接引用即可(/socket.io/socket.io.js)</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// index.html文件
+...省略
+// 引用socket.io的js文件
+&lt;script src=&quot;/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    const socket = io('/');
+    // 监听与服务器连接成功的事件
+    socket.on('connect', () =&gt; {
+        console.log('连接成功');
+        socket.send('周杰伦');
+    });
+    // 监听服务端发来的消息
+    socket.on('message', msg =&gt; {
+        // 这个msg就是传过来的真消息了，不用再msg.data取值了
+        console.log(`客户端接收到的消息： ${msg}`);  
+    });
+    // 监听与服务器连接断开事件
+    socket.on('disconnect', () =&gt; {
+        console.log('连接断开成功');
+    });
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>这里要有个小提示: io创建socket的时候可以接收一个url参数</p> <ul><li>url可以是socket服务完整的http地址，如：io('http://localhost:3000')</li> <li>也可以是相对路径，如：io('/')</li> <li>不填的话就表示默认连接当前路径，如：io()</li></ul> <h2 id="实现聊天室"><a href="#实现聊天室" class="header-anchor">#</a> 实现聊天室</h2> <p><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fchenhongdong%2Farticle%2Ftree%2Fdevelop%2Fwebsocket%2Fchat" target="_blank" rel="noopener noreferrer">项目地址<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>其实这个过程从用户的角度来说，其实无非就是连接上了，发送消息呗。
+然而实际上，从用户的观点看东西，也确实是这个样子的，那就不绕圈子了，直接进入主题</p> <h3 id="建立连接"><a href="#建立连接" class="header-anchor">#</a> 建立连接</h3> <p>当然，没错，这绝对是所有奇妙玄学中的第一步，不建立连接，那还聊个球呢
+说到这里，突然想到应该先把html的结构给大家，不然还怎么按部就班的一起敲呢
+先贴一张目录的结构，下面的文件都对应目录即可</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/socket.io.png"><img src="http://blog.colastar.club:9527/static/images/socket.io.png" alt=""></a></p> <p>下面我们来分别试着写下客户端和服务端的两套创建连接的代码，一起敲敲敲吧</p> <p>这才是重要的东西，开撸</p> <blockquote><p>客户端建立连接</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>// index.js文件
+let socket = io();
+// 监听与服务端的连接
+socket.on('connect', () =&gt; {
+    console.log('连接成功'); 
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>socket.io用法简单，方便上手，欲购从速，哈哈，继续写服务端的连接吧</p> <blockquote><p>服务端建立连接</p></blockquote> <p>服务端的搭建我们还是用之前使用的express来处理</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// app.js文件
+
+const express = require('express');
+const app = express();
+// 设置静态文件夹，会默认找当前目录下的index.html文件当做访问的页面
+app.use(express.static(__dirname));
+
+// WebSocket是依赖HTTP协议进行握手的
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+// 监听与客户端的连接事件
+io.on('connection', socket =&gt; {
+    console.log('服务端连接成功');
+});
+// ☆ 这里要用server去监听端口，而非app.listen去监听(不然找不到socket.io.js文件)
+server.listen(4000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>以上内容就是客户端和服务端建立了websocket连接了，如此的so easy，那么接下来继续写发送消息吧</p> <h3 id="发送消息"><a href="#发送消息" class="header-anchor">#</a> 发送消息</h3> <p>通过<code>socket.emit('message')</code>方法来发送消息给服务端</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// index.js文件
+
+// 列表list，输入框content，按钮sendBtn
+let list = document.getElementById('list'),
+    input = document.getElementById('input'),
+    sendBtn = document.getElementById('sendBtn');
+
+// 发送消息的方法
+function send() {
+    let value = input.value;
+    if (value) {
+        // 发送消息给服务器
+        socket.emit('message', value);
+        input.value = '';
+    } else {
+        alert('输入的内容不能为空！');
+    }
+}
+// 点击按钮发送消息
+sendBtn.onclick = send;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><blockquote><p>回车发送消息</p></blockquote> <p>每次都要点发送按钮，也是够反用户操作行为的了，所以还是加上我们熟悉的回车发送吧，看代码，+号表示新增的代码</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// index.js文件
+...省略
+
+// 回车发送消息的方法
++ function enterSend(event) {
++    let code = event.keyCode;
++    if (code === 13)  send();
++ }
+// 在输入框onkeydown的时候发送消息
++ input.onkeydown = function(event) {
++    enterSend(event);  
++ };
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>前端已经把消息发出去了，接下来该服务端出马了，继续撸</p> <blockquote><p>服务端处理消息</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>// app.js文件
+...省略
+
+io.on('connection', socket =&gt; {
+    // 监听客户端发过来的消息
++    socket.on('message', msg =&gt; {
+         // 服务端发送message事件，把msg消息再发送给客户端
++        io.emit('message', {
++            user: '系统',
++            content: msg,
++            createAt: new Date().toLocaleString()
++        });              
++    });
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p><code>io.emit()</code>方法是向大厅和所有人房间内的人广播</p> <blockquote><p>客户端渲染消息</p></blockquote> <p>我们继续在index.js这里写，把服务端传过来的消息接收并渲染出来</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// index.js文件
+...省略
+
+// 监听message事件来接收服务端发来的消息
++ socket.on('message', data =&gt; {
+      // 创建新的li元素，最终将其添加到list列表
++     let li = document.createElement('li');
++     li.className = 'list-group-item';
++     li.innerHTML = `
+        &lt;p style=&quot;color: #ccc;&quot;&gt;
+            &lt;span class=&quot;user&quot;&gt;${data.user}&lt;/span&gt;
+            ${data.createAt}
+        &lt;/p&gt;
+        &lt;p class=&quot;content&quot;&gt;${data.content}&lt;/p&gt;`;
+      // 将li添加到list列表中
++     list.appendChild(li);
+      // 将聊天区域的滚动条设置到最新内容的位置
++     list.scrollTop = list.scrollHeight;
++ });
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>写到这里，发送消息的部分就已经完事了，执行代码应该都可以看到如下图的样子了</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/socket.io1.png"><img src="http://blog.colastar.club:9527/static/images/socket.io1.png" alt=""></a></p> <p>看到上面的图后，我们应该高兴一下，毕竟有消息了，离成功又近了一步两步三四步</p> <p>虽然上面的代码还有瑕疵，不过不要方，让我们继续完善它</p> <p>根据图片所示，所有的用户都是“系统”，这根本就分不清谁是谁了，让我们来判断一下，需要加个用户名</p> <h3 id="创建用户名"><a href="#创建用户名" class="header-anchor">#</a> 创建用户名</h3> <p>这里我们可以知道，当用户是第一次进来的时候，是没有用户名的，需要在设置之后才会显示对应的名字</p> <p>于是乎，我们就把第一次进来后输入的内容当作用户名了</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// app.js文件
+...省略
+// 把系统设置为常量，方便使用
+const SYSTEM = '系统';
+
+io.on('connection', socket =&gt; {
+    // 记录用户名，用来记录是不是第一次进入，默认是undefined
++   let username;
+    socket.on('message', msg =&gt; {
+        // 如果用户名存在
++       if (username) {
+             // 就向所有人广播
++            io.emit('message', {
++                user: username,
++                content: msg,
++                createAt: new Date().toLocaleString()
++            });
++       } else {  // 用户名不存在的情况
+             // 如果是第一次进入的话，就将输入的内容当做用户名
++            username = msg;
+             // 向除了自己的所有人广播，毕竟进没进入自己是知道的，没必要跟自己再说一遍
++            socket.broadcast.emit('message', {
++                user: SYSTEM,
++                content: `${username}加入了聊天！`,
++                createAt: new Date().toLocaleString()
++            });
++        }
+    });
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><p>☆️ <code>socket.broadcast.emit</code>，这个方法是向除了自己外的所有人广播</p> <p>没错，毕竟自己进没进聊天室自己心里还没数么，哈哈</p> <p>下面再看下执行的效果，请看图</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/socket.io2.png"><img src="http://blog.colastar.club:9527/static/images/socket.io2.png" alt=""></a></p> <p>最基本的发消息功能已经实现了，下面我们再接再厉，完成一个私聊功能吧</p> <h3 id="添加私聊"><a href="#添加私聊" class="header-anchor">#</a> 添加私聊</h3> <p>在群里大家都知道@一下就代表这条消息是专属被@的那个人的，其他人是不用care的</p> <p>如何实现私聊呢？这里我们采用，在消息列表list中点击对方的用户名进行私聊，所以废话不多说，开写吧</p> <blockquote><p>客户端处理
+@一下</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>// index.js文件
+...省略
+
+  // 私聊的方法
++ function privateChat(event) {
++    let target = event.target;
+     // 拿到对应的用户名
++    let user = target.innerHTML;
+     // 只有class为user的才是目标元素
++    if (target.className === 'user') {
+         // 将@用户名显示在input输入框中
++        input.value = `@${user} `;
++    }
++ }
+  // 点击进行私聊
++ list.onclick = function(event) {
++    privateChat(event);
++ };
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>客户端已将@用户名这样的格式设置在了输入框中，只要发送消息，服务端就可以进行区分，是私聊还是公聊了，下面继续写服务端的处理逻辑吧</p> <blockquote><p>服务端处理
+首先私聊的前提是已经获取到了用户名了
+然后正则判断一下，哪些消息是属于私聊的
+最后还需要找到对方的socket实例，好方便发送消息给对方
+那么，看如下代码</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>// app.js文件
+...省略
+
+// 用来保存对应的socket，就是记录对方的socket实例
++ let socketObj = {};
+
+io.on('connection', socket =&gt; {
+    let username;
+    socket.on('message', msg =&gt; {
+        if (username) {
+            // 正则判断消息是否为私聊专属
++           let private = msg.match(/@([^ ]+) (.+)/);
+
++           if (private) {  // 私聊消息
+                 // 私聊的用户，正则匹配的第一个分组
++                let toUser = private[1];
+                 // 私聊的内容，正则匹配的第二个分组
++                let content = private[2];
+                 // 从socketObj中获取私聊用户的socket
++                let toSocket = socketObj[toUser];
+
++                if (toSocket) {
+                     // 向私聊的用户发消息
++                    toSocket.send({
++                        user: username,
++                        content,
++                        createAt: new Date().toLocaleString()
++                    });
++                }
+            } else {    // 公聊消息
+                io.emit('message', {
+                    user: username,
+                    content: msg,
+                    createAt: new Date().toLocaleString()
+                });
+            }
+        } else { // 用户名不存在的情况
+            ...省略
+            // 把socketObj对象上对应的用户名赋为一个socket
+            // 如： socketObj = { '周杰伦': socket, '谢霆锋': socket }
++           socketObj[username] = socket;
+        }
+    });
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br></div></div><p>写到这里，我们已经完成了公聊和私聊的功能了，可喜可贺，非常了不起了已经，但是不能傲娇，我们再完善一些小细节</p> <p>现在所有用户名和发送消息的气泡都是一个颜色，其实这样也不好区分用户之间的差异
+SO，我们来改下颜色的部分</p> <p>分配用户不一样的颜色</p> <blockquote><p>服务端处理颜色</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>// app.js文件
+...省略
+let socketObj = {};
+// 设置一些颜色的数组，让每次进入聊天的用户颜色都不一样
++ let userColor = ['#00a1f4', '#0cc', '#f44336', '#795548', '#e91e63', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#ffc107', '#607d8b', '#ff9800', '#ff5722'];
+
+// 乱序排列方法，方便把数组打乱
++ function shuffle(arr) {
++    let len = arr.length, random;
++    while (0 !== len) {
+        // 右移位运算符向下取整
++        random = (Math.random() * len--) &gt;&gt;&gt; 0; 
+        // 解构赋值实现变量互换
++        [arr[len], arr[random]] = [arr[random], arr[len]]; 
++    }
++    return arr;
++ }
+
+io.on('connection', socket =&gt; {
+     let username;
++    let color;  // 用于存颜色的变量
+
+    socket.on('message', msg =&gt; {
+        if (username) {
+            ...省略
+            if (private) {
+                ...省略
+                if (toSocket) {
+                    toSocket.send({
+                        user: username,
++                       color,
+                        content: content,
+                        createAt: new Date().toLocaleString()
+                    });
+                }
+            } else {
+                io.emit('message', {
+                    user: username,
++                   color,
+                    content: msg,
+                    createAt: new Date().toLocaleString()
+                });
+            }
+        } else { // 用户名不存在的情况
+            ...省略
+            // 乱序后取出颜色数组中的第一个，分配给进入的用户
++           color = shuffle(userColor)[0];
+
+            socket.broadcast.emit('message', {
+                user: '系统',
++               color,
+                content: `${username}加入了聊天！`,
+                createAt: new Date().toLocaleString()
+            });
+        }
+    });
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br></div></div><p>服务端那边给分配好了颜色，前端这边再渲染一下就好了，接着写下去，不要停</p> <blockquote><p>渲染颜色</p></blockquote> <p>在创建的li元素上，给对应的用户名和内容分别在style样式中加个颜色就可以了，代码如下</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// index.js
+... 省略
+
+socket.on('message', data =&gt; {
+    let li = document.createElement('li');
+    li.className = 'list-group-item';
+    // 给对应元素设置行内样式添加颜色
++   li.innerHTML = `&lt;p style=&quot;color: #ccc;&quot;&gt;&lt;span class=&quot;user&quot; style=&quot;color:${data.color}&quot;&gt;${data.user} &lt;/span&gt;${data.createAt}&lt;/p&gt;
+                    &lt;p class=&quot;content&quot; style=&quot;background:${data.color}&quot;&gt;${data.content}&lt;/p&gt;`;
+    list.appendChild(li);
+    // 将聊天区域的滚动条设置到最新内容的位置
+    list.scrollTop = list.scrollHeight;
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>写完是写完了，我们看看效果吧</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/socket.io3.png"><img src="http://blog.colastar.club:9527/static/images/socket.io3.png" alt=""></a></p> <p>写到这里，看到这里，是否疲倦了呢，年轻人不要放弃</p> <p>Now，让我们来写理论上的最最最后一个功能吧，进入某个群里聊天，该消息只有群里的人可以看到</p> <h3 id="加入指定房间-群"><a href="#加入指定房间-群" class="header-anchor">#</a> 加入指定房间(群)</h3> <p>我们一直在上面的截图中看到了两个群的按钮，看到字面意思就能知道是干嘛的，就是为了这一刻而准备的</p> <p>下面我们再来，继续撸，马上就要完成大作了</p> <blockquote><p>客户端-进出房间(群)</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>// index.js文件
+...省略
+
+// 进入房间的方法
++ function join(room) {
++    socket.emit('join', room);
++ }
+// 监听是否已进入房间
+// 如果已进入房间，就显示离开房间按钮
++ socket.on('joined', room =&gt; {
++    document.getElementById(`join-${room}`).style.display = 'none';
++    document.getElementById(`leave-${room}`).style.display = 'inline-block';
++ });
+
+// 离开房间的方法
++ function leave(room) {
+    socket.emit('leave', room);
++ }
+// 监听是否已离开房间
+// 如果已离开房间，就显示进入房间按钮
++ socket.on('leaved', room =&gt; {
++    document.getElementById(`leave-${room}`).style.display = 'none';
++    document.getElementById(`join-${room}`).style.display = 'inline-block';
++ });
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>上面定义的join和leave方法直接在对应的按钮上调用即可了，如下图所示
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/socket.io4.png"><img src="http://blog.colastar.club:9527/static/images/socket.io4.png" alt=""></a></p> <p>下面我们继续写服务端的代码逻辑</p> <blockquote><p>服务端-处理进出房间(群)</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>// app.js文件
+...省略
+io.on('connection', socket =&gt; {
+    ...省略
+    // 记录进入了哪些房间的数组
++   let rooms = [];
+    io.on('message', msg =&gt; {
+        ...省略
+    });
+    // 监听进入房间的事件
++   socket.on('join', room =&gt; {
++       // 判断一下用户是否进入了房间，如果没有就让其进入房间内
++       if (username &amp;&amp; rooms.indexOf(room) === -1) {
+            // socket.join表示进入某个房间
++           socket.join(room);
++           rooms.push(room);
+            // 这里发送个joined事件，让前端监听后，控制房间按钮显隐
++           socket.emit('joined', room);
+            // 通知一下自己
++           socket.send({
++               user: SYSTEM,
++               color,
++               content: `你已加入${room}战队`,
++               createAt: new Date().toLocaleString()
++           });
++       }
++   });
+    // 监听离开房间的事件
++   socket.on('leave', room =&gt; {
+        // index为该房间在数组rooms中的索引，方便删除
++       let index = rooms.indexOf(room);
++       if (index !== -1) {
++           socket.leave(room); // 离开该房间
++           rooms.splice(index, 1); // 删掉该房间
+            // 这里发送个leaved事件，让前端监听后，控制房间按钮显隐
++           socket.emit('leaved', room);
+            // 通知一下自己
++           socket.send({
++               user: SYSTEM,
++               color,
++               content: `你已离开${room}战队`,
++               createAt: new Date().toLocaleString()
++           });
++       }
++   });
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><p>写到这里，我们也实现了加入和离开房间的功能，如下图所示
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/socket.io5.png"><img src="http://blog.colastar.club:9527/static/images/socket.io5.png" alt=""></a>
+既然进入了房间内，那么很显然，发言的内容只能是在房间内的人才能看到，这点我们都懂</p> <p>所以下面我们再写一下房间内发言的逻辑，继续在app.js中开撸</p> <h3 id="处理房间内发言"><a href="#处理房间内发言" class="header-anchor">#</a> 处理房间内发言</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>// app.js文件
+...省略
+// 上来记录一个socket.id用来查找对应的用户
++ let mySocket = {};
+
+io.on('connection', socket =&gt; {
+    ...省略
+    // 这是所有连接到服务端的socket.id
++   mySocket[socket.id] = socket;
+    
+    socket.on('message', msg =&gt; {
+        if (private) {
+            ...省略
+        } else {
+            // 如果rooms数组有值，就代表有用户进入了房间
++           if (rooms.length) {
+                // 用来存储进入房间内的对应的socket.id
++               let socketJson = {};
+
++               rooms.forEach(room =&gt; {
+                    // 取得进入房间内所对应的所有sockets的hash值，它便是拿到的socket.id
++                   let roomSockets = io.sockets.adapter.rooms[room].sockets;
++                   Object.keys(roomSockets).forEach(socketId =&gt; {
+                        console.log('socketId', socketId);
+                        // 进行一个去重，在socketJson中只有对应唯一的socketId
++                       if (!socketJson[socketId]) {
++                           socketJson[socketId] = 1;
++                       }
++                   });
++               });
+
+                // 遍历socketJson，在mySocket里找到对应的id，然后发送消息
++               Object.keys(socketJson).forEach(socketId =&gt; {
++                   mySocket[socketId].emit('message', {
++                       user: username,
++                       color,
++                       content: msg,
++                       createAt: new Date().toLocaleString()
++                   });
++               });
+            } else {
+                // 如果不是私聊的，向所有人广播
+                io.emit('message', {
+                    user: username,
+                    color,
+                    content: msg,
+                    createAt: new Date().toLocaleString()
+                });
+            }
+        }
+    });
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br></div></div><p>重新运行app.js文件后，再进入房间聊天，会展示如下图的效果，只有在同一个房间内的用户，才能相互之间看到消息</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/socket.io6.png"><img src="http://blog.colastar.club:9527/static/images/socket.io6.png" alt=""></a></p> <p>麻雀虽小但五脏俱全，坚持写到这里的每一位都是赢家，不过我还想再完善最后一个小功能，就是展示一下历史消息</p> <p>毕竟每次一进到聊天室都是空空如也的样子也太苍白了，还是希望了解到之前的用户聊了哪些内容的</p> <p>那么继续加油，实现我们最后一个功能吧</p> <h3 id="展示历史消息"><a href="#展示历史消息" class="header-anchor">#</a> 展示历史消息</h3> <p>其实正确开发的情况，用户输入的所有消息应该是存在数据库中进行保存的，不过我们这里就不涉及其他方面的知识点了，就直接用纯前端的技术去模拟一下实现了</p> <blockquote><p>获取历史消息
+这里让客户端去发送一个<code>getHistory</code>的事件，在<strong>socket连接成功</strong>的时候，告诉服务器我们要拿到最新的20条消息记录</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>// index.js
+...省略
+
+socket.on('connect', () =&gt; {
+    console.log('连接成功');
+    // 向服务器发getHistory来拿消息
++   socket.emit('getHistory');
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><blockquote><p>服务端处理历史记录并返回</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>// app.js
+...省略
+
+// 创建一个数组用来保存最近的20条消息记录，真实项目中会存到数据库中
+let msgHistory = [];
+
+io.on('connection', socket =&gt; {
+    ...省略
+    io.on('message', msg =&gt; {
+        ...省略
+        if (private) {
+            ...省略
+        } else {
+            io.emit('message', {
+                user: username,
+                color,
+                content: msg,
+                createAt: new Date().toLocaleString()
+            });
+            // 把发送的消息push到msgHistory中
+            // 真实情况是存到数据库里的
++           msgHistory.push({
++               user: username,
++               color,
++               content: msg,
++              createAt: new Date().toLocaleString()
++          });
+        }
+    });
+    
+    // 监听获取历史消息的事件
++   socket.on('getHistory', () =&gt; {
+        // 通过数组的slice方法截取最新的20条消息
++       if (msgHistory.length) {
++           let history = msgHistory.slice(msgHistory.length - 20);
+            // 发送history事件并返回history消息数组给客户端
++           socket.emit('history', history);
++       }
++   });
+});
+客户端渲染历史消息
+// index.js
+...省略
+
+// 接收历史消息
++ socket.on('history', history =&gt; {
+    // history拿到的是一个数组，所以用map映射成新数组，然后再join一下连接拼成字符串
++   let html = history.map(data =&gt; {
++       return `&lt;li class=&quot;list-group-item&quot;&gt;
+            &lt;p style=&quot;color: #ccc;&quot;&gt;&lt;span class=&quot;user&quot; style=&quot;color:${data.color}&quot;&gt;${data.user} &lt;/span&gt;${data.createAt}&lt;/p&gt;
+            &lt;p class=&quot;content&quot; style=&quot;background-color: ${data.color}&quot;&gt;${data.content}&lt;/p&gt;
+        &lt;/li&gt;`;
++   }).join('');
++   list.innerHTML = html + '&lt;li style=&quot;margin: 16px 0;text-align: center&quot;&gt;以上是历史消息&lt;/li&gt;';
+    // 将聊天区域的滚动条设置到最新内容的位置
++   list.scrollTop = list.scrollHeight;
++ });
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br></div></div><p>这样就全部大功告成了，完成了最后的历史消息功能，如下图所示效果
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/socket.io7.png"><img src="http://blog.colastar.club:9527/static/images/socket.io7.png" alt=""></a>
+最后进行一个功能上的梳理吧，坚持到这里的人，我已经不知道如何表达对你的敬佩了，好样的</p> <p>梳理一下</p> <p>聊天室的功能完成了，看到这里头有点晕了，现在简单回忆一下，实际都有哪些功能</p> <ul><li>创建客户端与服务端的websocket通信连接</li> <li>客户端与服务端相互发送消息</li> <li>添加用户名</li> <li>添加私聊</li> <li>进入/离开房间聊天</li> <li>历史消息</li></ul> <h3 id="小tips"><a href="#小tips" class="header-anchor">#</a> 小Tips</h3> <p>针对以上代码中常用的发消息方法进行一下区分：</p> <ul><li>socket.send()发送消息是为了给自己看的</li> <li>io.emit()发送消息是给所有人看的</li> <li>socket.broadcast.emit()发送消息除了自己都能看到</li></ul> <p><a href="https://www.cnblogs.com/tugenhua0707/p/8699309.html" target="_blank" rel="noopener noreferrer">参考文章<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">8/11/2023, 4:42:59 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blogs/no.2/nginx.html" class="prev">
+        Nginx
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blogs/assets/js/app.707ae136.js" defer></script><script src="/blogs/assets/js/2.5689dfa7.js" defer></script><script src="/blogs/assets/js/59.9860100e.js" defer></script>
+  </body>
+</html>

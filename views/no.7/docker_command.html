@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>dockerfile文件的创建和build(整理) | 个人博客</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/blogs/js/tj.js"></script>
+    <script src="/blogs/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="江天一色无纤尘，皎皎空中孤月轮。">
+    
+    <link rel="preload" href="/blogs/assets/css/0.styles.8ebdf352.css" as="style"><link rel="preload" href="/blogs/assets/js/app.707ae136.js" as="script"><link rel="preload" href="/blogs/assets/js/2.5689dfa7.js" as="script"><link rel="preload" href="/blogs/assets/js/114.b466c191.js" as="script"><link rel="prefetch" href="/blogs/assets/js/10.67ef92fa.js"><link rel="prefetch" href="/blogs/assets/js/100.5d1b5845.js"><link rel="prefetch" href="/blogs/assets/js/101.9434dbd9.js"><link rel="prefetch" href="/blogs/assets/js/102.8b6ef73c.js"><link rel="prefetch" href="/blogs/assets/js/103.09217907.js"><link rel="prefetch" href="/blogs/assets/js/104.5d5ecde6.js"><link rel="prefetch" href="/blogs/assets/js/105.1184fa93.js"><link rel="prefetch" href="/blogs/assets/js/106.95af92f2.js"><link rel="prefetch" href="/blogs/assets/js/107.475d4b97.js"><link rel="prefetch" href="/blogs/assets/js/108.160ab72f.js"><link rel="prefetch" href="/blogs/assets/js/109.bf9e219b.js"><link rel="prefetch" href="/blogs/assets/js/11.a6ce9264.js"><link rel="prefetch" href="/blogs/assets/js/110.548f0249.js"><link rel="prefetch" href="/blogs/assets/js/111.3b8629d8.js"><link rel="prefetch" href="/blogs/assets/js/112.296a4d35.js"><link rel="prefetch" href="/blogs/assets/js/113.c3cc282f.js"><link rel="prefetch" href="/blogs/assets/js/115.18dd6002.js"><link rel="prefetch" href="/blogs/assets/js/116.092ec055.js"><link rel="prefetch" href="/blogs/assets/js/117.e700c609.js"><link rel="prefetch" href="/blogs/assets/js/118.0cb24c22.js"><link rel="prefetch" href="/blogs/assets/js/119.dff5d31f.js"><link rel="prefetch" href="/blogs/assets/js/12.8e01f2af.js"><link rel="prefetch" href="/blogs/assets/js/120.67e5a079.js"><link rel="prefetch" href="/blogs/assets/js/121.10821017.js"><link rel="prefetch" href="/blogs/assets/js/122.443e0c1a.js"><link rel="prefetch" href="/blogs/assets/js/123.4a2250f3.js"><link rel="prefetch" href="/blogs/assets/js/124.ae09532f.js"><link rel="prefetch" href="/blogs/assets/js/125.538f8f45.js"><link rel="prefetch" href="/blogs/assets/js/126.4e9468a0.js"><link rel="prefetch" href="/blogs/assets/js/127.d22a541d.js"><link rel="prefetch" href="/blogs/assets/js/128.ed6cf9cb.js"><link rel="prefetch" href="/blogs/assets/js/129.acb93003.js"><link rel="prefetch" href="/blogs/assets/js/13.2512791e.js"><link rel="prefetch" href="/blogs/assets/js/130.cd867116.js"><link rel="prefetch" href="/blogs/assets/js/131.5abad248.js"><link rel="prefetch" href="/blogs/assets/js/132.5ccf5027.js"><link rel="prefetch" href="/blogs/assets/js/133.1ca47285.js"><link rel="prefetch" href="/blogs/assets/js/134.1294fd6f.js"><link rel="prefetch" href="/blogs/assets/js/135.911aa967.js"><link rel="prefetch" href="/blogs/assets/js/136.53f8c148.js"><link rel="prefetch" href="/blogs/assets/js/137.3e9b02ef.js"><link rel="prefetch" href="/blogs/assets/js/138.a00afd66.js"><link rel="prefetch" href="/blogs/assets/js/139.3d379c4e.js"><link rel="prefetch" href="/blogs/assets/js/14.6f0b42e2.js"><link rel="prefetch" href="/blogs/assets/js/140.7dbb78b8.js"><link rel="prefetch" href="/blogs/assets/js/141.bcbca9cc.js"><link rel="prefetch" href="/blogs/assets/js/142.35f0d3f0.js"><link rel="prefetch" href="/blogs/assets/js/143.52ff6fa9.js"><link rel="prefetch" href="/blogs/assets/js/144.ff914a4d.js"><link rel="prefetch" href="/blogs/assets/js/145.ab8c735d.js"><link rel="prefetch" href="/blogs/assets/js/146.23b4cd05.js"><link rel="prefetch" href="/blogs/assets/js/147.8d78d71b.js"><link rel="prefetch" href="/blogs/assets/js/148.ba4624de.js"><link rel="prefetch" href="/blogs/assets/js/149.55157ece.js"><link rel="prefetch" href="/blogs/assets/js/15.a3613048.js"><link rel="prefetch" href="/blogs/assets/js/150.72a6b7b6.js"><link rel="prefetch" href="/blogs/assets/js/151.0a3fdb22.js"><link rel="prefetch" href="/blogs/assets/js/152.58bd67c3.js"><link rel="prefetch" href="/blogs/assets/js/153.a5850933.js"><link rel="prefetch" href="/blogs/assets/js/154.652f75cf.js"><link rel="prefetch" href="/blogs/assets/js/155.9c1b2ee1.js"><link rel="prefetch" href="/blogs/assets/js/156.52b6dec0.js"><link rel="prefetch" href="/blogs/assets/js/157.77bab005.js"><link rel="prefetch" href="/blogs/assets/js/158.d459dff0.js"><link rel="prefetch" href="/blogs/assets/js/159.069d0e57.js"><link rel="prefetch" href="/blogs/assets/js/16.711dca8a.js"><link rel="prefetch" href="/blogs/assets/js/160.258b9e9d.js"><link rel="prefetch" href="/blogs/assets/js/161.56b614a9.js"><link rel="prefetch" href="/blogs/assets/js/162.24f57820.js"><link rel="prefetch" href="/blogs/assets/js/163.50c2bf05.js"><link rel="prefetch" href="/blogs/assets/js/164.7f7f3890.js"><link rel="prefetch" href="/blogs/assets/js/165.cbf569f7.js"><link rel="prefetch" href="/blogs/assets/js/166.41658f6f.js"><link rel="prefetch" href="/blogs/assets/js/167.d360d750.js"><link rel="prefetch" href="/blogs/assets/js/168.265d342a.js"><link rel="prefetch" href="/blogs/assets/js/169.e04b321d.js"><link rel="prefetch" href="/blogs/assets/js/17.ffb6b1c0.js"><link rel="prefetch" href="/blogs/assets/js/170.1cc2fa1d.js"><link rel="prefetch" href="/blogs/assets/js/171.f2185bae.js"><link rel="prefetch" href="/blogs/assets/js/172.c8c5c73c.js"><link rel="prefetch" href="/blogs/assets/js/173.0045183e.js"><link rel="prefetch" href="/blogs/assets/js/174.12047e97.js"><link rel="prefetch" href="/blogs/assets/js/175.37fe320d.js"><link rel="prefetch" href="/blogs/assets/js/176.b56a1c5b.js"><link rel="prefetch" href="/blogs/assets/js/18.85dc6e83.js"><link rel="prefetch" href="/blogs/assets/js/19.de5d8753.js"><link rel="prefetch" href="/blogs/assets/js/20.99db8519.js"><link rel="prefetch" href="/blogs/assets/js/21.2f7d392a.js"><link rel="prefetch" href="/blogs/assets/js/22.d7210ff8.js"><link rel="prefetch" href="/blogs/assets/js/23.d56d0f74.js"><link rel="prefetch" href="/blogs/assets/js/24.438b7e8f.js"><link rel="prefetch" href="/blogs/assets/js/25.9692637a.js"><link rel="prefetch" href="/blogs/assets/js/26.74cb62f2.js"><link rel="prefetch" href="/blogs/assets/js/27.648386b6.js"><link rel="prefetch" href="/blogs/assets/js/28.de0199ff.js"><link rel="prefetch" href="/blogs/assets/js/29.32667801.js"><link rel="prefetch" href="/blogs/assets/js/3.3923979e.js"><link rel="prefetch" href="/blogs/assets/js/30.9c41188e.js"><link rel="prefetch" href="/blogs/assets/js/31.1cad6d07.js"><link rel="prefetch" href="/blogs/assets/js/32.dfa7b892.js"><link rel="prefetch" href="/blogs/assets/js/33.84623c9e.js"><link rel="prefetch" href="/blogs/assets/js/34.16fd49ed.js"><link rel="prefetch" href="/blogs/assets/js/35.0c8c5faf.js"><link rel="prefetch" href="/blogs/assets/js/36.8fb90cdc.js"><link rel="prefetch" href="/blogs/assets/js/37.d0e0e22e.js"><link rel="prefetch" href="/blogs/assets/js/38.4d45938c.js"><link rel="prefetch" href="/blogs/assets/js/39.beba6cd0.js"><link rel="prefetch" href="/blogs/assets/js/4.f2bc8a01.js"><link rel="prefetch" href="/blogs/assets/js/40.603e7954.js"><link rel="prefetch" href="/blogs/assets/js/41.f60a79f1.js"><link rel="prefetch" href="/blogs/assets/js/42.93e1d425.js"><link rel="prefetch" href="/blogs/assets/js/43.c685d861.js"><link rel="prefetch" href="/blogs/assets/js/44.a2657a31.js"><link rel="prefetch" href="/blogs/assets/js/45.d49fd145.js"><link rel="prefetch" href="/blogs/assets/js/46.affe5377.js"><link rel="prefetch" href="/blogs/assets/js/47.8aeb7e59.js"><link rel="prefetch" href="/blogs/assets/js/48.a3fbeb06.js"><link rel="prefetch" href="/blogs/assets/js/49.c7f31446.js"><link rel="prefetch" href="/blogs/assets/js/5.aee30350.js"><link rel="prefetch" href="/blogs/assets/js/50.f12a3804.js"><link rel="prefetch" href="/blogs/assets/js/51.b7bfb937.js"><link rel="prefetch" href="/blogs/assets/js/52.af89087f.js"><link rel="prefetch" href="/blogs/assets/js/53.b438236c.js"><link rel="prefetch" href="/blogs/assets/js/54.f10d71ac.js"><link rel="prefetch" href="/blogs/assets/js/55.b067bf4d.js"><link rel="prefetch" href="/blogs/assets/js/56.28bac15b.js"><link rel="prefetch" href="/blogs/assets/js/57.3f203274.js"><link rel="prefetch" href="/blogs/assets/js/58.cc3f1a31.js"><link rel="prefetch" href="/blogs/assets/js/59.9860100e.js"><link rel="prefetch" href="/blogs/assets/js/6.3697c41c.js"><link rel="prefetch" href="/blogs/assets/js/60.15bbef0f.js"><link rel="prefetch" href="/blogs/assets/js/61.a67c32eb.js"><link rel="prefetch" href="/blogs/assets/js/62.b18eb373.js"><link rel="prefetch" href="/blogs/assets/js/63.f10c6955.js"><link rel="prefetch" href="/blogs/assets/js/64.752ae530.js"><link rel="prefetch" href="/blogs/assets/js/65.ec2d9176.js"><link rel="prefetch" href="/blogs/assets/js/66.6f95de97.js"><link rel="prefetch" href="/blogs/assets/js/67.8bbbba9e.js"><link rel="prefetch" href="/blogs/assets/js/68.f246175c.js"><link rel="prefetch" href="/blogs/assets/js/69.5425fc5e.js"><link rel="prefetch" href="/blogs/assets/js/7.ea90a76e.js"><link rel="prefetch" href="/blogs/assets/js/70.a3d98361.js"><link rel="prefetch" href="/blogs/assets/js/71.a9c04aa3.js"><link rel="prefetch" href="/blogs/assets/js/72.0f746438.js"><link rel="prefetch" href="/blogs/assets/js/73.665a45f7.js"><link rel="prefetch" href="/blogs/assets/js/74.e9b983b4.js"><link rel="prefetch" href="/blogs/assets/js/75.be75d256.js"><link rel="prefetch" href="/blogs/assets/js/76.5679a7c3.js"><link rel="prefetch" href="/blogs/assets/js/77.cb426184.js"><link rel="prefetch" href="/blogs/assets/js/78.85dfa033.js"><link rel="prefetch" href="/blogs/assets/js/79.1a6ad38e.js"><link rel="prefetch" href="/blogs/assets/js/8.e9f537d2.js"><link rel="prefetch" href="/blogs/assets/js/80.2af72006.js"><link rel="prefetch" href="/blogs/assets/js/81.7a9b711c.js"><link rel="prefetch" href="/blogs/assets/js/82.8d2990f5.js"><link rel="prefetch" href="/blogs/assets/js/83.fc56f654.js"><link rel="prefetch" href="/blogs/assets/js/84.f29292e9.js"><link rel="prefetch" href="/blogs/assets/js/85.30c87639.js"><link rel="prefetch" href="/blogs/assets/js/86.3b583c97.js"><link rel="prefetch" href="/blogs/assets/js/87.453c075b.js"><link rel="prefetch" href="/blogs/assets/js/88.5d30849e.js"><link rel="prefetch" href="/blogs/assets/js/89.11608fe8.js"><link rel="prefetch" href="/blogs/assets/js/9.7dcf71ed.js"><link rel="prefetch" href="/blogs/assets/js/90.36bb7df3.js"><link rel="prefetch" href="/blogs/assets/js/91.1dfc55d8.js"><link rel="prefetch" href="/blogs/assets/js/92.27b42bbe.js"><link rel="prefetch" href="/blogs/assets/js/93.df84349d.js"><link rel="prefetch" href="/blogs/assets/js/94.ac3c3bf0.js"><link rel="prefetch" href="/blogs/assets/js/95.1b1c9638.js"><link rel="prefetch" href="/blogs/assets/js/96.5953c721.js"><link rel="prefetch" href="/blogs/assets/js/97.df942904.js"><link rel="prefetch" href="/blogs/assets/js/98.29fac1b8.js"><link rel="prefetch" href="/blogs/assets/js/99.26406043.js">
+    <link rel="stylesheet" href="/blogs/assets/css/0.styles.8ebdf352.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blogs/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blogs/no.7/ 计算机语言的本源与发展.html" class="sidebar-link">计算机语言的本源与发展</a></li><li><a href="/blogs/no.7/docker_command.html" aria-current="page" class="active sidebar-link">dockerfile文件的创建和build(整理)</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.7/docker_command.html#docker常用命令" class="sidebar-link">Docker常用命令</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.7/docker_command.html#run" class="sidebar-link">run</a></li><li class="sidebar-sub-header"><a href="/blogs/no.7/docker_command.html#cp" class="sidebar-link">cp</a></li><li class="sidebar-sub-header"><a href="/blogs/no.7/docker_command.html#start" class="sidebar-link">start</a></li><li class="sidebar-sub-header"><a href="/blogs/no.7/docker_command.html#stop" class="sidebar-link">stop</a></li><li class="sidebar-sub-header"><a href="/blogs/no.7/docker_command.html#restart" class="sidebar-link">restart</a></li><li class="sidebar-sub-header"><a href="/blogs/no.7/docker_command.html#rm" class="sidebar-link">rm</a></li></ul></li></ul></li><li><a href="/blogs/no.7/mac安装fullter实践.html" class="sidebar-link">mac安装fullter实践</a></li><li><a href="/blogs/no.7/计算机组成原理.html" class="sidebar-link">计算机组成原理</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p></p><div class="table-of-contents"><ul><li><a href="#docker常用命令">Docker常用命令</a><ul><li><a href="#run">run</a></li><li><a href="#cp">cp</a></li><li><a href="#start">start</a></li><li><a href="#stop">stop</a></li><li><a href="#restart">restart</a></li><li><a href="#rm">rm</a></li></ul></li></ul></div><p></p> <h2 id="docker常用命令"><a href="#docker常用命令" class="header-anchor">#</a> Docker常用命令</h2> <h3 id="run"><a href="#run" class="header-anchor">#</a> run</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><img src="http://blog.colastar.club:9527/static/images/docker_run_1.png" alt=""></p> <ul><li><p>-e设置环境变量；-e username=zhj</p></li> <li><p>--name为容器指定一个名称；--name=zhj</p></li> <li><p>-p指定端口映射，格式为：主机(宿主)端口:容器端口 -p 80:8080</p></li> <li><p>-t为容器重新分配一个伪输入终端，通常与 -i 同时使用；</p></li> <li><p>-i以交互模式运行容器，通常与 -t 同时使用；</p></li> <li><p>-d后台运行容器，并返回容器ID；</p></li> <li><p>-v宿主机目录:容器目录。将宿主机目录挂载到容器内。</p></li></ul> <p><img src="http://blog.colastar.club:9527/static/images/docker_run_2.png" alt=""></p> <h3 id="cp"><a href="#cp" class="header-anchor">#</a> cp</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>docker cp
+// 复制容器内的文件到宿主机
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="start"><a href="#start" class="header-anchor">#</a> start</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>docker start
+// 启动一个或多个已经被停止的容器
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="stop"><a href="#stop" class="header-anchor">#</a> stop</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>docker stop
+
+// 停止一个运行中的容器
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h3 id="restart"><a href="#restart" class="header-anchor">#</a> restart</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>docker restart
+
+// 重启容器
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h3 id="rm"><a href="#rm" class="header-anchor">#</a> rm</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>docker rm
+
+// 删除容器
+``
+### pause
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>docker pause</p> <p>//暂停容器中所有的进程;</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+docker unpause
+
+恢复容器中所有的进程;
+
+docker exec ：
+
+在运行的容器中执行命令
+
+docker exec -it mynginx /bin/sh /root/runoob.sh
+docker logs
+
+获取容器的日志;
+
+docker ps
+
+列出UP的容器；docker ps -a列出所有容器。包括Exited等状态的容器；
+
+docker top
+
+查看容器中运行的进程信息，支持 ps 命令参数;
+
+docker inspect
+
+获取容器/镜像的元数据;
+
+![](http://blog.colastar.club:9527/static/images/docker_inspect.png)
+docker login
+
+登陆到一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub;
+
+docker logout
+
+登出一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub;
+
+docker tag
+
+标记本地镜像，将其归入某一仓库;
+
+docker push
+
+将本地的镜像上传到镜像仓库,要先登陆到镜像仓库;
+
+docker pull
+
+从镜像仓库中拉取或者更新指定镜像;
+
+docker search
+
+从Docker Hub查找镜像;
+
+docker images
+
+列出本地镜像;
+
+docker rmi
+
+删除本地一个或多少镜像;
+
+docker build
+
+命令用于使用 Dockerfile 创建镜像。
+
+docker build -t runoob/ubuntu:v1 .
+会默认使用当前目录的Dockerfile进行编译镜像，编译后的镜像名为runoob/ubuntu:v1
+
+docker history
+
+查看指定镜像的创建历史
+
+docker history runoob/ubuntu:v3
+3e47db9feec6128009f7c00a84f9c086.png
+docker save
+
+将指定镜像保存成 tar 归档文件。
+
+docker save -o my_ubuntu_v3.tar runoob/ubuntu:v3
+docker load
+
+导入使用 docker save命令导出的镜像。
+
+docker load -i my_ubuntu_v3.tar
+-i参数指定输入的文件。
+
+docker info
+
+显示 Docker 系统信息，包括镜像和容器数。
+
+docker version
+
+显示 Docker 版本信息。
+
+![](http://blog.colastar.club:9527/static/images/docker_version.png)
+Docker的存储驱动
+
+Docker支持AUFS、Btrfs、Device mapper、OverlayFS、ZFS五种存储驱动；
+
+写时复制（CoW）
+
+所有驱动都用到的技术——写时复制（CoW）。CoW就是copy-on-write，表示只在需要写时才去复制，这个是针对已有文件的修改场景。比如基于一个image启动多个Container，如果为每个Container都去分配一个image一样的文件系统，那么将会占用大量的磁盘空间。而CoW技术可以让所有的容器共享image的文件系统，所有数据都从image中读取，只有当要对文件进行写操作时，才从image里把要写的文件复制到自己的文件系统进行修改。写操作会在每个容器的文件系统里生成一个复本，每个容器修改的都是自己的复本，相互隔离，相互不影响。使用CoW可以有效的提高磁盘的利用率。
+
+用时分配（allocate-on-demand）
+
+而写时分配是用在原本没有这个文件的场景，只有在要新写入一个文件时才分配空间，这样可以提高存储资源的利用率。比如启动一个容器，并不会为这个容器预分配一些磁盘空间，而是当有新文件写入时，才按需分配新空间。
+
+Overlay VS Device mapper
+
+devicemapper将所有的镜像和容器存储在自己的虚拟块设备上，所有的操作都是直接对块进行操作，而不是文件。当要写入一个新文件时，在容器的镜像内为其分配新的块并写入数据，这个叫用时分配。当要修改已有文件时，再使用CoW为容器快照分配块空间，将要修改的数据复制到在容器快照中新的块里再进行修改。
+
+overlay是基于文件级的存储。只有两层：一个upper文件系统和一个lower文件系统，分别代表Docker的镜像层和容器层。当需要修改一个文件时，使用CoW将文件从只读的lower复制到可写的upper进行修改，结果也保存在upper层。
+
+Overlay是文件级存储，Device mapper是块级存储，当文件特别大而修改的内容很小，Overlay不管修改的内容大小都会复制整个文件，对大文件进行修改显示要比小文件要消耗更多的时间，而块级无论是大文件还是小文件都只复制需要修改的块，并不是整个文件，在这种场景下，显然device mapper要快一些。因为块级的是直接访问逻辑盘，适合IO密集的场景。而对于程序内部复杂，大并发但少IO的场景，Overlay的性能相对要强一些。
+
+Overlay VS Overlay2
+
+overlay驱动只工作在一个lower OverlayFS层之上，因此需要硬链接来实现多层镜像，但overlay2驱动原生地支持多层lowerOverlayFS镜像（最多128层）。因此overlay2驱动在合层相关的命令（如build和commit）中提供了更好的性能，与overlay驱动对比，消耗了更少的inode。
+
+![](http://blog.colastar.club:9527/static/images/docker_Overlay_vs_Overlay2.png)
+Docker的网络模式
+
+可以看：[docker的五种网络模式总结]
+
+https://blog.csdn.net/u010900754/article/details/78526443
+
+安装 Docker 时，它会自动创建 3 个网络。可以使用 docker network ls命令列出这些网络。
+
+这 3 个网络包含在 Docker 实现中。运行一个容器时，可以使用 the --net标志指定您希望在哪个网络上运行该容器。您仍然可以使用这 3 个网络。
+
+bridge 网络表示所有 Docker 安装中都存在的 docker0 网络。除非使用docker run --net=选项另行指定，否则 Docker 守护进程默认情况下会将容器连接到此网络。在主机上使用 ifconfig命令，可以看到此网桥是主机的网络堆栈的一部分。
+none 网络在一个特定于容器的网络堆栈上添加了一个容器。该容器缺少网络接口。
+host 网络在主机网络堆栈上添加一个容器。容器中的网络配置与主机相同。可以通过主机IP访问，端口也会使用主机端口。所以主机端口不能被占用，否则容器启动会有问题。
+Dockerfile知识点
+
+ENV
+
+设置环境变量指令，用法
+
+ENV WORKPATH /tmp
+也可以这样:
+
+ENV abc=bye def=$abc
+第一种用法用于设置单个变量(第一个空格前为key，之后都是value,包括后面的空格)，第二种用于同时设置多个变量(空格为分隔符，value中包含空格时可以用双引号把value括起来，或者在空格前加反斜线)，当需要同时设置多个环境变量时推荐使用第二种格式。这些环境变量可以通过docker run命令的--env参数来进行修改。
+
+ENV用法如下：
+
+ENV myName John Doe
+ENV myDog Rex The Dog
+ENV myCat fluffy
+FROM
+
+设置基础镜像，一个有效的Dockerfile必须有一个FROM指令指定一个基础镜像，这个镜像可以是任何你可以从共用仓库获取到的镜像。执行命令格式
+
+FROM &lt;image&gt;
+或者
+
+FROM &lt;image&gt;:&lt;tag&gt;
+或者
+
+FROM &lt;image&gt;@&lt;digest&gt;
+MAINTAINER
+
+设置创建镜像的作者信息。
+
+MAINTAINER zhanghaojie@qq.com
+RUN
+
+这个指令有两种格式.
+
+第一种形式：
+
+RUN chown user2:user2 /home/webapi (以shell形式执行命令，等同于/bin/sh -c);
+第二种形式：
+
+RUN [&quot;executable&quot;,&quot;param1&quot;, &quot;param2&quot;]
+(等同于exec命令形式)，注意此处必须是双引号(&quot;)，因为这种格式被解析为JSON数组。
+
+![](http://blog.colastar.club:9527/static/images/RUN_docker.png)
+ARG
+
+ARG &lt;name&gt;[=&lt;default value&gt;]
+ARG指令设置一些创建镜像时的参数，这些参数可以在执行docker build命令时通过--build-arg = 设置，如果指定的创建参数在Dockerfile中没有指定，创建时会输出错误信息: One or more build-args were not consumed, failing build.
+
+Dockerfile 作者可以为ARG设置一个默认参数值，当创建镜像时如果没有传入参数就会使用默认值：
+
+FROM busybox
+我们可以使用ARG或者ENV指令来指定RUN指令使用的变量。我们可以使用ENV定义与ARG定义名称相同的变量来覆盖ARG定义的变量值。如下示例，我们执行
+
+docker build --build-arg CONT_IMG_VER=v2.0.1 Dockerfile
+后将获取到的CONTIMGVER变量值为v1.0.0:
+
+FROM ubuntu
+WORKDIR
+
+WORKDIR /path/to/workdir
+WORKDIR指令用来设置Dockerfile中任何使用目录的命令的当前工作目录，此目录如果不存在就会被自动创建，即使这个目录不被使用
+
+VOLUME
+
+VOLUME [&quot;/data&quot;]      (exec格式指令)
+VOLUME指令创建一个可以从本地主机或其他容器挂载的挂载点。经常用到的是
+
+docker run -ti -v /data:/data nginx:1.12 bash
+时指定本地路径和容器内路径的映射。
+
+COPY
+
+COPY指令能够将构建命令所在的主机本地的文件或目录，复制到镜像文件系统。
+
+exec格式用法（推荐）：
+
+COPY [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]
+特别适合路径中带有空格的情况。
+
+shell格式用法：
+
+COPY &lt;src&gt;... &lt;dest&gt;
+ADD
+
+ADD指令不仅能够将构建命令所在的主机本地的文件或目录，而且能够将远程URL所对应的文件或目录，作为资源复制到镜像文件系统。
+
+所以，可以认为ADD是增强版的COPY，支持将远程URL的资源加入到镜像的文件系统。
+
+exec格式用法（推荐）：
+
+ADD [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]
+特别适合路径中带有空格的情况。
+
+shell格式用法：
+
+ADD &lt;src&gt;... &lt;dest&gt;
+说明，对于从远程URL获取资源的情况，由于ADD指令不支持认证，如果从远程获取资源需要认证，则只能使用RUN wget或RUN curl替代。
+
+另外，如果源路径的资源发生变化，则该ADD指令将使Docker Cache失效，Dockerfile中后续的所有指令都不能使用缓存。因此尽量将ADD指令放在Dockerfile的后面。
+
+参考：Dockerfile中的COPY和ADD指令详解与比较
+
+https://blog.csdn.net/taiyangdao/article/details/73222601
+
+EXPOSE指令
+
+EXPOSE &lt;端口&gt; [&lt;端口&gt;...]
+指令用于标明，这个镜像中的应用将会侦听某个端口，并且希望能将这个端口映射到主机的网络界面上。但是，为了安全，docker run命令如果没有带上响应的端口映射参数，docker并不会将端口映射到宿主机。
+
+CMD 与 ENTRYPOINT
+
+二者的区别看：[docker CMD ENTRYPOINT 区别 终极解读]
+
+https://blog.csdn.net/u010900754/article/details/78526443
+
+从根本上说, ENTRYPOINT和CMD都是让用户指定一个可执行程序, 这个可执行程序在container启动后自动启动. 实际上, 如果你想让自己制作的镜像自动运行程序(不需要在docker run后面添加命令行指定运行的命令), 你必须在Dockerfile里面，使用ENTRYPOINT或者CMD命令。在命令行启动docker镜像时, 执行其他命令行参数，覆盖默认的CMD。和CMD类似, 默认的ENTRYPOINT也在docker run时, 也可以被覆盖. 在运行时, 用--entrypoint覆盖默认的ENTRYPOINT。
+
+dockerfile中的CMD命令被覆盖：
+
+![](http://blog.colastar.club:9527/static/images/dockerfile_CMD.png)
+*CMD：*提供了容器默认的执行命令。Dockerfile 只允许使用一次 CMD 指令。使用多个 CMD 会抵消之前所有的指令，只有最后一个指令生效。CMD 有三种形式：
+
+CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;] (exec form, thisis the preferred form)
+*ENTRYPOINT：*配置给容器一个可执行的命令，这意味着在每次使用镜像创建容器时一个特定的应用程序可以被设置为默认程序。同时也意味着该镜像每次被调用时仅能运行指定的应用。类似于CMD，Docker只允许一个ENTRYPOINT，多个ENTRYPOINT会抵消之前所有的指令，只执行最后的ENTRYPOINT指令。语法如下：
+
+ENTRYPOINT [&quot;executable&quot;, &quot;param1&quot;,&quot;param2&quot;]
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br><span class="line-number">196</span><br><span class="line-number">197</span><br><span class="line-number">198</span><br><span class="line-number">199</span><br><span class="line-number">200</span><br><span class="line-number">201</span><br><span class="line-number">202</span><br><span class="line-number">203</span><br><span class="line-number">204</span><br><span class="line-number">205</span><br><span class="line-number">206</span><br><span class="line-number">207</span><br><span class="line-number">208</span><br><span class="line-number">209</span><br><span class="line-number">210</span><br><span class="line-number">211</span><br><span class="line-number">212</span><br><span class="line-number">213</span><br><span class="line-number">214</span><br><span class="line-number">215</span><br><span class="line-number">216</span><br><span class="line-number">217</span><br><span class="line-number">218</span><br><span class="line-number">219</span><br><span class="line-number">220</span><br><span class="line-number">221</span><br><span class="line-number">222</span><br><span class="line-number">223</span><br><span class="line-number">224</span><br><span class="line-number">225</span><br><span class="line-number">226</span><br><span class="line-number">227</span><br><span class="line-number">228</span><br><span class="line-number">229</span><br><span class="line-number">230</span><br><span class="line-number">231</span><br><span class="line-number">232</span><br><span class="line-number">233</span><br><span class="line-number">234</span><br><span class="line-number">235</span><br><span class="line-number">236</span><br><span class="line-number">237</span><br><span class="line-number">238</span><br><span class="line-number">239</span><br><span class="line-number">240</span><br><span class="line-number">241</span><br><span class="line-number">242</span><br><span class="line-number">243</span><br><span class="line-number">244</span><br><span class="line-number">245</span><br><span class="line-number">246</span><br><span class="line-number">247</span><br><span class="line-number">248</span><br><span class="line-number">249</span><br><span class="line-number">250</span><br><span class="line-number">251</span><br><span class="line-number">252</span><br><span class="line-number">253</span><br><span class="line-number">254</span><br><span class="line-number">255</span><br><span class="line-number">256</span><br><span class="line-number">257</span><br><span class="line-number">258</span><br><span class="line-number">259</span><br><span class="line-number">260</span><br><span class="line-number">261</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">8/11/2023, 4:42:59 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blogs/no.7/ 计算机语言的本源与发展.html" class="prev">
+        计算机语言的本源与发展
+      </a></span> <span class="next"><a href="/blogs/no.7/mac安装fullter实践.html">
+        mac安装fullter实践
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blogs/assets/js/app.707ae136.js" defer></script><script src="/blogs/assets/js/2.5689dfa7.js" defer></script><script src="/blogs/assets/js/114.b466c191.js" defer></script>
+  </body>
+</html>

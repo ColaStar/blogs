@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>前端错误监控以及日志管理 | 个人博客</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/blogs/js/tj.js"></script>
+    <script src="/blogs/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="江天一色无纤尘，皎皎空中孤月轮。">
+    
+    <link rel="preload" href="/blogs/assets/css/0.styles.8ebdf352.css" as="style"><link rel="preload" href="/blogs/assets/js/app.707ae136.js" as="script"><link rel="preload" href="/blogs/assets/js/2.5689dfa7.js" as="script"><link rel="preload" href="/blogs/assets/js/169.e04b321d.js" as="script"><link rel="prefetch" href="/blogs/assets/js/10.67ef92fa.js"><link rel="prefetch" href="/blogs/assets/js/100.5d1b5845.js"><link rel="prefetch" href="/blogs/assets/js/101.9434dbd9.js"><link rel="prefetch" href="/blogs/assets/js/102.8b6ef73c.js"><link rel="prefetch" href="/blogs/assets/js/103.09217907.js"><link rel="prefetch" href="/blogs/assets/js/104.5d5ecde6.js"><link rel="prefetch" href="/blogs/assets/js/105.1184fa93.js"><link rel="prefetch" href="/blogs/assets/js/106.95af92f2.js"><link rel="prefetch" href="/blogs/assets/js/107.475d4b97.js"><link rel="prefetch" href="/blogs/assets/js/108.160ab72f.js"><link rel="prefetch" href="/blogs/assets/js/109.bf9e219b.js"><link rel="prefetch" href="/blogs/assets/js/11.a6ce9264.js"><link rel="prefetch" href="/blogs/assets/js/110.548f0249.js"><link rel="prefetch" href="/blogs/assets/js/111.3b8629d8.js"><link rel="prefetch" href="/blogs/assets/js/112.296a4d35.js"><link rel="prefetch" href="/blogs/assets/js/113.c3cc282f.js"><link rel="prefetch" href="/blogs/assets/js/114.b466c191.js"><link rel="prefetch" href="/blogs/assets/js/115.18dd6002.js"><link rel="prefetch" href="/blogs/assets/js/116.092ec055.js"><link rel="prefetch" href="/blogs/assets/js/117.e700c609.js"><link rel="prefetch" href="/blogs/assets/js/118.0cb24c22.js"><link rel="prefetch" href="/blogs/assets/js/119.dff5d31f.js"><link rel="prefetch" href="/blogs/assets/js/12.8e01f2af.js"><link rel="prefetch" href="/blogs/assets/js/120.67e5a079.js"><link rel="prefetch" href="/blogs/assets/js/121.10821017.js"><link rel="prefetch" href="/blogs/assets/js/122.443e0c1a.js"><link rel="prefetch" href="/blogs/assets/js/123.4a2250f3.js"><link rel="prefetch" href="/blogs/assets/js/124.ae09532f.js"><link rel="prefetch" href="/blogs/assets/js/125.538f8f45.js"><link rel="prefetch" href="/blogs/assets/js/126.4e9468a0.js"><link rel="prefetch" href="/blogs/assets/js/127.d22a541d.js"><link rel="prefetch" href="/blogs/assets/js/128.ed6cf9cb.js"><link rel="prefetch" href="/blogs/assets/js/129.acb93003.js"><link rel="prefetch" href="/blogs/assets/js/13.2512791e.js"><link rel="prefetch" href="/blogs/assets/js/130.cd867116.js"><link rel="prefetch" href="/blogs/assets/js/131.5abad248.js"><link rel="prefetch" href="/blogs/assets/js/132.5ccf5027.js"><link rel="prefetch" href="/blogs/assets/js/133.1ca47285.js"><link rel="prefetch" href="/blogs/assets/js/134.1294fd6f.js"><link rel="prefetch" href="/blogs/assets/js/135.911aa967.js"><link rel="prefetch" href="/blogs/assets/js/136.53f8c148.js"><link rel="prefetch" href="/blogs/assets/js/137.3e9b02ef.js"><link rel="prefetch" href="/blogs/assets/js/138.a00afd66.js"><link rel="prefetch" href="/blogs/assets/js/139.3d379c4e.js"><link rel="prefetch" href="/blogs/assets/js/14.6f0b42e2.js"><link rel="prefetch" href="/blogs/assets/js/140.7dbb78b8.js"><link rel="prefetch" href="/blogs/assets/js/141.bcbca9cc.js"><link rel="prefetch" href="/blogs/assets/js/142.35f0d3f0.js"><link rel="prefetch" href="/blogs/assets/js/143.52ff6fa9.js"><link rel="prefetch" href="/blogs/assets/js/144.ff914a4d.js"><link rel="prefetch" href="/blogs/assets/js/145.ab8c735d.js"><link rel="prefetch" href="/blogs/assets/js/146.23b4cd05.js"><link rel="prefetch" href="/blogs/assets/js/147.8d78d71b.js"><link rel="prefetch" href="/blogs/assets/js/148.ba4624de.js"><link rel="prefetch" href="/blogs/assets/js/149.55157ece.js"><link rel="prefetch" href="/blogs/assets/js/15.a3613048.js"><link rel="prefetch" href="/blogs/assets/js/150.72a6b7b6.js"><link rel="prefetch" href="/blogs/assets/js/151.0a3fdb22.js"><link rel="prefetch" href="/blogs/assets/js/152.58bd67c3.js"><link rel="prefetch" href="/blogs/assets/js/153.a5850933.js"><link rel="prefetch" href="/blogs/assets/js/154.652f75cf.js"><link rel="prefetch" href="/blogs/assets/js/155.9c1b2ee1.js"><link rel="prefetch" href="/blogs/assets/js/156.52b6dec0.js"><link rel="prefetch" href="/blogs/assets/js/157.77bab005.js"><link rel="prefetch" href="/blogs/assets/js/158.d459dff0.js"><link rel="prefetch" href="/blogs/assets/js/159.069d0e57.js"><link rel="prefetch" href="/blogs/assets/js/16.711dca8a.js"><link rel="prefetch" href="/blogs/assets/js/160.258b9e9d.js"><link rel="prefetch" href="/blogs/assets/js/161.56b614a9.js"><link rel="prefetch" href="/blogs/assets/js/162.24f57820.js"><link rel="prefetch" href="/blogs/assets/js/163.50c2bf05.js"><link rel="prefetch" href="/blogs/assets/js/164.7f7f3890.js"><link rel="prefetch" href="/blogs/assets/js/165.cbf569f7.js"><link rel="prefetch" href="/blogs/assets/js/166.41658f6f.js"><link rel="prefetch" href="/blogs/assets/js/167.d360d750.js"><link rel="prefetch" href="/blogs/assets/js/168.265d342a.js"><link rel="prefetch" href="/blogs/assets/js/17.ffb6b1c0.js"><link rel="prefetch" href="/blogs/assets/js/170.1cc2fa1d.js"><link rel="prefetch" href="/blogs/assets/js/171.f2185bae.js"><link rel="prefetch" href="/blogs/assets/js/172.c8c5c73c.js"><link rel="prefetch" href="/blogs/assets/js/173.0045183e.js"><link rel="prefetch" href="/blogs/assets/js/174.12047e97.js"><link rel="prefetch" href="/blogs/assets/js/175.37fe320d.js"><link rel="prefetch" href="/blogs/assets/js/176.b56a1c5b.js"><link rel="prefetch" href="/blogs/assets/js/18.85dc6e83.js"><link rel="prefetch" href="/blogs/assets/js/19.de5d8753.js"><link rel="prefetch" href="/blogs/assets/js/20.99db8519.js"><link rel="prefetch" href="/blogs/assets/js/21.2f7d392a.js"><link rel="prefetch" href="/blogs/assets/js/22.d7210ff8.js"><link rel="prefetch" href="/blogs/assets/js/23.d56d0f74.js"><link rel="prefetch" href="/blogs/assets/js/24.438b7e8f.js"><link rel="prefetch" href="/blogs/assets/js/25.9692637a.js"><link rel="prefetch" href="/blogs/assets/js/26.74cb62f2.js"><link rel="prefetch" href="/blogs/assets/js/27.648386b6.js"><link rel="prefetch" href="/blogs/assets/js/28.de0199ff.js"><link rel="prefetch" href="/blogs/assets/js/29.32667801.js"><link rel="prefetch" href="/blogs/assets/js/3.3923979e.js"><link rel="prefetch" href="/blogs/assets/js/30.9c41188e.js"><link rel="prefetch" href="/blogs/assets/js/31.1cad6d07.js"><link rel="prefetch" href="/blogs/assets/js/32.dfa7b892.js"><link rel="prefetch" href="/blogs/assets/js/33.84623c9e.js"><link rel="prefetch" href="/blogs/assets/js/34.16fd49ed.js"><link rel="prefetch" href="/blogs/assets/js/35.0c8c5faf.js"><link rel="prefetch" href="/blogs/assets/js/36.8fb90cdc.js"><link rel="prefetch" href="/blogs/assets/js/37.d0e0e22e.js"><link rel="prefetch" href="/blogs/assets/js/38.4d45938c.js"><link rel="prefetch" href="/blogs/assets/js/39.beba6cd0.js"><link rel="prefetch" href="/blogs/assets/js/4.f2bc8a01.js"><link rel="prefetch" href="/blogs/assets/js/40.603e7954.js"><link rel="prefetch" href="/blogs/assets/js/41.f60a79f1.js"><link rel="prefetch" href="/blogs/assets/js/42.93e1d425.js"><link rel="prefetch" href="/blogs/assets/js/43.c685d861.js"><link rel="prefetch" href="/blogs/assets/js/44.a2657a31.js"><link rel="prefetch" href="/blogs/assets/js/45.d49fd145.js"><link rel="prefetch" href="/blogs/assets/js/46.affe5377.js"><link rel="prefetch" href="/blogs/assets/js/47.8aeb7e59.js"><link rel="prefetch" href="/blogs/assets/js/48.a3fbeb06.js"><link rel="prefetch" href="/blogs/assets/js/49.c7f31446.js"><link rel="prefetch" href="/blogs/assets/js/5.aee30350.js"><link rel="prefetch" href="/blogs/assets/js/50.f12a3804.js"><link rel="prefetch" href="/blogs/assets/js/51.b7bfb937.js"><link rel="prefetch" href="/blogs/assets/js/52.af89087f.js"><link rel="prefetch" href="/blogs/assets/js/53.b438236c.js"><link rel="prefetch" href="/blogs/assets/js/54.f10d71ac.js"><link rel="prefetch" href="/blogs/assets/js/55.b067bf4d.js"><link rel="prefetch" href="/blogs/assets/js/56.28bac15b.js"><link rel="prefetch" href="/blogs/assets/js/57.3f203274.js"><link rel="prefetch" href="/blogs/assets/js/58.cc3f1a31.js"><link rel="prefetch" href="/blogs/assets/js/59.9860100e.js"><link rel="prefetch" href="/blogs/assets/js/6.3697c41c.js"><link rel="prefetch" href="/blogs/assets/js/60.15bbef0f.js"><link rel="prefetch" href="/blogs/assets/js/61.a67c32eb.js"><link rel="prefetch" href="/blogs/assets/js/62.b18eb373.js"><link rel="prefetch" href="/blogs/assets/js/63.f10c6955.js"><link rel="prefetch" href="/blogs/assets/js/64.752ae530.js"><link rel="prefetch" href="/blogs/assets/js/65.ec2d9176.js"><link rel="prefetch" href="/blogs/assets/js/66.6f95de97.js"><link rel="prefetch" href="/blogs/assets/js/67.8bbbba9e.js"><link rel="prefetch" href="/blogs/assets/js/68.f246175c.js"><link rel="prefetch" href="/blogs/assets/js/69.5425fc5e.js"><link rel="prefetch" href="/blogs/assets/js/7.ea90a76e.js"><link rel="prefetch" href="/blogs/assets/js/70.a3d98361.js"><link rel="prefetch" href="/blogs/assets/js/71.a9c04aa3.js"><link rel="prefetch" href="/blogs/assets/js/72.0f746438.js"><link rel="prefetch" href="/blogs/assets/js/73.665a45f7.js"><link rel="prefetch" href="/blogs/assets/js/74.e9b983b4.js"><link rel="prefetch" href="/blogs/assets/js/75.be75d256.js"><link rel="prefetch" href="/blogs/assets/js/76.5679a7c3.js"><link rel="prefetch" href="/blogs/assets/js/77.cb426184.js"><link rel="prefetch" href="/blogs/assets/js/78.85dfa033.js"><link rel="prefetch" href="/blogs/assets/js/79.1a6ad38e.js"><link rel="prefetch" href="/blogs/assets/js/8.e9f537d2.js"><link rel="prefetch" href="/blogs/assets/js/80.2af72006.js"><link rel="prefetch" href="/blogs/assets/js/81.7a9b711c.js"><link rel="prefetch" href="/blogs/assets/js/82.8d2990f5.js"><link rel="prefetch" href="/blogs/assets/js/83.fc56f654.js"><link rel="prefetch" href="/blogs/assets/js/84.f29292e9.js"><link rel="prefetch" href="/blogs/assets/js/85.30c87639.js"><link rel="prefetch" href="/blogs/assets/js/86.3b583c97.js"><link rel="prefetch" href="/blogs/assets/js/87.453c075b.js"><link rel="prefetch" href="/blogs/assets/js/88.5d30849e.js"><link rel="prefetch" href="/blogs/assets/js/89.11608fe8.js"><link rel="prefetch" href="/blogs/assets/js/9.7dcf71ed.js"><link rel="prefetch" href="/blogs/assets/js/90.36bb7df3.js"><link rel="prefetch" href="/blogs/assets/js/91.1dfc55d8.js"><link rel="prefetch" href="/blogs/assets/js/92.27b42bbe.js"><link rel="prefetch" href="/blogs/assets/js/93.df84349d.js"><link rel="prefetch" href="/blogs/assets/js/94.ac3c3bf0.js"><link rel="prefetch" href="/blogs/assets/js/95.1b1c9638.js"><link rel="prefetch" href="/blogs/assets/js/96.5953c721.js"><link rel="prefetch" href="/blogs/assets/js/97.df942904.js"><link rel="prefetch" href="/blogs/assets/js/98.29fac1b8.js"><link rel="prefetch" href="/blogs/assets/js/99.26406043.js">
+    <link rel="stylesheet" href="/blogs/assets/css/0.styles.8ebdf352.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blogs/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blogs/other/Charles.html" class="sidebar-link">Charles</a></li><li><a href="/blogs/other/Git代码提交规范.html" class="sidebar-link">Git代码提交规范</a></li><li><a href="/blogs/other/Mac下安装MYSQL.html" class="sidebar-link">Mac 下安装MYSQL</a></li><li><a href="/blogs/other/eventLoop/eventLoop.html" class="sidebar-link">Event Loop 总结</a></li><li><a href="/blogs/other/eventLoop.html" class="sidebar-link">Event Loop 总结</a></li><li><a href="/blogs/other/git/git命令全集.html" class="sidebar-link">git 命令全集</a></li><li><a href="/blogs/other/git/git版本管理规范.html" class="sidebar-link">git版本管理规范</a></li><li><a href="/blogs/other/item2.html" class="sidebar-link">iTerm2 快捷键大全</a></li><li><a href="/blogs/other/mac/ mac上使用cnpm搭建npm私有仓库.html" class="sidebar-link">mac上使用cnpm搭建npm私有仓库，并上传/下载私有npm包</a></li><li><a href="/blogs/other/mac/Mac电脑使用Charles抓取Android手机app的包.html" class="sidebar-link">/other/mac/Mac电脑使用Charles抓取Android手机app的包.html</a></li><li><a href="/blogs/other/mac/Mac电脑如何修改和自定义文件夹图标.html" class="sidebar-link">Mac电脑如何修改和自定义文件夹图标？</a></li><li><a href="/blogs/other/mac安装mongoDB详细步骤.html" class="sidebar-link">mac安装mongoDB详细步骤</a></li><li><a href="/blogs/other/typeScript.html" class="sidebar-link">TypeScript入门</a></li><li><a href="/blogs/other/vscode操作指南.html" class="sidebar-link">vscode操作指南</a></li><li><a href="/blogs/other/一些有意思的库.html" class="sidebar-link">有意思的 npm 库</a></li><li><a href="/blogs/other/优雅降级与渐进增强.html" class="sidebar-link">优雅降级与渐进增强</a></li><li><a href="/blogs/other/前端协作规范.html" class="sidebar-link">前端协作规范</a></li><li><a href="/blogs/other/前端规范/常用平台ua判断.html" class="sidebar-link">常用平台UA判断</a></li><li><a href="/blogs/other/前端路由.html" class="sidebar-link">前端路由</a></li><li><a href="/blogs/other/手写各种/promise.html" class="sidebar-link">Promise、</a></li><li><a href="/blogs/other/手写各种/手写代码实现.html" class="sidebar-link">面试</a></li><li><a href="/blogs/other/正则相关.html" class="sidebar-link">什么是正则表达式呢？</a></li><li><a href="/blogs/other/网站令浏览器崩溃的原因.html" class="sidebar-link">网站导致浏览器崩溃的原因</a></li><li><a href="/blogs/other/重构.html" class="sidebar-link">重构 - 改善既有代码的设计</a></li><li><a href="/blogs/other/错误日志监控.html" class="active sidebar-link">前端错误监控以及日志管理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/other/错误日志监控.html#错误监控" class="sidebar-link">错误监控</a></li><li class="sidebar-sub-header"><a href="/blogs/other/错误日志监控.html#日志管理" class="sidebar-link">日志管理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/other/错误日志监控.html#常用的日志形式" class="sidebar-link">常用的日志形式</a></li><li class="sidebar-sub-header"><a href="/blogs/other/错误日志监控.html#具体配置方案" class="sidebar-link">具体配置方案</a></li></ul></li></ul></li><li><a href="/blogs/other/阿里云/免密登陆.html" class="sidebar-link">免密登录远程服务器配置</a></li><li><a href="/blogs/other/阿里云/给普通用户添加权限.html" class="sidebar-link">阿里云给普通用户添加权限</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="前端错误监控以及日志管理"><a href="#前端错误监控以及日志管理" class="header-anchor">#</a> 前端错误监控以及日志管理</h1> <h2 id="错误监控"><a href="#错误监控" class="header-anchor">#</a> 错误监控</h2> <p>对于前端应用来说，Js错误的发生直接影响前端应用的质量。对前端异常的监控是整个前端监控系统中的一个重要环节。前端异常包含很多种情况。比如：</p> <ul><li>js编译时异常（开发阶段就能排）</li> <li>js运行时异常；</li> <li>加载静态资源异常（路径写错、资源服务器异常、CDN异常、跨域）</li> <li>接口请求异常等。</li></ul> <blockquote><p>监控流程：监控错误 -&gt; 搜集错误 -&gt; 存储错误 -&gt; 分析错误 -&gt; 错误报警-&gt; 定位错误 -&gt; 解决错误</p></blockquote> <p>运行时捕获错误的方法：<a href="https://blog.csdn.net/wangji5850/article/details/51180314" target="_blank" rel="noopener noreferrer">参考<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <ul><li><p>window.onerror:前端js错误监控主要是利用了window.onerror函数来实现，onerror函数会在页面发生js错误时被调用。但是如果在一个块内，发生错误时onerror也会失效，所以只要让其先执行（注意这个前提！）即可捕捉到语法错误。</p> <ul><li>对于跨域的JS资源，window.onerror拿不到详细的信息，需要往资源的请求添加额外的头部。静态资源请求需要加多一个Access-Control-Allow-Origin头部，同时script引入外链的标签需要加多一个crossorigin的属性</li></ul></li> <li><p>try,catch</p> <ul><li>没法捕捉try,catch块，当前代码块有语法错误，JS解释器压根都不会执行当前这个代码块，所以也就没办法被catch住；</li> <li>没法捕捉到全局的错误事件，也即是只有try,catch的块里边运行出错才会被你捕捉到，这里的块你要理解成一个函数块。</li></ul></li> <li><p>console.error</p></li> <li><p>window.onunhandledrejection：当你用到Promise的时候，而你又忘记写reject的捕获方法的时候，系统总是会抛出一个叫 <code>Unhandled Promise rejection</code>. 没有堆栈，没有其他信息，特别是在写fetch请求的时候很容易发生。 所以这个方法可以帮助我们监控此类错误</p></li> <li><p>process.uncaughtException  nodejs</p> <ul><li>当程序发生了异常</li> <li>且异常未被 try...catch捕获</li> <li>特点：系统错误不会使系统挂掉</li></ul></li> <li><p>使用domain模块捕获异步异常</p></li></ul> <p><a href="https://www.jianshu.com/p/9c769c2ba914" target="_blank" rel="noopener noreferrer">node错误监控 <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="日志管理"><a href="#日志管理" class="header-anchor">#</a> 日志管理</h2> <p>在node中我们调试时经常使用console，但是我们想要记录调试信息/日志信息却无从下手，非常不利于我们调试，跟踪，使用的框架 是koa，当时想法是，能够记录常规日志，并且剥离错误日志单独记录到文件，日志文件按文件大小或日期分割，支持日志的自动压缩。</p> <p>于是就使用到了log4js，下边我简单说一下：level级别</p> <p>log4js默认的日志级别如下：</p> <p><code>ALL &lt; TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR &lt; FATAL &lt; MARK &lt; OFF</code></p> <p>当指定level为<code>INFO</code>时，只允许输出<code>INFO</code>级别以上的日志，<code>WARN</code>、<code>ERROR</code>都会被记录，但是<code>TRACE</code>和<code>DEBUG</code>不会。</p> <p>例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>var log4js = require('log4js');
+log4js.configure({
+  appenders: { 
+  	'out': { type: 'console' },
+  	'err': { type: 'stderr' }
+  },
+  categories: { 
+  	default: { appenders: ['out'], level: 'INFO' },
+  	err: { appenders: ['err'], level: 'ERROR' }
+});
+
+var logger = log4js.getLogger();	// 当不传参或找不到对应 category时，默认使用default的配置
+var errLogger = log4js.getLogger('err');
+
+// 手动输出
+logger.info('This is a message from INFO.');
+errLogger.info('This is a message from INFO.');
+errLogger.error('This is a message from ERROR.');
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>而控制台的输出大概会像这样：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[2019-03-31T23:17:04.254] [INFO] default - This is a message from INFO.
+[2019-03-31T23:17:04.254] [ERROR] err - This is a message from ERROR.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>我们手动输出的三条日志，但是只打印两条，说明ERROR &gt; INFO。</p> <p>下边我们说一下log4js的基本配置</p> <p><code>log4js.configure()</code>是日志的配置入口。在<code>configure</code>配置项中，最为常用的是<code>appenders</code>和<code>categories</code>属性。了解更多配置项详见<a href="https://log4js-node.github.io/log4js-node/api.html" target="_blank" rel="noopener noreferrer">API<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <p><code>appenders</code>可以理解为是对各种日志输出形式的定义，而<code>categories</code>决定了在<strong>某种类型</strong>输出下调用哪些的<code>appender</code>。<code>appenders</code>和<code>categories都</code>至少需要一个配置，否则将会抛出异常。</p> <ul><li><p><a href="https://log4js-node.github.io/log4js-node/appenders.html" target="_blank" rel="noopener noreferrer">appenders<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>定义日志输出形式，<code>appender</code>中的<code>type</code>决定了选用何种的日志形式，如‘<code>console</code>’、‘<code>stderr</code>’都会将日志输出到<code>node</code>的控制台，而<code>dateFile</code>、<code>file</code>等等则会将日志写入到日志文件。</p> <ul><li><p>log4js支持多种输出形式，打印到控制台、输出到文件，传输到服务器，也可以以邮件形式发送日志。</p></li> <li><p>直接支持的形式：</p></li></ul> <p>categoryFilter、console、dateFile、file、fileSync、logLevelFilter、multiFile、multiprocess、recording、stderr、stdout、tcp、tcp-server</p> <ul><li>支持但需要额外插件的形式：</li></ul> <p>gelf、hipchat、logFaces-HTTP、logFaces-UDP、loggly、logstashHTTP、logstashUDP、mailgun、rabbitmq、redis、slack、smtp</p></li> <li><p><code>categories</code>定义了日志输出类别，在何种类别下使用哪些<code>appender</code>，它拥有两个属性，<code>appenders</code>和<code>level</code>。<code>appenders</code>支持传入一个或多个<code>appender</code>，<code>level</code>决定<strong>过滤的允许输出的日志级别</strong>。</p></li> <li><p><code>log4js.getLogger([category])</code>允许接收一个字符串，表示使用<code>category</code>类型，如果不传参，或者找不到对应的<code>category</code>，将会使用默认配置即<code>default</code>。</p></li></ul> <h3 id="常用的日志形式"><a href="#常用的日志形式" class="header-anchor">#</a> 常用的日志形式</h3> <h4 id="file-以文件大小划分日志文件"><a href="#file-以文件大小划分日志文件" class="header-anchor">#</a> file（以文件大小划分日志文件）</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>log4js.configure({
+  appenders: {
+    infoLogs: { 
+    	 type: 'file',
+         filename: 'logs/info/file.log',
+         maxLogSize: 10485760, // 10mb,日志文件大小,超过该size则自动创建新的日志文件
+         backups: 20,  // 仅保留最新的20个日志文件
+         compress: true    //  超过maxLogSize,压缩代码
+   }
+  },
+  categories: {
+    default: { appenders: [ 'infoLogs' ], level: 'info' }
+  }
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h4 id="datefile-以日期划分日志文件"><a href="#datefile-以日期划分日志文件" class="header-anchor">#</a> dateFile（以日期划分日志文件）</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>og4js.configure({
+  appenders: {
+    infoLogs: { 
+    	type: 'dateFile',
+      	filename: 'logs/',
+      	backups:5,  // 仅保留最新的五个日志文件
+      	pattern: &quot;.yyyy-MM-dd&quot;, // 用于确定何时滚动日志的模式
+      	alwaysIncludePattern: true,
+      	compress: true
+   }
+  },
+  categories: {
+    default: { appenders: [ 'infoLogs' ], level: 'info' }
+  }
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p><code>pattern</code>，默认为.yyyy-MM-dd， 用于确定何时滚动日志的模式，如果.yyyy-MM-dd-hh则以小时为单位滚动日志。格式:.yyyy-MM-dd-hh:mm:ss.log</p> <h4 id="console"><a href="#console" class="header-anchor">#</a> console</h4> <p>将日志输出到控制台，需要注意的一点是，大量日志写入控制台可能会使应用占用大量内存，可以考虑使用stdout。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>og4js.configure({
+  appenders: { console: { type: 'console' } },
+  categories: { default: { appenders: [ 'console' ], level: 'info' } }
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="loglevelfilter"><a href="#loglevelfilter" class="header-anchor">#</a> logLevelFilter</h4> <p>日志过滤器，当需要在一堆日志中特殊处理某特定级别日志时，会比较有用。官方示例如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>log4js.configure({
+  appenders: {
+    everything: { 
+    	type: 'file', 
+    	filename: 'all-the-logs.log'
+     },
+    emergencies: { 
+    	type: 'file', 
+    	filename: 'panic-now.log'
+     },
+    just-errors: { 
+    	type: 'logLevelFilter', 
+    	appender: 'emergencies', 
+    	level: 'error' 
+   	}
+  },
+  categories: {
+    default: { appenders: ['just-errors', 'everything' ], level: 'debug' }
+  }
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>在此示例中，‘<code>just-errors</code>’会过滤得到<code>ERROR</code>以上级别的日志，并使用<code>emergencies appender</code>，单独将错误日志记录到<code>panic-now.log</code>文件中。</p> <p><code>logLevelFilter</code>可以过滤<strong>某一区间</strong>的日志，当你同时定义了<code>level</code>和<code>maxLevel</code>的话。<code>maxLevel</code>的默认值为<code>FATAL</code>，也就是最高级别。</p> <h4 id="layouts"><a href="#layouts" class="header-anchor">#</a> layouts</h4> <p>请求默认的输出格式</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[2019-04-01T11:28:38.696] [INFO] default - ::1 - - &quot;GET / HTTP/1.1&quot; 304 - &quot;&quot; &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36&quot;
+[2019-04-01T11:28:39.169] [INFO] default - ::1 - - &quot;GET /favicon.ico HTTP/1.1&quot; 404 1062 &quot;http://localhost:3000/&quot; &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><code>layout</code>可以用来自定义日志的输出格式，参见<a href="https://log4js-node.github.io/log4js-node/layouts.html" target="_blank" rel="noopener noreferrer">layouts<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <h3 id="具体配置方案"><a href="#具体配置方案" class="header-anchor">#</a> 具体配置方案</h3> <p><strong>要求：记录常规日志，剥离错误日志单独记录，日志文件按文件大小或日期回滚，支持日志的压缩。</strong></p> <p><a href="https://log4js-node.github.io/log4js-node/connect-logger.html" target="_blank" rel="noopener noreferrer">官方示例<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，根据实际需求，调整配置如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>var log4js = require('log4js');
+...
+log4js.configure({
+    appenders: {
+        infoLogs: {
+            type: 'file',
+            filename: 'logs/info/file.log',
+            maxLogSize: 10485760, // 10mb,日志文件大小,超过该size则自动创建新的日志文件
+            backups: 20,  // 仅保留最新的20个日志文件
+            compress: true    //  超过maxLogSize,压缩代码
+        },
+        errorLogs: {
+            type: 'file',
+            filename: 'logs/error/file.log',
+            maxLogSize: 10485760,
+            backups: 20,
+            compress: true 
+        },
+        justErrors: {
+            type: 'logLevelFilter', // 过滤指定level的文件
+            appender: 'errorLogs',  // appender
+            level: 'error'  // 过滤得到error以上的日志
+        },
+        console: {type: 'console'}
+    },
+    categories: {
+        default: { appenders: ['console', 'justErrors', 'infoLogs'], level: 'info' },
+        err: { appenders: ['errorLogs'], level: 'error' },
+    }
+});
+var logger = log4js.getLogger();
+app.use(log4js.connectLogger(logger , { level: 'info' }));
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><blockquote><p>推荐的日志管理工具：</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>log4.js、morgan、winston
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>我觉得这个东西挺好玩了，有时间看看console对象上的那些东西，更好玩哦
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Console" target="_blank" rel="noopener noreferrer">MDN<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/17/2022, 3:20:27 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blogs/other/重构.html" class="prev">
+        重构 - 改善既有代码的设计
+      </a></span> <span class="next"><a href="/blogs/other/阿里云/免密登陆.html">
+        免密登录远程服务器配置
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blogs/assets/js/app.707ae136.js" defer></script><script src="/blogs/assets/js/2.5689dfa7.js" defer></script><script src="/blogs/assets/js/169.e04b321d.js" defer></script>
+  </body>
+</html>

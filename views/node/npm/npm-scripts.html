@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>npm 脚本 | 个人博客</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/blogs/js/tj.js"></script>
+    <script src="/blogs/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="江天一色无纤尘，皎皎空中孤月轮。">
+    
+    <link rel="preload" href="/blogs/assets/css/0.styles.8ebdf352.css" as="style"><link rel="preload" href="/blogs/assets/js/app.707ae136.js" as="script"><link rel="preload" href="/blogs/assets/js/2.5689dfa7.js" as="script"><link rel="preload" href="/blogs/assets/js/138.a00afd66.js" as="script"><link rel="prefetch" href="/blogs/assets/js/10.67ef92fa.js"><link rel="prefetch" href="/blogs/assets/js/100.5d1b5845.js"><link rel="prefetch" href="/blogs/assets/js/101.9434dbd9.js"><link rel="prefetch" href="/blogs/assets/js/102.8b6ef73c.js"><link rel="prefetch" href="/blogs/assets/js/103.09217907.js"><link rel="prefetch" href="/blogs/assets/js/104.5d5ecde6.js"><link rel="prefetch" href="/blogs/assets/js/105.1184fa93.js"><link rel="prefetch" href="/blogs/assets/js/106.95af92f2.js"><link rel="prefetch" href="/blogs/assets/js/107.475d4b97.js"><link rel="prefetch" href="/blogs/assets/js/108.160ab72f.js"><link rel="prefetch" href="/blogs/assets/js/109.bf9e219b.js"><link rel="prefetch" href="/blogs/assets/js/11.a6ce9264.js"><link rel="prefetch" href="/blogs/assets/js/110.548f0249.js"><link rel="prefetch" href="/blogs/assets/js/111.3b8629d8.js"><link rel="prefetch" href="/blogs/assets/js/112.296a4d35.js"><link rel="prefetch" href="/blogs/assets/js/113.c3cc282f.js"><link rel="prefetch" href="/blogs/assets/js/114.b466c191.js"><link rel="prefetch" href="/blogs/assets/js/115.18dd6002.js"><link rel="prefetch" href="/blogs/assets/js/116.092ec055.js"><link rel="prefetch" href="/blogs/assets/js/117.e700c609.js"><link rel="prefetch" href="/blogs/assets/js/118.0cb24c22.js"><link rel="prefetch" href="/blogs/assets/js/119.dff5d31f.js"><link rel="prefetch" href="/blogs/assets/js/12.8e01f2af.js"><link rel="prefetch" href="/blogs/assets/js/120.67e5a079.js"><link rel="prefetch" href="/blogs/assets/js/121.10821017.js"><link rel="prefetch" href="/blogs/assets/js/122.443e0c1a.js"><link rel="prefetch" href="/blogs/assets/js/123.4a2250f3.js"><link rel="prefetch" href="/blogs/assets/js/124.ae09532f.js"><link rel="prefetch" href="/blogs/assets/js/125.538f8f45.js"><link rel="prefetch" href="/blogs/assets/js/126.4e9468a0.js"><link rel="prefetch" href="/blogs/assets/js/127.d22a541d.js"><link rel="prefetch" href="/blogs/assets/js/128.ed6cf9cb.js"><link rel="prefetch" href="/blogs/assets/js/129.acb93003.js"><link rel="prefetch" href="/blogs/assets/js/13.2512791e.js"><link rel="prefetch" href="/blogs/assets/js/130.cd867116.js"><link rel="prefetch" href="/blogs/assets/js/131.5abad248.js"><link rel="prefetch" href="/blogs/assets/js/132.5ccf5027.js"><link rel="prefetch" href="/blogs/assets/js/133.1ca47285.js"><link rel="prefetch" href="/blogs/assets/js/134.1294fd6f.js"><link rel="prefetch" href="/blogs/assets/js/135.911aa967.js"><link rel="prefetch" href="/blogs/assets/js/136.53f8c148.js"><link rel="prefetch" href="/blogs/assets/js/137.3e9b02ef.js"><link rel="prefetch" href="/blogs/assets/js/139.3d379c4e.js"><link rel="prefetch" href="/blogs/assets/js/14.6f0b42e2.js"><link rel="prefetch" href="/blogs/assets/js/140.7dbb78b8.js"><link rel="prefetch" href="/blogs/assets/js/141.bcbca9cc.js"><link rel="prefetch" href="/blogs/assets/js/142.35f0d3f0.js"><link rel="prefetch" href="/blogs/assets/js/143.52ff6fa9.js"><link rel="prefetch" href="/blogs/assets/js/144.ff914a4d.js"><link rel="prefetch" href="/blogs/assets/js/145.ab8c735d.js"><link rel="prefetch" href="/blogs/assets/js/146.23b4cd05.js"><link rel="prefetch" href="/blogs/assets/js/147.8d78d71b.js"><link rel="prefetch" href="/blogs/assets/js/148.ba4624de.js"><link rel="prefetch" href="/blogs/assets/js/149.55157ece.js"><link rel="prefetch" href="/blogs/assets/js/15.a3613048.js"><link rel="prefetch" href="/blogs/assets/js/150.72a6b7b6.js"><link rel="prefetch" href="/blogs/assets/js/151.0a3fdb22.js"><link rel="prefetch" href="/blogs/assets/js/152.58bd67c3.js"><link rel="prefetch" href="/blogs/assets/js/153.a5850933.js"><link rel="prefetch" href="/blogs/assets/js/154.652f75cf.js"><link rel="prefetch" href="/blogs/assets/js/155.9c1b2ee1.js"><link rel="prefetch" href="/blogs/assets/js/156.52b6dec0.js"><link rel="prefetch" href="/blogs/assets/js/157.77bab005.js"><link rel="prefetch" href="/blogs/assets/js/158.d459dff0.js"><link rel="prefetch" href="/blogs/assets/js/159.069d0e57.js"><link rel="prefetch" href="/blogs/assets/js/16.711dca8a.js"><link rel="prefetch" href="/blogs/assets/js/160.258b9e9d.js"><link rel="prefetch" href="/blogs/assets/js/161.56b614a9.js"><link rel="prefetch" href="/blogs/assets/js/162.24f57820.js"><link rel="prefetch" href="/blogs/assets/js/163.50c2bf05.js"><link rel="prefetch" href="/blogs/assets/js/164.7f7f3890.js"><link rel="prefetch" href="/blogs/assets/js/165.cbf569f7.js"><link rel="prefetch" href="/blogs/assets/js/166.41658f6f.js"><link rel="prefetch" href="/blogs/assets/js/167.d360d750.js"><link rel="prefetch" href="/blogs/assets/js/168.265d342a.js"><link rel="prefetch" href="/blogs/assets/js/169.e04b321d.js"><link rel="prefetch" href="/blogs/assets/js/17.ffb6b1c0.js"><link rel="prefetch" href="/blogs/assets/js/170.1cc2fa1d.js"><link rel="prefetch" href="/blogs/assets/js/171.f2185bae.js"><link rel="prefetch" href="/blogs/assets/js/172.c8c5c73c.js"><link rel="prefetch" href="/blogs/assets/js/173.0045183e.js"><link rel="prefetch" href="/blogs/assets/js/174.12047e97.js"><link rel="prefetch" href="/blogs/assets/js/175.37fe320d.js"><link rel="prefetch" href="/blogs/assets/js/176.b56a1c5b.js"><link rel="prefetch" href="/blogs/assets/js/18.85dc6e83.js"><link rel="prefetch" href="/blogs/assets/js/19.de5d8753.js"><link rel="prefetch" href="/blogs/assets/js/20.99db8519.js"><link rel="prefetch" href="/blogs/assets/js/21.2f7d392a.js"><link rel="prefetch" href="/blogs/assets/js/22.d7210ff8.js"><link rel="prefetch" href="/blogs/assets/js/23.d56d0f74.js"><link rel="prefetch" href="/blogs/assets/js/24.438b7e8f.js"><link rel="prefetch" href="/blogs/assets/js/25.9692637a.js"><link rel="prefetch" href="/blogs/assets/js/26.74cb62f2.js"><link rel="prefetch" href="/blogs/assets/js/27.648386b6.js"><link rel="prefetch" href="/blogs/assets/js/28.de0199ff.js"><link rel="prefetch" href="/blogs/assets/js/29.32667801.js"><link rel="prefetch" href="/blogs/assets/js/3.3923979e.js"><link rel="prefetch" href="/blogs/assets/js/30.9c41188e.js"><link rel="prefetch" href="/blogs/assets/js/31.1cad6d07.js"><link rel="prefetch" href="/blogs/assets/js/32.dfa7b892.js"><link rel="prefetch" href="/blogs/assets/js/33.84623c9e.js"><link rel="prefetch" href="/blogs/assets/js/34.16fd49ed.js"><link rel="prefetch" href="/blogs/assets/js/35.0c8c5faf.js"><link rel="prefetch" href="/blogs/assets/js/36.8fb90cdc.js"><link rel="prefetch" href="/blogs/assets/js/37.d0e0e22e.js"><link rel="prefetch" href="/blogs/assets/js/38.4d45938c.js"><link rel="prefetch" href="/blogs/assets/js/39.beba6cd0.js"><link rel="prefetch" href="/blogs/assets/js/4.f2bc8a01.js"><link rel="prefetch" href="/blogs/assets/js/40.603e7954.js"><link rel="prefetch" href="/blogs/assets/js/41.f60a79f1.js"><link rel="prefetch" href="/blogs/assets/js/42.93e1d425.js"><link rel="prefetch" href="/blogs/assets/js/43.c685d861.js"><link rel="prefetch" href="/blogs/assets/js/44.a2657a31.js"><link rel="prefetch" href="/blogs/assets/js/45.d49fd145.js"><link rel="prefetch" href="/blogs/assets/js/46.affe5377.js"><link rel="prefetch" href="/blogs/assets/js/47.8aeb7e59.js"><link rel="prefetch" href="/blogs/assets/js/48.a3fbeb06.js"><link rel="prefetch" href="/blogs/assets/js/49.c7f31446.js"><link rel="prefetch" href="/blogs/assets/js/5.aee30350.js"><link rel="prefetch" href="/blogs/assets/js/50.f12a3804.js"><link rel="prefetch" href="/blogs/assets/js/51.b7bfb937.js"><link rel="prefetch" href="/blogs/assets/js/52.af89087f.js"><link rel="prefetch" href="/blogs/assets/js/53.b438236c.js"><link rel="prefetch" href="/blogs/assets/js/54.f10d71ac.js"><link rel="prefetch" href="/blogs/assets/js/55.b067bf4d.js"><link rel="prefetch" href="/blogs/assets/js/56.28bac15b.js"><link rel="prefetch" href="/blogs/assets/js/57.3f203274.js"><link rel="prefetch" href="/blogs/assets/js/58.cc3f1a31.js"><link rel="prefetch" href="/blogs/assets/js/59.9860100e.js"><link rel="prefetch" href="/blogs/assets/js/6.3697c41c.js"><link rel="prefetch" href="/blogs/assets/js/60.15bbef0f.js"><link rel="prefetch" href="/blogs/assets/js/61.a67c32eb.js"><link rel="prefetch" href="/blogs/assets/js/62.b18eb373.js"><link rel="prefetch" href="/blogs/assets/js/63.f10c6955.js"><link rel="prefetch" href="/blogs/assets/js/64.752ae530.js"><link rel="prefetch" href="/blogs/assets/js/65.ec2d9176.js"><link rel="prefetch" href="/blogs/assets/js/66.6f95de97.js"><link rel="prefetch" href="/blogs/assets/js/67.8bbbba9e.js"><link rel="prefetch" href="/blogs/assets/js/68.f246175c.js"><link rel="prefetch" href="/blogs/assets/js/69.5425fc5e.js"><link rel="prefetch" href="/blogs/assets/js/7.ea90a76e.js"><link rel="prefetch" href="/blogs/assets/js/70.a3d98361.js"><link rel="prefetch" href="/blogs/assets/js/71.a9c04aa3.js"><link rel="prefetch" href="/blogs/assets/js/72.0f746438.js"><link rel="prefetch" href="/blogs/assets/js/73.665a45f7.js"><link rel="prefetch" href="/blogs/assets/js/74.e9b983b4.js"><link rel="prefetch" href="/blogs/assets/js/75.be75d256.js"><link rel="prefetch" href="/blogs/assets/js/76.5679a7c3.js"><link rel="prefetch" href="/blogs/assets/js/77.cb426184.js"><link rel="prefetch" href="/blogs/assets/js/78.85dfa033.js"><link rel="prefetch" href="/blogs/assets/js/79.1a6ad38e.js"><link rel="prefetch" href="/blogs/assets/js/8.e9f537d2.js"><link rel="prefetch" href="/blogs/assets/js/80.2af72006.js"><link rel="prefetch" href="/blogs/assets/js/81.7a9b711c.js"><link rel="prefetch" href="/blogs/assets/js/82.8d2990f5.js"><link rel="prefetch" href="/blogs/assets/js/83.fc56f654.js"><link rel="prefetch" href="/blogs/assets/js/84.f29292e9.js"><link rel="prefetch" href="/blogs/assets/js/85.30c87639.js"><link rel="prefetch" href="/blogs/assets/js/86.3b583c97.js"><link rel="prefetch" href="/blogs/assets/js/87.453c075b.js"><link rel="prefetch" href="/blogs/assets/js/88.5d30849e.js"><link rel="prefetch" href="/blogs/assets/js/89.11608fe8.js"><link rel="prefetch" href="/blogs/assets/js/9.7dcf71ed.js"><link rel="prefetch" href="/blogs/assets/js/90.36bb7df3.js"><link rel="prefetch" href="/blogs/assets/js/91.1dfc55d8.js"><link rel="prefetch" href="/blogs/assets/js/92.27b42bbe.js"><link rel="prefetch" href="/blogs/assets/js/93.df84349d.js"><link rel="prefetch" href="/blogs/assets/js/94.ac3c3bf0.js"><link rel="prefetch" href="/blogs/assets/js/95.1b1c9638.js"><link rel="prefetch" href="/blogs/assets/js/96.5953c721.js"><link rel="prefetch" href="/blogs/assets/js/97.df942904.js"><link rel="prefetch" href="/blogs/assets/js/98.29fac1b8.js"><link rel="prefetch" href="/blogs/assets/js/99.26406043.js">
+    <link rel="stylesheet" href="/blogs/assets/css/0.styles.8ebdf352.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blogs/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" class="nav-link">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blogs/node/Node.js数据存储方式的选择.html" class="sidebar-link">Node.js 数据存储方式的选择</a></li><li><a href="/blogs/node/express/express.html" class="sidebar-link">Express 框架</a></li><li><a href="/blogs/node/express/middleware.html" class="sidebar-link">express中间件</a></li><li><a href="/blogs/node/koa/koa-generator.html" class="sidebar-link">KOA2脚手架</a></li><li><a href="/blogs/node/koa/koa.html" class="sidebar-link">koa学习记录</a></li><li><a href="/blogs/node/koa/koa_router.html" class="sidebar-link">路由 koa-router</a></li><li><a href="/blogs/node/node/fs.html" class="sidebar-link">Node.js 文件系统</a></li><li><a href="/blogs/node/node/node.html" class="sidebar-link">node.js</a></li><li><a href="/blogs/node/node/nodemon.html" class="sidebar-link">nodemon 基本配置与使用</a></li><li><a href="/blogs/node/npm/npm-scripts.html" aria-current="page" class="active sidebar-link">npm 脚本</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/node/npm/npm-scripts.html#概念" class="sidebar-link">概念</a></li><li class="sidebar-sub-header"><a href="/blogs/node/npm/npm-scripts.html#原理" class="sidebar-link">原理</a></li><li class="sidebar-sub-header"><a href="/blogs/node/npm/npm-scripts.html#通配符" class="sidebar-link">通配符</a></li><li class="sidebar-sub-header"><a href="/blogs/node/npm/npm-scripts.html#执行顺序" class="sidebar-link">执行顺序</a></li><li class="sidebar-sub-header"><a href="/blogs/node/npm/npm-scripts.html#默认值" class="sidebar-link">默认值</a></li><li class="sidebar-sub-header"><a href="/blogs/node/npm/npm-scripts.html#简写形式" class="sidebar-link">简写形式</a></li><li class="sidebar-sub-header"><a href="/blogs/node/npm/npm-scripts.html#变量" class="sidebar-link">变量</a></li><li class="sidebar-sub-header"><a href="/blogs/node/npm/npm-scripts.html#常用脚本示例" class="sidebar-link">常用脚本示例</a></li></ul></li><li><a href="/blogs/node/npm/npx.html" class="sidebar-link">npx使用介绍</a></li><li><a href="/blogs/node/npm/nrm/nrm.html" class="sidebar-link">nrm源管理工具</a></li><li><a href="/blogs/node/前后端分离与用户验证.html" class="sidebar-link">前后端分离与用户验证</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="npm-脚本"><a href="#npm-脚本" class="header-anchor">#</a> npm 脚本</h1> <h2 id="概念"><a href="#概念" class="header-anchor">#</a> 概念</h2> <blockquote><p>一、什么是 npm 脚本？npm 允许在package.json文件里面，使用scripts字段定义脚本命令。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+  // ...
+  &quot;scripts&quot;: {
+    &quot;build&quot;: &quot;node build.js&quot;
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>上面代码是package.json文件的一个片段，里面的scripts字段是一个对象。它的每一个属性，对应一段脚本。比如，build命令对应的脚本是node build.js。</p> <p>命令行下使用npm run命令，就可以执行这段脚本。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ npm run build
+# 等同于执行
+$ node build.js
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>这些定义在package.json里面的脚本，就称为 npm 脚本。它的优点很多。</p> <ul><li>项目的相关脚本，可以集中在一个地方。</li> <li>不同项目的脚本命令，只要功能相同，就可以有同样的对外接口。用户不需要知道怎么测试你的项目，只要运行npm run test即可。</li> <li>可以利用 npm 提供的很多辅助功能。</li></ul> <p>查看当前项目的所有 npm 脚本命令，可以使用不带任何参数的npm run命令。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ npm run
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="原理"><a href="#原理" class="header-anchor">#</a> 原理</h2> <p>npm 脚本的原理非常简单。每当执行<code>npm run</code>，就会自动新建一个 Shell，在这个 Shell 里面执行指定的脚本命令。因此，只要是 Shell（一般是 Bash）可以运行的命令，就可以写在 npm 脚本里面。</p> <p>比较特别的是，<code>npm run</code>新建的这个 Shell，会将当前目录的<code>node_modules/.bin</code>子目录加入<code>PATH</code>变量，执行结束后，再将<code>PATH</code>变量恢复原样。</p> <p>这意味着，当前目录的<code>node_modules/.bin</code>子目录里面的所有脚本，都可以直接用脚本名调用，而不必加上路径。比如，当前项目的依赖里面有 Mocha，只要直接写<code>mocha test</code>就可以了。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&quot;test&quot;: &quot;mocha test&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>而不用写成下面这样。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&quot;test&quot;: &quot;./node_modules/.bin/mocha test&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>由于 npm 脚本的唯一要求就是可以在 Shell 执行，因此它不一定是 Node 脚本，任何可执行文件都可以写在里面。</p> <p>npm 脚本的退出码，也遵守 Shell 脚本规则。如果退出码不是<code>0</code>，npm 就认为这个脚本执行失败。</p> <h2 id="通配符"><a href="#通配符" class="header-anchor">#</a> 通配符</h2> <p>由于 npm 脚本就是 Shell 脚本，因为可以使用 Shell 通配符。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&quot;lint&quot;: &quot;jshint *.js&quot;
+&quot;lint&quot;: &quot;jshint **/*.js&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>上面代码中，<code>*</code>表示任意文件名，<code>**</code>表示任意一层子目录。</p> <p>如果要将通配符传入原始命令，防止被 Shell 转义，要将星号转义。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&quot;test&quot;: &quot;tap test/\*.js&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>四、传参
+向 npm 脚本传入参数，要使用<code>--</code>标明。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&quot;lint&quot;: &quot;jshint **.js&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>向上面的<code>npm run lint</code>命令传入参数，必须写成下面这样。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ npm run lint --  --reporter checkstyle &gt; checkstyle.xml
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>也可以在<code>package.json</code>里面再封装一个命令。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&quot;lint&quot;: &quot;jshint **.js&quot;,
+&quot;lint:checkstyle&quot;: &quot;npm run lint -- --reporter checkstyle &gt; checkstyle.xml&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="执行顺序"><a href="#执行顺序" class="header-anchor">#</a> 执行顺序</h2> <p>如果 npm 脚本里面需要执行多个任务，那么需要明确它们的执行顺序。</p> <p>如果是并行执行（即同时的平行执行），可以使用<code>&amp;</code>符号。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ npm run script1.js &amp; npm run script2.js
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>如果是继发执行（即只有前一个任务成功，才执行下一个任务），可以使用<code>&amp;&amp;</code>符号。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ npm run script1.js &amp;&amp; npm run script2.js
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>这两个符号是 Bash 的功能。此外，还可以使用 node 的任务管理模块：<code>script-runner、npm-run-all、redrun。</code></p> <h2 id="默认值"><a href="#默认值" class="header-anchor">#</a> 默认值</h2> <p>一般来说，npm 脚本由用户提供。但是，npm 对两个脚本提供了默认值。也就是说，这两个脚本不用定义，就可以直接使用。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&quot;start&quot;: &quot;node server.js&quot;，
+&quot;install&quot;: &quot;node-gyp rebuild&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>上面代码中，<code>npm run start</code>的默认值是<code>node server.js</code>，前提是项目根目录下有<code>server.js</code>这个脚本；<code>npm run install</code>的默认值是<code>node-gyp rebuild</code>，前提是项目根目录下有<code>binding.gyp</code>文件。</p> <p>七、钩子
+npm 脚本有<code>pre</code>和<code>post</code>两个钩子。举例来说，<code>build</code>脚本命令的钩子就是<code>prebuild</code>和<code>postbuild</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&quot;prebuild&quot;: &quot;echo I run before the build script&quot;,
+&quot;build&quot;: &quot;cross-env NODE_ENV=production webpack&quot;,
+&quot;postbuild&quot;: &quot;echo I run after the build script&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>用户执行<code>npm run build</code>的时候，会自动按照下面的顺序执行。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm run prebuild &amp;&amp; npm run build &amp;&amp; npm run postbuild
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>因此，可以在这两个钩子里面，完成一些准备工作和清理工作。下面是一个例子。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&quot;clean&quot;: &quot;rimraf ./dist &amp;&amp; mkdir dist&quot;,
+&quot;prebuild&quot;: &quot;npm run clean&quot;,
+&quot;build&quot;: &quot;cross-env NODE_ENV=production webpack&quot;
+npm 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>默认提供下面这些钩子。</p> <ul><li>prepublish，postpublish</li> <li>preinstall，postinstall</li> <li>preuninstall，postuninstall</li> <li>preversion，postversion</li> <li>pretest，posttest</li> <li>prestop，poststop</li> <li>prestart，poststart</li> <li>prerestart，postrestart</li></ul> <p>自定义的脚本命令也可以加上<code>pre</code>和<code>post</code>钩子。比如，<code>myscript</code>这个脚本命令，也有<code>premyscript</code>和<code>postmyscript</code>钩子。不过，双重的<code>pre</code>和<code>post</code>无效，比如<code>prepretest</code>和<code>postposttest</code>是无效的。</p> <p>npm 提供一个<code>npm_lifecycle_event</code>变量，返回当前正在运行的脚本名称，比如<code>pretest</code>、<code>test</code>、<code>posttest</code>等等。所以，可以利用这个变量，在同一个脚本文件里面，为不同的<code>npm scripts</code>命令编写代码。请看下面的例子。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const TARGET = process.env.npm_lifecycle_event;
+
+if (TARGET === 'test') {
+  console.log(`Running the test task!`);
+}
+
+if (TARGET === 'pretest') {
+  console.log(`Running the pretest task!`);
+}
+
+if (TARGET === 'posttest') {
+  console.log(`Running the posttest task!`);
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>注意，<code>prepublish</code>这个钩子不仅会在<code>npm publish</code>命令之前运行，还会在<code>npm install</code>（不带任何参数）命令之前运行。这种行为很容易让用户感到困惑，所以 npm 4 引入了一个新的钩子<code>prepare</code>，行为等同于<code>prepublish</code>，而从 npm 5 开始，<code>prepublish</code>将只在<code>npm publish</code>命令之前运行。</p> <h2 id="简写形式"><a href="#简写形式" class="header-anchor">#</a> 简写形式</h2> <p>四个常用的 npm 脚本有简写形式。</p> <ul><li>npm start是npm run start</li> <li>npm stop是npm run stop的简写</li> <li>npm test是npm run test的简写</li> <li>npm restart是npm run stop &amp;&amp; npm run restart &amp;&amp; - npm run start的简写</li></ul> <p>npm start、npm stop和npm restart都比较好理解，而npm restart是一个复合命令，实际上会执行三个脚本命令：stop、restart、start。具体的执行顺序如下。</p> <p>1、prerestart<br>
+2、prestop<br>
+3、stop<br>
+4、poststop<br>
+5、restart<br>
+6、prestart<br>
+7、start<br>
+8、poststart<br>
+9、postrestart</p> <h2 id="变量"><a href="#变量" class="header-anchor">#</a> 变量</h2> <p>npm 脚本有一个非常强大的功能，就是可以使用 npm 的内部变量。</p> <p>首先，通过<code>npm_package_</code>前缀，npm 脚本可以拿到<code>package.json</code>里面的字段。比如，下面是一个<code>package.json</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+  &quot;name&quot;: &quot;foo&quot;, 
+  &quot;version&quot;: &quot;1.2.5&quot;,
+  &quot;scripts&quot;: {
+    &quot;view&quot;: &quot;node view.js&quot;
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>那么，变量<code>npm_package_name</code>返回<code>foo</code>，变量<code>npm_package_version</code>返回1.2.5。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// view.js
+console.log(process.env.npm_package_name); // foo
+console.log(process.env.npm_package_version); // 1.2.5
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>上面代码中，我们通过环境变量<code>process.env</code>对象，拿到<code>package.json</code>的字段值。如果是 Bash 脚本，可以用<code>$npm_package_name</code>和<code>$npm_package_version</code>取到这两个值。</p> <p><code>npm_package_</code>前缀也支持嵌套的<code>package.json</code>字段。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>  &quot;repository&quot;: {
+    &quot;type&quot;: &quot;git&quot;,
+    &quot;url&quot;: &quot;xxx&quot;
+  },
+  scripts: {
+    &quot;view&quot;: &quot;echo $npm_package_repository_type&quot;
+  }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>上面代码中，<code>repository</code>字段的<code>type</code>属性，可以通过<code>npm_package_repository_type</code>取到。</p> <p>下面是另外一个例子。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&quot;scripts&quot;: {
+  &quot;install&quot;: &quot;foo.js&quot;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>上面代码中，<code>npm_package_scripts_install</code>变量的值等于<code>foo.js</code>。</p> <p>然后，npm 脚本还可以通过<code>npm_config_</code>前缀，拿到 npm 的配置变量，即<code>npm config get xxx</code>命令返回的值。比如，当前模块的发行标签，可以通过<code>npm_config_tag</code>取到。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&quot;view&quot;: &quot;echo $npm_config_tag&quot;,
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>注意，<code>package.json</code>里面的<code>config</code>对象，可以被环境变量覆盖。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{ 
+  &quot;name&quot; : &quot;foo&quot;,
+  &quot;config&quot; : { &quot;port&quot; : &quot;8080&quot; },
+  &quot;scripts&quot; : { &quot;start&quot; : &quot;node server.js&quot; }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>上面代码中，<code>npm_package_config_port</code>变量返回的是<code>8080</code>。这个值可以用下面的方法覆盖。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ npm config set foo:port 80
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>最后，<code>env</code>命令可以列出所有环境变量。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&quot;env&quot;: &quot;env&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="常用脚本示例"><a href="#常用脚本示例" class="header-anchor">#</a> 常用脚本示例</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 删除目录
+&quot;clean&quot;: &quot;rimraf dist/*&quot;,
+
+// 本地搭建一个 HTTP 服务
+&quot;serve&quot;: &quot;http-server -p 9090 dist/&quot;,
+
+// 打开浏览器
+&quot;open:dev&quot;: &quot;opener http://localhost:9090&quot;,
+
+// 实时刷新
+ &quot;livereload&quot;: &quot;live-reload --port 9091 dist/&quot;,
+
+// 构建 HTML 文件
+&quot;build:html&quot;: &quot;jade index.jade &gt; dist/index.html&quot;,
+
+// 只要 CSS 文件有变动，就重新执行构建
+&quot;watch:css&quot;: &quot;watch 'npm run build:css' assets/styles/&quot;,
+
+// 只要 HTML 文件有变动，就重新执行构建
+&quot;watch:html&quot;: &quot;watch 'npm run build:html' assets/html&quot;,
+
+// 部署到 Amazon S3
+&quot;deploy:prod&quot;: &quot;s3-cli sync ./dist/ s3://example-com/prod-site/&quot;,
+
+// 构建 favicon
+&quot;build:favicon&quot;: &quot;node scripts/favicon.js&quot;,
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/17/2022, 3:20:27 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blogs/node/node/nodemon.html" class="prev">
+        nodemon 基本配置与使用
+      </a></span> <span class="next"><a href="/blogs/node/npm/npx.html">
+        npx使用介绍
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blogs/assets/js/app.707ae136.js" defer></script><script src="/blogs/assets/js/2.5689dfa7.js" defer></script><script src="/blogs/assets/js/138.a00afd66.js" defer></script>
+  </body>
+</html>

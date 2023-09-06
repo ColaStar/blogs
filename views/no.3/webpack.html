@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>webpack | 个人博客</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="https://colastar.github.io/blogs/views/images/favicon.ico">
+    <link rel="manifest" href="https://colastar.github.io/blogs/views/js/manifest.json">
+    <link rel="apple-touch-icon" href="https://colastar.github.io/blogs/views/images/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/blogs/js/tj.js"></script>
+    <script src="/blogs/js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+    <meta name="description" content="江天一色无纤尘，皎皎空中孤月轮。">
+    
+    <link rel="preload" href="/blogs/assets/css/0.styles.8ebdf352.css" as="style"><link rel="preload" href="/blogs/assets/js/app.707ae136.js" as="script"><link rel="preload" href="/blogs/assets/js/2.5689dfa7.js" as="script"><link rel="preload" href="/blogs/assets/js/77.cb426184.js" as="script"><link rel="prefetch" href="/blogs/assets/js/10.67ef92fa.js"><link rel="prefetch" href="/blogs/assets/js/100.5d1b5845.js"><link rel="prefetch" href="/blogs/assets/js/101.9434dbd9.js"><link rel="prefetch" href="/blogs/assets/js/102.8b6ef73c.js"><link rel="prefetch" href="/blogs/assets/js/103.09217907.js"><link rel="prefetch" href="/blogs/assets/js/104.5d5ecde6.js"><link rel="prefetch" href="/blogs/assets/js/105.1184fa93.js"><link rel="prefetch" href="/blogs/assets/js/106.95af92f2.js"><link rel="prefetch" href="/blogs/assets/js/107.475d4b97.js"><link rel="prefetch" href="/blogs/assets/js/108.160ab72f.js"><link rel="prefetch" href="/blogs/assets/js/109.bf9e219b.js"><link rel="prefetch" href="/blogs/assets/js/11.a6ce9264.js"><link rel="prefetch" href="/blogs/assets/js/110.548f0249.js"><link rel="prefetch" href="/blogs/assets/js/111.3b8629d8.js"><link rel="prefetch" href="/blogs/assets/js/112.296a4d35.js"><link rel="prefetch" href="/blogs/assets/js/113.c3cc282f.js"><link rel="prefetch" href="/blogs/assets/js/114.b466c191.js"><link rel="prefetch" href="/blogs/assets/js/115.18dd6002.js"><link rel="prefetch" href="/blogs/assets/js/116.092ec055.js"><link rel="prefetch" href="/blogs/assets/js/117.e700c609.js"><link rel="prefetch" href="/blogs/assets/js/118.0cb24c22.js"><link rel="prefetch" href="/blogs/assets/js/119.dff5d31f.js"><link rel="prefetch" href="/blogs/assets/js/12.8e01f2af.js"><link rel="prefetch" href="/blogs/assets/js/120.67e5a079.js"><link rel="prefetch" href="/blogs/assets/js/121.10821017.js"><link rel="prefetch" href="/blogs/assets/js/122.443e0c1a.js"><link rel="prefetch" href="/blogs/assets/js/123.4a2250f3.js"><link rel="prefetch" href="/blogs/assets/js/124.ae09532f.js"><link rel="prefetch" href="/blogs/assets/js/125.538f8f45.js"><link rel="prefetch" href="/blogs/assets/js/126.4e9468a0.js"><link rel="prefetch" href="/blogs/assets/js/127.d22a541d.js"><link rel="prefetch" href="/blogs/assets/js/128.ed6cf9cb.js"><link rel="prefetch" href="/blogs/assets/js/129.acb93003.js"><link rel="prefetch" href="/blogs/assets/js/13.2512791e.js"><link rel="prefetch" href="/blogs/assets/js/130.cd867116.js"><link rel="prefetch" href="/blogs/assets/js/131.5abad248.js"><link rel="prefetch" href="/blogs/assets/js/132.5ccf5027.js"><link rel="prefetch" href="/blogs/assets/js/133.1ca47285.js"><link rel="prefetch" href="/blogs/assets/js/134.1294fd6f.js"><link rel="prefetch" href="/blogs/assets/js/135.911aa967.js"><link rel="prefetch" href="/blogs/assets/js/136.53f8c148.js"><link rel="prefetch" href="/blogs/assets/js/137.3e9b02ef.js"><link rel="prefetch" href="/blogs/assets/js/138.a00afd66.js"><link rel="prefetch" href="/blogs/assets/js/139.3d379c4e.js"><link rel="prefetch" href="/blogs/assets/js/14.6f0b42e2.js"><link rel="prefetch" href="/blogs/assets/js/140.7dbb78b8.js"><link rel="prefetch" href="/blogs/assets/js/141.bcbca9cc.js"><link rel="prefetch" href="/blogs/assets/js/142.35f0d3f0.js"><link rel="prefetch" href="/blogs/assets/js/143.52ff6fa9.js"><link rel="prefetch" href="/blogs/assets/js/144.ff914a4d.js"><link rel="prefetch" href="/blogs/assets/js/145.ab8c735d.js"><link rel="prefetch" href="/blogs/assets/js/146.23b4cd05.js"><link rel="prefetch" href="/blogs/assets/js/147.8d78d71b.js"><link rel="prefetch" href="/blogs/assets/js/148.ba4624de.js"><link rel="prefetch" href="/blogs/assets/js/149.55157ece.js"><link rel="prefetch" href="/blogs/assets/js/15.a3613048.js"><link rel="prefetch" href="/blogs/assets/js/150.72a6b7b6.js"><link rel="prefetch" href="/blogs/assets/js/151.0a3fdb22.js"><link rel="prefetch" href="/blogs/assets/js/152.58bd67c3.js"><link rel="prefetch" href="/blogs/assets/js/153.a5850933.js"><link rel="prefetch" href="/blogs/assets/js/154.652f75cf.js"><link rel="prefetch" href="/blogs/assets/js/155.9c1b2ee1.js"><link rel="prefetch" href="/blogs/assets/js/156.52b6dec0.js"><link rel="prefetch" href="/blogs/assets/js/157.77bab005.js"><link rel="prefetch" href="/blogs/assets/js/158.d459dff0.js"><link rel="prefetch" href="/blogs/assets/js/159.069d0e57.js"><link rel="prefetch" href="/blogs/assets/js/16.711dca8a.js"><link rel="prefetch" href="/blogs/assets/js/160.258b9e9d.js"><link rel="prefetch" href="/blogs/assets/js/161.56b614a9.js"><link rel="prefetch" href="/blogs/assets/js/162.24f57820.js"><link rel="prefetch" href="/blogs/assets/js/163.50c2bf05.js"><link rel="prefetch" href="/blogs/assets/js/164.7f7f3890.js"><link rel="prefetch" href="/blogs/assets/js/165.cbf569f7.js"><link rel="prefetch" href="/blogs/assets/js/166.41658f6f.js"><link rel="prefetch" href="/blogs/assets/js/167.d360d750.js"><link rel="prefetch" href="/blogs/assets/js/168.265d342a.js"><link rel="prefetch" href="/blogs/assets/js/169.e04b321d.js"><link rel="prefetch" href="/blogs/assets/js/17.ffb6b1c0.js"><link rel="prefetch" href="/blogs/assets/js/170.1cc2fa1d.js"><link rel="prefetch" href="/blogs/assets/js/171.f2185bae.js"><link rel="prefetch" href="/blogs/assets/js/172.c8c5c73c.js"><link rel="prefetch" href="/blogs/assets/js/173.0045183e.js"><link rel="prefetch" href="/blogs/assets/js/174.12047e97.js"><link rel="prefetch" href="/blogs/assets/js/175.37fe320d.js"><link rel="prefetch" href="/blogs/assets/js/176.b56a1c5b.js"><link rel="prefetch" href="/blogs/assets/js/18.85dc6e83.js"><link rel="prefetch" href="/blogs/assets/js/19.de5d8753.js"><link rel="prefetch" href="/blogs/assets/js/20.99db8519.js"><link rel="prefetch" href="/blogs/assets/js/21.2f7d392a.js"><link rel="prefetch" href="/blogs/assets/js/22.d7210ff8.js"><link rel="prefetch" href="/blogs/assets/js/23.d56d0f74.js"><link rel="prefetch" href="/blogs/assets/js/24.438b7e8f.js"><link rel="prefetch" href="/blogs/assets/js/25.9692637a.js"><link rel="prefetch" href="/blogs/assets/js/26.74cb62f2.js"><link rel="prefetch" href="/blogs/assets/js/27.648386b6.js"><link rel="prefetch" href="/blogs/assets/js/28.de0199ff.js"><link rel="prefetch" href="/blogs/assets/js/29.32667801.js"><link rel="prefetch" href="/blogs/assets/js/3.3923979e.js"><link rel="prefetch" href="/blogs/assets/js/30.9c41188e.js"><link rel="prefetch" href="/blogs/assets/js/31.1cad6d07.js"><link rel="prefetch" href="/blogs/assets/js/32.dfa7b892.js"><link rel="prefetch" href="/blogs/assets/js/33.84623c9e.js"><link rel="prefetch" href="/blogs/assets/js/34.16fd49ed.js"><link rel="prefetch" href="/blogs/assets/js/35.0c8c5faf.js"><link rel="prefetch" href="/blogs/assets/js/36.8fb90cdc.js"><link rel="prefetch" href="/blogs/assets/js/37.d0e0e22e.js"><link rel="prefetch" href="/blogs/assets/js/38.4d45938c.js"><link rel="prefetch" href="/blogs/assets/js/39.beba6cd0.js"><link rel="prefetch" href="/blogs/assets/js/4.f2bc8a01.js"><link rel="prefetch" href="/blogs/assets/js/40.603e7954.js"><link rel="prefetch" href="/blogs/assets/js/41.f60a79f1.js"><link rel="prefetch" href="/blogs/assets/js/42.93e1d425.js"><link rel="prefetch" href="/blogs/assets/js/43.c685d861.js"><link rel="prefetch" href="/blogs/assets/js/44.a2657a31.js"><link rel="prefetch" href="/blogs/assets/js/45.d49fd145.js"><link rel="prefetch" href="/blogs/assets/js/46.affe5377.js"><link rel="prefetch" href="/blogs/assets/js/47.8aeb7e59.js"><link rel="prefetch" href="/blogs/assets/js/48.a3fbeb06.js"><link rel="prefetch" href="/blogs/assets/js/49.c7f31446.js"><link rel="prefetch" href="/blogs/assets/js/5.aee30350.js"><link rel="prefetch" href="/blogs/assets/js/50.f12a3804.js"><link rel="prefetch" href="/blogs/assets/js/51.b7bfb937.js"><link rel="prefetch" href="/blogs/assets/js/52.af89087f.js"><link rel="prefetch" href="/blogs/assets/js/53.b438236c.js"><link rel="prefetch" href="/blogs/assets/js/54.f10d71ac.js"><link rel="prefetch" href="/blogs/assets/js/55.b067bf4d.js"><link rel="prefetch" href="/blogs/assets/js/56.28bac15b.js"><link rel="prefetch" href="/blogs/assets/js/57.3f203274.js"><link rel="prefetch" href="/blogs/assets/js/58.cc3f1a31.js"><link rel="prefetch" href="/blogs/assets/js/59.9860100e.js"><link rel="prefetch" href="/blogs/assets/js/6.3697c41c.js"><link rel="prefetch" href="/blogs/assets/js/60.15bbef0f.js"><link rel="prefetch" href="/blogs/assets/js/61.a67c32eb.js"><link rel="prefetch" href="/blogs/assets/js/62.b18eb373.js"><link rel="prefetch" href="/blogs/assets/js/63.f10c6955.js"><link rel="prefetch" href="/blogs/assets/js/64.752ae530.js"><link rel="prefetch" href="/blogs/assets/js/65.ec2d9176.js"><link rel="prefetch" href="/blogs/assets/js/66.6f95de97.js"><link rel="prefetch" href="/blogs/assets/js/67.8bbbba9e.js"><link rel="prefetch" href="/blogs/assets/js/68.f246175c.js"><link rel="prefetch" href="/blogs/assets/js/69.5425fc5e.js"><link rel="prefetch" href="/blogs/assets/js/7.ea90a76e.js"><link rel="prefetch" href="/blogs/assets/js/70.a3d98361.js"><link rel="prefetch" href="/blogs/assets/js/71.a9c04aa3.js"><link rel="prefetch" href="/blogs/assets/js/72.0f746438.js"><link rel="prefetch" href="/blogs/assets/js/73.665a45f7.js"><link rel="prefetch" href="/blogs/assets/js/74.e9b983b4.js"><link rel="prefetch" href="/blogs/assets/js/75.be75d256.js"><link rel="prefetch" href="/blogs/assets/js/76.5679a7c3.js"><link rel="prefetch" href="/blogs/assets/js/78.85dfa033.js"><link rel="prefetch" href="/blogs/assets/js/79.1a6ad38e.js"><link rel="prefetch" href="/blogs/assets/js/8.e9f537d2.js"><link rel="prefetch" href="/blogs/assets/js/80.2af72006.js"><link rel="prefetch" href="/blogs/assets/js/81.7a9b711c.js"><link rel="prefetch" href="/blogs/assets/js/82.8d2990f5.js"><link rel="prefetch" href="/blogs/assets/js/83.fc56f654.js"><link rel="prefetch" href="/blogs/assets/js/84.f29292e9.js"><link rel="prefetch" href="/blogs/assets/js/85.30c87639.js"><link rel="prefetch" href="/blogs/assets/js/86.3b583c97.js"><link rel="prefetch" href="/blogs/assets/js/87.453c075b.js"><link rel="prefetch" href="/blogs/assets/js/88.5d30849e.js"><link rel="prefetch" href="/blogs/assets/js/89.11608fe8.js"><link rel="prefetch" href="/blogs/assets/js/9.7dcf71ed.js"><link rel="prefetch" href="/blogs/assets/js/90.36bb7df3.js"><link rel="prefetch" href="/blogs/assets/js/91.1dfc55d8.js"><link rel="prefetch" href="/blogs/assets/js/92.27b42bbe.js"><link rel="prefetch" href="/blogs/assets/js/93.df84349d.js"><link rel="prefetch" href="/blogs/assets/js/94.ac3c3bf0.js"><link rel="prefetch" href="/blogs/assets/js/95.1b1c9638.js"><link rel="prefetch" href="/blogs/assets/js/96.5953c721.js"><link rel="prefetch" href="/blogs/assets/js/97.df942904.js"><link rel="prefetch" href="/blogs/assets/js/98.29fac1b8.js"><link rel="prefetch" href="/blogs/assets/js/99.26406043.js">
+    <link rel="stylesheet" href="/blogs/assets/css/0.styles.8ebdf352.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blogs/" class="home-link router-link-active"><!----> <span class="site-name">个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blogs/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博文" class="dropdown-title"><span class="title">博文</span> <span class="arrow down"></span></button> <button type="button" aria-label="博文" class="mobile-dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blogs/no.0/js/es6.html" class="nav-link">
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/javascript-QA/javascriptqa.html" class="nav-link">
+  javaScript与测试工程师
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.1/函数式编程/函数式编程.html" class="nav-link">
+  编程相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.2/http.html" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.3/webpack.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  前端自动化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.4/前端性能优化.html" class="nav-link">
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.5/css工作流.html" class="nav-link">
+  css相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.6/react/react.html" class="nav-link">
+  框架相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.7/计算机组成原理.html" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.8/数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/node/node/node.html" class="nav-link">
+  node相关
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/no.10/网络安全.html" class="nav-link">
+  网络安全
+</a></li><li class="dropdown-item"><!----> <a href="/blogs/other/git/git命令全集.html" class="nav-link">
+  其他相关
+</a></li></ul></div></div><div class="nav-item"><a href="/blogs/other/手写各种/手写代码实现.html" class="nav-link">
+  面试
+</a></div><div class="nav-item"><a href="https://github.com/ColaStar/blogs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blogs/no.3/bower.html" class="sidebar-link">bower</a></li><li><a href="/blogs/no.3/browserify.html" class="sidebar-link">Browserify</a></li><li><a href="/blogs/no.3/commojs-vs-es6module.html" class="sidebar-link">模块规范对比</a></li><li><a href="/blogs/no.3/grunt.html" class="sidebar-link">grunt</a></li><li><a href="/blogs/no.3/gulp.html" class="sidebar-link">gulp</a></li><li><a href="/blogs/no.3/jenkins.html" class="sidebar-link">jenkins</a></li><li><a href="/blogs/no.3/linux_sed_awk.html" class="sidebar-link">sed与awk</a></li><li><a href="/blogs/no.3/linux防火墙.html" class="sidebar-link">linux防火墙</a></li><li><a href="/blogs/no.3/nginx-error.html" class="sidebar-link">centos错误集合</a></li><li><a href="/blogs/no.3/parcel.html" class="sidebar-link">parcel</a></li><li><a href="/blogs/no.3/pm2指南.html" class="sidebar-link">PM2</a></li><li><a href="/blogs/no.3/redis.html" class="sidebar-link">Redis使用指南</a></li><li><a href="/blogs/no.3/rollup.html" class="sidebar-link">rollup</a></li><li><a href="/blogs/no.3/vite.html" class="sidebar-link">vite 源码分析</a></li><li><a href="/blogs/no.3/vite插件指南.html" class="sidebar-link">Vite2插件开发指南</a></li><li><a href="/blogs/no.3/webpack.html" aria-current="page" class="active sidebar-link">webpack</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#webpack是什么" class="sidebar-link">Webpack是什么?</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#webpack与grunt、gulp的不同" class="sidebar-link">Webpack与Grunt、Gulp的不同？</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#工作方式不同" class="sidebar-link">工作方式不同</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#构建思路不同" class="sidebar-link">构建思路不同</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#背景知识不同" class="sidebar-link">背景知识不同</a></li></ul></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#分别介绍bundle-chunk-module是什么" class="sidebar-link">分别介绍bundle，chunk，module是什么？</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#什么是loader-什么是plugin" class="sidebar-link">什么是Loader?什么是Plugin?</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#loader和plugin有哪些不同" class="sidebar-link">loader和plugin有哪些不同？</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#不同的作用" class="sidebar-link">不同的作用</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#不同的用法" class="sidebar-link">不同的用法</a></li></ul></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#有哪些常见的loader" class="sidebar-link">有哪些常见的Loader？</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#有哪些常见的plugin" class="sidebar-link">有哪些常见的Plugin？</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#tree-shaking" class="sidebar-link">Tree Shaking</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#将文件标记为无副作用-side-effect-free" class="sidebar-link">将文件标记为无副作用(side-effect-free)</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#压缩输出" class="sidebar-link">压缩输出</a></li></ul></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#code-splitting" class="sidebar-link">Code Splitting</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#同步代码" class="sidebar-link">同步代码</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#异步代码" class="sidebar-link">异步代码</a></li></ul></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#开发中的server-devserver配置" class="sidebar-link">开发中的server---devServer配置</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#什么-是模块热更新" class="sidebar-link">什么 是模块热更新？</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#webpack的热更新是如何做到的-说明其原理" class="sidebar-link">Webpack的热更新是如何做到的？说明其原理？</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#webpack-dev-server和http服务器如nginx有什么区别" class="sidebar-link">webpack-dev-server和http服务器如nginx有什么区别？</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#如何提高webpack的构建速度" class="sidebar-link">如何提高webpack的构建速度?</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#常规" class="sidebar-link">常规</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#开发环境-development" class="sidebar-link">开发环境 Development</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#生产环境-production" class="sidebar-link">生产环境 Production</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#工具相关问题" class="sidebar-link">工具相关问题</a></li></ul></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#如何利用webpack来优化前端性能-提高性能和体验" class="sidebar-link">如何利用Webpack来优化前端性能？（提高性能和体验）</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#npm打包时需要注意哪些-如何利用webpack来更好的构建" class="sidebar-link">npm打包时需要注意哪些？如何利用Webpack来更好的构建？</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#基于以上需要注意的问题-我们可以对于webpack配置做以下扩展和优化" class="sidebar-link">基于以上需要注意的问题，我们可以对于Webpack配置做以下扩展和优化：</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#分析工具" class="sidebar-link">分析工具</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#如何优雅的编写你的entry" class="sidebar-link">如何优雅的编写你的Entry</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#开发webpack-loader" class="sidebar-link">开发webpack loader</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#loader源码分析" class="sidebar-link">loader源码分析</a></li></ul></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#编写过webpack插件" class="sidebar-link">编写过webpack插件</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#webpack编译过程或构建流程是什么" class="sidebar-link">webpack编译过程或构建流程是什么？</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#webpack整体运行流程" class="sidebar-link">Webpack整体运行流程</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#webpack整体运行流程-2" class="sidebar-link">Webpack整体运行流程</a></li><li class="sidebar-sub-header"><a href="/blogs/no.3/webpack.html#源码分析webpack执行流程" class="sidebar-link">源码分析webpack执行流程</a></li></ul></li><li><a href="/blogs/no.3/yeoman.html" class="sidebar-link">yeoman</a></li><li><a href="/blogs/no.3/免密登陆.html" class="sidebar-link">免密登陆</a></li><li><a href="/blogs/no.3/文件操作权限.html" class="sidebar-link">Linux权限</a></li><li><a href="/blogs/no.3/理解Webpack中的Chunk.html" class="sidebar-link">理解 Webpack 中的 Chunk</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="webpack"><a href="#webpack" class="header-anchor">#</a> webpack</h1> <p>站在巨人的肩膀</p> <h2 id="webpack是什么"><a href="#webpack是什么" class="header-anchor">#</a> Webpack是什么?</h2> <p>Webpack是一个模块打包工具，在Webpack里一切文件皆模块。通过loader转换文件，通过plugin注入钩子，最后输出由多个模块组合的文件。Webpack专注构建模块化项目。
+Webpack可以看作是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其他一些不能被浏览器直接运行的扩展语音(如：Scss,TypeScript等)，并将其打包为合适的格式以供浏览器使用。</p> <h2 id="webpack与grunt、gulp的不同"><a href="#webpack与grunt、gulp的不同" class="header-anchor">#</a> Webpack与Grunt、Gulp的不同？</h2> <p>Grunt/Gulp是一种能够优化前端开发流程的工具，而Webpack是一种模块化的解决方案。</p> <h3 id="工作方式不同"><a href="#工作方式不同" class="header-anchor">#</a> 工作方式不同</h3> <ul><li><p>Grunt/Gulp的工作方式是：在一个配置文件中，指明某些文件进行类似编译/组合/压缩等任务的具体步骤，之后工具可以自动帮你完成这些任务</p></li> <li><p>Webpack的工作方式是：把项目当作是一个整体，通过指定的入口文件，Webpack会从这个入口文件开始找到项目所有的依赖文件，然后使用loader处理它们，最后打包成一个或多个浏览器能够识别的JavaScript文件</p></li></ul> <h3 id="构建思路不同"><a href="#构建思路不同" class="header-anchor">#</a> 构建思路不同</h3> <ul><li><p>Grunt/Gulp需要将整个前端构建过程拆分成多个task，合理控制所有task的调用关系</p></li> <li><p>Webpack需要定义好入/出口，并需要清楚对于不同类型资源应该用什么loader解析编译</p></li></ul> <p>Grunt/Gulp是基于任务和流(task和stream)的。类似jQuery,找到一个(或一类)文件，对其做一系列的链式操作，更新流上的数据，整条链式操作构成了一个任务，多个任务就构成了整个Web的构建流程。</p> <p>Webpack是基于入口的。Webpack会自动的递归解析入口所需要加载的所有资源文件，然后用不同的loader来处理不同的文件，用pulgin扩展Webpack功能。</p> <h3 id="背景知识不同"><a href="#背景知识不同" class="header-anchor">#</a> 背景知识不同</h3> <p>Grunt/Gulp更像是后端开发者的思路，需要对整个流程了如指掌。Webpack更倾向于前端开发者的思路。</p> <p>详细的可以看下边的源码分析</p> <h2 id="分别介绍bundle-chunk-module是什么"><a href="#分别介绍bundle-chunk-module是什么" class="header-anchor">#</a> 分别介绍bundle，chunk，module是什么？</h2> <ul><li>bundle：由Webpack打包出来的文件</li> <li>chunk：代码块，webpack在进行模块的依赖分析的时候，代码分割出来的代码块</li> <li>module：是开发中的单个模块，在Webpack中，一切皆模块，一个模块对应一个文件</li></ul> <h2 id="什么是loader-什么是plugin"><a href="#什么是loader-什么是plugin" class="header-anchor">#</a> 什么是Loader?什么是Plugin?</h2> <ul><li>loader: 模块转换器，用于对模块的源代码进行转换</li> <li>plugin: 自定义webpack打包过程的方式，插件含有apply属性的JavaScript对象，apply属性会被webpack compiler调用，并且compiler对象可以在整个编译生命周期内访问</li></ul> <h2 id="loader和plugin有哪些不同"><a href="#loader和plugin有哪些不同" class="header-anchor">#</a> loader和plugin有哪些不同？</h2> <h3 id="不同的作用"><a href="#不同的作用" class="header-anchor">#</a> 不同的作用</h3> <ul><li>loader直译为“加载器&quot;，Webpack将一切文件视为模块，但是Webpack原生只能解析JavaScript和JSON类型文件。如果想加载解析其他类型文件，就会用到loader。所以loader是让Webpack拥有加载和解析非JavaScript文件的能力</li> <li>plugin直译为”插件“，plugin可以扩展Webpack的功能，让Webpack具有更多的灵活性。在Webpack运行的生命周期中会广播许多事件，plugin可以监听这些事件，在合适的时机通过Webpack提供的API改变输出结果</li></ul> <h3 id="不同的用法"><a href="#不同的用法" class="header-anchor">#</a> 不同的用法</h3> <ul><li><p>loader在module rules中配置，也就说它作为模块解析规则存在。类型为Array，每一项都是一个Object，里面描述了什么类型的文件(test)，使用什么加载(loader)和使用的参数(options)</p></li> <li><p>plugin单独在plugins中单独配置。类型为Array，每项都是一个plugin的实例，参数是通过构造函数传入</p></li></ul> <h2 id="有哪些常见的loader"><a href="#有哪些常见的loader" class="header-anchor">#</a> 有哪些常见的Loader？</h2> <ul><li>file-loader: 将文件输出到一个文件夹中，在代码中通过相对路径(url)去引用输出的文件</li> <li>url-loader: 和file-loader类似，但是能在文件很小的情况下，以base64的方式将内容注入到代码中</li> <li>image-loader: 加载并压缩图片文件</li> <li>babel-lodader: 脚本js</li> <li>css-loader: 加载CSS，支持模块化/压缩/文件导入等特性</li> <li>style-loader：把CSS代码注入到JavaScript中，通过DOM操作去加载CSS</li> <li>eslint-loader: 通过ESlint检查JavaScript代码</li></ul> <h2 id="有哪些常见的plugin"><a href="#有哪些常见的plugin" class="header-anchor">#</a> 有哪些常见的Plugin？</h2> <ul><li>define-plugin: 定义环境变量</li> <li>html-webpack-pulgin: 生成创建html入口文件，并引用对应的外部资源</li> <li>uglifyjs-plugin: 通过Uglifyjs压缩JavaScript代码</li> <li>mini-css-extract-plugin: 分离CSS文件</li> <li>clean-webpack-plugin: 删除打包文件</li> <li>happypack: 实现多线程加速编译（多核编译）</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>const HappyPack = require('happypack');
+const os = require('os');
+//开辟一个线程池
+const happyThreadPoll = HappyPack.ThreadPool({ size: os.cpus().length }); module.exports.plugins = [
+new HappyPack({
+id: 'babel',
+threadPool: happyThreadPoll,
+loaders: [{
+loader: 'babel-loader'
+}] })
+];
+
+
+//use: 'happypack/loader?id=babel',
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h2 id="tree-shaking"><a href="#tree-shaking" class="header-anchor">#</a> Tree Shaking</h2> <p>为了使用tree shaking，需要满足以下条件：</p> <ul><li>使用ES2015语法(即import和export)</li> <li>在项目package.json文件中，添加sideEffects入口</li> <li>引入一个能够删除未引用代码(dead code)的压缩工具(minifier)(例如：UglifyJSPlugin)</li></ul> <h3 id="将文件标记为无副作用-side-effect-free"><a href="#将文件标记为无副作用-side-effect-free" class="header-anchor">#</a> 将文件标记为无副作用(side-effect-free)</h3> <p>这种方式是通过<code>package.json</code>的<code>sideEffects</code>属性来实现的。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+  &quot;sideEffects&quot;: false
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>「副作用」的定义是，在导入时会执行特殊行为的代码，而不是仅仅暴露一个<code>export</code>或多个<code>export</code>。举例说明，例如<code>polyfill</code>，它影响全局作用域，并且通常不提供export。</p> <p>注意，任何导入的文件都会受到<code>tree shaking</code>的影响。这意味着，如果在项目中使用类似<code>css-loader</code>并导入<code>CSS</code>文件，则需要将其添加到 <code>side effect</code> 列表中，以免在生产模式中无意中将它删除：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+  &quot;sideEffects&quot;: ['*.css']
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h3 id="压缩输出"><a href="#压缩输出" class="header-anchor">#</a> 压缩输出</h3> <p>从 <code>webpack 4</code> 开始，也可以通过 &quot;<code>mode</code>&quot; 配置选项轻松切换到压缩输出，只需设置为 &quot;<code>production</code>&quot;。</p> <p>也可以在命令行接口中使用<code>--optimize-minimize</code>标记，来使用<code>UglifyjsPlugin</code>。</p> <h2 id="code-splitting"><a href="#code-splitting" class="header-anchor">#</a> Code Splitting</h2> <p><code>code splitting</code>的必要性</p> <ul><li>不进行<code>code splitting</code>，打包后单文件提交较大，加载时长较长，影响用户体验</li> <li>不进行<code>code splitting</code>，经常修改业务代码，重新打包后，浏览器不能进行缓存，导致性能较差，影响用户体验</li></ul> <h3 id="同步代码"><a href="#同步代码" class="header-anchor">#</a> 同步代码</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>import _ from 'lodash';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>webpack.config.js配置如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>....
+optimization: {
+  splitChunks: {
+    chunks: 'all'
+  }
+}
+....
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>配置后，会将公用类库进行打包，生成一个vendors~main.js文件。</p> <h3 id="异步代码"><a href="#异步代码" class="header-anchor">#</a> 异步代码</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>function getComponent() {
+  return import('lodash').then(({ default: _ }) =&gt; {
+    var element = document.createElement('div');
+    element.innerHTML = _.join(['Clear', 'love'], '');
+    return element;
+  })
+}
+
+getComponent().then(element =&gt; {
+  document.body.appendChild(element);
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h2 id="开发中的server-devserver配置"><a href="#开发中的server-devserver配置" class="header-anchor">#</a> 开发中的server---devServer配置</h2> <p><a href="https://www.webpackjs.com/configuration/dev-server/" target="_blank" rel="noopener noreferrer">官网介绍<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>下边简单介绍一下</p> <blockquote><p>contentBase</p></blockquote> <p>该配置项指定了服务器资源的根目录，如果不配置<code>contentBase</code>或使用<code>false</code>的话，那么contentBase默认是当前执行的目录,一般是项目的根目录。
+可能如上解析还不够清晰，没有关系，我们下面还是先看下我整个项目的目录结构，然后进行相关的配置，使用<code>contentBase</code>配置项再来理解下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>### 目录结构如下：
+demo1                                       # 工程名
+|   |--- dist                               # dist是打包后生成的目录文件             
+|   |--- node_modules                       # 所有的依赖包
+|   |--- js                                 # 存放所有js文件
+|   | |-- demo1.js  
+|   | |-- main.js                           # js入口文件
+|   |
+|   |--- webpack.config.js                  # webpack配置文件
+|   |--- index.html                         # html文件
+|   |--- styles                             # 存放所有的css样式文件                              
+|   |--- .gitignore  
+|   |--- README.md
+|   |--- package.json
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>在webpack配置加上如下配置，即配置项指定了服务器资源的根目录。比如我们打包后的文件放入 dist目录下。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>module.exports = {
+  devServer: {
+    contentBase: path.join(__dirname, &quot;dist&quot;)
+  },
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>如上配置完成后，我们再运行 npm run dev, 再在地址栏中 运行 http://localhost:8080/ 后看到如下信息：</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/webpack_devserver.png"><img src="http://blog.colastar.club:9527/static/images/webpack_devserver.png" alt=""></a></p> <p>也就是说 配置了 contentBase后，服务器就指向了资源的根目录，而不再指向项目的根目录。因此再访问 http://localhost:8080/index.html 是访问不到的。但是访问 http://localhost:8080/bundle.js 该js文件是可以访问的到的。</p> <blockquote><p>port</p></blockquote> <p>该配置属性指定了开启服务器的端口号</p> <blockquote><p>host</p></blockquote> <p>该配置属性指定了开启服务器的IP</p> <blockquote><p>headers
+该配置项可以在HTTP响应中注入一些HTTP响应头。 比如如下：</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>module.exports = {
+  devServer: {
+    headers: {
+      'X-foo': '112233'
+    }
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>如上配置完成后，打包下，刷新下浏览器，可以看到请求头加了上面的信息，如下所示：
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/webpack_devserver1.png"><img src="http://blog.colastar.club:9527/static/images/webpack_devserver1.png" alt=""></a></p> <blockquote><p>historyApiFallback</p></blockquote> <p>该配置项属性是用来应对返回404页面时定向跳转到特定页面的。一般是应用在 <code>HTML5中History API</code> 的单页应用，比如在访问路由时候，访问不到该路由的时候，会跳转到index.html页面。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>module.exports = {
+  devServer: {
+    historyApiFallback: true
+  },
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>当然如上只是简单的配置下，当然我们也可以手动通过 正则来匹配路由，比如访问 /user 跳转到 user.html，访问 /home 跳转到 home.html, 如下配置：</p> <p>当然我们需要在 dist 目录下 新建 home.html 和 user.html 了，如下基本配置：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> historyApiFallback: {
+      // 使用正则来匹配路由
+      rewrites: [
+        { from: /^\/user/, to: '/user.html' },
+        { from: /^\/home/, to: '/home.html' }
+      ]
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><blockquote><p>hot</p></blockquote> <p>该配置项是指模块替换换功能，<code>DevServer</code> 默认行为是在发现源代码被更新后通过自动刷新整个页面来做到实时预览的，</p> <p>但是开启模块热替换功能后，它是通过在不刷新整个页面的情况下通过使用新模块替换旧模块来做到实时预览的。</p> <blockquote><p>inline</p></blockquote> <p>webpack-dev-server 有两种模式可以实现<strong>自动刷新</strong>和<strong>模块热替换机制</strong>。</p> <ul><li>1.iframe</li></ul> <p>页面是被嵌入到一个iframe页面，并且在模块变化的时候重载页面。</p> <p>可能如上解释，我们还不能完全能理解到底是什么意思，没有关系，我们继续来看下配置和实践效果。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>module.exports = {
+  devServer: {
+    inline: false
+  },
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>如上代码配置 inline: false 就是使用iframe模式来重载页面了。</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/webpack_devserver2.png"><img src="http://blog.colastar.club:9527/static/images/webpack_devserver2.png" alt=""></a></p> <p>接着我们在浏览器下 输入 http://0.0.0.0:8081/webpack-dev-server/ 地址后 回车，即可看到页面，我们查看源代码的时候，会看到嵌入了一个iframe页面，如下图所示：</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/webpack_devserver3.png"><img src="http://blog.colastar.club:9527/static/images/webpack_devserver3.png" alt=""></a></p> <p>当我们重新修改main.js 或 它的依赖文件 demo1.js 的时候，保存后，它也会自动重新加载页面，这就是使用 iframe 模式来配置加载页面的。</p> <p>iframe 模式的特点有：</p> <ol><li>在网页中嵌入了一个iframe，将我们自己的应用代码注入到 这个 iframe中去了。</li> <li>在页面头部会有一个 App ready. 这个提示，用于显示构建过程的状态信息。</li> <li>加载了 live.bundle.js文件，还同时包含了 socket.io的client代码，进行了 websocket通讯，从而完成了自动编译打包，页面自动刷新功能。</li></ol> <p>我们看下请求的所有文件有如下：
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/webpack_devserver4.png"><img src="http://blog.colastar.club:9527/static/images/webpack_devserver4.png" alt=""></a></p> <ul><li>2.inline 模式</li></ul> <p>开启模式，只需要把上面的配置代码变为 inline: true即可，它在构建变化后的代码会通过代理客户端来控制网页刷新。</p> <p>如上配置后，我们运行 webpack-dev-server 命令后，如下所示：</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/webpack_devserver5.png"><img src="http://blog.colastar.club:9527/static/images/webpack_devserver5.png" alt=""></a></p> <p>接着我们在地址栏中 http://0.0.0.0:8081/ 运行下 就可以访问到 项目中的根目录 index.html了，当我们修改入口文件的代码保存也一样
+能实时刷新，其实效果是一样的。</p> <p>inline模式的特点有：</p> <ol><li>构建的消息在控制台中直接显示出来。</li> <li>socket.io的client代码被打包进bundle.js当中，这样就能和websocket通讯，从而完成自动编译工作，页面就能实现自动刷新功能。</li> <li>以后的每一个入口文件都会插入上面的socket的一段代码，这样会使的打包后的bundle.js文件变得臃肿。</li></ol> <blockquote><p>open</p></blockquote> <p>该属性用于DevServer启动且第一次构建完成时，自动使用我们的系统默认浏览器去打开网页。</p> <blockquote><p>overlay</p></blockquote> <p>该属性是用来在编译出错的时候，在浏览器页面上显示错误。该属性值默认为false，需要的话，设置该参数为true。
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/webpack_devserver6.png"><img src="http://blog.colastar.club:9527/static/images/webpack_devserver6.png" alt=""></a></p> <blockquote><p>stats(字符串)</p></blockquote> <p>该属性配置是用来在编译的时候再命令行中输出的内容，我们没有设置 stats的时候，输出是如下的样子：如下所示：</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/webpack_devserver7.png"><img src="http://blog.colastar.club:9527/static/images/webpack_devserver7.png" alt=""></a></p> <p>该属性值可以有如下值：</p> <p>stats:<code>'errors-only'</code> 表示只有错误的才会被打印，没有错误就不打印，因此多余的信息就不会显示出来了。，我们添加下这个配置到devServer中；</p> <p>该属性值还有 'minimal', 'normal', 'verbose' 等。</p> <blockquote><p>compress</p></blockquote> <p>该属性是一个布尔型的值，默认为false，当他为true的时候，它会对所有服务器资源采用gzip进行压缩。</p> <blockquote><p>proxy 实现跨域</p></blockquote> <p>有时候我们使用webpack在本地启动服务器的时候，由于我们使用的访问的域名是 http://localhost:8081 这样的，但是我们服务端的接口是其他的，</p> <p>那么就存在域名或端口号跨域的情况下，但是很幸运的是 devServer有一个叫proxy配置项，可以通过该配置来解决跨域的问题，那是因为 dev-server 使用了 http-proxy-middleware 包(<a href="https://www.npmjs.com/package/http-proxy-middleware" target="_blank" rel="noopener noreferrer">了解该包的更多用法<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> )。</p> <p>假如现在我们本地访问的域名是 http://localhost:8081, 但是我现在调用的是百度页面中的一个接口，该接口地址是：http://news.baidu.com/widget?ajax=json&amp;id=ad。现在我们只需要在devServer中的proxy的配置就可以了：
+如下配置：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>proxy: {
+  '/api': {
+    target: 'http://news.baidu.com', // 目标接口的域名
+    // secure: true,  // https 的时候 使用该参数
+    changeOrigin: true,  // 是否跨域
+    pathRewrite: {
+      '^/api' : ''  // 重写路径
+    }
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>调用</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>axios.get('/api/widget?ajax=json&amp;id=ad').then(res =&gt; {
+  console.log(res);
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>下面我们来理解下上面配置的含义：</p> <ol><li>首先是百度的接口地址是这样的：http://news.baidu.com/widget?ajax=json&amp;id=ad;</li> <li>proxy 的配置项 '/api' 和 target: 'http://news.baidu.com' 的含义是，匹配请求中 /api 含有这样的域名 重定向 到 'http://news.baidu.com'来。因此我在接口地址上 添加了前缀 '/api', 如： axios.get('/api/widget?ajax=json&amp;id=ad'); 因此会自动补充前缀，也就是说，url: '/api/widget?ajax=json&amp;id=ad' 等价
+于 url: 'http://news.baidu.com/api/widget?ajax=json&amp;id=ad'.</li> <li>changeOrigin: true/false 还参数值是一个布尔值，含义是 是否需要跨域。</li> <li>secure: true, 如果是https请求就需要改参数配置，需要ssl证书吧。</li> <li>pathRewrite: {'^/api' : ''}的含义是重写url地址，把url的地址里面含有 '/api' 这样的 替换成 '',
+因此接口地址就变成了 http://news.baidu.com/widget?ajax=json&amp;id=ad； 因此就可以请求得到了，最后就返回
+接口数据了。</li></ol> <p>如下图所示：
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/webpack_devserver8.png"><img src="http://blog.colastar.club:9527/static/images/webpack_devserver8.png" alt=""></a></p> <h2 id="什么-是模块热更新"><a href="#什么-是模块热更新" class="header-anchor">#</a> 什么 是模块热更新？</h2> <p>模块热更新是Webpack是的一个功能，它可以使得代码修改以后不需刷新浏览器就可以更新，是高级版的自动刷新浏览器。devServer通过hot属性可以控制模块热更替。</p> <blockquote><p>通过配置文件</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>const webpack = require('webpack');
+const path = require('path');
+let env = process.env.NODE_ENV == &quot;development&quot; ? &quot;development&quot; : &quot;production&quot;;
+const config = {
+  mode: env,
+  devServer: {
+     hot:true //模块热替换特性
+  },
+  plugins: [
+     new webpack.HotModuleReplacementPlugin(), //热加载插件
+  ]
+}
+module.exports = config;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><blockquote><p>通过命令行</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>&quot;script&quot;: {
+  &quot;start&quot;: &quot;NODE_EVN=development webpack-dev-server --config webpack-devlop-config.js --hot&quot;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="webpack的热更新是如何做到的-说明其原理"><a href="#webpack的热更新是如何做到的-说明其原理" class="header-anchor">#</a> Webpack的热更新是如何做到的？说明其原理？</h2> <p>Webpack的热更新有称为热替换(Hot Module Replacement)，缩写为HMR。这个机制可以实现不刷新浏览器而将新变更的模块替换旧的模块。原来如下：</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/webpack热更新.jpeg"><img src="http://blog.colastar.club:9527/static/images/webpack%E7%83%AD%E6%9B%B4%E6%96%B0.jpeg" alt=""></a></p> <blockquote><p>server端和client端都做了哪些具体工作：</p></blockquote> <ul><li>1.第一步，在<code>Webpack</code>的<code>watch</code>模式下，文件系统中某一个文件发生修改，<code>Webpack</code>监听到文件变化，根据配置文件对模块重新编译打包，并将打包后的代码通过简单的JavaScript对象保存在内存中。</li> <li>2.第二步是<code>Webpack-dev-server</code>和<code>Webpack</code>之间的接口交互，而在这一步，主要是<code>dev-server</code>的中间件<code>Webpack-dev-middleware</code>和<code>Webpack</code>之间的交互，<code>Webpack-dev-middleware</code>调用<code>Webpack</code>暴露的API对代码变化进行监控，并且告诉webpack，将代码打包到内存中。</li> <li>3.第三步是<code>Webpack-dev-server</code>对文件变化的一个监控，这一步不同于第一步，并不是监控代码变化重新打包。当我们在配置文件中配置了<code>devServer.watchContentBase</code>为<code>true</code>的时候，<code>Server</code>会监听这些配置文件夹中静态文件的变化，变化后会通知浏览器端对应用进行<code>live reload</code>。注意，这儿是<strong>浏览器刷新</strong>，和<code>HMR</code>是两个概念。</li> <li>4.第四步也是<code>webpack-dev-server</code>代码的工作，该步骤主要是通过<code>sockjs</code>（<code>webpack-dev-server</code> 的依赖）在浏览器端和服务端之间建立一个<code>websocket</code>长连接，将<code>Webpack</code>编译打包的各个阶段的状态信息告知浏览器端，同时也包括第三步中<code>Server</code>监听静态文件变化的信息。浏览器端根据这些<code>socket</code>消息进行不同的操作。当然服务端传递的最主要信息还是新模块的<code>hash</code> 值，后面的步骤根据这一<code>hash</code>值来进行模块热替换。</li> <li>5.<code>webpack-dev-server/client</code>端并不能够请求更新的代码，也不会执行热更模块操作，而把这些工作又交回给了<code>Webpack</code>，<code>webpack/hot/dev-server</code>的工作就是根据<code>webpack-dev-server/client</code>传给它的信息以及<code>dev-server</code>的配置决定是<strong>刷新浏览器</strong>呢还是进行<strong>模块热更新</strong>。当然如果仅仅是刷新浏览器，也就没有后面那些步骤了。</li> <li>6.<code>HotModuleReplacement.runtime</code>是客户端<code>HMR</code>的中枢，它接收到上一步传递给他的新模块的<code>hash</code>值，它通过<code>JsonpMainTemplate.runtime</code>向<code>server</code>端发送<code>Ajax</code>请求，服务端返回一个<code>json</code>，该<code>json</code>包含了所有要更新的模块的<code>hash</code>值，获取到更新列表后，该模块再次通过<code>jsonp</code>请求，获取到最新的模块代码。这就是上图中 7、8、9 步骤。</li> <li>7.而第 10 步是决定<code>HMR</code>成功与否的关键步骤，在该步骤中，<code>HotModulePlugin</code>将会对新旧模块进行对比，决定是否更新模块，在决定更新模块后，检查模块之间的依赖关系，更新模块的同时更新模块间的依赖引用。</li> <li>8.最后一步，当<code>HMR失</code>败后，回退到<code>live reload</code>操作，也就是进行浏览器刷新来获取最新打包代码。</li></ul> <h2 id="webpack-dev-server和http服务器如nginx有什么区别"><a href="#webpack-dev-server和http服务器如nginx有什么区别" class="header-anchor">#</a> webpack-dev-server和http服务器如nginx有什么区别？</h2> <p>webpack-dev-server使用内存来存储Webpack开发环境下打包的文件，并且可以使用模块热更新，它比传统的http服务对开发更加简单高效。</p> <h2 id="如何提高webpack的构建速度"><a href="#如何提高webpack的构建速度" class="header-anchor">#</a> 如何提高webpack的构建速度?</h2> <h3 id="常规"><a href="#常规" class="header-anchor">#</a> 常规</h3> <blockquote><p>保持版本最新
+使用最新稳定版本的webpack、node、npm等，较新的版本更够建立更高效的模块树以及提高解析速度。
+优化loaders配置</p></blockquote> <p>由于loader对文件的转换操作很耗时，所以需要让尽可能少的文件被loader处理。我们可以通过以下3方面优化loader配置：</p> <ul><li>优化正则匹配</li> <li>通过cacheDirectory选项开启缓存</li> <li>通过include、exclude来减少被处理的文件</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>// webpack.common.js
+
+module: {
+    rules: [
+        {
+            test:/\.js$/,
+            //babel-loader支持缓存转换出的结果，通过cacheDirectory选项开启
+            loader:'babel-loader?cacheDirectory',
+            //只对项目根目录下的src 目录中的文件采用 babel-loader
+            include: [path.resolve('src')],
+            //排除 node_modules 目录下的文件，node_modules 目录下的文件都是采用的 ES5 语法，没必要再通过 Babel 去转换
+            exclude: path.resolve(__dirname, 'node_modules')
+        }
+    ]
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><blockquote><p>优化最小化css代码
+它是专门对css做压缩、去重的专门为cssnano做的一款插件用来提取用的</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+      }
+    ]
+  },
+  plugins: [
+    new ExtractTextPlugin('styles.css'),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.optimize\.css$/g,
+      cssProcessor: require('cssnano'),
+      cssProcessorPluginOptions: {
+        preset: ['default', { discardComments: { removeAll: true } }],
+      },
+      canPrint: true
+    })
+  ]
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><blockquote><p>optimization.splitChunks 提取公共代码</p></blockquote> <p><code>Webpack 4</code>移除了<code>CommonsChunkPlugin</code>取而代之的是两个新的配置项<code>optimization.splitChunks</code>和<code>optimization.runtimeChunk</code>来简化代码分割的配置。
+通过设置 <code>optimization.splitChunks.chunks: &quot;all&quot;</code> 来启动默认的代码分割配置项。
+当满足如下条件时，<code>webpack</code> 会自动打包 <code>chunks</code>:</p> <ul><li>当前模块是公共模块（多处引用）或者模块来自node_modules</li> <li>当前模块大小大于30kb, 如果此模块是按需加载，并行请求的最大数量小于等于5</li> <li>如果此模块在初始页面加载，并行请求的最大数量小于等于 3</li></ul> <p><code>runtimeChunk</code>的作用是将包含<code>chunks</code>映射关系的 <code>list</code>单独从 <code>app.js</code>里提取出来，因为每一个 <code>chunk</code> 的 <code>id</code> 基本都是基于内容 <code>hash</code> 出来的，所以你每次改动都会影响它，如果不将它提取出来的话，等于<code>app.js</code>每次都会改变。缓存就失效了。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>optimization: {
+    runTimeChunk:{
+      name:'runtime'
+    },
+    splitChunks: {
+        chunks: 'async', 是否对异步代码进行的代码分割
+        //默认作用于异步chunk，值为all/initial/async/function(chunk),值为function时第一个参数为遍历所有入口chunk时的chunk模块，chunk._modules为gaichunk所有依赖的模块，通过chunk的名字和所有依赖模块的resource可以自由配置,会抽取所有满足条件chunk的公有模块，以及模块的所有依赖模块，包括css
+        minSize: 30000,  // 引入模块大于30kb才进行代码分割  //默认值是30kb
+        maxSize: 0, // 引入模块大于Xkb时，尝试对引入模块二次拆分引入
+        minChunks: 2, // 引入模块至被使用2次后才进行代码分割  //被多少模块共享
+        maxAsyncRequests: 5, //  //所有异步请求不得超过5个，最大请求数
+        maxInitialRequests: 3,  //初始话并行请求不得超过3个
+        automaticNameDelimiter: '~', // 模块间的连接符，默认为&quot;~&quot;
+        name: true,//打包后的名称，默认是chunk的名字通过分隔符（默认是～）分隔开，如vendor~
+        cacheGroups: {//对缓存的文件生效//设置缓存组用来抽取满足不同规则的chunk,下面以生成common为例
+            common: {
+              name: 'common',  //抽取的chunk的名字
+              chunks(chunk) { //同外层的参数配置，覆盖外层的chunks，以chunk为维度进行抽取
+              },
+              test(module, chunks) {  //可以为字符串，正则表达式，函数，以module为维度进行抽取，只要是满足条件的module都会被抽取到该common的chunk中，为函数时第一个参数是遍历到的每一个模块，第二个参数是每一个引用到该模块的chunks数组。自己尝试过程中发现不能提取出css，待进一步验证。
+              },
+              priority: 10,  //优先级，一个chunk很可能满足多个缓存组，会被抽取到优先级高的缓存组中
+              minChunks: 2,  //最少被几个chunk引用
+              reuseExistingChunk: true，//	如果该chunk中引用了已经被抽取的chunk，直接引用该chunk，不会重复打包代码
+              enforce: true  // 如果cacheGroup中没有设置minSize，则据此判断是否使用上层的minSize，true：则使用0，false：使用上层minSize
+            }
+
+            vendors: {
+                test: /[\\/]node_modules[\\/]/,
+                priority: -10  // 优先级，越小优先级越高
+            },
+            default: {  // 默认设置，可被重写
+                minChunks: 2,
+                priority: -20,
+                reuseExistingChunk: true  // 如果本来已经把代码提取出来，则重用存在的而不是重新产生
+            }
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div><p>为啥移除呢？
+CommonsChunkPlugin存在以下三个问题：</p> <ul><li><p>1:产出的chunk在引入的时候，会包含重复的代码；</p></li> <li><p>2: 无法优化异步chunk；</p></li> <li><p>3:高优的chunk产出需要的minchunks配置比较复杂。</p></li></ul> <p>为了解决这些问题，webpack4中用splitchunks替代了CommonsChunkPlugin。</p> <blockquote><p>Smaller = false</p></blockquote> <p>减少编译的整体大小，以提高构建性能。尽量保持<code>chunks</code>小巧。</p> <ul><li>使用更小/更少的库</li> <li>移除不需要的代码</li> <li>只编译你在开发的代码</li></ul> <blockquote><p>Worker Pool</p></blockquote> <p><code>thread-loader</code>可以将非常耗性能的<code>loaders</code>转存到<code>worker pool</code>中。
+不要使用太多的<code>workers</code>，因为<code>Node.js</code>的<code>runtime</code>和<code>loader</code>有一定的启动开销。最小化<code>workers</code>和主进程间的模块传输。进程间通讯(<code>IPC</code>)是非常消耗资源的。</p> <p>其实就是在多个线程上做计算
+**注意：**这个一般是在大项目上使用，在小项目上使用反而会加长构建时间。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        include: path.resolve(&quot;src&quot;),
+        use: [
+          &quot;thread-loader&quot;,
+          // your expensive loader (e.g babel-loader)
+        ]
+      }
+    ]
+  }
+}
+//with option
+{
+    loader: &quot;thread-loader&quot;,
+    // loaders with equal options will share worker pools
+    options: {
+      // the number of spawned workers, defaults to (number of cpus - 1) or
+      // fallback to 1 when require('os').cpus() is undefined
+      workers: 2,或者require('os').cpus - 1
+ 
+      // number of jobs a worker processes in parallel
+      // defaults to 20
+      workerParallelJobs: 50,
+ 
+      // additional node.js arguments
+      workerNodeArgs: ['--max-old-space-size=1024'],
+ 
+      // Allow to respawn a dead worker pool
+      // respawning slows down the entire compilation
+      // and should be set to false for development
+      poolRespawn: false,
+ 
+      // timeout for killing the worker processes when idle
+      // defaults to 500 (ms)
+      // can be set to Infinity for watching builds to keep workers alive
+      poolTimeout: 2000,
+ 
+      // number of jobs the poll distributes to the workers
+      // defaults to 200
+      // decrease of less efficient but more fair distribution
+      poolParallelJobs: 50,
+ 
+      // name of the pool
+      // can be used to create different pools with elsewise identical options
+      name: &quot;my-pool&quot;
+    }
+  },
+  // your expensive loader (e.g babel-loader)
+  babel-loader
+  }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br></div></div><blockquote><p>持久化缓存</p></blockquote> <p>对于一些性能开销较大的<code>loader</code>之前可以添加<code>cache-loader</code>，启用持久化缓存。
+使用<code>package.json</code>中的<code>postinstall</code>清楚缓存目录。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.ext$/,
+        use: ['cache-loader', ...loaders],
+        include: path.resolve('src'),
+      },
+    ],
+  },
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><blockquote><p>Dlls</p></blockquote> <p>使用<code>DllPlugin</code>将更新不频繁的代码进行单独编译。这将改善引用程序的编译速度。即使它增加了构建过程的复杂度。
+利用<code>DllPlugin</code>和<code>DllReferencePlugin</code>预编译资源模块， 通过<code>DllPlugin</code>来对那些我们引用但是绝对不会修改的<code>npm</code>包来进行预编译，再通过<code>DllReferencePlugin</code>将预编译的模块加载进来。</p> <blockquote><p>解析(resolve)</p></blockquote> <p>以下几步可以提高解析速度：</p> <ul><li>通过externals踢出去一部分文件，防止打俩份，或者可以直接使用cdn</li> <li>尽量减少<code>resolve.modules</code>、<code>resolve.extensions</code>、<code>resolve.mainFiles</code>、<code>resolve.desciriptionsFiles</code>中类目的数量，因为它们会增加文件系统的调用次数。</li> <li>如果你不使用<code>symlinks</code>，可以设置<code>resolve.symlinks: false</code></li> <li>如果你使用自定义解析<code>plugins</code>，并且没有指定<code>context</code>信息，可以设置<code>resolve.cacheWithContext: false</code></li></ul> <h3 id="开发环境-development"><a href="#开发环境-development" class="header-anchor">#</a> 开发环境 Development</h3> <blockquote><p>在内存中编译</p></blockquote> <p>以下几个实用的工具通过在内存中进行代码的编译和资源的提供，但并不写入磁盘来提高性能：</p> <ul><li>webpack-dev-server</li> <li>webpack-hot-middleware</li> <li>webpack-dev-middleware</li></ul> <blockquote><p>Devtool</p></blockquote> <p>需要注意在不同的<code>devtool</code>的设置，会导致不同的性能差异。</p> <p>source-map 对于开发调试，打包速度还是影响很大的</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/source-map配置图.jpeg"><img src="http://blog.colastar.club:9527/static/images/source-map%E9%85%8D%E7%BD%AE%E5%9B%BE.jpeg" alt=""></a></p> <ul><li><p><code>eval</code>具有最好的性能，但不能帮你转义代码,可以提升一个打包速度,会dist 目录下创建 .map 文件
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/source-map-eval.jpeg"><img src="http://blog.colastar.club:9527/static/images/source-map-eval.jpeg" alt=""></a></p></li> <li><p><code>inline</code> 不产生独立的 .map 文件，而把 source-map 的内容以 dataURI的方式追加到 bundle 件末尾
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/source-map-inile.jpeg"><img src="http://blog.colastar.club:9527/static/images/source-map-inile.jpeg" alt=""></a></p></li> <li><p><code>cheap</code>忽略列信息,也就是出了问题只能定位到某一行，不能定位到这行的哪一列， cheap 主要是为了提升打包速度，很好理解嘛，只关注行，不关注列，生成map的速度肯定快啊~~</p></li> <li><p><code>module</code> module 的作用是 map 到 loader 处理前的文件，如果不加 module, 实际上是 map 到源文件经过对应 loader 处理后的样子。这个需要 loader 的支持</p></li> <li><p><code>hidden-source-map</code>:就是不在 bundle 文件结尾处追加 sourceURL 指定其 sourcemap文件的位置，但是仍然会生成 sourcemap 文件。这样，浏览器开发者工具就无法应用sourcemap, 目的是避免把sourcemap文件发布到生产环境，造成源码泄露。而在生产环境应该用错误报告工具结合 sourcemap 文件来查找问题</p></li> <li><p><code>nosources-source-map</code>：sourcemap 中不带有源码，这样，<code>sourcemap</code>可以部署到生产环境而不会造成源码泄露，同时一旦出了问题，<code>error stacks</code> 中会显示准确的错误信息，比如发生在哪个源文件的哪一行，如图：
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/nosources-source-map.jpeg"><img src="http://blog.colastar.club:9527/static/images/nosources-source-map.jpeg" alt=""></a></p></li> <li><p>如果你能接受稍微差一些的<code>mapping</code>质量，你可以使用<code>cheap-source-map</code>选择来提高性能</p></li> <li><p>使用<code>eval-source-map</code>配置进行增量编译</p></li></ul> <p>在大多数情况下，<code>cheap-module-eval-source-map</code>是最好的选择。</p> <blockquote><p>避免在生产环境在才会用到的工具</p></blockquote> <p>某些实用工具，<code>plugins</code>和<code>loaders</code>都只能在构建生产环境时才使用。例如，在开发时使用<code>UglifyJsPlugin</code>来压缩和修改代码是没有意义的。以下这些工具在开发中通常被排除在外：</p> <ul><li>UglifyJsPlugin</li> <li>ExtractTextPlugin</li> <li><code>[hash]/[chunkhash]</code></li> <li>AggressiveSplittingPlugin</li> <li>AggressiveMergingPlugin</li> <li>ModuleConcatenationPlugin</li></ul> <blockquote><p>最小化入口chunk</p></blockquote> <p>webpack只会在文件系统中生成已更新的chunk。应当在生成入口chunk时，尽量减少入口chunk的体积，以提高性能。</p> <h3 id="生产环境-production"><a href="#生产环境-production" class="header-anchor">#</a> 生产环境 Production</h3> <p>不要为了非常小的性能增益，牺牲了你应用程序的质量！！请注意，在大多数情况下优化代码质量，比构建性能更重要。</p> <blockquote><p>多个编译时
+当进行多个编译时，以下工具可以帮助到你：</p></blockquote> <ul><li><code>parallel-webpack</code>: 它允许编译工作在woker池中进行。</li> <li><code>cache-loader</code>: 缓存可以在多个编译之间共享。</li></ul> <h3 id="工具相关问题"><a href="#工具相关问题" class="header-anchor">#</a> 工具相关问题</h3> <blockquote><p>Babel
+项目中的<code>preset/plugins</code>数量最小化
+TypeScript</p></blockquote> <ul><li>在单独的进程中使用<code>fork-ts-checker-webpack-plugin</code>进行类型检查</li> <li>配置<code>loaders</code>时跳过类型检查</li> <li>使用<code>ts-loader</code>时，设置<code>happyPackMode: true</code>以及 <code>transpileOnly: true</code></li></ul> <blockquote><p>Saas
+<code>node-sass</code>中有个来自<code>Node.js</code>线程池的阻塞线程的<code>bug</code>。当使用<code>thread-loader</code>时，需要设置<code>workParallelJobs: 2</code></p></blockquote> <h2 id="如何利用webpack来优化前端性能-提高性能和体验"><a href="#如何利用webpack来优化前端性能-提高性能和体验" class="header-anchor">#</a> 如何利用Webpack来优化前端性能？（提高性能和体验）</h2> <p>用<code>Webpack</code>优化前端性能是指优化<code>Webpack</code>输出结果，让打包的结果在浏览器运行快速高效。</p> <ul><li>压缩代码。删除多余的代码/注释，简化代码的写法等等方式。可以利用<code>Webpack</code>的<code>UglifyJsPlugin</code>和<code>ParallelUglifyPlugin</code>来压缩<code>JavaScript</code>代码。利用<code>css-loader?minimize</code>来压缩CSS</li> <li>压缩图片。利用<code>imagemin-webpack-plugin</code>等图片资源压缩插件，对引用的图片资源进行压缩处理</li> <li>合理的图片资源引用。使用<code>url-loader</code>加载解析图片资源时，可以通过配置<code>options limit</code>参数，将较小的图片资源转换成<code>base64</code>格式，减少<code>http</code>请求</li> <li>利用<code>CDN</code>加速。在构建过程中，将引用的静态资源路径修改为<code>CDN</code>上对应的路径。可以利用<code>Webpack</code>对于<code>output</code>参数和各个<code>loader</code>的<code>publicPath</code>参数来修改资源路径</li> <li>删除死代码(<code>Tree Shaking</code>)。将代码中没有引用的代码片段删除掉。可以通过在启动<code>Webpack</code>时追加参数<code>--optimize-minimize</code>来实现</li> <li>提取公共代码</li></ul> <h2 id="npm打包时需要注意哪些-如何利用webpack来更好的构建"><a href="#npm打包时需要注意哪些-如何利用webpack来更好的构建" class="header-anchor">#</a> npm打包时需要注意哪些？如何利用Webpack来更好的构建？</h2> <blockquote><p>npm模块需要注意以下问题：</p></blockquote> <ul><li>要支持CommonJS模块化规范，所以打包后的最后结果也要支持该规则</li> <li>npm模块使用者的环境是不确定的，很有可能并不支持ES6，所以打包的最后结果应该是采用ES5编写的。并且如果ES5是经过转换的，请最好连同SourceMap一同上传</li> <li>npm包大小应该是尽量小（有些仓库会限制包大小）</li> <li>发布的模块不能将依赖的模块也一同打包，应该让用户选择性的去自行安装。这样可以避免模块应用者再次打包时出现底层模块被重复打包的情况</li> <li>UI组件类的模块应该将依赖的其它资源文件，例如.css文件也需要包含在发布的模块里</li></ul> <h2 id="基于以上需要注意的问题-我们可以对于webpack配置做以下扩展和优化"><a href="#基于以上需要注意的问题-我们可以对于webpack配置做以下扩展和优化" class="header-anchor">#</a> 基于以上需要注意的问题，我们可以对于Webpack配置做以下扩展和优化：</h2> <ul><li><code>CommonJS</code>模块化规范的解决方案： 设置<code>output.libraryTarget='commonjs2'</code>使输出的代码符合<code>CommonJS2</code>模块化规范，以供给其它模块导入使用</li> <li>输出ES5代码的解决方案：使用<code>babel-loader</code>把ES6代码转换成<code>ES5</code>的代码。再通过开启<code>devtool: 'cheap-module-eval-source-map'</code>输出<code>SourceMap</code>以发布调试</li> <li><code>npm</code>包大小尽量小的解决方案：<code>Babel</code>在把<code>ES6</code>代码转换成<code>ES5</code>代码时会注入一些辅助函数，最终导致每个输出的文件中都包含这段辅助函数的代码，造成了代码的冗余。解决方法是修改<code>.babelrc</code>文件，为其加入<code>transform-runtime</code>插件</li> <li>不能将依赖模块打包到<code>npm</code>模块中的解决方案：使用<code>externals</code>配置项来告诉<code>Webpack</code>哪些模块不需要打包</li> <li>对于依赖的资源文件打包的解决方案：通过<code>css-loade</code>r和<code>extract-text-webpack-plugin</code>来实现，配置如下：</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>const ExtractTextPlugin = require('extract-text-webpack-plugin');
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({ use: ['css-loader'] })  // 提取出chunk中的css到单独的文件中
+      }
+    ]  
+  },
+  plugins: [
+    new ExtractTextPlugin({ filename: 'index.css' })
+  ]
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h2 id="分析工具"><a href="#分析工具" class="header-anchor">#</a> 分析工具</h2> <blockquote><p>speed-measure-webpack-plugin
+为你的原始配置包一层 smp.wrap 就可以了，接下来执行构建，你就能在 console 面板看到如它 demo 所示的各类型的模块的执行时长。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+const SpeedMeasurePlugin = require(&quot;speed-measure-webpack-plugin&quot;);	
+const smp = new SpeedMeasurePlugin();	
+module.exports = smp.wrap(YourWebpackConfig);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><blockquote><p>webpack-bundle-awalyzer
+会把所有打包后的文件生成一份文档
+webpack-jarvis
+这个比上一个
+叫美观和详细</p></blockquote> <h2 id="如何优雅的编写你的entry"><a href="#如何优雅的编写你的entry" class="header-anchor">#</a> 如何优雅的编写你的Entry</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>if (/.+\/([a-zA-Z]+-[a-zA-Z]+)(\.entry\.js$)/g.test(item) == true) { const entrykey = RegExp.$1
+_entry[entrykey] = item;
+const [dist, template] = entrykey.split(“-&quot;);
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="开发webpack-loader"><a href="#开发webpack-loader" class="header-anchor">#</a> 开发webpack loader</h2> <h3 id="loader源码分析"><a href="#loader源码分析" class="header-anchor">#</a> loader源码分析</h3> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/loader源码分析.png"><img src="http://blog.colastar.club:9527/static/images/loader%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.png" alt=""></a></p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/loader源码分析code.png"><img src="http://blog.colastar.club:9527/static/images/loader%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90code.png" alt=""></a></p> <blockquote><p>⚠️注意：</p></blockquote> <ul><li><p>1、一个 Loader 的职责是单一的，只需要完成一种转换。如果一个源文件需要经历多步转换才能正常使用，就通过多个 Loader 去转换。在调用多个 Loader 去转换一个文件时，每个 Loader 会链式的顺序执行， 第一个 Loader 将会拿到需处理的原内容，上一个 Loader 处理后的结果会传给下一个接着处理，最后的 Loader 将处理后的最终结果返回给 Webpack。</p></li> <li><p>2、所以，在你开发一个 Loader 时，请保持其职责的单一性，你只需关心输入和输出。</p></li> <li><p>3.use: ['bar-loader', 'foo-loader'] 时，loader 是以相反的顺序执行的</p></li> <li><p>4.最后的 loader 最早调用，传入原始的资源内容(可能是代码，也可能是二进制文件，用 buffer 处理)第一个 loader 最后调用，期望返回是 JS 代码和 sourcemap 对象(可选)中间 的 loader 执行时，传入的是上一个 loader 执行的结果</p></li> <li><p>5.多个 loader 时遵循这样的执行顺序，但对于大多数单个 loader 来说无须感知这一点，只负 责好处理接受的内容就好。</p></li> <li><p>6.还有一个场景是 loader 中的异步处理。有一些 loader 在执行过程中可能依赖于外部 I/O 的结果，导致它必须使用异步的方式来处理，这个使用需要在 loader 执行时使用 this.async() 来标识该 loader 是异步处理的，然后使用 this.callback 来返回 loader 处理结果。</p></li></ul> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/loader源码ast.png"><img src="http://blog.colastar.club:9527/static/images/loader%E6%BA%90%E7%A0%81ast.png" alt=""></a></p> <p>在计算机科学中，抽象语法树(abstract syntax tree 或者缩写为 AST)，或者语法树(syntax tree)，是源 代码的抽象语法结构的树状表现形式，这里特指编程语言的源代码。树上的每个节点都表示源代码中的一种结 构。之所以说语法是「抽象」的，是因为这里的语法并不会表示出真实语法中出现的每个细节。</p> <p>Webpack 提供的一个很大的便利就是能将所有资源都整合成模块，不仅仅是 js 文件。所以需要一些loader ，比如 url-loader 等等来让我们可以直接在源文件中引用各类资源。最后调用 acorn(Esprima) 解析经 loader 处理后的源文件生成抽象语法树 AST</p> <ul><li>type:描述该语句的类型 --变量声明语句</li> <li>kind:变量声明的关键字 -- var</li> <li>declaration: 声明的内容数组，里面的每一项也是一个对象 type: 描述该语句的类型</li> <li>id: 描述变量名称的对象 type:定义</li> <li>name: 是变量的名字 init: 初始化变量值得对象</li> <li>type: 类型</li> <li>value: 值 &quot;is tree&quot; 不带引号 row: &quot;&quot;is tree&quot;&quot; 带引号</li></ul> <p><a data-fancybox="" title="" href="https://raw.githubusercontent.cwom/ColaStar/static/master/images/手写loader.png"><img src="http://blog.colastar.club:9527/static/images/%E6%89%8B%E5%86%99loader.png" alt=""></a></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>//入口文件
+const a = 20;
+-------------------------
+loader/index.js
+-------------------------
+//loader执行之前
+module.exports.pitch = function(r1,r2,data){
+    data.value = 'yd';
+}
+//同步loader
+module.exports = function(content, map, meta){
+    console.log('得到的数据', content);//将const a = 20;转化成buffer &lt;Buffer xxxxx ... &gt;
+    console.log('loader预先得到的数据', this.data.value);//yd
+    return '{};'+content;
+    // this.callback(null, content, map, meta);
+};
+//异步loader
+module.exports = function(content, map, meta){
+ var callback = this.async();
+ (funciton(){....}).then(function(){
+     if(err){
+         callback(err);
+     }else{
+         callback(null, ......)
+     }
+ })
+};
+//流的方式
+//module.exports.raw = true;
+-----------------------------------
+webpack.config.js
+-----------------------------------
+const path = require('path');
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                loader: path.resolve('./loader/index.js')
+            }
+        ]
+    }
+};
+
+//最后生成代码
+eval(&quot;{};const a = 20;\r\n\r\n//import bar from './bar.js';\r\n//bar.init();\n\n//# sourceURL=webpack:///./src/index.js?&quot;);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><h2 id="编写过webpack插件"><a href="#编写过webpack插件" class="header-anchor">#</a> 编写过webpack插件</h2> <p>webpack实现插件机制的⼤大体⽅方式是:</p> <ul><li>「创建」—— webpack在其内部对象上创建各种钩⼦;</li> <li>「注册」—— 插件将⾃己的方法注册到对应钩⼦子上，交给webpack;</li> <li>「调⽤」—— webpack编译过程中，会适时地触发相应钩⼦子，因此也 就触发了插件的⽅法。</li></ul> <p>打开 Webpack 4.0 的源码中一定会看到下面这些以 Sync、Async 开头，以 Hook 结尾的方法，这些都是 tapable 核心库的类，为我们提供不同的事件流执行机制，我们称为 “钩子”。</p> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/tapable.png"><img src="http://blog.colastar.club:9527/static/images/tapable.png" alt=""></a></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 引入 tapable 如下
+const {
+    SyncHook,  //串行同步执行，不关心事件处理函数的返回值，在触发事件之后，会按照事件注册的先后顺序执行所有的事件处理函数。
+    SyncBailHook, //同样为串行同步执行，如果事件处理函数执行时有一个返回值不为空（即返回值为 undefined），则跳过剩下未执行的事件处理函数（如类的名字，意义在于保险）。
+    SyncWaterfallHook, // 为串行同步执行，上一个事件处理函数的返回值作为参数传递给下一个事件处理函数，依次类推，正因如此，只有第一个事件处理函数的参数可以通过 call 传递，而 call 的返回值为最后一个事件处理函数的返回值。
+    SyncLoopHook, // 为串行同步执行，事件处理函数返回 true 表示继续循环，即循环执行当前事件处理函数，返回 undefined 表示结束循环，SyncLoopHook 与 SyncBailHook 的循环不同，SyncBailHook 只决定是否继续向下执行后面的事件处理函数，而 SyncLoopHook 的循环是指循环执行每一个事件处理函数，直到返回 undefined 为止，才会继续向下执行其他事件处理函数，执行机制同理。
+    AsyncParallelHook, //异步并行执行,通过 tapAsync 注册的事件，通过 callAsync 触发，通过 tapPromise 注册的事件，通过 promise 触发（返回值可以调用 then 方法）。
+    AsyncParallelBailHook,异步并行执行，返回值不为 undefined，即有返回值，则立即停止向下执行其他事件处理函数，
+    AsyncSeriesHook, //异步串行同上
+    SyncBailHook。
+    AsyncSeriesBailHook,
+    AsyncSeriesWaterfallHook
+ } = require(&quot;tapable&quot;);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>详细<a href="https://www.jianshu.com/p/273e1c9904d2" target="_blank" rel="noopener noreferrer">Webpack 核心模块 tapable 解析<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>上面的实现事件流机制的 “钩子” 大方向可以分为两个类别，“同步” 和 “异步”，“异步” 又分为两个类别，“并行” 和 “串行”，而 “同步” 的钩子都是串行的。</p> <p>webpack 利用了 tapable 这个库(<a href="https://github.com/webpack/tapable" target="_blank" rel="noopener noreferrer"><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>)来协助实现对于整个 构建流程各个步骤的控制。 tapable 定义了主要构建流程后，使用 tapable 这个库添加了各种各样的 钩子方法来将 webpack 扩展至功能十分丰富,这就是plugin 的机制。也可以说webpack核心使用Tapable 来实现插件(plugins)的binding和applying.Tapable是一个用于事件发布订阅执行的插件架构。Tapable就是webpack用来创建钩子的库。</p> <p>那么让我们打开webpack-&gt;package.json-&gt;main -&gt; webpac.js 一起分析~</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>创建 Compiler -&gt; 
+调用 compiler.run 开始构建 -&gt; 
+创建 Compilation -&gt; 
+基于配置开始创建 Chunk -&gt; 
+使用 Parser 从 Chunk 开始解析依赖 -&gt; 
+使用 Module 和 Dependency 管理代码模块相互关系 -&gt; 
+ 使用 Template 基于 Compilation 的数据生成结果代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/plugin1.png"><img src="http://blog.colastar.club:9527/static/images/plugin1.png" alt=""></a></p> <p>⚠️注意：</p> <ul><li>1.事件钩子会有不同的类型 SyncBailHook，AsyncSeriesHook，SyncHook等。</li> <li>2.如果是异步的事件钩子，那么可以使用 tapPromise 或者 tapAsync 来注册事件函数， tapPromise 要求方法返回 Promise 以便处理异 步，而 tapAsync 则是需要用 callback 来返回结 果。</li> <li><ol start="3"><li></li></ol></li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>compiler.hooks.done.tapPromise('PluginName', (stats) =&gt; {
+   return new Promise((resolve, reject) =&gt; {
+// 处理promise的返回结果 reject(err) : resolve()})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ul><li><p>4.compiler.hooks.done.tapAsync('PluginName', (stats, callback) =&gt; { callback(err)) })</p></li> <li><p>5.除了同步和异步的，名称带有 parallel 的，注册的事件函数会并行调用，名称带有 bail 的，注册的事件函数会被顺序调用，直至一个处理方法有返回值名称带有 waterfall 的，每个 注册的事件函数，会将上一个方法的返回结果作为输入参数。有一些类型是可以结合到一起 的，如 AsyncParallelBailHook，这样它就具备了更加多样化的特性。</p></li></ul> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/手写webpack插件.png"><img src="http://blog.colastar.club:9527/static/images/%E6%89%8B%E5%86%99webpack%E6%8F%92%E4%BB%B6.png" alt=""></a></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>compiler.hooks.done.tapPromise('PluginName', (stats) =&gt; {
+    return new Promise((resolve, reject) =&gt; {
+    // 处理promise的返回结果 reject(err) : resolve()
+});
+compiler.hooks.done.tapAsync('PluginName', (stats, callback) =&gt; {
+    callback( err)) 
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><ul><li>1、Webpack 通过 Plugin 机制让其更加灵活，以适应各种应用场景。在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。</li> <li>2、Webpack 启动后，在读取配置的过程中会先执行 new BasicPlugin(options) 初始化一个 BasicPlugin 获得其实例。在初始化 compiler 对象后，再调用 basicPlugin.apply(compiler) 给插件实例传入 compiler 对象。插件实例在获取到 compiler 对象后，就可以通过 compiler.plugin(事件名称, 回调函数) 监听到 Webpack 广播出来的事件。并且可以通过 compiler 对象去操作 Webpack。</li> <li>3、在开发 Plugin 时最常用的两个对象就是 Compiler 和 Compilation，它们是 Plugin 和 Webpack 之间的桥梁。Compiler 和 Compilation 的含义如下：Compiler 对象包含了 Webpack 环境所有的的配置信息，包含 options，loaders，plugins 这些信息，这个对象在 Webpack 启动时候被实例化，它是全局唯一的，可以简单地把它理解为 Webpack 实例；Compilation 对象包含了当前的模块资源、编译生成资源、变化的文件等。当 Webpack 以开发模式运行时，每当检测到一个文件变化，一次新的 Compilation 将被创建。Compilation 对象也提供了很多事件回调供插件做扩展。通过 Compilation 也能读取到 Compiler 对象。</li> <li>4、Compiler 和 Compilation 的区别在于：Compiler 代表了整个 Webpack 从启动到关闭的生命周期，而 Compilation 只是代表了一次新的编译。</li> <li>5、开发插件时需要注意：只要能拿到 Compiler 或 Compilation 对象，就能广播出新的事件，所以在新开发的插件中也能广播出事件，给其它插件监听使用、传给每个插件的 Compiler 和 Compilation 对象都是同一个引用。也就是说在一个插件中修改了 Compiler 或 Compilation 对象上的属性，会影响到后面的插件、有些事件是异步的，这些异步的事件会附带两个参数，第二个参数为回调函数，在插件处理完任务时需要调用回调函数通知 Webpack，才会进入下一处理流程。</li></ul> <h2 id="webpack编译过程或构建流程是什么"><a href="#webpack编译过程或构建流程是什么" class="header-anchor">#</a> webpack编译过程或构建流程是什么？</h2> <p>Webpack 的运行流程是一个串行的过程，从启动到结束会依次执行以下流程，</p> <ul><li>1、初始化参数：从配置文件和 Shell 语句中读取与合并参数，得出最终的参数；</li> <li>2、开始编译：用上一步得到的参数初始化 Compiler 对象，加载所有配置的插件，执行对象的 run 方法开始执行编译；</li> <li>3、确定入口：根据配置中的 entry 找出所有的入口文件；</li> <li>4、编译模块：从入口文件出发，调用所有配置的 Loader 对模块进行翻译，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理；</li> <li>5、完成模块编译：在经过第4步使用 Loader 翻译完所有模块后，得到了每个模块被翻译后的最终内容以及它们之间的依赖关系；</li> <li>6、输出资源：根据入口和模块之间的依赖关系，组装成一个个包含多个模块的 Chunk，再把每个 Chunk 转换成一个单独的文件加入到输出列表，这步是可以修改输出内容的最后机会；</li> <li>7、输出完成：在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写入到文件系统。在以上过程中，Webpack 会在特定的时间点广播出特定的事件，插件在监听到感兴趣的事件后会执行特定的逻辑，并且插件可以调用 Webpack 提供的 API 改变 Webpack 的运行结果。</li></ul> <p>详细的可以看下边的源码分析</p> <h2 id="webpack整体运行流程"><a href="#webpack整体运行流程" class="header-anchor">#</a> Webpack整体运行流程</h2> <p>=======</p> <h2 id="webpack整体运行流程-2"><a href="#webpack整体运行流程-2" class="header-anchor">#</a> Webpack整体运行流程</h2> <p>webpack 本质上就是一个 JS Module Bundler，用于将多个代码模块进行打包。bundler 从一个构 建入口出发，解析代码，分析出代码模块依赖关系，然后将依赖的代码模块组合在一起，在 JavaScript bundler 中，还需要提供一些胶水代码让多个代码模块可以协同工作，相互引用。下边会 举一些简单的例子来说明一下这几个关键的部分是怎么工作的。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 分别将各个依赖模块的代码⽤ modules 的⽅式组织起来打包成⼀个⽂件
+================================entry======================================
+// entry.js
+import { bar } from './bar.js'; // 依赖 ./bar.js 模块 
+
+// bar.js
+const foo = require('./foo.js'); // 依赖 ./foo.js 模块
+
+递归下去，直至没有更多的依赖模块，最终形成一颗模块依赖树。
+
+分析出依赖关系后，webpack 会利用 JavaScript Function 的特性提供一些代码来将各个模块整 合到一起，即是将每一个模块包装成一个 JS Function，提供一个引用依赖模块的方法，如下面例子 中的 __webpack__require__，这样做，既可以避免变量相互干扰，又能够有效控制执行顺序
+
+================================moudles====================================== 
+// entry.js
+modules['./entry.js'] = function() {
+const { bar } = __webpack__require__('./bar.js')
+}
+
+// bar.js
+ modules['./bar.js'] = function() {
+    const foo = __webpack__require__('./foo.js')
+ };
+ // foo.js
+ modules['./foo.js'] = function() {
+    // ... 
+ }
+
+// 分别将各个依赖模块的代码用 modules 的方式组织起来打包成一个文件 
+
+================================output===========================
+// 已经执⾏的代码模块结果会保存在这⾥
+(function(modules){
+    const installedModules = {}
+    function __webpack__require__(id) {
+        // 如果 installedModules 中有就直接获取
+        // 没有的话从 modules 中获取 function 然后执⾏，
+        //将结果缓存在 installedModules 中然后返回结果
+    }
+})({
+    &quot;./entry.js&quot;: (function(__webpack_require__){
+        var bar = __webpack_require__(/*code内容*/)
+    }),
+    &quot;./bar.js&quot;: (function(){}),
+    &quot;./foo.js&quot;: (function(){}),
+})
+其实webpack就是把AST分析树 转化成 链表
+
+// 如果 installedModules 中有就直接获取
+// 没有的话从 modules 中获取 function 然后执行，
+//将结果缓存在 installedModules 中然后返回结果 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br></div></div> <p><a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/webpack_整体行流程.png"><img src="http://blog.colastar.club:9527/static/images/webpack_%E6%95%B4%E4%BD%93%E8%A1%8C%E6%B5%81%E7%A8%8B.png" alt=""></a></p> <ul><li><p>1.<code>Compiler</code> webpack 的运行入口，<code>compiler</code>对象代表了完整的 <code>webpack</code> 环境配置。这个对象 在启动 <code>webpack</code> 时被一次性建立，并配置好所有可操作的设置，包括 <code>options</code>，<code>loader</code> 和 <code>plugin</code>。当在 <code>webpack</code> 环境中应用一个插件时，插件将收到此 <code>compiler</code> 对象的引用，可以使用 它来访问 <code>webpack</code> 的主环境。</p></li> <li><p>2.<code>Compilation</code> 对象代表了一次资源版本构建。当运行 <code>webpack</code> 开发环境中间件时，每当检 测到一个文件变化，就会创建一个新的 <code>compilation</code>，从而生成一组新的编译资源。一个 <code>compilation</code> 对象表现了当前的模块资源、编译生成资源、变化的文件、以及被跟踪依赖的状 态信息。<code>compilation</code>对象也提供了很多关键步骤的回调，以供插件做自定义处理时选择使 用。</p></li> <li><p>3.<code>Chunk</code>，即用于表示 <code>chunk</code> 的类，对于构建时需要的 <code>chunk</code> 对象由 <code>Compilation</code> 创建后保存 管理(<strong>webpack中最核心的负责编译的Compiler和负责创建bundles的Compilation都是Tapable的实 例</strong>)</p></li> <li><p>4.<a href="https://github.com/webpack/webpack/blob/master/lib/Module.js" target="_blank" rel="noopener noreferrer">Module<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，用于表示代码 模块的基础类，衍生出很多子类用于处理不同的情况(<a href="https://github.com/webpack/webpack/blob/master/lib/NormalModule.js" target="_blank" rel="noopener noreferrer">NormalModule<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>)关于代码模块的所有信息都会存在 Module 实例中，例如 dependencies 记录代码模块的依赖等,当一个 <code>Module</code> 实例被创建后，比较重要的一步是执行 <code>compilation.buildModule</code>这个方法，它 会调用 <code>Module</code> 实例的 <code>build</code> 方法来创建 <code>Module</code> 实例需要的一些东西，然后调用自身的 <code>runLoaders</code> 方法。<code>runLoaders</code>:<a href="https://github.com/webpack/loader-runner" target="_blank" rel="noopener noreferrer">loader-runner<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，执 行对应的 <code>loaders</code>，将代码源码内容一一交由配置中指定的 <code>loader</code> 处理后，再把处理的结果保 存起来。</p></li> <li><p>5.<code>Parser</code>，其中相对复杂的一个部分，基于 <code>acorn</code> 来分析 <code>AST</code> 语法树，解析出代码模块的依 赖</p></li> <li><p>6.<code>Dependency</code>，解析时用于保存代码模块对应的依赖使用的对象。 <code>Module</code> 实例的 <code>build</code> 方法 在执行完对应的 <code>loader</code>时，处理完模块代码自身的转换后，继续调用 <code>Parser</code> 的实例来解析自 身依赖的模块，解析后的结果存放在 <code>module.dependencies</code> 中，首先保存的是依赖的路径，后续会经由 <code>compilation.processModuleDependencies</code> 方法，再来处理各个依赖模块，递归地去建立 整个依赖。</p></li> <li><p>7.<code>Template</code>，生成最终代码要使用到的代码模板，像上述提到的胶水代码就是用对应的 <code>Template</code> 来生成。
+<code>Template</code> 基础类:<a href="https://github.com/webpack/webpack/blob/master/lib/Template.js" target="_blank" rel="noopener noreferrer">lib/Template.js<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>
+常用的主要 <code>Template</code> 类:<a href="https://github.com/webpack/webpack/blob/master/lib/MainTemplate.js" target="_blank" rel="noopener noreferrer">lib/MainTemplate.js<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></li></ul> <h2 id="源码分析webpack执行流程"><a href="#源码分析webpack执行流程" class="header-anchor">#</a> 源码分析webpack执行流程</h2> <blockquote><p>执行过程
+<a data-fancybox="" title="" href="http://blog.colastar.club:9527/static/images/webpack-cli执行流程源码.jpg"><img src="http://blog.colastar.club:9527/static/images/webpack-cli%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E6%BA%90%E7%A0%81.jpg" alt=""></a></p></blockquote> <ul><li>1.webpack.config.js,shell options参数解析</li> <li>2.new webpack(options)</li> <li>3.run() 编译的入口方法</li> <li>4.compile() 触发make事件</li> <li>5.addEntry() 找到js文件，进行下一步模块绑定</li> <li>6._addModuleChain() 解析js入口文件，创建模块</li> <li>7.buildModule() 编译模块，loader处理与acorn处理AST语法树</li> <li>8.seal() 每一个chunk对应一个入口文件</li> <li>9.createChunkAssets() 生成资源文件</li> <li>10.MainTemplate.render() __webpack__require()引入</li> <li>11.ModuleTemplate.render() 生成模版</li> <li>12.module.source() 将生成好的js保存在compilation.assets中</li> <li>13.Compiler.emitAssets()通过emitAssets将最终的js输出到output的path中</li></ul> <blockquote><p>1.参数解析</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>(function(){
+    yargs.options({...})
+    
+    yargs.parse(process.argv.slice(2), (err, argv, output) =&gt; {...})
+})()
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><blockquote><p>加载webpack.config.js</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>(function(){
+    ...
+    yargs.parse(process.argv.slice(2), (err, argv, output) =&gt; {
+        ...
+        //解析argv，拿到配置文件参数
+       let options =  require(&quot;./convert-argv&quot;)(argv);
+       function processOptions(options){
+           ...
+       } 
+        
+       processOptions(options);
+    })
+})()
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><blockquote><p>执行webpack()</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>(function(){
+    ...
+    yargs.parse(process.argv.slice(2), (err, argv, output) =&gt; {
+        ...
+        //解析argv，拿到配置文件参数
+       let options =  require(&quot;./convert-argv&quot;)(argv);
+       function processOptions(options){
+           ...
+           const webpack = require(&quot;webpack&quot;);
+           compiler = webpack(options);   
+       } 
+        
+       processOptions(options);
+    })
+})()
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><blockquote><p>webpack.js</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>const webpack = (options, callback) =&gt; {
+    
+    //验证webpack.config.js合法性
+    const webpackOptionsValidationErrors = validateSchema(
+        webpackOptionsSchema,
+        options
+    );
+    
+    /*
+        [
+          { entry: './index1.js', output: { filename: 'bundle1.js' } },
+          { entry: './index2.js', output: { filename: 'bundle2.js' } }
+        ]
+    */
+    if (Array.isArray(options)) {
+        compiler = new MultiCompiler(options.map(options =&gt; webpack(options)));
+    } else if(typeof options === &quot;object&quot;){
+        ...
+        //创建一个comiler对象
+        compiler = new Compiler(options.context);
+        
+        //往comiler中注册插件
+        new NodeEnvironmentPlugin().apply(compiler);
+        
+        //执行config中配置的插件
+        if (options.plugins &amp;&amp; Array.isArray(options.plugins)) {
+            for (const plugin of options.plugins) {
+                if (typeof plugin === &quot;function&quot;) {
+                    plugin.call(compiler, compiler);
+                } else {
+                    plugin.apply(compiler);
+                }
+            }
+        }
+        
+        //执行插件environment生命周期钩子方法
+        compiler.hooks.environment.call();
+        compiler.hooks.afterEnvironment.call();
+        //执行webpack内置插件
+        compiler.options = new
+        WebpackOptionsApply().process(options, compiler);
+    }else {
+        throw new Error(&quot;Invalid argument: options&quot;);
+    }
+    
+    if (callback) {
+        ...
+        //调用compiler.run开始编译
+        compiler.run(callback);
+    }
+    //将compiler对象返回
+    return compiler
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>//NodeEnvironmentPlugin.js
+class NodeEnvironmentPlugin {
+    apply(compiler) {
+        ...
+        compiler.hooks.beforeRun.tap(&quot;NodeEnvironmentPlugin&quot;, compiler =&gt; {
+            if (compiler.inputFileSystem === inputFileSystem) inputFileSystem.purge();
+        });
+    }
+}
+module.exports = NodeEnvironmentPlugin;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>class WebpackOptionsApply extends OptionsApply {
+    constructor() {
+        super();
+    }
+    process(options, compiler) {
+        //挂载配置，执行插件
+        let ExternalsPlugin;
+        compiler.outputPath = options.output.path;
+        compiler.recordsInputPath = options.recordsInputPath || options.recordsPath;
+        compiler.recordsOutputPath =
+            options.recordsOutputPath || options.recordsPath;
+        compiler.name = options.name;
+        
+        new EntryOptionPlugin().apply(compiler);
+        new HarmonyModulesPlugin(options.module).apply(compiler);
+        new LoaderPlugin().apply(compiler);
+        ...
+    }
+}
+
+module.exports = WebpackOptionsApply;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><blockquote><p>compiler.run() 开始编译</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Compiler extends Tapable{
+    constructor(context){
+        ...
+    }
+    watch(){...}
+    run(callback){
+        ...
+        const onCompiled = (err, compilation){
+            ...
+        } 
+        //执行生命周期钩子
+        this.hooks.beforeRun.callAsync(this, err =&gt; {
+              ...
+            this.hooks.run.callAsync(this, err =&gt;{
+                this.readRecords(err =&gt;{
+                    ...
+                    //开始编译
+                    this.compile(onCompiled);
+                })
+            }
+        }
+    }
+    compile(callback) {
+        //拿到参数
+        const params = this.newCompilationParams();
+        //执行编译前钩子
+        this.hooks.beforeCompile.callAsync(params, err =&gt; {
+            ...
+            
+            //创建compilation对象
+            const compilation = this.newCompilation(params);
+            
+            //开始构建模块对象
+            this.hooks.make.callAsync(compilation, err =&gt;{
+                
+            })
+        }
+    }
+    createCompilation() {
+        //创建comilation对象
+        return new Compilation(this);
+    }
+    newCompilation(params) {
+        //调用创建compilation对象方法
+        const compilation = this.createCompilation();
+    }
+}
+
+module.exports = Compiler;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br></div></div><blockquote><p>创建 Compilation()</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Compilation extends Tapable {
+    constructor(compiler) {
+        super();
+        ...
+        //初始化配置
+        this.compiler = compiler;
+        this.resolverFactory = compiler.resolverFactory;
+        this.inputFileSystem = compiler.inputFileSystem;
+        this.requestShortener = compiler.requestShortener;
+        
+        //初始化模版
+        this.mainTemplate = new MainTemplate(this.outputOptions);
+        this.chunkTemplate = new ChunkTemplate(this.outputOptions);
+        this.hotUpdateChunkTemplate = new HotUpdateChunkTemplate(
+            this.outputOptions
+        );
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>class MainTemplate extends Tapable {
+    this.hooks.requireExtensions.tap(&quot;MainTemplate&quot;, (source, chunk, hash) =&gt; {
+            const buf = [];
+            const chunkMaps = chunk.getChunkMaps();
+            // Check if there are non initial chunks which need to be imported using require-ensure
+            if (Object.keys(chunkMaps.hash).length) {
+                buf.push(&quot;// This file contains only the entry chunk.&quot;);
+                buf.push(&quot;// The chunk loading function for additional chunks&quot;);
+                buf.push(`${this.requireFn}.e = function requireEnsure(chunkId) {`);
+                buf.push(Template.indent(&quot;var promises = [];&quot;));
+                buf.push(
+                    Template.indent(
+                        this.hooks.requireEnsure.call(&quot;&quot;, chunk, hash, &quot;chunkId&quot;)
+                    )
+                );
+                buf.push(Template.indent(&quot;return Promise.all(promises);&quot;));
+                buf.push(&quot;};&quot;);
+            } else if (
+                chunk.hasModuleInGraph(m =&gt;
+                    m.blocks.some(b =&gt; b.chunkGroup &amp;&amp; b.chunkGroup.chunks.length &gt; 0)
+                )
+            ) {
+                // There async blocks in the graph, so we need to add an empty requireEnsure
+                // function anyway. This can happen with multiple entrypoints.
+                buf.push(&quot;// The chunk loading function for additional chunks&quot;);
+                buf.push(&quot;// Since all referenced chunks are already included&quot;);
+                buf.push(&quot;// in this file, this function is empty here.&quot;);
+                buf.push(`${this.requireFn}.e = function requireEnsure() {`);
+                buf.push(Template.indent(&quot;return Promise.resolve();&quot;));
+                buf.push(&quot;};&quot;);
+            }
+            buf.push(&quot;&quot;);
+            buf.push(&quot;// expose the modules object (__webpack_modules__)&quot;);
+            buf.push(`${this.requireFn}.m = modules;`);
+
+            buf.push(&quot;&quot;);
+            buf.push(&quot;// expose the module cache&quot;);
+            buf.push(`${this.requireFn}.c = installedModules;`);
+
+            buf.push(&quot;&quot;);
+            buf.push(&quot;// define getter function for harmony exports&quot;);
+            buf.push(`${this.requireFn}.d = function(exports, name, getter) {`);
+            buf.push(
+                Template.indent([
+                    `if(!${this.requireFn}.o(exports, name)) {`,
+                    Template.indent([
+                        &quot;Object.defineProperty(exports, name, { enumerable: true, get: getter });&quot;
+                    ]),
+                    &quot;}&quot;
+                ])
+            );
+            buf.push(&quot;};&quot;);
+
+            buf.push(&quot;&quot;);
+            buf.push(&quot;// define __esModule on exports&quot;);
+            buf.push(`${this.requireFn}.r = function(exports) {`);
+            buf.push(
+                Template.indent([
+                    &quot;if(typeof Symbol !== 'undefined' &amp;&amp; Symbol.toStringTag) {&quot;,
+                    Template.indent([
+                        &quot;Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });&quot;
+                    ]),
+                    &quot;}&quot;,
+                    &quot;Object.defineProperty(exports, '__esModule', { value: true });&quot;
+                ])
+            );
+            buf.push(&quot;};&quot;);
+
+            buf.push(&quot;&quot;);
+            buf.push(&quot;// create a fake namespace object&quot;);
+            buf.push(&quot;// mode &amp; 1: value is a module id, require it&quot;);
+            buf.push(&quot;// mode &amp; 2: merge all properties of value into the ns&quot;);
+            buf.push(&quot;// mode &amp; 4: return value when already ns object&quot;);
+            buf.push(&quot;// mode &amp; 8|1: behave like require&quot;);
+            buf.push(`${this.requireFn}.t = function(value, mode) {`);
+            buf.push(
+                Template.indent([
+                    `if(mode &amp; 1) value = ${this.requireFn}(value);`,
+                    `if(mode &amp; 8) return value;`,
+                    &quot;if((mode &amp; 4) &amp;&amp; typeof value === 'object' &amp;&amp; value &amp;&amp; value.__esModule) return value;&quot;,
+                    &quot;var ns = Object.create(null);&quot;,
+                    `${this.requireFn}.r(ns);`,
+                    &quot;Object.defineProperty(ns, 'default', { enumerable: true, value: value });&quot;,
+                    &quot;if(mode &amp; 2 &amp;&amp; typeof value != 'string') for(var key in value) &quot; +
+                        `${this.requireFn}.d(ns, key, function(key) { ` +
+                        &quot;return value[key]; &quot; +
+                        &quot;}.bind(null, key));&quot;,
+                    &quot;return ns;&quot;
+                ])
+            );
+            buf.push(&quot;};&quot;);
+
+            buf.push(&quot;&quot;);
+            buf.push(
+                &quot;// getDefaultExport function for compatibility with non-harmony modules&quot;
+            );
+            buf.push(this.requireFn + &quot;.n = function(module) {&quot;);
+            buf.push(
+                Template.indent([
+                    &quot;var getter = module &amp;&amp; module.__esModule ?&quot;,
+                    Template.indent([
+                        &quot;function getDefault() { return module['default']; } :&quot;,
+                        &quot;function getModuleExports() { return module; };&quot;
+                    ]),
+                    `${this.requireFn}.d(getter, 'a', getter);`,
+                    &quot;return getter;&quot;
+                ])
+            );
+            buf.push(&quot;};&quot;);
+
+            buf.push(&quot;&quot;);
+            buf.push(&quot;// Object.prototype.hasOwnProperty.call&quot;);
+            buf.push(
+                `${
+                    this.requireFn
+                }.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };`
+            );
+
+            const publicPath = this.getPublicPath({
+                hash: hash
+            });
+            buf.push(&quot;&quot;);
+            buf.push(&quot;// __webpack_public_path__&quot;);
+            buf.push(`${this.requireFn}.p = ${JSON.stringify(publicPath)};`);
+            return Template.asString(buf);
+        });
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br></div></div><blockquote><p>make开始构建</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>//开始构建模块对象
+this.hooks.make.callAsync(compilation, err =&gt;{
+                
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>//SingleEntryPlugin 监听make
+class SingleEntryPlugin {
+    apply(compiler) {
+        compiler.hooks.make.tapAsync(
+            &quot;SingleEntryPlugin&quot;,
+            (compilation, callback) =&gt; {
+                const { entry, name, context } = this;
+                
+                //创建依赖
+                const dep = SingleEntryPlugin.createDependency(entry, name);
+                //添加入口文件
+                compilation.addEntry(context, dep, name, callback);
+            }
+        );
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>//Compilation.js
+class Compilation extends Tapable {
+    addEntry(context, entry, name, callback) {
+        ...
+            this._addModuleChain(
+            context,
+            entry,
+            module =&gt; {
+                this.entries.push(module);
+            },
+            (err, module) =&gt; {
+            ...
+            }
+        );
+    }
+    _addModuleChain(context, dependency, onModule, callback) {
+        ...
+        //获取模块工厂
+        const moduleFactory = this.dependencyFactories.get(Dep);
+        
+        this.semaphore.acquire(() =&gt; {
+            ...
+            //创建模块
+            moduleFactory.create(
+                {
+                    contextInfo: {
+                        issuer: &quot;&quot;,
+                        compiler: this.compiler.name
+                    },
+                    context: context,
+                    dependencies: [dependency]
+                },...)
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>class NormalModuleFactory extends Tapable {
+    ...
+    create(data, callback) {
+        ...
+        this.buildModule(module, false, null, null, err =&gt; {
+        }
+    }
+    buildModule(module, optional, origin, dependencies, thisCallback) {
+        ...
+        //开始编译
+        module.build(
+            this.options,
+            this,
+            this.resolverFactory.get(&quot;normal&quot;, module.resolveOptions),
+            this.inputFileSystem,...)
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>//NodmalModule
+doBuild(options, compilation, resolver, fs, callback) {
+        const loaderContext = this.createLoaderContext(
+            resolver,
+            options,
+            compilation,
+            fs
+        );
+        ...
+        //开始运行loader
+        runLoaders(
+            {
+                resource: this.resource,
+                loaders: this.loaders,
+                context: loaderContext,
+                readResource: fs.readFile.bind(fs)
+            },
+            (err, result) =&gt; {
+            
+            );
+         )  }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>总结</p> <blockquote><p>初始化阶段</p></blockquote> <table><thead><tr><th style="text-align:center;">事件名</th> <th style="text-align:center;">解释</th> <th style="text-align:center;">代码位置</th></tr></thead> <tbody><tr><td style="text-align:center;">读取命令行参数</td> <td style="text-align:center;">从命令行中读取用户输入的参数</td> <td style="text-align:center;">require('./convert-argv')(argv)</td></tr> <tr><td style="text-align:center;">实例化Compiler</td> <td style="text-align:center;">1.用上一步得到的参数初始化Compiler实例 2.Compiler负责文件监听和启动编译3.Compiler实例中包含了完整的Webpack配置（所有的），全局只有一个Compiler实例</td> <td style="text-align:center;">compiler = webpack(options)</td></tr> <tr><td style="text-align:center;">加载插件</td> <td style="text-align:center;">1.依次调用插件的apply方法，让插件可以监听后续的所有事件节点，同时给插件传入Compiler实例的引用，以方便插件通过compiler调用webpack提供的API</td> <td style="text-align:center;">plugin.apply(compiler)</td></tr> <tr><td style="text-align:center;">处理入口</td> <td style="text-align:center;">读取配置的Entry,为每个Entry实例化一个对应的EntryPlugin,为后面该Entry的递归解析工作做准备</td> <td style="text-align:center;">new EntryOptionsPlugin() new SingleEntryPlugin(context,item,name) compiler.hooks.make.tapAsync</td></tr></tbody></table> <blockquote><p>编译阶段</p></blockquote> <table><thead><tr><th style="text-align:center;">事件名</th> <th style="text-align:center;">解释</th> <th style="text-align:center;">代码位置</th></tr></thead> <tbody><tr><td style="text-align:center;">run</td> <td style="text-align:center;">启动一次新的编译</td> <td style="text-align:center;">this.hooks.run.callAsync</td></tr> <tr><td style="text-align:center;">compile</td> <td style="text-align:center;">该事件是为了告诉插件一次新的编译将要启动，同时会给插件传入compiler对象</td> <td style="text-align:center;">compiler(callback)</td></tr> <tr><td style="text-align:center;">compilation</td> <td style="text-align:center;">当webpack以开发模式运行时，每当监测到文件变化，一次新的，Compilation将被创建一个Compilation对象包含了当前的模块资源，编译生成资源，变化的文件，Compilation对象也提供了很多事件回调供插件扩展</td> <td style="text-align:center;">newCompilation(params)</td></tr> <tr><td style="text-align:center;">make</td> <td style="text-align:center;">一个新的Compilation创建完毕开始编译</td> <td style="text-align:center;">this.hooks.make.callAsync</td></tr> <tr><td style="text-align:center;">addEntry</td> <td style="text-align:center;">即将从Entry开始读取文件</td> <td style="text-align:center;">compilation.addEntry this._addModuleChain</td></tr> <tr><td style="text-align:center;">moduleFactory</td> <td style="text-align:center;">创建模块工厂</td> <td style="text-align:center;">const moduleFactory = this.dependencyFactories.get(Dep)</td></tr> <tr><td style="text-align:center;">create</td> <td style="text-align:center;">开始创建模块</td> <td style="text-align:center;">factory(result,(err,module) this.hooks.resolver.tap(&quot;NormalModule&quot;)</td></tr> <tr><td style="text-align:center;">resolveRequestArray</td> <td style="text-align:center;">解析loader路径</td> <td style="text-align:center;">resolveRequestArray</td></tr> <tr><td style="text-align:center;">resolve</td> <td style="text-align:center;">解析资源路径</td> <td style="text-align:center;">resolve</td></tr> <tr><td style="text-align:center;">userRequest</td> <td style="text-align:center;">得到包括loader在内的资源文件的绝对路径用！拼起来的字符串</td> <td style="text-align:center;">userRequest</td></tr> <tr><td style="text-align:center;">ruleSet.exec</td> <td style="text-align:center;">它可以根据模块路径名，匹配出模块所需的loader</td> <td style="text-align:center;">this.ruleSet.exec</td></tr> <tr><td style="text-align:center;">_run</td> <td style="text-align:center;">它可以根据模块路径名，匹配出模块所需的loader</td> <td style="text-align:center;">_run</td></tr> <tr><td style="text-align:center;">loaders</td> <td style="text-align:center;">得到所有的loader数组</td> <td style="text-align:center;">results[0].concat(loaders,results[1],results[2])</td></tr> <tr><td style="text-align:center;">getParser</td> <td style="text-align:center;">获取AST解析器</td> <td style="text-align:center;">this.getParser(type,setting.parser)</td></tr> <tr><td style="text-align:center;">buildModule</td> <td style="text-align:center;">开始编译模块</td> <td style="text-align:center;">thislbuildModule(module) buildModule(module,optional,origin,dependencies,thisCallback)</td></tr> <tr><td style="text-align:center;">build-&gt;doBuild</td> <td style="text-align:center;">开始编译</td> <td style="text-align:center;">build-&gt;doBuild</td></tr> <tr><td style="text-align:center;">loader</td> <td style="text-align:center;">使用loader进行转换</td> <td style="text-align:center;">runLoaders</td></tr> <tr><td style="text-align:center;">iteratePitchingLoaders</td> <td style="text-align:center;">开始递归执行pitchloader</td> <td style="text-align:center;">iteratePitchingLoaders</td></tr> <tr><td style="text-align:center;">loadLoader</td> <td style="text-align:center;">加载loader</td> <td style="text-align:center;">loadLoader</td></tr> <tr><td style="text-align:center;">runSyncOrAsync</td> <td style="text-align:center;">执行loader</td> <td style="text-align:center;">runSyncOrAsync</td></tr> <tr><td style="text-align:center;">processResource</td> <td style="text-align:center;">开始处理资源</td> <td style="text-align:center;">processResource options.readResource iterateNormalLoaders</td></tr> <tr><td style="text-align:center;">createSource</td> <td style="text-align:center;">创建源码对象</td> <td style="text-align:center;">this.createSource</td></tr> <tr><td style="text-align:center;">parse</td> <td style="text-align:center;">使用parser转换抽象语法树以及抽象语法树</td> <td style="text-align:center;">this.parser.parse/parse(source,initialState)</td></tr> <tr><td style="text-align:center;">acorn.parse</td> <td style="text-align:center;">继续抽象ast语法树</td> <td style="text-align:center;">acorn.parse(code,parserOptions)</td></tr> <tr><td style="text-align:center;">ImportDependency</td> <td style="text-align:center;">遍历添加依赖</td> <td style="text-align:center;">parser.state.module.addDependency</td></tr> <tr><td style="text-align:center;">succeedModule</td> <td style="text-align:center;">生成语法树后就表示一个模块编译完成</td> <td style="text-align:center;">this.hooks.successdModule.call(module)</td></tr> <tr><td style="text-align:center;">processModuleDependencies</td> <td style="text-align:center;">递归编译依赖模块</td> <td style="text-align:center;">his.processModuleDependencies</td></tr> <tr><td style="text-align:center;">make后</td> <td style="text-align:center;">结束make，也就是一个compilation编译结束</td> <td style="text-align:center;">this.hooks.make.callAsync</td></tr> <tr><td style="text-align:center;">finish</td> <td style="text-align:center;">编译完成</td> <td style="text-align:center;">compilation.finishi()</td></tr></tbody></table> <blockquote><p>结束阶段
+|事件名|解释|代码位置|
+|:--😐:--😐:--😐
+|seal|封装|compilation.seal|
+|addChunk|生成资源|	addChunk(name)|
+|createChunkAssets|创建资源|this.createChunkAssets()|
+|getRenderManifest|获取要渲染的描述文件|getRenderManifest(options)|
+|render|渲染源码|source = fileManifest.render()|
+|afterCompile|编译结束|this.hooks.afterCompile|
+|shouldemit|所有属性输出的文件已经生成好，询问插件哪些文件需要输出，哪些不需要|this.hooks.shouldEmit|
+|emit|确定后要输出哪些文件后，执行文件输出，可以在这里获取和修改输出内容|this.emitAssets(compilation,this.hooks.emit.callAsync) const emitFiles = err this.outputFileSystem.writeFile|
+|this.emitRecords|写入记录|this.emitRecords|
+|done|全部完成|this.hooks.done.callAsync|</p></blockquote> <p>最后就是尝试给babel写个插件(https://github.com/jamiebuilds/babel-handbook/)</p> <p>webpack的1版本和2版本都以及过时了,为了遇到一些老得项目时可用
+后期补webpack1 2 3 4 的不同</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">8/11/2023, 4:42:59 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blogs/no.3/vite插件指南.html" class="prev">
+        Vite2插件开发指南
+      </a></span> <span class="next"><a href="/blogs/no.3/yeoman.html">
+        yeoman
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blogs/assets/js/app.707ae136.js" defer></script><script src="/blogs/assets/js/2.5689dfa7.js" defer></script><script src="/blogs/assets/js/77.cb426184.js" defer></script>
+  </body>
+</html>
